@@ -1,0 +1,24 @@
+imcsdk.mometa.top package
+=========================
+
+Submodules
+----------
+
+.. automodule:: imcsdk.mometa.top.TopRoot
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.top.TopSystem
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk.mometa.top
+    :members:
+    :undoc-members:
+    :show-inheritance:

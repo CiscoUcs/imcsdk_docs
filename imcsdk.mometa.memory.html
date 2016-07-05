@@ -1,0 +1,934 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.memory package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk.mometa package" href="imcsdk.mometa.html" />
+    <link rel="next" title="imcsdk.mometa.mgmt package" href="imcsdk.mometa.mgmt.html" />
+    <link rel="prev" title="imcsdk.mometa.lsboot package" href="imcsdk.mometa.lsboot.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.mgmt.html" title="imcsdk.mometa.mgmt package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.lsboot.html" title="imcsdk.mometa.lsboot package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" accesskey="U">imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-mometa-memory-package">
+<h1>imcsdk.mometa.memory package<a class="headerlink" href="#imcsdk-mometa-memory-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.mometa.memory.MemoryArray">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.mometa.memory.MemoryArray" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the general information for MemoryArray ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArray">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.memory.MemoryArray.</code><code class="descname">MemoryArray</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>id</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/memory/MemoryArray.html#MemoryArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is MemoryArray class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArray.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArray.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArray.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArray.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArray.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'id'])</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArray.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArray.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'currCapacity': 'curr_capacity', 'dn': 'dn', 'ignoredMemory': 'ignored_memory', 'failedMemory': 'failed_memory', 'overallDIMMStatus': 'overall_dimm_status', 'maxDevices': 'max_devices', 'memoryConfiguration': 'memory_configuration', 'populated': 'populated', 'numOfFailedDimms': 'num_of_failed_dimms', 'memoryRASPossible': 'memory_ras_possible', 'presence': 'presence', 'status': 'status', 'numOfIgnoredDimms': 'num_of_ignored_dimms', 'redundantMemory': 'redundant_memory', 'dimmBlackList': 'dimm_black_list', 'rn': 'rn', 'id': 'id', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArray.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArray.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113636e50&gt;, 'max_devices': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1136363d0&gt;, 'memory_ras_possible': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1136364d0&gt;, 'curr_capacity': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113636a10&gt;, 'populated': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111dabd10&gt;, 'num_of_failed_dimms': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113636fd0&gt;, 'presence': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111dab590&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111dab150&gt;, 'num_of_ignored_dimms': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113636c10&gt;, 'dimm_black_list': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1136365d0&gt;, 'memory_configuration': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1136360d0&gt;, 'redundant_memory': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111dabe50&gt;, 'ignored_memory': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113636650&gt;, 'overall_dimm_status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111dabf90&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111dabc90&gt;, 'id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113636190&gt;, 'failed_memory': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113636bd0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113636810&gt;}</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArray.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.memory.MemoryArray.</code><code class="descname">MemoryArrayConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/memory/MemoryArray.html#MemoryArrayConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.CURR_CAPACITY_UNSPECIFIED">
+<code class="descname">CURR_CAPACITY_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.CURR_CAPACITY_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.DIMM_BLACK_LIST_DISABLE">
+<code class="descname">DIMM_BLACK_LIST_DISABLE</code><em class="property"> = 'disable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.DIMM_BLACK_LIST_DISABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.DIMM_BLACK_LIST_DISABLED">
+<code class="descname">DIMM_BLACK_LIST_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.DIMM_BLACK_LIST_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.DIMM_BLACK_LIST_ENABLE">
+<code class="descname">DIMM_BLACK_LIST_ENABLE</code><em class="property"> = 'enable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.DIMM_BLACK_LIST_ENABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.DIMM_BLACK_LIST_ENABLED">
+<code class="descname">DIMM_BLACK_LIST_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.DIMM_BLACK_LIST_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.FAILED_MEMORY_UNSPECIFIED">
+<code class="descname">FAILED_MEMORY_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.FAILED_MEMORY_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.IGNORED_MEMORY_UNSPECIFIED">
+<code class="descname">IGNORED_MEMORY_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.IGNORED_MEMORY_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.MAX_DEVICES_UNSPECIFIED">
+<code class="descname">MAX_DEVICES_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.MAX_DEVICES_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.OVERALL_DIMMSTATUS_AMBER">
+<code class="descname">OVERALL_DIMMSTATUS_AMBER</code><em class="property"> = 'amber'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.OVERALL_DIMMSTATUS_AMBER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.OVERALL_DIMMSTATUS_BLUE">
+<code class="descname">OVERALL_DIMMSTATUS_BLUE</code><em class="property"> = 'blue'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.OVERALL_DIMMSTATUS_BLUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.OVERALL_DIMMSTATUS_GREEN">
+<code class="descname">OVERALL_DIMMSTATUS_GREEN</code><em class="property"> = 'green'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.OVERALL_DIMMSTATUS_GREEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.OVERALL_DIMMSTATUS_RED">
+<code class="descname">OVERALL_DIMMSTATUS_RED</code><em class="property"> = 'red'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.OVERALL_DIMMSTATUS_RED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.OVERALL_DIMMSTATUS_UNKNOWN">
+<code class="descname">OVERALL_DIMMSTATUS_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.OVERALL_DIMMSTATUS_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.POPULATED_UNSPECIFIED">
+<code class="descname">POPULATED_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.POPULATED_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_EMPTY">
+<code class="descname">PRESENCE_EMPTY</code><em class="property"> = 'empty'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_EMPTY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_EQUIPPED">
+<code class="descname">PRESENCE_EQUIPPED</code><em class="property"> = 'equipped'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_EQUIPPED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE">
+<code class="descname">PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE</code><em class="property"> = 'equipped-identity-unestablishable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_EQUIPPED_NOT_PRIMARY">
+<code class="descname">PRESENCE_EQUIPPED_NOT_PRIMARY</code><em class="property"> = 'equipped-not-primary'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_EQUIPPED_NOT_PRIMARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_EQUIPPED_WITH_MALFORMED_FRU">
+<code class="descname">PRESENCE_EQUIPPED_WITH_MALFORMED_FRU</code><em class="property"> = 'equipped-with-malformed-fru'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_EQUIPPED_WITH_MALFORMED_FRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_INACCESSIBLE">
+<code class="descname">PRESENCE_INACCESSIBLE</code><em class="property"> = 'inaccessible'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_INACCESSIBLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_MISMATCH">
+<code class="descname">PRESENCE_MISMATCH</code><em class="property"> = 'mismatch'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_MISMATCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE">
+<code class="descname">PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE</code><em class="property"> = 'mismatch-identity-unestablishable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_MISSING">
+<code class="descname">PRESENCE_MISSING</code><em class="property"> = 'missing'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_MISSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_NOT_SUPPORTED">
+<code class="descname">PRESENCE_NOT_SUPPORTED</code><em class="property"> = 'not-supported'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_UNAUTHORIZED">
+<code class="descname">PRESENCE_UNAUTHORIZED</code><em class="property"> = 'unauthorized'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_UNAUTHORIZED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_UNKNOWN">
+<code class="descname">PRESENCE_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.PRESENCE_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.REDUNDANT_MEMORY_UNSPECIFIED">
+<code class="descname">REDUNDANT_MEMORY_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryArray.MemoryArrayConsts.REDUNDANT_MEMORY_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.memory.MemoryUnit"></span><p>This module contains the general information for MemoryUnit ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnit">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.memory.MemoryUnit.</code><code class="descname">MemoryUnit</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>id</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/memory/MemoryUnit.html#MemoryUnit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is MemoryUnit class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnit.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnit.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnit.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnit.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnit.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'id'])</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnit.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnit.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'formFactor': 'form_factor', 'operState': 'oper_state', 'capacity': 'capacity', 'width': 'width', 'rn': 'rn', 'clock': 'clock', 'presence': 'presence', 'memoryTypeDetail': 'memory_type_detail', 'visibility': 'visibility', 'status': 'status', 'model': 'model', 'operability': 'operability', 'location': 'location', 'vendor': 'vendor', 'array': 'array', 'childAction': 'child_action', 'type': 'type', 'id': 'id', 'serial': 'serial', 'bankLocator': 'bank_locator'}</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnit.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnit.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afa510&gt;, 'model': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afad90&gt;, 'capacity': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afab50&gt;, 'width': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1133d9dd0&gt;, 'clock': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afafd0&gt;, 'memory_type_detail': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afa850&gt;, 'presence': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afac90&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1133d9b50&gt;, 'operability': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afa310&gt;, 'visibility': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1133d9d10&gt;, 'bank_locator': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afa550&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afaad0&gt;, 'oper_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afa910&gt;, 'location': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afa4d0&gt;, 'form_factor': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afaa10&gt;, 'vendor': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1133d9a10&gt;, 'array': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11262ef90&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1133d9a90&gt;, 'id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afa410&gt;, 'serial': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1133d92d0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110afa890&gt;}</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnit.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.memory.MemoryUnit.</code><code class="descname">MemoryUnitConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/memory/MemoryUnit.html#MemoryUnitConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.CAPACITY_UNSPECIFIED">
+<code class="descname">CAPACITY_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.CAPACITY_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.CLOCK_UNSPECIFIED">
+<code class="descname">CLOCK_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.CLOCK_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_DIMM">
+<code class="descname">FORM_FACTOR_DIMM</code><em class="property"> = 'DIMM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_DIMM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_FB_DIMM">
+<code class="descname">FORM_FACTOR_FB_DIMM</code><em class="property"> = 'FB-DIMM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_FB_DIMM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_OTHER">
+<code class="descname">FORM_FACTOR_OTHER</code><em class="property"> = 'Other'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_OTHER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_RIMM">
+<code class="descname">FORM_FACTOR_RIMM</code><em class="property"> = 'RIMM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_RIMM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_SIMM">
+<code class="descname">FORM_FACTOR_SIMM</code><em class="property"> = 'SIMM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_SIMM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_SODIMM">
+<code class="descname">FORM_FACTOR_SODIMM</code><em class="property"> = 'SODIMM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_SODIMM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_SRIMM">
+<code class="descname">FORM_FACTOR_SRIMM</code><em class="property"> = 'SRIMM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_SRIMM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_TSOP">
+<code class="descname">FORM_FACTOR_TSOP</code><em class="property"> = 'TSOP'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_TSOP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_UNDISCOVERED">
+<code class="descname">FORM_FACTOR_UNDISCOVERED</code><em class="property"> = 'undiscovered'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_UNDISCOVERED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_UNKNOWN">
+<code class="descname">FORM_FACTOR_UNKNOWN</code><em class="property"> = 'Unknown'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.FORM_FACTOR_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_ACCESSIBILITY_PROBLEM">
+<code class="descname">OPERABILITY_ACCESSIBILITY_PROBLEM</code><em class="property"> = 'accessibility-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_ACCESSIBILITY_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_AUTO_UPGRADE">
+<code class="descname">OPERABILITY_AUTO_UPGRADE</code><em class="property"> = 'auto-upgrade'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_AUTO_UPGRADE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_BIOS_POST_TIMEOUT">
+<code class="descname">OPERABILITY_BIOS_POST_TIMEOUT</code><em class="property"> = 'bios-post-timeout'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_BIOS_POST_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_CHASSIS_LIMIT_EXCEEDED">
+<code class="descname">OPERABILITY_CHASSIS_LIMIT_EXCEEDED</code><em class="property"> = 'chassis-limit-exceeded'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_CHASSIS_LIMIT_EXCEEDED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_CONFIG">
+<code class="descname">OPERABILITY_CONFIG</code><em class="property"> = 'config'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_CONFIG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_DECOMISSIONING">
+<code class="descname">OPERABILITY_DECOMISSIONING</code><em class="property"> = 'decomissioning'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_DECOMISSIONING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_DEGRADED">
+<code class="descname">OPERABILITY_DEGRADED</code><em class="property"> = 'degraded'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_DEGRADED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_DISABLED">
+<code class="descname">OPERABILITY_DISABLED</code><em class="property"> = 'disabled'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_DISCOVERY">
+<code class="descname">OPERABILITY_DISCOVERY</code><em class="property"> = 'discovery'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_DISCOVERY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_DISCOVERY_FAILED">
+<code class="descname">OPERABILITY_DISCOVERY_FAILED</code><em class="property"> = 'discovery-failed'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_DISCOVERY_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_EQUIPMENT_PROBLEM">
+<code class="descname">OPERABILITY_EQUIPMENT_PROBLEM</code><em class="property"> = 'equipment-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_EQUIPMENT_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_FABRIC_CONN_PROBLEM">
+<code class="descname">OPERABILITY_FABRIC_CONN_PROBLEM</code><em class="property"> = 'fabric-conn-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_FABRIC_CONN_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_FABRIC_UNSUPPORTED_CONN">
+<code class="descname">OPERABILITY_FABRIC_UNSUPPORTED_CONN</code><em class="property"> = 'fabric-unsupported-conn'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_FABRIC_UNSUPPORTED_CONN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_IDENTIFY">
+<code class="descname">OPERABILITY_IDENTIFY</code><em class="property"> = 'identify'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_IDENTIFY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_IDENTITY_UNESTABLISHABLE">
+<code class="descname">OPERABILITY_IDENTITY_UNESTABLISHABLE</code><em class="property"> = 'identity-unestablishable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_IDENTITY_UNESTABLISHABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_INOPERABLE">
+<code class="descname">OPERABILITY_INOPERABLE</code><em class="property"> = 'inoperable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_INOPERABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_MALFORMED_FRU">
+<code class="descname">OPERABILITY_MALFORMED_FRU</code><em class="property"> = 'malformed-fru'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_MALFORMED_FRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_NOT_SUPPORTED">
+<code class="descname">OPERABILITY_NOT_SUPPORTED</code><em class="property"> = 'not-supported'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_OPERABLE">
+<code class="descname">OPERABILITY_OPERABLE</code><em class="property"> = 'operable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_OPERABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_PEER_COMM_PROBLEM">
+<code class="descname">OPERABILITY_PEER_COMM_PROBLEM</code><em class="property"> = 'peer-comm-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_PEER_COMM_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_PERFORMANCE_PROBLEM">
+<code class="descname">OPERABILITY_PERFORMANCE_PROBLEM</code><em class="property"> = 'performance-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_PERFORMANCE_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_POST_FAILURE">
+<code class="descname">OPERABILITY_POST_FAILURE</code><em class="property"> = 'post-failure'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_POST_FAILURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_POWERED_OFF">
+<code class="descname">OPERABILITY_POWERED_OFF</code><em class="property"> = 'powered-off'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_POWERED_OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_POWER_PROBLEM">
+<code class="descname">OPERABILITY_POWER_PROBLEM</code><em class="property"> = 'power-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_POWER_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_REMOVED">
+<code class="descname">OPERABILITY_REMOVED</code><em class="property"> = 'removed'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_REMOVED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_THERMAL_PROBLEM">
+<code class="descname">OPERABILITY_THERMAL_PROBLEM</code><em class="property"> = 'thermal-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_THERMAL_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_UNKNOWN">
+<code class="descname">OPERABILITY_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_UPGRADE_PROBLEM">
+<code class="descname">OPERABILITY_UPGRADE_PROBLEM</code><em class="property"> = 'upgrade-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_UPGRADE_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_VOLTAGE_PROBLEM">
+<code class="descname">OPERABILITY_VOLTAGE_PROBLEM</code><em class="property"> = 'voltage-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPERABILITY_VOLTAGE_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_ACCESSIBILITY_PROBLEM">
+<code class="descname">OPER_STATE_ACCESSIBILITY_PROBLEM</code><em class="property"> = 'accessibility-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_ACCESSIBILITY_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_AUTO_UPGRADE">
+<code class="descname">OPER_STATE_AUTO_UPGRADE</code><em class="property"> = 'auto-upgrade'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_AUTO_UPGRADE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_BIOS_POST_TIMEOUT">
+<code class="descname">OPER_STATE_BIOS_POST_TIMEOUT</code><em class="property"> = 'bios-post-timeout'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_BIOS_POST_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_CHASSIS_LIMIT_EXCEEDED">
+<code class="descname">OPER_STATE_CHASSIS_LIMIT_EXCEEDED</code><em class="property"> = 'chassis-limit-exceeded'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_CHASSIS_LIMIT_EXCEEDED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_CONFIG">
+<code class="descname">OPER_STATE_CONFIG</code><em class="property"> = 'config'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_CONFIG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_DECOMISSIONING">
+<code class="descname">OPER_STATE_DECOMISSIONING</code><em class="property"> = 'decomissioning'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_DECOMISSIONING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_DEGRADED">
+<code class="descname">OPER_STATE_DEGRADED</code><em class="property"> = 'degraded'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_DEGRADED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_DISABLED">
+<code class="descname">OPER_STATE_DISABLED</code><em class="property"> = 'disabled'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_DISCOVERY">
+<code class="descname">OPER_STATE_DISCOVERY</code><em class="property"> = 'discovery'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_DISCOVERY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_DISCOVERY_FAILED">
+<code class="descname">OPER_STATE_DISCOVERY_FAILED</code><em class="property"> = 'discovery-failed'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_DISCOVERY_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_EQUIPMENT_PROBLEM">
+<code class="descname">OPER_STATE_EQUIPMENT_PROBLEM</code><em class="property"> = 'equipment-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_EQUIPMENT_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_FABRIC_CONN_PROBLEM">
+<code class="descname">OPER_STATE_FABRIC_CONN_PROBLEM</code><em class="property"> = 'fabric-conn-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_FABRIC_CONN_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_FABRIC_UNSUPPORTED_CONN">
+<code class="descname">OPER_STATE_FABRIC_UNSUPPORTED_CONN</code><em class="property"> = 'fabric-unsupported-conn'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_FABRIC_UNSUPPORTED_CONN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_IDENTIFY">
+<code class="descname">OPER_STATE_IDENTIFY</code><em class="property"> = 'identify'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_IDENTIFY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_IDENTITY_UNESTABLISHABLE">
+<code class="descname">OPER_STATE_IDENTITY_UNESTABLISHABLE</code><em class="property"> = 'identity-unestablishable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_IDENTITY_UNESTABLISHABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_INOPERABLE">
+<code class="descname">OPER_STATE_INOPERABLE</code><em class="property"> = 'inoperable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_INOPERABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_MALFORMED_FRU">
+<code class="descname">OPER_STATE_MALFORMED_FRU</code><em class="property"> = 'malformed-fru'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_MALFORMED_FRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_NOT_SUPPORTED">
+<code class="descname">OPER_STATE_NOT_SUPPORTED</code><em class="property"> = 'not-supported'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_OPERABLE">
+<code class="descname">OPER_STATE_OPERABLE</code><em class="property"> = 'operable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_OPERABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_PEER_COMM_PROBLEM">
+<code class="descname">OPER_STATE_PEER_COMM_PROBLEM</code><em class="property"> = 'peer-comm-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_PEER_COMM_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_PERFORMANCE_PROBLEM">
+<code class="descname">OPER_STATE_PERFORMANCE_PROBLEM</code><em class="property"> = 'performance-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_PERFORMANCE_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_POST_FAILURE">
+<code class="descname">OPER_STATE_POST_FAILURE</code><em class="property"> = 'post-failure'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_POST_FAILURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_POWERED_OFF">
+<code class="descname">OPER_STATE_POWERED_OFF</code><em class="property"> = 'powered-off'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_POWERED_OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_POWER_PROBLEM">
+<code class="descname">OPER_STATE_POWER_PROBLEM</code><em class="property"> = 'power-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_POWER_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_REMOVED">
+<code class="descname">OPER_STATE_REMOVED</code><em class="property"> = 'removed'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_REMOVED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_THERMAL_PROBLEM">
+<code class="descname">OPER_STATE_THERMAL_PROBLEM</code><em class="property"> = 'thermal-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_THERMAL_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_UNKNOWN">
+<code class="descname">OPER_STATE_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_UPGRADE_PROBLEM">
+<code class="descname">OPER_STATE_UPGRADE_PROBLEM</code><em class="property"> = 'upgrade-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_UPGRADE_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_VOLTAGE_PROBLEM">
+<code class="descname">OPER_STATE_VOLTAGE_PROBLEM</code><em class="property"> = 'voltage-problem'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.OPER_STATE_VOLTAGE_PROBLEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_EMPTY">
+<code class="descname">PRESENCE_EMPTY</code><em class="property"> = 'empty'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_EMPTY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_EQUIPPED">
+<code class="descname">PRESENCE_EQUIPPED</code><em class="property"> = 'equipped'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_EQUIPPED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE">
+<code class="descname">PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE</code><em class="property"> = 'equipped-identity-unestablishable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_EQUIPPED_NOT_PRIMARY">
+<code class="descname">PRESENCE_EQUIPPED_NOT_PRIMARY</code><em class="property"> = 'equipped-not-primary'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_EQUIPPED_NOT_PRIMARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_EQUIPPED_WITH_MALFORMED_FRU">
+<code class="descname">PRESENCE_EQUIPPED_WITH_MALFORMED_FRU</code><em class="property"> = 'equipped-with-malformed-fru'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_EQUIPPED_WITH_MALFORMED_FRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_INACCESSIBLE">
+<code class="descname">PRESENCE_INACCESSIBLE</code><em class="property"> = 'inaccessible'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_INACCESSIBLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_MISMATCH">
+<code class="descname">PRESENCE_MISMATCH</code><em class="property"> = 'mismatch'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_MISMATCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE">
+<code class="descname">PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE</code><em class="property"> = 'mismatch-identity-unestablishable'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_MISSING">
+<code class="descname">PRESENCE_MISSING</code><em class="property"> = 'missing'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_MISSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_NOT_SUPPORTED">
+<code class="descname">PRESENCE_NOT_SUPPORTED</code><em class="property"> = 'not-supported'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_UNAUTHORIZED">
+<code class="descname">PRESENCE_UNAUTHORIZED</code><em class="property"> = 'unauthorized'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_UNAUTHORIZED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_UNKNOWN">
+<code class="descname">PRESENCE_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.PRESENCE_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_3_DRAM">
+<code class="descname">TYPE_3_DRAM</code><em class="property"> = '3DRAM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_3_DRAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_CDRAM">
+<code class="descname">TYPE_CDRAM</code><em class="property"> = 'CDRAM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_CDRAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DDR">
+<code class="descname">TYPE_DDR</code><em class="property"> = 'DDR'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DDR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DDR2">
+<code class="descname">TYPE_DDR2</code><em class="property"> = 'DDR2'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DDR2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DDR2_FB_DIMM">
+<code class="descname">TYPE_DDR2_FB_DIMM</code><em class="property"> = 'DDR2 FB-DIMM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DDR2_FB_DIMM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DDR3">
+<code class="descname">TYPE_DDR3</code><em class="property"> = 'DDR3'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DDR3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DDR4">
+<code class="descname">TYPE_DDR4</code><em class="property"> = 'DDR4'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DDR4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DRAM">
+<code class="descname">TYPE_DRAM</code><em class="property"> = 'DRAM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_DRAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_EDRAM">
+<code class="descname">TYPE_EDRAM</code><em class="property"> = 'EDRAM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_EDRAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_EEPROM">
+<code class="descname">TYPE_EEPROM</code><em class="property"> = 'EEPROM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_EEPROM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_EPROM">
+<code class="descname">TYPE_EPROM</code><em class="property"> = 'EPROM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_EPROM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_FBD2">
+<code class="descname">TYPE_FBD2</code><em class="property"> = 'FBD2'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_FBD2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_FEPROM">
+<code class="descname">TYPE_FEPROM</code><em class="property"> = 'FEPROM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_FEPROM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_FLASH">
+<code class="descname">TYPE_FLASH</code><em class="property"> = 'FLASH'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_FLASH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_OTHER">
+<code class="descname">TYPE_OTHER</code><em class="property"> = 'Other'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_OTHER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_RAM">
+<code class="descname">TYPE_RAM</code><em class="property"> = 'RAM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_RAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_RDRAM">
+<code class="descname">TYPE_RDRAM</code><em class="property"> = 'RDRAM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_RDRAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_ROM">
+<code class="descname">TYPE_ROM</code><em class="property"> = 'ROM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_ROM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_SDRAM">
+<code class="descname">TYPE_SDRAM</code><em class="property"> = 'SDRAM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_SDRAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_SGRAM">
+<code class="descname">TYPE_SGRAM</code><em class="property"> = 'SGRAM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_SGRAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_SRAM">
+<code class="descname">TYPE_SRAM</code><em class="property"> = 'SRAM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_SRAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_UNDISCOVERED">
+<code class="descname">TYPE_UNDISCOVERED</code><em class="property"> = 'undiscovered'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_UNDISCOVERED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_UNKNOWN">
+<code class="descname">TYPE_UNKNOWN</code><em class="property"> = 'Unknown'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_VRAM">
+<code class="descname">TYPE_VRAM</code><em class="property"> = 'VRAM'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.TYPE_VRAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.VISIBILITY_NO">
+<code class="descname">VISIBILITY_NO</code><em class="property"> = 'no'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.VISIBILITY_NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.VISIBILITY_UNKNOWN">
+<code class="descname">VISIBILITY_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.VISIBILITY_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.VISIBILITY_YES">
+<code class="descname">VISIBILITY_YES</code><em class="property"> = 'yes'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.VISIBILITY_YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.WIDTH_UNSPECIFIED">
+<code class="descname">WIDTH_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnit.MemoryUnitConsts.WIDTH_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.memory.MemoryUnitEnvStats"></span><p>This module contains the general information for MemoryUnitEnvStats ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.memory.MemoryUnitEnvStats.</code><code class="descname">MemoryUnitEnvStats</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/memory/MemoryUnitEnvStats.html#MemoryUnitEnvStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is MemoryUnitEnvStats class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStatsConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'description': 'description', 'temperature': 'temperature', 'timeCollected': 'time_collected', 'rn': 'rn', 'id': 'id', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ed6a50&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127d0a10&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ed68d0&gt;, 'temperature': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127d0650&gt;, 'time_collected': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127d05d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127d0550&gt;, 'id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ed6050&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ed6110&gt;}</em><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStats.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStatsConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.memory.MemoryUnitEnvStats.</code><code class="descname">MemoryUnitEnvStatsConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/memory/MemoryUnitEnvStats.html#MemoryUnitEnvStatsConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.memory.MemoryUnitEnvStats.MemoryUnitEnvStatsConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.mometa.memory">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.mometa.memory" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.mometa.memory package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.mometa.memory.MemoryArray">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.mometa.memory">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.lsboot.html"
+                        title="previous chapter">imcsdk.mometa.lsboot package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.mgmt.html"
+                        title="next chapter">imcsdk.mometa.mgmt package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.mometa.memory.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.mgmt.html" title="imcsdk.mometa.mgmt package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.lsboot.html" title="imcsdk.mometa.lsboot package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" >imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

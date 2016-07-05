@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.compute package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk.mometa package" href="imcsdk.mometa.html" />
+    <link rel="next" title="imcsdk.mometa.current package" href="imcsdk.mometa.current.html" />
+    <link rel="prev" title="imcsdk.mometa.comm package" href="imcsdk.mometa.comm.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.current.html" title="imcsdk.mometa.current package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.comm.html" title="imcsdk.mometa.comm package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" accesskey="U">imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-mometa-compute-package">
+<h1>imcsdk.mometa.compute package<a class="headerlink" href="#imcsdk-mometa-compute-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.mometa.compute.ComputeBoard">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.mometa.compute.ComputeBoard" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the general information for ComputeBoard ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoard">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.compute.ComputeBoard.</code><code class="descname">ComputeBoard</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/compute/ComputeBoard.html#ComputeBoard"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is ComputeBoard class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoard.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoard.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoard.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoard.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoard.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoard.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoard.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'vendor': 'vendor', 'power': 'power', 'presence': 'presence', 'serial': 'serial', 'model': 'model', 'operPower': 'oper_power', 'childAction': 'child_action', 'perf': 'perf', 'id': 'id', 'rn': 'rn'}</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoard.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoard.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113399110&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117c4090&gt;, 'vendor': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117c4490&gt;, 'power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117a7050&gt;, 'presence': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117a71d0&gt;, 'oper_power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117a7ad0&gt;, 'serial': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117c43d0&gt;, 'model': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113399910&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113399410&gt;, 'perf': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117a7310&gt;, 'id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1133994d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117a70d0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoard.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.compute.ComputeBoard.</code><code class="descname">ComputeBoardConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/compute/ComputeBoard.html#ComputeBoardConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_DEGRADED">
+<code class="descname">OPER_POWER_DEGRADED</code><em class="property"> = 'degraded'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_DEGRADED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_ERROR">
+<code class="descname">OPER_POWER_ERROR</code><em class="property"> = 'error'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_NOT_SUPPORTED">
+<code class="descname">OPER_POWER_NOT_SUPPORTED</code><em class="property"> = 'not-supported'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_OFF">
+<code class="descname">OPER_POWER_OFF</code><em class="property"> = 'off'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_OFFDUTY">
+<code class="descname">OPER_POWER_OFFDUTY</code><em class="property"> = 'offduty'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_OFFDUTY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_OFFLINE">
+<code class="descname">OPER_POWER_OFFLINE</code><em class="property"> = 'offline'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_OFFLINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_ON">
+<code class="descname">OPER_POWER_ON</code><em class="property"> = 'on'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_ON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_ONLINE">
+<code class="descname">OPER_POWER_ONLINE</code><em class="property"> = 'online'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_ONLINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_POWER_SAVE">
+<code class="descname">OPER_POWER_POWER_SAVE</code><em class="property"> = 'power-save'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_POWER_SAVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_TEST">
+<code class="descname">OPER_POWER_TEST</code><em class="property"> = 'test'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_TEST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_UNKNOWN">
+<code class="descname">OPER_POWER_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.OPER_POWER_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_LOWER_CRITICAL">
+<code class="descname">PERF_LOWER_CRITICAL</code><em class="property"> = 'lower-critical'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_LOWER_CRITICAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_LOWER_NON_CRITICAL">
+<code class="descname">PERF_LOWER_NON_CRITICAL</code><em class="property"> = 'lower-non-critical'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_LOWER_NON_CRITICAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_LOWER_NON_RECOVERABLE">
+<code class="descname">PERF_LOWER_NON_RECOVERABLE</code><em class="property"> = 'lower-non-recoverable'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_LOWER_NON_RECOVERABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_NOT_SUPPORTED">
+<code class="descname">PERF_NOT_SUPPORTED</code><em class="property"> = 'not-supported'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_OK">
+<code class="descname">PERF_OK</code><em class="property"> = 'ok'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_OK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_UNKNOWN">
+<code class="descname">PERF_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_UPPER_CRITICAL">
+<code class="descname">PERF_UPPER_CRITICAL</code><em class="property"> = 'upper-critical'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_UPPER_CRITICAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_UPPER_NON_CRITICAL">
+<code class="descname">PERF_UPPER_NON_CRITICAL</code><em class="property"> = 'upper-non-critical'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_UPPER_NON_CRITICAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_UPPER_NON_RECOVERABLE">
+<code class="descname">PERF_UPPER_NON_RECOVERABLE</code><em class="property"> = 'upper-non-recoverable'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PERF_UPPER_NON_RECOVERABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_DEGRADED">
+<code class="descname">POWER_DEGRADED</code><em class="property"> = 'degraded'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_DEGRADED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_ERROR">
+<code class="descname">POWER_ERROR</code><em class="property"> = 'error'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_NOT_SUPPORTED">
+<code class="descname">POWER_NOT_SUPPORTED</code><em class="property"> = 'not-supported'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_OFF">
+<code class="descname">POWER_OFF</code><em class="property"> = 'off'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_OFFDUTY">
+<code class="descname">POWER_OFFDUTY</code><em class="property"> = 'offduty'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_OFFDUTY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_OFFLINE">
+<code class="descname">POWER_OFFLINE</code><em class="property"> = 'offline'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_OFFLINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_ON">
+<code class="descname">POWER_ON</code><em class="property"> = 'on'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_ON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_ONLINE">
+<code class="descname">POWER_ONLINE</code><em class="property"> = 'online'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_ONLINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_POWER_SAVE">
+<code class="descname">POWER_POWER_SAVE</code><em class="property"> = 'power-save'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_POWER_SAVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_TEST">
+<code class="descname">POWER_TEST</code><em class="property"> = 'test'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_TEST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_UNKNOWN">
+<code class="descname">POWER_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.POWER_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_EMPTY">
+<code class="descname">PRESENCE_EMPTY</code><em class="property"> = 'empty'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_EMPTY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_EQUIPPED">
+<code class="descname">PRESENCE_EQUIPPED</code><em class="property"> = 'equipped'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_EQUIPPED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE">
+<code class="descname">PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE</code><em class="property"> = 'equipped-identity-unestablishable'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_EQUIPPED_NOT_PRIMARY">
+<code class="descname">PRESENCE_EQUIPPED_NOT_PRIMARY</code><em class="property"> = 'equipped-not-primary'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_EQUIPPED_NOT_PRIMARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_EQUIPPED_WITH_MALFORMED_FRU">
+<code class="descname">PRESENCE_EQUIPPED_WITH_MALFORMED_FRU</code><em class="property"> = 'equipped-with-malformed-fru'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_EQUIPPED_WITH_MALFORMED_FRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_INACCESSIBLE">
+<code class="descname">PRESENCE_INACCESSIBLE</code><em class="property"> = 'inaccessible'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_INACCESSIBLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_MISMATCH">
+<code class="descname">PRESENCE_MISMATCH</code><em class="property"> = 'mismatch'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_MISMATCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE">
+<code class="descname">PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE</code><em class="property"> = 'mismatch-identity-unestablishable'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_MISSING">
+<code class="descname">PRESENCE_MISSING</code><em class="property"> = 'missing'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_MISSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_NOT_SUPPORTED">
+<code class="descname">PRESENCE_NOT_SUPPORTED</code><em class="property"> = 'not-supported'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_UNAUTHORIZED">
+<code class="descname">PRESENCE_UNAUTHORIZED</code><em class="property"> = 'unauthorized'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_UNAUTHORIZED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_UNKNOWN">
+<code class="descname">PRESENCE_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeBoard.ComputeBoardConsts.PRESENCE_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.compute.ComputeMbPowerStats"></span><p>This module contains the general information for ComputeMbPowerStats ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.compute.ComputeMbPowerStats.</code><code class="descname">ComputeMbPowerStats</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/compute/ComputeMbPowerStats.html#ComputeMbPowerStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is ComputeMbPowerStats class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStatsConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'consumedPower': 'consumed_power', 'dn': 'dn', 'status': 'status', 'inputCurrent': 'input_current', 'timeCollected': 'time_collected', 'inputVoltage': 'input_voltage', 'rn': 'rn', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0ad0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0b10&gt;, 'input_current': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0350&gt;, 'time_collected': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0b50&gt;, 'consumed_power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121d1b90&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0d10&gt;, 'input_voltage': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0c50&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121d1810&gt;}</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStats.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStatsConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.compute.ComputeMbPowerStats.</code><code class="descname">ComputeMbPowerStatsConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/compute/ComputeMbPowerStats.html#ComputeMbPowerStatsConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.compute.ComputeMbPowerStats.ComputeMbPowerStatsConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.compute.ComputeRackUnit"></span><p>This module contains the general information for ComputeRackUnit ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.compute.ComputeRackUnit.</code><code class="descname">ComputeRackUnit</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>server_id</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/compute/ComputeRackUnit.html#ComputeRackUnit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is ComputeRackUnit class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'serverId'])</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'status': 'status', 'presence': 'presence', 'totalMemory': 'total_memory', 'originalUuid': 'original_uuid', 'usrLbl': 'usr_lbl', 'serial': 'serial', 'numOfAdaptors': 'num_of_adaptors', 'numOfThreads': 'num_of_threads', 'operPower': 'oper_power', 'uuid': 'uuid', 'numOfFcHostIfs': 'num_of_fc_host_ifs', 'chassisSerial': 'chassis_serial', 'numOfCoresEnabled': 'num_of_cores_enabled', 'numOfEthHostIfs': 'num_of_eth_host_ifs', 'rn': 'rn', 'dn': 'dn', 'memorySpeed': 'memory_speed', 'adminPower': 'admin_power', 'vendor': 'vendor', 'numOfCpus': 'num_of_cpus', 'numOfCores': 'num_of_cores', 'model': 'model', 'childAction': 'child_action', 'availableMemory': 'available_memory', 'name': 'name', 'cimcResetReason': 'cimc_reset_reason', 'serverId': 'server_id'}</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3fd0&gt;, 'total_memory': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3090&gt;, 'presence': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3cd0&gt;, 'num_of_fc_host_ifs': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3650&gt;, 'num_of_adaptors': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b31d0&gt;, 'oper_power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3410&gt;, 'serial': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3550&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x10f473b10&gt;, 'server_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b36d0&gt;, 'available_memory': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x10f473610&gt;, 'num_of_eth_host_ifs': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3150&gt;, 'admin_power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x10f473250&gt;, 'chassis_serial': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x10f473cd0&gt;, 'usr_lbl': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3f50&gt;, 'num_of_cores': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3f10&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3850&gt;, 'cimc_reset_reason': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3990&gt;, 'num_of_cores_enabled': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3ad0&gt;, 'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3450&gt;, 'vendor': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3890&gt;, 'memory_speed': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3a50&gt;, 'num_of_cpus': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3c50&gt;, 'uuid': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b32d0&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b38d0&gt;, 'original_uuid': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3590&gt;, 'num_of_threads': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3b90&gt;, 'model': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117b3250&gt;}</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnit.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.compute.ComputeRackUnit.</code><code class="descname">ComputeRackUnitConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/compute/ComputeRackUnit.html#ComputeRackUnitConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_BMC_RESET_DEFAULT">
+<code class="descname">ADMIN_POWER_BMC_RESET_DEFAULT</code><em class="property"> = 'bmc-reset-default'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_BMC_RESET_DEFAULT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_BMC_RESET_IMMEDIATE">
+<code class="descname">ADMIN_POWER_BMC_RESET_IMMEDIATE</code><em class="property"> = 'bmc-reset-immediate'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_BMC_RESET_IMMEDIATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_CMOS_RESET_IMMEDIATE">
+<code class="descname">ADMIN_POWER_CMOS_RESET_IMMEDIATE</code><em class="property"> = 'cmos-reset-immediate'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_CMOS_RESET_IMMEDIATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_CYCLE_IMMEDIATE">
+<code class="descname">ADMIN_POWER_CYCLE_IMMEDIATE</code><em class="property"> = 'cycle-immediate'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_CYCLE_IMMEDIATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_DIAGNOSTIC_INTERRUPT">
+<code class="descname">ADMIN_POWER_DIAGNOSTIC_INTERRUPT</code><em class="property"> = 'diagnostic-interrupt'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_DIAGNOSTIC_INTERRUPT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_DOWN">
+<code class="descname">ADMIN_POWER_DOWN</code><em class="property"> = 'down'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_HARD_RESET_IMMEDIATE">
+<code class="descname">ADMIN_POWER_HARD_RESET_IMMEDIATE</code><em class="property"> = 'hard-reset-immediate'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_HARD_RESET_IMMEDIATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_POLICY">
+<code class="descname">ADMIN_POWER_POLICY</code><em class="property"> = 'policy'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_POLICY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_SOFT_SHUT_DOWN">
+<code class="descname">ADMIN_POWER_SOFT_SHUT_DOWN</code><em class="property"> = 'soft-shut-down'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_SOFT_SHUT_DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_UP">
+<code class="descname">ADMIN_POWER_UP</code><em class="property"> = 'up'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.ADMIN_POWER_UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.MEMORY_SPEED_">
+<code class="descname">MEMORY_SPEED_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.MEMORY_SPEED_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.MEMORY_SPEED_UNSPECIFIED">
+<code class="descname">MEMORY_SPEED_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.MEMORY_SPEED_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_DEGRADED">
+<code class="descname">OPER_POWER_DEGRADED</code><em class="property"> = 'degraded'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_DEGRADED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_ERROR">
+<code class="descname">OPER_POWER_ERROR</code><em class="property"> = 'error'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_NOT_SUPPORTED">
+<code class="descname">OPER_POWER_NOT_SUPPORTED</code><em class="property"> = 'not-supported'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_OFF">
+<code class="descname">OPER_POWER_OFF</code><em class="property"> = 'off'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_OFFDUTY">
+<code class="descname">OPER_POWER_OFFDUTY</code><em class="property"> = 'offduty'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_OFFDUTY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_OFFLINE">
+<code class="descname">OPER_POWER_OFFLINE</code><em class="property"> = 'offline'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_OFFLINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_ON">
+<code class="descname">OPER_POWER_ON</code><em class="property"> = 'on'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_ON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_ONLINE">
+<code class="descname">OPER_POWER_ONLINE</code><em class="property"> = 'online'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_ONLINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_POWER_SAVE">
+<code class="descname">OPER_POWER_POWER_SAVE</code><em class="property"> = 'power-save'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_POWER_SAVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_TEST">
+<code class="descname">OPER_POWER_TEST</code><em class="property"> = 'test'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_TEST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_UNKNOWN">
+<code class="descname">OPER_POWER_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.OPER_POWER_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_EMPTY">
+<code class="descname">PRESENCE_EMPTY</code><em class="property"> = 'empty'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_EMPTY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_EQUIPPED">
+<code class="descname">PRESENCE_EQUIPPED</code><em class="property"> = 'equipped'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_EQUIPPED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE">
+<code class="descname">PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE</code><em class="property"> = 'equipped-identity-unestablishable'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_EQUIPPED_NOT_PRIMARY">
+<code class="descname">PRESENCE_EQUIPPED_NOT_PRIMARY</code><em class="property"> = 'equipped-not-primary'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_EQUIPPED_NOT_PRIMARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_EQUIPPED_WITH_MALFORMED_FRU">
+<code class="descname">PRESENCE_EQUIPPED_WITH_MALFORMED_FRU</code><em class="property"> = 'equipped-with-malformed-fru'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_EQUIPPED_WITH_MALFORMED_FRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_INACCESSIBLE">
+<code class="descname">PRESENCE_INACCESSIBLE</code><em class="property"> = 'inaccessible'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_INACCESSIBLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_MISMATCH">
+<code class="descname">PRESENCE_MISMATCH</code><em class="property"> = 'mismatch'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_MISMATCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE">
+<code class="descname">PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE</code><em class="property"> = 'mismatch-identity-unestablishable'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_MISMATCH_IDENTITY_UNESTABLISHABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_MISSING">
+<code class="descname">PRESENCE_MISSING</code><em class="property"> = 'missing'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_MISSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_UNAUTHORIZED">
+<code class="descname">PRESENCE_UNAUTHORIZED</code><em class="property"> = 'unauthorized'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_UNAUTHORIZED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_UNKNOWN">
+<code class="descname">PRESENCE_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnit.ComputeRackUnitConsts.PRESENCE_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.compute.ComputeRackUnitMbTempStats"></span><p>This module contains the general information for ComputeRackUnitMbTempStats ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.compute.ComputeRackUnitMbTempStats.</code><code class="descname">ComputeRackUnitMbTempStats</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/compute/ComputeRackUnitMbTempStats.html#ComputeRackUnitMbTempStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is ComputeRackUnitMbTempStats class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'frontTemp': 'front_temp', 'ioh1Temp': 'ioh1_temp', 'timeCollected': 'time_collected', 'ioh2Temp': 'ioh2_temp', 'ambientTemp': 'ambient_temp', 'rn': 'rn', 'rearTemp': 'rear_temp', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d1e290&gt;, 'front_temp': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d1e310&gt;, 'ioh1_temp': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d1e9d0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11199f510&gt;, 'time_collected': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11199f210&gt;, 'ambient_temp': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d1eb50&gt;, 'ioh2_temp': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d1ea50&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d1e850&gt;, 'rear_temp': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d1ec90&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d1e6d0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStats.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.compute.ComputeRackUnitMbTempStats.</code><code class="descname">ComputeRackUnitMbTempStatsConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/compute/ComputeRackUnitMbTempStats.html#ComputeRackUnitMbTempStatsConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts.AMBIENT_TEMP_">
+<code class="descname">AMBIENT_TEMP_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts.AMBIENT_TEMP_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts.FRONT_TEMP_">
+<code class="descname">FRONT_TEMP_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts.FRONT_TEMP_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts.IOH1_TEMP_">
+<code class="descname">IOH1_TEMP_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts.IOH1_TEMP_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts.IOH2_TEMP_">
+<code class="descname">IOH2_TEMP_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts.IOH2_TEMP_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts.REAR_TEMP_">
+<code class="descname">REAR_TEMP_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.compute.ComputeRackUnitMbTempStats.ComputeRackUnitMbTempStatsConsts.REAR_TEMP_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.mometa.compute">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.mometa.compute" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.mometa.compute package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.mometa.compute.ComputeBoard">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.mometa.compute">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.comm.html"
+                        title="previous chapter">imcsdk.mometa.comm package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.current.html"
+                        title="next chapter">imcsdk.mometa.current package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.mometa.compute.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.current.html" title="imcsdk.mometa.current package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.comm.html" title="imcsdk.mometa.comm package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" >imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

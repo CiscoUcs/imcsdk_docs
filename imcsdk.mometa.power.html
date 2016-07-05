@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.power package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk.mometa package" href="imcsdk.mometa.html" />
+    <link rel="next" title="imcsdk.mometa.processor package" href="imcsdk.mometa.processor.html" />
+    <link rel="prev" title="imcsdk.mometa.pid package" href="imcsdk.mometa.pid.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.processor.html" title="imcsdk.mometa.processor package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.pid.html" title="imcsdk.mometa.pid package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" accesskey="U">imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-mometa-power-package">
+<h1>imcsdk.mometa.power package<a class="headerlink" href="#imcsdk-mometa-power-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.mometa.power.PowerBudget">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.mometa.power.PowerBudget" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the general information for PowerBudget ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.power.PowerBudget.PowerBudget">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.power.PowerBudget.</code><code class="descname">PowerBudget</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/power/PowerBudget.html#PowerBudget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.power.PowerBudget.PowerBudget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is PowerBudget class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerBudget.PowerBudget.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.power.PowerBudget.PowerBudgetConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.power.PowerBudget.PowerBudget.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerBudget.PowerBudget.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.power.PowerBudget.PowerBudget.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerBudget.PowerBudget.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.power.PowerBudget.PowerBudget.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerBudget.PowerBudget.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'powerCharStatus': 'power_char_status', 'adminAction': 'admin_action', 'maxPower': 'max_power', 'minMemoryPower': 'min_memory_power', 'childAction': 'child_action', 'maxMemoryPower': 'max_memory_power', 'minCpuPower': 'min_cpu_power', 'maxCpuPower': 'max_cpu_power', 'adminState': 'admin_state', 'runPowCharAtBoot': 'run_pow_char_at_boot', 'rn': 'rn', 'minPower': 'min_power'}</em><a class="headerlink" href="#imcsdk.mometa.power.PowerBudget.PowerBudget.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerBudget.PowerBudget.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121741d0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11139f950&gt;, 'admin_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174b50&gt;, 'min_cpu_power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174690&gt;, 'admin_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174910&gt;, 'max_memory_power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174250&gt;, 'run_pow_char_at_boot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174ed0&gt;, 'max_cpu_power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174610&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121748d0&gt;, 'min_memory_power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174e10&gt;, 'power_char_status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174d50&gt;, 'max_power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174110&gt;, 'min_power': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174b90&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112174a10&gt;}</em><a class="headerlink" href="#imcsdk.mometa.power.PowerBudget.PowerBudget.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.power.PowerBudget.PowerBudgetConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.power.PowerBudget.</code><code class="descname">PowerBudgetConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/power/PowerBudget.html#PowerBudgetConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.power.PowerBudget.PowerBudgetConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerBudget.PowerBudgetConsts.ADMIN_ACTION_RESET_POWER_PROFILE_DEFAULT">
+<code class="descname">ADMIN_ACTION_RESET_POWER_PROFILE_DEFAULT</code><em class="property"> = 'reset-power-profile-default'</em><a class="headerlink" href="#imcsdk.mometa.power.PowerBudget.PowerBudgetConsts.ADMIN_ACTION_RESET_POWER_PROFILE_DEFAULT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerBudget.PowerBudgetConsts.ADMIN_ACTION_START_POWER_CHAR">
+<code class="descname">ADMIN_ACTION_START_POWER_CHAR</code><em class="property"> = 'start-power-char'</em><a class="headerlink" href="#imcsdk.mometa.power.PowerBudget.PowerBudgetConsts.ADMIN_ACTION_START_POWER_CHAR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.power.PowerMonitor"></span><p>This module contains the general information for PowerMonitor ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.power.PowerMonitor.PowerMonitor">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.power.PowerMonitor.</code><code class="descname">PowerMonitor</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>domain</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/power/PowerMonitor.html#PowerMonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.power.PowerMonitor.PowerMonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is PowerMonitor class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerMonitor.PowerMonitor.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.power.PowerMonitor.PowerMonitorConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.power.PowerMonitor.PowerMonitor.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerMonitor.PowerMonitor.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.power.PowerMonitor.PowerMonitor.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerMonitor.PowerMonitor.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'domain'])</em><a class="headerlink" href="#imcsdk.mometa.power.PowerMonitor.PowerMonitor.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerMonitor.PowerMonitor.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'current': 'current', 'dn': 'dn', 'domain': 'domain', 'minimum': 'minimum', 'status': 'status', 'rn': 'rn', 'average': 'average', 'maximum': 'maximum', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.power.PowerMonitor.PowerMonitor.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerMonitor.PowerMonitor.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'current': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11249c290&gt;, 'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11249c790&gt;, 'domain': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11249c690&gt;, 'minimum': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11249ca50&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11249cd10&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11249cc50&gt;, 'average': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11249cb50&gt;, 'maximum': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11249c250&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11249c390&gt;}</em><a class="headerlink" href="#imcsdk.mometa.power.PowerMonitor.PowerMonitor.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.power.PowerMonitor.PowerMonitorConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.power.PowerMonitor.</code><code class="descname">PowerMonitorConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/power/PowerMonitor.html#PowerMonitorConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.power.PowerMonitor.PowerMonitorConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerMonitor.PowerMonitorConsts.DOMAIN_CPU">
+<code class="descname">DOMAIN_CPU</code><em class="property"> = 'CPU'</em><a class="headerlink" href="#imcsdk.mometa.power.PowerMonitor.PowerMonitorConsts.DOMAIN_CPU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerMonitor.PowerMonitorConsts.DOMAIN_MEMORY">
+<code class="descname">DOMAIN_MEMORY</code><em class="property"> = 'Memory'</em><a class="headerlink" href="#imcsdk.mometa.power.PowerMonitor.PowerMonitorConsts.DOMAIN_MEMORY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.power.PowerMonitor.PowerMonitorConsts.DOMAIN_PLATFORM">
+<code class="descname">DOMAIN_PLATFORM</code><em class="property"> = 'Platform'</em><a class="headerlink" href="#imcsdk.mometa.power.PowerMonitor.PowerMonitorConsts.DOMAIN_PLATFORM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.mometa.power">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.mometa.power" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.mometa.power package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.mometa.power.PowerBudget">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.mometa.power">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.pid.html"
+                        title="previous chapter">imcsdk.mometa.pid package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.processor.html"
+                        title="next chapter">imcsdk.mometa.processor package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.mometa.power.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.processor.html" title="imcsdk.mometa.processor package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.pid.html" title="imcsdk.mometa.pid package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" >imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

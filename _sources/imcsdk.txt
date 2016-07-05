@@ -1,0 +1,113 @@
+imcsdk package
+==============
+
+Subpackages
+-----------
+
+.. toctree::
+
+    imcsdk.methodmeta
+    imcsdk.mometa
+    imcsdk.utils
+
+Submodules
+----------
+
+.. automodule:: imcsdk.imcbasetype
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcconstants
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imccore
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imccoremeta
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imccoreutils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcdriver
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imceventhandler
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcexception
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcfilter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcfiltertype
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcgenutils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imchandle
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcmeta
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcmethod
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcmethodfactory
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcmo
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcsession
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.imcxmlcodec
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk
+    :members:
+    :undoc-members:
+    :show-inheritance:

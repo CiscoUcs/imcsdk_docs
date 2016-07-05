@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.standard package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk.mometa package" href="imcsdk.mometa.html" />
+    <link rel="next" title="imcsdk.mometa.storage package" href="imcsdk.mometa.storage.html" />
+    <link rel="prev" title="imcsdk.mometa.sol package" href="imcsdk.mometa.sol.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.storage.html" title="imcsdk.mometa.storage package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.sol.html" title="imcsdk.mometa.sol package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" accesskey="U">imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-mometa-standard-package">
+<h1>imcsdk.mometa.standard package<a class="headerlink" href="#imcsdk-mometa-standard-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.mometa.standard.StandardPowerProfile">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.mometa.standard.StandardPowerProfile" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the general information for StandardPowerProfile ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.standard.StandardPowerProfile.</code><code class="descname">StandardPowerProfile</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/standard/StandardPowerProfile.html#StandardPowerProfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is StandardPowerProfile class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'suspendPeriod': 'suspend_period', 'corrAction': 'corr_action', 'childAction': 'child_action', 'powerLimit': 'power_limit', 'profileEnabled': 'profile_enabled', 'allowThrottle': 'allow_throttle', 'corrTime': 'corr_time', 'profileType': 'profile_type', 'hardCap': 'hard_cap', 'rn': 'rn'}</em><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112443fd0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11218fd50&gt;, 'hard_cap': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112443190&gt;, 'profile_type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11218fa50&gt;, 'corr_time': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112443590&gt;, 'power_limit': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11218f0d0&gt;, 'corr_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112443150&gt;, 'allow_throttle': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110fa4350&gt;, 'suspend_period': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11218f310&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191d450&gt;, 'profile_enabled': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11218f650&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11218f090&gt;}</em><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfile.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.standard.StandardPowerProfile.</code><code class="descname">StandardPowerProfileConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/standard/StandardPowerProfile.html#StandardPowerProfileConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts.CORR_ACTION_ALERT">
+<code class="descname">CORR_ACTION_ALERT</code><em class="property"> = 'alert'</em><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts.CORR_ACTION_ALERT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts.CORR_ACTION_ALERT_SHUTDOWN">
+<code class="descname">CORR_ACTION_ALERT_SHUTDOWN</code><em class="property"> = 'alert,shutdown'</em><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts.CORR_ACTION_ALERT_SHUTDOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts.CORR_ACTION_NONE">
+<code class="descname">CORR_ACTION_NONE</code><em class="property"> = 'none'</em><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts.CORR_ACTION_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts.CORR_ACTION_SHUTDOWN">
+<code class="descname">CORR_ACTION_SHUTDOWN</code><em class="property"> = 'shutdown'</em><a class="headerlink" href="#imcsdk.mometa.standard.StandardPowerProfile.StandardPowerProfileConsts.CORR_ACTION_SHUTDOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.mometa.standard">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.mometa.standard" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.mometa.standard package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.mometa.standard.StandardPowerProfile">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.mometa.standard">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.sol.html"
+                        title="previous chapter">imcsdk.mometa.sol package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.storage.html"
+                        title="next chapter">imcsdk.mometa.storage package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.mometa.standard.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.storage.html" title="imcsdk.mometa.storage package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.sol.html" title="imcsdk.mometa.sol package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" >imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.imcconstants &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.imcconstants</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2015 Cisco Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1"># http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot; This is auto-generated module containing Constants information. &quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="NamingId"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcconstants.NamingId">[docs]</a><span class="k">class</span> <span class="nc">NamingId</span><span class="p">:</span>
+    <span class="n">DN</span> <span class="o">=</span> <span class="s2">&quot;dn&quot;</span>
+    <span class="n">METHOD</span> <span class="o">=</span> <span class="s2">&quot;method&quot;</span>
+    <span class="n">AAA_GET_COMPUTE_AUTH_TOKENS</span> <span class="o">=</span> <span class="s2">&quot;aaaGetComputeAuthTokens&quot;</span>
+    <span class="n">AAA_KEEP_ALIVE</span> <span class="o">=</span> <span class="s2">&quot;aaaKeepAlive&quot;</span>
+    <span class="n">AAA_LDAP</span> <span class="o">=</span> <span class="s2">&quot;aaaLdap&quot;</span>
+    <span class="n">AAA_LDAP_ROLE_GROUP</span> <span class="o">=</span> <span class="s2">&quot;aaaLdapRoleGroup&quot;</span>
+    <span class="n">AAA_LOGIN</span> <span class="o">=</span> <span class="s2">&quot;aaaLogin&quot;</span>
+    <span class="n">AAA_LOGOUT</span> <span class="o">=</span> <span class="s2">&quot;aaaLogout&quot;</span>
+    <span class="n">AAA_REFRESH</span> <span class="o">=</span> <span class="s2">&quot;aaaRefresh&quot;</span>
+    <span class="n">AAA_SESSION</span> <span class="o">=</span> <span class="s2">&quot;aaaSession&quot;</span>
+    <span class="n">AAA_USER</span> <span class="o">=</span> <span class="s2">&quot;aaaUser&quot;</span>
+    <span class="n">AAA_USER_EP</span> <span class="o">=</span> <span class="s2">&quot;aaaUserEp&quot;</span>
+    <span class="n">AAA_USER_POLICY</span> <span class="o">=</span> <span class="s2">&quot;aaaUserPolicy&quot;</span>
+    <span class="n">ADAPTOR_CFG_BACKUP</span> <span class="o">=</span> <span class="s2">&quot;adaptorCfgBackup&quot;</span>
+    <span class="n">ADAPTOR_CFG_IMPORTER</span> <span class="o">=</span> <span class="s2">&quot;adaptorCfgImporter&quot;</span>
+    <span class="n">ADAPTOR_CONNECTOR_INFO</span> <span class="o">=</span> <span class="s2">&quot;adaptorConnectorInfo&quot;</span>
+    <span class="n">ADAPTOR_ETH_COMP_QUEUE_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorEthCompQueueProfile&quot;</span>
+    <span class="n">ADAPTOR_ETH_GEN_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorEthGenProfile&quot;</span>
+    <span class="n">ADAPTOR_ETH_ISCSIPROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorEthISCSIProfile&quot;</span>
+    <span class="n">ADAPTOR_ETH_INTERRUPT_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorEthInterruptProfile&quot;</span>
+    <span class="n">ADAPTOR_ETH_OFFLOAD_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorEthOffloadProfile&quot;</span>
+    <span class="n">ADAPTOR_ETH_RECV_QUEUE_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorEthRecvQueueProfile&quot;</span>
+    <span class="n">ADAPTOR_ETH_USNICPROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorEthUSNICProfile&quot;</span>
+    <span class="n">ADAPTOR_ETH_WORK_QUEUE_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorEthWorkQueueProfile&quot;</span>
+    <span class="n">ADAPTOR_EXT_ETH_IF</span> <span class="o">=</span> <span class="s2">&quot;adaptorExtEthIf&quot;</span>
+    <span class="n">ADAPTOR_EXT_IP_V6_RSS_HASH_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorExtIpV6RssHashProfile&quot;</span>
+    <span class="n">ADAPTOR_FC_BOOT_TABLE</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcBootTable&quot;</span>
+    <span class="n">ADAPTOR_FC_CDB_WORK_QUEUE_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcCdbWorkQueueProfile&quot;</span>
+    <span class="n">ADAPTOR_FC_ERROR_RECOVERY_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcErrorRecoveryProfile&quot;</span>
+    <span class="n">ADAPTOR_FC_GEN_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcGenProfile&quot;</span>
+    <span class="n">ADAPTOR_FC_INTERRUPT_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcInterruptProfile&quot;</span>
+    <span class="n">ADAPTOR_FC_PERSISTENT_BINDINGS</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcPersistentBindings&quot;</span>
+    <span class="n">ADAPTOR_FC_PORT_FLOGI_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcPortFLogiProfile&quot;</span>
+    <span class="n">ADAPTOR_FC_PORT_PLOGI_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcPortPLogiProfile&quot;</span>
+    <span class="n">ADAPTOR_FC_PORT_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcPortProfile&quot;</span>
+    <span class="n">ADAPTOR_FC_RECV_QUEUE_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcRecvQueueProfile&quot;</span>
+    <span class="n">ADAPTOR_FC_WORK_QUEUE_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorFcWorkQueueProfile&quot;</span>
+    <span class="n">ADAPTOR_GEN_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorGenProfile&quot;</span>
+    <span class="n">ADAPTOR_HOST_ETH_IF</span> <span class="o">=</span> <span class="s2">&quot;adaptorHostEthIf&quot;</span>
+    <span class="n">ADAPTOR_HOST_FC_IF</span> <span class="o">=</span> <span class="s2">&quot;adaptorHostFcIf&quot;</span>
+    <span class="n">ADAPTOR_IP_V4_RSS_HASH_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorIpV4RssHashProfile&quot;</span>
+    <span class="n">ADAPTOR_IP_V6_RSS_HASH_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorIpV6RssHashProfile&quot;</span>
+    <span class="n">ADAPTOR_LINK_TRAINING</span> <span class="o">=</span> <span class="s2">&quot;adaptorLinkTraining&quot;</span>
+    <span class="n">ADAPTOR_PORT_PROFILES</span> <span class="o">=</span> <span class="s2">&quot;adaptorPortProfiles&quot;</span>
+    <span class="n">ADAPTOR_RSS_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorRssProfile&quot;</span>
+    <span class="n">ADAPTOR_UNIT</span> <span class="o">=</span> <span class="s2">&quot;adaptorUnit&quot;</span>
+    <span class="n">ADAPTOR_VMFEX_ETH_IF</span> <span class="o">=</span> <span class="s2">&quot;adaptorVMFexEthIf&quot;</span>
+    <span class="n">ADAPTOR_VMFEX_ETH_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;adaptorVMFexEthProfile&quot;</span>
+    <span class="n">ADVANCED_POWER_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;advancedPowerProfile&quot;</span>
+    <span class="n">ALLBITS_FILTER</span> <span class="o">=</span> <span class="s2">&quot;allbitsFilter&quot;</span>
+    <span class="n">AND_FILTER</span> <span class="o">=</span> <span class="s2">&quot;andFilter&quot;</span>
+    <span class="n">ANYBIT_FILTER</span> <span class="o">=</span> <span class="s2">&quot;anybitFilter&quot;</span>
+    <span class="n">BIOS_BOT</span> <span class="o">=</span> <span class="s2">&quot;biosBOT&quot;</span>
+    <span class="n">BIOS_BOOT_DEV</span> <span class="o">=</span> <span class="s2">&quot;biosBootDev&quot;</span>
+    <span class="n">BIOS_BOOT_DEV_GRP</span> <span class="o">=</span> <span class="s2">&quot;biosBootDevGrp&quot;</span>
+    <span class="n">BIOS_BOOT_DEV_PRECISION</span> <span class="o">=</span> <span class="s2">&quot;biosBootDevPrecision&quot;</span>
+    <span class="n">BIOS_BOOT_MODE</span> <span class="o">=</span> <span class="s2">&quot;biosBootMode&quot;</span>
+    <span class="n">BIOS_PASSWORD</span> <span class="o">=</span> <span class="s2">&quot;biosPassword&quot;</span>
+    <span class="n">BIOS_PLATFORM_DEFAULTS</span> <span class="o">=</span> <span class="s2">&quot;biosPlatformDefaults&quot;</span>
+    <span class="n">BIOS_SETTINGS</span> <span class="o">=</span> <span class="s2">&quot;biosSettings&quot;</span>
+    <span class="n">BIOS_UNIT</span> <span class="o">=</span> <span class="s2">&quot;biosUnit&quot;</span>
+    <span class="n">BIOS_VF_ASPMSUPPORT</span> <span class="o">=</span> <span class="s2">&quot;biosVfASPMSupport&quot;</span>
+    <span class="n">BIOS_VF_ADJACENT_CACHE_LINE_PREFETCH</span> <span class="o">=</span> <span class="s2">&quot;biosVfAdjacentCacheLinePrefetch&quot;</span>
+    <span class="n">BIOS_VF_ALTITUDE</span> <span class="o">=</span> <span class="s2">&quot;biosVfAltitude&quot;</span>
+    <span class="n">BIOS_VF_ASSERT_NMION_PERR</span> <span class="o">=</span> <span class="s2">&quot;biosVfAssertNMIOnPERR&quot;</span>
+    <span class="n">BIOS_VF_ASSERT_NMION_SERR</span> <span class="o">=</span> <span class="s2">&quot;biosVfAssertNMIOnSERR&quot;</span>
+    <span class="n">BIOS_VF_AUTONUMOUS_CSTATE_ENABLE</span> <span class="o">=</span> <span class="s2">&quot;biosVfAutonumousCstateEnable&quot;</span>
+    <span class="n">BIOS_VF_BOOT_OPTION_RETRY</span> <span class="o">=</span> <span class="s2">&quot;biosVfBootOptionRetry&quot;</span>
+    <span class="n">BIOS_VF_CDNENABLE</span> <span class="o">=</span> <span class="s2">&quot;biosVfCDNEnable&quot;</span>
+    <span class="n">BIOS_VF_CDNSUPPORT</span> <span class="o">=</span> <span class="s2">&quot;biosVfCDNSupport&quot;</span>
+    <span class="n">BIOS_VF_CPUENERGY_PERFORMANCE</span> <span class="o">=</span> <span class="s2">&quot;biosVfCPUEnergyPerformance&quot;</span>
+    <span class="n">BIOS_VF_CPUFREQUENCY_FLOOR</span> <span class="o">=</span> <span class="s2">&quot;biosVfCPUFrequencyFloor&quot;</span>
+    <span class="n">BIOS_VF_CPUPERFORMANCE</span> <span class="o">=</span> <span class="s2">&quot;biosVfCPUPerformance&quot;</span>
+    <span class="n">BIOS_VF_CPUPOWER_MANAGEMENT</span> <span class="o">=</span> <span class="s2">&quot;biosVfCPUPowerManagement&quot;</span>
+    <span class="n">BIOS_VF_CKE_LOW_POLICY</span> <span class="o">=</span> <span class="s2">&quot;biosVfCkeLowPolicy&quot;</span>
+    <span class="n">BIOS_VF_CONSOLE_REDIRECTION</span> <span class="o">=</span> <span class="s2">&quot;biosVfConsoleRedirection&quot;</span>
+    <span class="n">BIOS_VF_CORE_MULTI_PROCESSING</span> <span class="o">=</span> <span class="s2">&quot;biosVfCoreMultiProcessing&quot;</span>
+    <span class="n">BIOS_VF_DCUPREFETCH</span> <span class="o">=</span> <span class="s2">&quot;biosVfDCUPrefetch&quot;</span>
+    <span class="n">BIOS_VF_DRAMCLOCK_THROTTLING</span> <span class="o">=</span> <span class="s2">&quot;biosVfDRAMClockThrottling&quot;</span>
+    <span class="n">BIOS_VF_DEMAND_SCRUB</span> <span class="o">=</span> <span class="s2">&quot;biosVfDemandScrub&quot;</span>
+    <span class="n">BIOS_VF_DIRECT_CACHE_ACCESS</span> <span class="o">=</span> <span class="s2">&quot;biosVfDirectCacheAccess&quot;</span>
+    <span class="n">BIOS_VF_DRAM_REFRESH_RATE</span> <span class="o">=</span> <span class="s2">&quot;biosVfDramRefreshRate&quot;</span>
+    <span class="n">BIOS_VF_ENHANCED_INTEL_SPEED_STEP_TECH</span> <span class="o">=</span> <span class="s2">&quot;biosVfEnhancedIntelSpeedStepTech&quot;</span>
+    <span class="n">BIOS_VF_EXECUTE_DISABLE_BIT</span> <span class="o">=</span> <span class="s2">&quot;biosVfExecuteDisableBit&quot;</span>
+    <span class="n">BIOS_VF_EXTENDED_APIC</span> <span class="o">=</span> <span class="s2">&quot;biosVfExtendedAPIC&quot;</span>
+    <span class="n">BIOS_VF_FRB2_ENABLE</span> <span class="o">=</span> <span class="s2">&quot;biosVfFRB2Enable&quot;</span>
+    <span class="n">BIOS_VF_HWPMENABLE</span> <span class="o">=</span> <span class="s2">&quot;biosVfHWPMEnable&quot;</span>
+    <span class="n">BIOS_VF_HARDWARE_PREFETCH</span> <span class="o">=</span> <span class="s2">&quot;biosVfHardwarePrefetch&quot;</span>
+    <span class="n">BIOS_VF_IOHRESOURCE</span> <span class="o">=</span> <span class="s2">&quot;biosVfIOHResource&quot;</span>
+    <span class="n">BIOS_VF_INTEL_HYPER_THREADING_TECH</span> <span class="o">=</span> <span class="s2">&quot;biosVfIntelHyperThreadingTech&quot;</span>
+    <span class="n">BIOS_VF_INTEL_TURBO_BOOST_TECH</span> <span class="o">=</span> <span class="s2">&quot;biosVfIntelTurboBoostTech&quot;</span>
+    <span class="n">BIOS_VF_INTEL_VTFOR_DIRECTED_IO</span> <span class="o">=</span> <span class="s2">&quot;biosVfIntelVTForDirectedIO&quot;</span>
+    <span class="n">BIOS_VF_INTEL_VIRTUALIZATION_TECHNOLOGY</span> <span class="o">=</span> <span class="s2">&quot;biosVfIntelVirtualizationTechnology&quot;</span>
+    <span class="n">BIOS_VF_LOMPORT_OPTION_ROM</span> <span class="o">=</span> <span class="s2">&quot;biosVfLOMPortOptionROM&quot;</span>
+    <span class="n">BIOS_VF_LEGACY_USBSUPPORT</span> <span class="o">=</span> <span class="s2">&quot;biosVfLegacyUSBSupport&quot;</span>
+    <span class="n">BIOS_VF_LV_DIMMSUPPORT</span> <span class="o">=</span> <span class="s2">&quot;biosVfLvDIMMSupport&quot;</span>
+    <span class="n">BIOS_VF_MMCFGBASE</span> <span class="o">=</span> <span class="s2">&quot;biosVfMMCFGBase&quot;</span>
+    <span class="n">BIOS_VF_MEMORY_INTERLEAVE</span> <span class="o">=</span> <span class="s2">&quot;biosVfMemoryInterleave&quot;</span>
+    <span class="n">BIOS_VF_MEMORY_MAPPED_IOABOVE4_GB</span> <span class="o">=</span> <span class="s2">&quot;biosVfMemoryMappedIOAbove4GB&quot;</span>
+    <span class="n">BIOS_VF_MIRRORING_MODE</span> <span class="o">=</span> <span class="s2">&quot;biosVfMirroringMode&quot;</span>
+    <span class="n">BIOS_VF_NUMAOPTIMIZED</span> <span class="o">=</span> <span class="s2">&quot;biosVfNUMAOptimized&quot;</span>
+    <span class="n">BIOS_VF_OSBOOT_WATCHDOG_TIMER</span> <span class="o">=</span> <span class="s2">&quot;biosVfOSBootWatchdogTimer&quot;</span>
+    <span class="n">BIOS_VF_OSBOOT_WATCHDOG_TIMER_POLICY</span> <span class="o">=</span> <span class="s2">&quot;biosVfOSBootWatchdogTimerPolicy&quot;</span>
+    <span class="n">BIOS_VF_OSBOOT_WATCHDOG_TIMER_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;biosVfOSBootWatchdogTimerTimeout&quot;</span>
+    <span class="n">BIOS_VF_ONBOARD_NIC</span> <span class="o">=</span> <span class="s2">&quot;biosVfOnboardNIC&quot;</span>
+    <span class="n">BIOS_VF_ONBOARD_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;biosVfOnboardStorage&quot;</span>
+    <span class="n">BIOS_VF_ONBOARD_STORAGE_SWSTACK</span> <span class="o">=</span> <span class="s2">&quot;biosVfOnboardStorageSWStack&quot;</span>
+    <span class="n">BIOS_VF_OUT_OF_BAND_MGMT_PORT</span> <span class="o">=</span> <span class="s2">&quot;biosVfOutOfBandMgmtPort&quot;</span>
+    <span class="n">BIOS_VF_PCIOPTION_ROMS</span> <span class="o">=</span> <span class="s2">&quot;biosVfPCIOptionROMs&quot;</span>
+    <span class="n">BIOS_VF_PCISLOT_OPTION_ROMENABLE</span> <span class="o">=</span> <span class="s2">&quot;biosVfPCISlotOptionROMEnable&quot;</span>
+    <span class="n">BIOS_VF_POSTERROR_PAUSE</span> <span class="o">=</span> <span class="s2">&quot;biosVfPOSTErrorPause&quot;</span>
+    <span class="n">BIOS_VF_PSTATE_COORD_TYPE</span> <span class="o">=</span> <span class="s2">&quot;biosVfPStateCoordType&quot;</span>
+    <span class="n">BIOS_VF_PACKAGE_CSTATE_LIMIT</span> <span class="o">=</span> <span class="s2">&quot;biosVfPackageCStateLimit&quot;</span>
+    <span class="n">BIOS_VF_PATROL_SCRUB</span> <span class="o">=</span> <span class="s2">&quot;biosVfPatrolScrub&quot;</span>
+    <span class="n">BIOS_VF_PATROL_SCRUB_DURATION</span> <span class="o">=</span> <span class="s2">&quot;biosVfPatrolScrubDuration&quot;</span>
+    <span class="n">BIOS_VF_PCH_USB30_MODE</span> <span class="o">=</span> <span class="s2">&quot;biosVfPchUsb30Mode&quot;</span>
+    <span class="n">BIOS_VF_PCI_ROM_CLP</span> <span class="o">=</span> <span class="s2">&quot;biosVfPciRomClp&quot;</span>
+    <span class="n">BIOS_VF_PROCESSOR_C1_E</span> <span class="o">=</span> <span class="s2">&quot;biosVfProcessorC1E&quot;</span>
+    <span class="n">BIOS_VF_PROCESSOR_C3_REPORT</span> <span class="o">=</span> <span class="s2">&quot;biosVfProcessorC3Report&quot;</span>
+    <span class="n">BIOS_VF_PROCESSOR_C6_REPORT</span> <span class="o">=</span> <span class="s2">&quot;biosVfProcessorC6Report&quot;</span>
+    <span class="n">BIOS_VF_PROCESSOR_CSTATE</span> <span class="o">=</span> <span class="s2">&quot;biosVfProcessorCState&quot;</span>
+    <span class="n">BIOS_VF_PWR_PERF_TUNING</span> <span class="o">=</span> <span class="s2">&quot;biosVfPwrPerfTuning&quot;</span>
+    <span class="n">BIOS_VF_QPICONFIG</span> <span class="o">=</span> <span class="s2">&quot;biosVfQPIConfig&quot;</span>
+    <span class="n">BIOS_VF_QPI_SNOOP_MODE</span> <span class="o">=</span> <span class="s2">&quot;biosVfQpiSnoopMode&quot;</span>
+    <span class="n">BIOS_VF_RESUME_ON_ACPOWER_LOSS</span> <span class="o">=</span> <span class="s2">&quot;biosVfResumeOnACPowerLoss&quot;</span>
+    <span class="n">BIOS_VF_SATA_MODE_SELECT</span> <span class="o">=</span> <span class="s2">&quot;biosVfSataModeSelect&quot;</span>
+    <span class="n">BIOS_VF_SELECT_MEMORY_RASCONFIGURATION</span> <span class="o">=</span> <span class="s2">&quot;biosVfSelectMemoryRASConfiguration&quot;</span>
+    <span class="n">BIOS_VF_SERIAL_PORT_AENABLE</span> <span class="o">=</span> <span class="s2">&quot;biosVfSerialPortAEnable&quot;</span>
+    <span class="n">BIOS_VF_SPARING_MODE</span> <span class="o">=</span> <span class="s2">&quot;biosVfSparingMode&quot;</span>
+    <span class="n">BIOS_VF_SR_IOV</span> <span class="o">=</span> <span class="s2">&quot;biosVfSrIov&quot;</span>
+    <span class="n">BIOS_VF_TPMSUPPORT</span> <span class="o">=</span> <span class="s2">&quot;biosVfTPMSupport&quot;</span>
+    <span class="n">BIOS_VF_UCSMBOOT_ORDER_RULE_CONTROL</span> <span class="o">=</span> <span class="s2">&quot;biosVfUCSMBootOrderRuleControl&quot;</span>
+    <span class="n">BIOS_VF_USBBOOT_CONFIG</span> <span class="o">=</span> <span class="s2">&quot;biosVfUSBBootConfig&quot;</span>
+    <span class="n">BIOS_VF_USBEMULATION</span> <span class="o">=</span> <span class="s2">&quot;biosVfUSBEmulation&quot;</span>
+    <span class="n">BIOS_VF_USBPORTS_CONFIG</span> <span class="o">=</span> <span class="s2">&quot;biosVfUSBPortsConfig&quot;</span>
+    <span class="n">BIOS_VF_VGA_PRIORITY</span> <span class="o">=</span> <span class="s2">&quot;biosVfVgaPriority&quot;</span>
+    <span class="n">BIOS_VF_WORK_LOAD_CONFIG</span> <span class="o">=</span> <span class="s2">&quot;biosVfWorkLoadConfig&quot;</span>
+    <span class="n">BW_FILTER</span> <span class="o">=</span> <span class="s2">&quot;bwFilter&quot;</span>
+    <span class="n">CERTIFICATE_MANAGEMENT</span> <span class="o">=</span> <span class="s2">&quot;certificateManagement&quot;</span>
+    <span class="n">COMM_HTTP</span> <span class="o">=</span> <span class="s2">&quot;commHttp&quot;</span>
+    <span class="n">COMM_HTTPS</span> <span class="o">=</span> <span class="s2">&quot;commHttps&quot;</span>
+    <span class="n">COMM_IPMI_LAN</span> <span class="o">=</span> <span class="s2">&quot;commIpmiLan&quot;</span>
+    <span class="n">COMM_KVM</span> <span class="o">=</span> <span class="s2">&quot;commKvm&quot;</span>
+    <span class="n">COMM_NTP_PROVIDER</span> <span class="o">=</span> <span class="s2">&quot;commNtpProvider&quot;</span>
+    <span class="n">COMM_SNMP</span> <span class="o">=</span> <span class="s2">&quot;commSnmp&quot;</span>
+    <span class="n">COMM_SNMP_TRAP</span> <span class="o">=</span> <span class="s2">&quot;commSnmpTrap&quot;</span>
+    <span class="n">COMM_SNMP_USER</span> <span class="o">=</span> <span class="s2">&quot;commSnmpUser&quot;</span>
+    <span class="n">COMM_SSH</span> <span class="o">=</span> <span class="s2">&quot;commSsh&quot;</span>
+    <span class="n">COMM_SVC_EP</span> <span class="o">=</span> <span class="s2">&quot;commSvcEp&quot;</span>
+    <span class="n">COMM_SYSLOG</span> <span class="o">=</span> <span class="s2">&quot;commSyslog&quot;</span>
+    <span class="n">COMM_SYSLOG_CLIENT</span> <span class="o">=</span> <span class="s2">&quot;commSyslogClient&quot;</span>
+    <span class="n">COMM_VMEDIA</span> <span class="o">=</span> <span class="s2">&quot;commVMedia&quot;</span>
+    <span class="n">COMM_VMEDIA_MAP</span> <span class="o">=</span> <span class="s2">&quot;commVMediaMap&quot;</span>
+    <span class="n">COMPUTE_BOARD</span> <span class="o">=</span> <span class="s2">&quot;computeBoard&quot;</span>
+    <span class="n">COMPUTE_MB_POWER_STATS</span> <span class="o">=</span> <span class="s2">&quot;computeMbPowerStats&quot;</span>
+    <span class="n">COMPUTE_RACK_UNIT</span> <span class="o">=</span> <span class="s2">&quot;computeRackUnit&quot;</span>
+    <span class="n">COMPUTE_RACK_UNIT_MB_TEMP_STATS</span> <span class="o">=</span> <span class="s2">&quot;computeRackUnitMbTempStats&quot;</span>
+    <span class="n">CONFIG_CONF_MO</span> <span class="o">=</span> <span class="s2">&quot;configConfMo&quot;</span>
+    <span class="n">CONFIG_CONFIG</span> <span class="o">=</span> <span class="s2">&quot;configConfig&quot;</span>
+    <span class="n">CONFIG_MAP</span> <span class="o">=</span> <span class="s2">&quot;configMap&quot;</span>
+    <span class="n">CONFIG_RESOLVE_CHILDREN</span> <span class="o">=</span> <span class="s2">&quot;configResolveChildren&quot;</span>
+    <span class="n">CONFIG_RESOLVE_CLASS</span> <span class="o">=</span> <span class="s2">&quot;configResolveClass&quot;</span>
+    <span class="n">CONFIG_RESOLVE_DN</span> <span class="o">=</span> <span class="s2">&quot;configResolveDn&quot;</span>
+    <span class="n">CONFIG_RESOLVE_PARENT</span> <span class="o">=</span> <span class="s2">&quot;configResolveParent&quot;</span>
+    <span class="n">CONFIG_SET</span> <span class="o">=</span> <span class="s2">&quot;configSet&quot;</span>
+    <span class="n">CURRENT_CERTIFICATE</span> <span class="o">=</span> <span class="s2">&quot;currentCertificate&quot;</span>
+    <span class="n">EQ_FILTER</span> <span class="o">=</span> <span class="s2">&quot;eqFilter&quot;</span>
+    <span class="n">EQUIPMENT_FAN</span> <span class="o">=</span> <span class="s2">&quot;equipmentFan&quot;</span>
+    <span class="n">EQUIPMENT_FAN_MODULE</span> <span class="o">=</span> <span class="s2">&quot;equipmentFanModule&quot;</span>
+    <span class="n">EQUIPMENT_INDICATOR_LED</span> <span class="o">=</span> <span class="s2">&quot;equipmentIndicatorLed&quot;</span>
+    <span class="n">EQUIPMENT_LOCATOR_LED</span> <span class="o">=</span> <span class="s2">&quot;equipmentLocatorLed&quot;</span>
+    <span class="n">EQUIPMENT_PSU</span> <span class="o">=</span> <span class="s2">&quot;equipmentPsu&quot;</span>
+    <span class="n">EQUIPMENT_PSU_COLD_REDUNDANCY</span> <span class="o">=</span> <span class="s2">&quot;equipmentPsuColdRedundancy&quot;</span>
+    <span class="n">EQUIPMENT_PSU_FAN</span> <span class="o">=</span> <span class="s2">&quot;equipmentPsuFan&quot;</span>
+    <span class="n">EQUIPMENT_TPM</span> <span class="o">=</span> <span class="s2">&quot;equipmentTpm&quot;</span>
+    <span class="n">ERROR</span> <span class="o">=</span> <span class="s2">&quot;error&quot;</span>
+    <span class="n">EVENT_SUBSCRIBE</span> <span class="o">=</span> <span class="s2">&quot;eventSubscribe&quot;</span>
+    <span class="n">EVENT_UNSUBSCRIBE</span> <span class="o">=</span> <span class="s2">&quot;eventUnsubscribe&quot;</span>
+    <span class="n">FAULT_INST</span> <span class="o">=</span> <span class="s2">&quot;faultInst&quot;</span>
+    <span class="n">FILTER_FILTER</span> <span class="o">=</span> <span class="s2">&quot;filterFilter&quot;</span>
+    <span class="n">FIRMWARE_BOOT_DEFINITION</span> <span class="o">=</span> <span class="s2">&quot;firmwareBootDefinition&quot;</span>
+    <span class="n">FIRMWARE_BOOT_UNIT</span> <span class="o">=</span> <span class="s2">&quot;firmwareBootUnit&quot;</span>
+    <span class="n">FIRMWARE_RUNNING</span> <span class="o">=</span> <span class="s2">&quot;firmwareRunning&quot;</span>
+    <span class="n">FIRMWARE_UPDATABLE</span> <span class="o">=</span> <span class="s2">&quot;firmwareUpdatable&quot;</span>
+    <span class="n">GE_FILTER</span> <span class="o">=</span> <span class="s2">&quot;geFilter&quot;</span>
+    <span class="n">GENERATE_CERTIFICATE_SIGNING_REQUEST</span> <span class="o">=</span> <span class="s2">&quot;generateCertificateSigningRequest&quot;</span>
+    <span class="n">GENERATED_STORAGE_CONTROLLER_KEY_ID</span> <span class="o">=</span> <span class="s2">&quot;generatedStorageControllerKeyId&quot;</span>
+    <span class="n">GT_FILTER</span> <span class="o">=</span> <span class="s2">&quot;gtFilter&quot;</span>
+    <span class="n">HUU_CONTROLLER</span> <span class="o">=</span> <span class="s2">&quot;huuController&quot;</span>
+    <span class="n">HUU_FIRMWARE_CATALOG</span> <span class="o">=</span> <span class="s2">&quot;huuFirmwareCatalog&quot;</span>
+    <span class="n">HUU_FIRMWARE_CATALOG_COMPONENT</span> <span class="o">=</span> <span class="s2">&quot;huuFirmwareCatalogComponent&quot;</span>
+    <span class="n">HUU_FIRMWARE_COMPONENT</span> <span class="o">=</span> <span class="s2">&quot;huuFirmwareComponent&quot;</span>
+    <span class="n">HUU_FIRMWARE_RUNNING</span> <span class="o">=</span> <span class="s2">&quot;huuFirmwareRunning&quot;</span>
+    <span class="n">HUU_FIRMWARE_UPDATE_CANCEL</span> <span class="o">=</span> <span class="s2">&quot;huuFirmwareUpdateCancel&quot;</span>
+    <span class="n">HUU_FIRMWARE_UPDATE_STATUS</span> <span class="o">=</span> <span class="s2">&quot;huuFirmwareUpdateStatus&quot;</span>
+    <span class="n">HUU_FIRMWARE_UPDATER</span> <span class="o">=</span> <span class="s2">&quot;huuFirmwareUpdater&quot;</span>
+    <span class="n">HUU_UPDATE_COMPONENT_STATUS</span> <span class="o">=</span> <span class="s2">&quot;huuUpdateComponentStatus&quot;</span>
+    <span class="n">IOD_CONTROLLER</span> <span class="o">=</span> <span class="s2">&quot;iodController&quot;</span>
+    <span class="n">IOD_SNAPSHOT_CANCEL</span> <span class="o">=</span> <span class="s2">&quot;iodSnapshotCancel&quot;</span>
+    <span class="n">IOD_SNAPSHOT_START</span> <span class="o">=</span> <span class="s2">&quot;iodSnapshotStart&quot;</span>
+    <span class="n">IOD_SNAPSHOT_STATUS</span> <span class="o">=</span> <span class="s2">&quot;iodSnapshotStatus&quot;</span>
+    <span class="n">IP_BLOCKING</span> <span class="o">=</span> <span class="s2">&quot;ipBlocking&quot;</span>
+    <span class="n">LE_FILTER</span> <span class="o">=</span> <span class="s2">&quot;leFilter&quot;</span>
+    <span class="n">LSBOOT_BOOT_SECURITY</span> <span class="o">=</span> <span class="s2">&quot;lsbootBootSecurity&quot;</span>
+    <span class="n">LSBOOT_DEF</span> <span class="o">=</span> <span class="s2">&quot;lsbootDef&quot;</span>
+    <span class="n">LSBOOT_DEV_PRECISION</span> <span class="o">=</span> <span class="s2">&quot;lsbootDevPrecision&quot;</span>
+    <span class="n">LSBOOT_EFI</span> <span class="o">=</span> <span class="s2">&quot;lsbootEfi&quot;</span>
+    <span class="n">LSBOOT_HDD</span> <span class="o">=</span> <span class="s2">&quot;lsbootHdd&quot;</span>
+    <span class="n">LSBOOT_ISCSI</span> <span class="o">=</span> <span class="s2">&quot;lsbootIscsi&quot;</span>
+    <span class="n">LSBOOT_LAN</span> <span class="o">=</span> <span class="s2">&quot;lsbootLan&quot;</span>
+    <span class="n">LSBOOT_LOCAL_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;lsbootLocalStorage&quot;</span>
+    <span class="n">LSBOOT_PCH_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;lsbootPchStorage&quot;</span>
+    <span class="n">LSBOOT_PXE</span> <span class="o">=</span> <span class="s2">&quot;lsbootPxe&quot;</span>
+    <span class="n">LSBOOT_SAN</span> <span class="o">=</span> <span class="s2">&quot;lsbootSan&quot;</span>
+    <span class="n">LSBOOT_SD</span> <span class="o">=</span> <span class="s2">&quot;lsbootSd&quot;</span>
+    <span class="n">LSBOOT_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;lsbootStorage&quot;</span>
+    <span class="n">LSBOOT_UEFI_SHELL</span> <span class="o">=</span> <span class="s2">&quot;lsbootUefiShell&quot;</span>
+    <span class="n">LSBOOT_USB</span> <span class="o">=</span> <span class="s2">&quot;lsbootUsb&quot;</span>
+    <span class="n">LSBOOT_VMEDIA</span> <span class="o">=</span> <span class="s2">&quot;lsbootVMedia&quot;</span>
+    <span class="n">LSBOOT_VIRTUAL_MEDIA</span> <span class="o">=</span> <span class="s2">&quot;lsbootVirtualMedia&quot;</span>
+    <span class="n">LT_FILTER</span> <span class="o">=</span> <span class="s2">&quot;ltFilter&quot;</span>
+    <span class="n">MEMORY_ARRAY</span> <span class="o">=</span> <span class="s2">&quot;memoryArray&quot;</span>
+    <span class="n">MEMORY_UNIT</span> <span class="o">=</span> <span class="s2">&quot;memoryUnit&quot;</span>
+    <span class="n">MEMORY_UNIT_ENV_STATS</span> <span class="o">=</span> <span class="s2">&quot;memoryUnitEnvStats&quot;</span>
+    <span class="n">MGMT_BACKUP</span> <span class="o">=</span> <span class="s2">&quot;mgmtBackup&quot;</span>
+    <span class="n">MGMT_CONTROLLER</span> <span class="o">=</span> <span class="s2">&quot;mgmtController&quot;</span>
+    <span class="n">MGMT_IF</span> <span class="o">=</span> <span class="s2">&quot;mgmtIf&quot;</span>
+    <span class="n">MGMT_IMPORTER</span> <span class="o">=</span> <span class="s2">&quot;mgmtImporter&quot;</span>
+    <span class="n">NE_FILTER</span> <span class="o">=</span> <span class="s2">&quot;neFilter&quot;</span>
+    <span class="n">NETWORK_ADAPTER_ETH_IF</span> <span class="o">=</span> <span class="s2">&quot;networkAdapterEthIf&quot;</span>
+    <span class="n">NETWORK_ADAPTER_UNIT</span> <span class="o">=</span> <span class="s2">&quot;networkAdapterUnit&quot;</span>
+    <span class="n">NOT_FILTER</span> <span class="o">=</span> <span class="s2">&quot;notFilter&quot;</span>
+    <span class="n">ONE_TIME_BOOT_DEVICE</span> <span class="o">=</span> <span class="s2">&quot;oneTimeBootDevice&quot;</span>
+    <span class="n">OR_FILTER</span> <span class="o">=</span> <span class="s2">&quot;orFilter&quot;</span>
+    <span class="n">PAIR</span> <span class="o">=</span> <span class="s2">&quot;pair&quot;</span>
+    <span class="n">PCI_EQUIP_SLOT</span> <span class="o">=</span> <span class="s2">&quot;pciEquipSlot&quot;</span>
+    <span class="n">PID_CATALOG</span> <span class="o">=</span> <span class="s2">&quot;pidCatalog&quot;</span>
+    <span class="n">PID_CATALOG_CPU</span> <span class="o">=</span> <span class="s2">&quot;pidCatalogCpu&quot;</span>
+    <span class="n">PID_CATALOG_DIMM</span> <span class="o">=</span> <span class="s2">&quot;pidCatalogDimm&quot;</span>
+    <span class="n">PID_CATALOG_HDD</span> <span class="o">=</span> <span class="s2">&quot;pidCatalogHdd&quot;</span>
+    <span class="n">PID_CATALOG_PCIADAPTER</span> <span class="o">=</span> <span class="s2">&quot;pidCatalogPCIAdapter&quot;</span>
+    <span class="n">POWER_BUDGET</span> <span class="o">=</span> <span class="s2">&quot;powerBudget&quot;</span>
+    <span class="n">POWER_MONITOR</span> <span class="o">=</span> <span class="s2">&quot;powerMonitor&quot;</span>
+    <span class="n">PROCESSOR_ENV_STATS</span> <span class="o">=</span> <span class="s2">&quot;processorEnvStats&quot;</span>
+    <span class="n">PROCESSOR_UNIT</span> <span class="o">=</span> <span class="s2">&quot;processorUnit&quot;</span>
+    <span class="n">SELF_ENCRYPT_STORAGE_CONTROLLER</span> <span class="o">=</span> <span class="s2">&quot;selfEncryptStorageController&quot;</span>
+    <span class="n">SERVER_UTILIZATION</span> <span class="o">=</span> <span class="s2">&quot;serverUtilization&quot;</span>
+    <span class="n">SOL_IF</span> <span class="o">=</span> <span class="s2">&quot;solIf&quot;</span>
+    <span class="n">STANDARD_POWER_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;standardPowerProfile&quot;</span>
+    <span class="n">STORAGE_CONTROLLER</span> <span class="o">=</span> <span class="s2">&quot;storageController&quot;</span>
+    <span class="n">STORAGE_CONTROLLER_PROPS</span> <span class="o">=</span> <span class="s2">&quot;storageControllerProps&quot;</span>
+    <span class="n">STORAGE_CONTROLLER_SETTINGS</span> <span class="o">=</span> <span class="s2">&quot;storageControllerSettings&quot;</span>
+    <span class="n">STORAGE_FLEX_FLASH_CONTROLLER</span> <span class="o">=</span> <span class="s2">&quot;storageFlexFlashController&quot;</span>
+    <span class="n">STORAGE_FLEX_FLASH_CONTROLLER_PROPS</span> <span class="o">=</span> <span class="s2">&quot;storageFlexFlashControllerProps&quot;</span>
+    <span class="n">STORAGE_FLEX_FLASH_OPERATIONAL_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;storageFlexFlashOperationalProfile&quot;</span>
+    <span class="n">STORAGE_FLEX_FLASH_PHYSICAL_DRIVE</span> <span class="o">=</span> <span class="s2">&quot;storageFlexFlashPhysicalDrive&quot;</span>
+    <span class="n">STORAGE_FLEX_FLASH_VIRTUAL_DRIVE</span> <span class="o">=</span> <span class="s2">&quot;storageFlexFlashVirtualDrive&quot;</span>
+    <span class="n">STORAGE_FLEX_FLASH_VIRTUAL_DRIVE_IMAGE_MAP</span> <span class="o">=</span> <span class="s2">&quot;storageFlexFlashVirtualDriveImageMap&quot;</span>
+    <span class="n">STORAGE_LOCAL_DISK</span> <span class="o">=</span> <span class="s2">&quot;storageLocalDisk&quot;</span>
+    <span class="n">STORAGE_LOCAL_DISK_PROPS</span> <span class="o">=</span> <span class="s2">&quot;storageLocalDiskProps&quot;</span>
+    <span class="n">STORAGE_LOCAL_DISK_SLOT_EP</span> <span class="o">=</span> <span class="s2">&quot;storageLocalDiskSlotEp&quot;</span>
+    <span class="n">STORAGE_LOCAL_DISK_USAGE</span> <span class="o">=</span> <span class="s2">&quot;storageLocalDiskUsage&quot;</span>
+    <span class="n">STORAGE_OPERATION</span> <span class="o">=</span> <span class="s2">&quot;storageOperation&quot;</span>
+    <span class="n">STORAGE_RAID_BATTERY</span> <span class="o">=</span> <span class="s2">&quot;storageRaidBattery&quot;</span>
+    <span class="n">STORAGE_UNUSED_LOCAL_DISK</span> <span class="o">=</span> <span class="s2">&quot;storageUnusedLocalDisk&quot;</span>
+    <span class="n">STORAGE_VIRTUAL_DRIVE</span> <span class="o">=</span> <span class="s2">&quot;storageVirtualDrive&quot;</span>
+    <span class="n">STORAGE_VIRTUAL_DRIVE_CREATOR_USING_UNUSED_PHYSICAL_DRIVE</span> <span class="o">=</span> <span class="s2">&quot;storageVirtualDriveCreatorUsingUnusedPhysicalDrive&quot;</span>
+    <span class="n">STORAGE_VIRTUAL_DRIVE_CREATOR_USING_VIRTUAL_DRIVE_GROUP</span> <span class="o">=</span> <span class="s2">&quot;storageVirtualDriveCreatorUsingVirtualDriveGroup&quot;</span>
+    <span class="n">STORAGE_VIRTUAL_DRIVE_WITH_DRIVE_GROUP_SPACE</span> <span class="o">=</span> <span class="s2">&quot;storageVirtualDriveWithDriveGroupSpace&quot;</span>
+    <span class="n">SUGGESTED_STORAGE_CONTROLLER_SECURITY_KEY</span> <span class="o">=</span> <span class="s2">&quot;suggestedStorageControllerSecurityKey&quot;</span>
+    <span class="n">SYSDEBUG_MEP_LOG</span> <span class="o">=</span> <span class="s2">&quot;sysdebugMEpLog&quot;</span>
+    <span class="n">SYSDEBUG_TECH_SUPPORT_EXPORT</span> <span class="o">=</span> <span class="s2">&quot;sysdebugTechSupportExport&quot;</span>
+    <span class="n">SYSTEM_IOCONTROLLER</span> <span class="o">=</span> <span class="s2">&quot;systemIOController&quot;</span>
+    <span class="n">TOP_ROOT</span> <span class="o">=</span> <span class="s2">&quot;topRoot&quot;</span>
+    <span class="n">TOP_SYSTEM</span> <span class="o">=</span> <span class="s2">&quot;topSystem&quot;</span>
+    <span class="n">UPLOAD_CERTIFICATE</span> <span class="o">=</span> <span class="s2">&quot;uploadCertificate&quot;</span>
+    <span class="n">WCARD_FILTER</span> <span class="o">=</span> <span class="s2">&quot;wcardFilter&quot;</span></div>
+
+
+<div class="viewcode-block" id="YesOrNo"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcconstants.YesOrNo">[docs]</a><span class="k">class</span> <span class="nc">YesOrNo</span><span class="p">:</span>
+    <span class="n">_NO</span> <span class="o">=</span> <span class="s2">&quot;No&quot;</span>
+    <span class="n">_YES</span> <span class="o">=</span> <span class="s2">&quot;Yes&quot;</span>
+    <span class="n">FALSE</span> <span class="o">=</span> <span class="s2">&quot;false&quot;</span>
+    <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;no&quot;</span>
+    <span class="n">TRUE</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span>
+    <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;yes&quot;</span></div>
+
+
+<div class="viewcode-block" id="BootOrderEnum"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcconstants.BootOrderEnum">[docs]</a><span class="k">class</span> <span class="nc">BootOrderEnum</span><span class="p">:</span>
+    <span class="n">BOOT_ORDER_ENUM_1</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+    <span class="n">BOOT_ORDER_ENUM_2</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span>
+    <span class="n">BOOT_ORDER_ENUM_3</span> <span class="o">=</span> <span class="s2">&quot;3&quot;</span>
+    <span class="n">BOOT_ORDER_ENUM_4</span> <span class="o">=</span> <span class="s2">&quot;4&quot;</span>
+    <span class="n">BOOT_ORDER_ENUM_5</span> <span class="o">=</span> <span class="s2">&quot;5&quot;</span></div>
+
+
+<div class="viewcode-block" id="EmptyStringOrHostNameOrIPv4Address"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcconstants.EmptyStringOrHostNameOrIPv4Address">[docs]</a><span class="k">class</span> <span class="nc">EmptyStringOrHostNameOrIPv4Address</span><span class="p">:</span>
+    <span class="n">VALUE_0_0_0_0</span> <span class="o">=</span> <span class="s2">&quot;0.0.0.0&quot;</span></div>
+
+
+<div class="viewcode-block" id="EmptyStringOrHostNameOrIPv4AddressOrIPv6Address"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcconstants.EmptyStringOrHostNameOrIPv4AddressOrIPv6Address">[docs]</a><span class="k">class</span> <span class="nc">EmptyStringOrHostNameOrIPv4AddressOrIPv6Address</span><span class="p">:</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="EnabledDisabled"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcconstants.EnabledDisabled">[docs]</a><span class="k">class</span> <span class="nc">EnabledDisabled</span><span class="p">:</span>
+    <span class="n">_DISABLED</span> <span class="o">=</span> <span class="s2">&quot;Disabled&quot;</span>
+    <span class="n">_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;Enabled&quot;</span>
+    <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;disabled&quot;</span>
+    <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;enabled&quot;</span></div>
+
+
+<div class="viewcode-block" id="NamingPropertyId"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcconstants.NamingPropertyId">[docs]</a><span class="k">class</span> <span class="nc">NamingPropertyId</span><span class="p">:</span>
+    <span class="n">ABSOLUTE_STATE_OF_CHARGE</span> <span class="o">=</span> <span class="s2">&quot;absoluteStateOfCharge&quot;</span>
+    <span class="n">ACCESS</span> <span class="o">=</span> <span class="s2">&quot;access&quot;</span>
+    <span class="n">ACCESS_POLICY</span> <span class="o">=</span> <span class="s2">&quot;accessPolicy&quot;</span>
+    <span class="n">ACCOUNT_STATUS</span> <span class="o">=</span> <span class="s2">&quot;accountStatus&quot;</span>
+    <span class="n">ACK</span> <span class="o">=</span> <span class="s2">&quot;ack&quot;</span>
+    <span class="n">ACTIVE_SESSIONS</span> <span class="o">=</span> <span class="s2">&quot;activeSessions&quot;</span>
+    <span class="n">ACTIVE_STATUS</span> <span class="o">=</span> <span class="s2">&quot;activeStatus&quot;</span>
+    <span class="n">ACTUAL_BOOT_MODE</span> <span class="o">=</span> <span class="s2">&quot;actualBootMode&quot;</span>
+    <span class="n">ADDRESS</span> <span class="o">=</span> <span class="s2">&quot;address&quot;</span>
+    <span class="n">ADMIN_ACTION</span> <span class="o">=</span> <span class="s2">&quot;adminAction&quot;</span>
+    <span class="n">ADMIN_DUPLEX</span> <span class="o">=</span> <span class="s2">&quot;adminDuplex&quot;</span>
+    <span class="n">ADMIN_NET_SPEED</span> <span class="o">=</span> <span class="s2">&quot;adminNetSpeed&quot;</span>
+    <span class="n">ADMIN_PERSISTENT_BINDINGS</span> <span class="o">=</span> <span class="s2">&quot;adminPersistentBindings&quot;</span>
+    <span class="n">ADMIN_POWER</span> <span class="o">=</span> <span class="s2">&quot;adminPower&quot;</span>
+    <span class="n">ADMIN_SPEED</span> <span class="o">=</span> <span class="s2">&quot;adminSpeed&quot;</span>
+    <span class="n">ADMIN_STATE</span> <span class="o">=</span> <span class="s2">&quot;adminState&quot;</span>
+    <span class="n">AFFECTED_DN</span> <span class="o">=</span> <span class="s2">&quot;affectedDN&quot;</span>
+    <span class="n">ALLOW_BACKGROUND_INIT</span> <span class="o">=</span> <span class="s2">&quot;allowBackgroundInit&quot;</span>
+    <span class="n">ALLOW_THROTTLE</span> <span class="o">=</span> <span class="s2">&quot;allowThrottle&quot;</span>
+    <span class="n">AMBIENT_TEMP</span> <span class="o">=</span> <span class="s2">&quot;ambientTemp&quot;</span>
+    <span class="n">ARCH</span> <span class="o">=</span> <span class="s2">&quot;arch&quot;</span>
+    <span class="n">ARFS</span> <span class="o">=</span> <span class="s2">&quot;arfs&quot;</span>
+    <span class="n">ARRAY</span> <span class="o">=</span> <span class="s2">&quot;array&quot;</span>
+    <span class="n">ATTRIBUTE</span> <span class="o">=</span> <span class="s2">&quot;attribute&quot;</span>
+    <span class="n">AUTH</span> <span class="o">=</span> <span class="s2">&quot;auth&quot;</span>
+    <span class="n">AUTH_PWD</span> <span class="o">=</span> <span class="s2">&quot;authPwd&quot;</span>
+    <span class="n">AUTO_DELETE_OLDEST</span> <span class="o">=</span> <span class="s2">&quot;autoDeleteOldest&quot;</span>
+    <span class="n">AUTO_ENHANCED_IMPORT</span> <span class="o">=</span> <span class="s2">&quot;autoEnhancedImport&quot;</span>
+    <span class="n">AUTO_NEG</span> <span class="o">=</span> <span class="s2">&quot;autoNeg&quot;</span>
+    <span class="n">AUTO_SNAPSHOT</span> <span class="o">=</span> <span class="s2">&quot;autoSnapshot&quot;</span>
+    <span class="n">AUTO_SYNC</span> <span class="o">=</span> <span class="s2">&quot;autoSync&quot;</span>
+    <span class="n">AVAILABLE_MEMORY</span> <span class="o">=</span> <span class="s2">&quot;availableMemory&quot;</span>
+    <span class="n">AVERAGE</span> <span class="o">=</span> <span class="s2">&quot;average&quot;</span>
+    <span class="n">BACKEND_PORT_COUNT</span> <span class="o">=</span> <span class="s2">&quot;backendPortCount&quot;</span>
+    <span class="n">BANK_LOCATOR</span> <span class="o">=</span> <span class="s2">&quot;bankLocator&quot;</span>
+    <span class="n">BASEDN</span> <span class="o">=</span> <span class="s2">&quot;basedn&quot;</span>
+    <span class="n">BATTERY_PRESENT</span> <span class="o">=</span> <span class="s2">&quot;batteryPresent&quot;</span>
+    <span class="n">BATTERY_STATUS</span> <span class="o">=</span> <span class="s2">&quot;batteryStatus&quot;</span>
+    <span class="n">BATTERY_TYPE</span> <span class="o">=</span> <span class="s2">&quot;batteryType&quot;</span>
+    <span class="n">BATTERY_WARNING</span> <span class="o">=</span> <span class="s2">&quot;batteryWarning&quot;</span>
+    <span class="n">BBU_PRESENT</span> <span class="o">=</span> <span class="s2">&quot;bbuPresent&quot;</span>
+    <span class="n">BIND_DN</span> <span class="o">=</span> <span class="s2">&quot;bindDn&quot;</span>
+    <span class="n">BIND_METHOD</span> <span class="o">=</span> <span class="s2">&quot;bindMethod&quot;</span>
+    <span class="n">BLOCK_COUNT</span> <span class="o">=</span> <span class="s2">&quot;blockCount&quot;</span>
+    <span class="n">BLOCK_SIZE</span> <span class="o">=</span> <span class="s2">&quot;blockSize&quot;</span>
+    <span class="n">BOOT_BLOCK_VERSION</span> <span class="o">=</span> <span class="s2">&quot;bootBlockVersion&quot;</span>
+    <span class="n">BOOT_DRIVE</span> <span class="o">=</span> <span class="s2">&quot;bootDrive&quot;</span>
+    <span class="n">BOOT_DRIVE_IS_PHYSICAL_DRIVE</span> <span class="o">=</span> <span class="s2">&quot;bootDriveIsPhysicalDrive&quot;</span>
+    <span class="n">BOOT_LUN</span> <span class="o">=</span> <span class="s2">&quot;bootLun&quot;</span>
+    <span class="n">BOOT_VERSION</span> <span class="o">=</span> <span class="s2">&quot;bootVersion&quot;</span>
+    <span class="n">BUS_ID</span> <span class="o">=</span> <span class="s2">&quot;busId&quot;</span>
+    <span class="n">CACHE_FLUSH_INTERVAL</span> <span class="o">=</span> <span class="s2">&quot;cacheFlushInterval&quot;</span>
+    <span class="n">CACHE_MEMORY_SIZE</span> <span class="o">=</span> <span class="s2">&quot;cacheMemorySize&quot;</span>
+    <span class="n">CACHE_POLICY</span> <span class="o">=</span> <span class="s2">&quot;cachePolicy&quot;</span>
+    <span class="n">CAPACITY</span> <span class="o">=</span> <span class="s2">&quot;capacity&quot;</span>
+    <span class="n">CARD_MODE</span> <span class="o">=</span> <span class="s2">&quot;cardMode&quot;</span>
+    <span class="n">CARD_SLOT</span> <span class="o">=</span> <span class="s2">&quot;cardSlot&quot;</span>
+    <span class="n">CARD_STATUS</span> <span class="o">=</span> <span class="s2">&quot;cardStatus&quot;</span>
+    <span class="n">CARD_TYPE</span> <span class="o">=</span> <span class="s2">&quot;cardType&quot;</span>
+    <span class="n">CARDS_MANAGEABLE</span> <span class="o">=</span> <span class="s2">&quot;cardsManageable&quot;</span>
+    <span class="n">CAUSE</span> <span class="o">=</span> <span class="s2">&quot;cause&quot;</span>
+    <span class="n">CERTIFICATE_CONTENT</span> <span class="o">=</span> <span class="s2">&quot;certificateContent&quot;</span>
+    <span class="n">CHANGE_SET</span> <span class="o">=</span> <span class="s2">&quot;changeSet&quot;</span>
+    <span class="n">CHANNEL_NUMBER</span> <span class="o">=</span> <span class="s2">&quot;channelNumber&quot;</span>
+    <span class="n">CHARGING_STATE</span> <span class="o">=</span> <span class="s2">&quot;chargingState&quot;</span>
+    <span class="n">CIMC_MANAGEMENT_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;cimcManagementEnabled&quot;</span>
+    <span class="n">CIMC_RESET_REASON</span> <span class="o">=</span> <span class="s2">&quot;cimcResetReason&quot;</span>
+    <span class="n">CIMC_SECURE_BOOT</span> <span class="o">=</span> <span class="s2">&quot;cimcSecureBoot&quot;</span>
+    <span class="n">CLASS_OF_SERVICE</span> <span class="o">=</span> <span class="s2">&quot;classOfService&quot;</span>
+    <span class="n">CLOCK</span> <span class="o">=</span> <span class="s2">&quot;clock&quot;</span>
+    <span class="n">CLUSTER_ENABLE</span> <span class="o">=</span> <span class="s2">&quot;clusterEnable&quot;</span>
+    <span class="n">CNTRL_ID</span> <span class="o">=</span> <span class="s2">&quot;cntrlId&quot;</span>
+    <span class="n">COALESCING_TIME</span> <span class="o">=</span> <span class="s2">&quot;coalescingTime&quot;</span>
+    <span class="n">COALESCING_TYPE</span> <span class="o">=</span> <span class="s2">&quot;coalescingType&quot;</span>
+    <span class="n">CODE</span> <span class="o">=</span> <span class="s2">&quot;code&quot;</span>
+    <span class="n">COERCED_SIZE</span> <span class="o">=</span> <span class="s2">&quot;coercedSize&quot;</span>
+    <span class="n">COLOR</span> <span class="o">=</span> <span class="s2">&quot;color&quot;</span>
+    <span class="n">COM2_SEC</span> <span class="o">=</span> <span class="s2">&quot;com2Sec&quot;</span>
+    <span class="n">COMMON_NAME</span> <span class="o">=</span> <span class="s2">&quot;commonName&quot;</span>
+    <span class="n">COMMUNITY</span> <span class="o">=</span> <span class="s2">&quot;community&quot;</span>
+    <span class="n">COMPLETED_CHARGE_CYCLES</span> <span class="o">=</span> <span class="s2">&quot;completedChargeCycles&quot;</span>
+    <span class="n">COMPLETION_QUEUE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;completionQueueCount&quot;</span>
+    <span class="n">COMPLETION_QUEUE_RING_SIZE</span> <span class="o">=</span> <span class="s2">&quot;completionQueueRingSize&quot;</span>
+    <span class="n">COMPONENT</span> <span class="o">=</span> <span class="s2">&quot;component&quot;</span>
+    <span class="n">COMPONENT_NAME</span> <span class="o">=</span> <span class="s2">&quot;componentName&quot;</span>
+    <span class="n">COMPORT</span> <span class="o">=</span> <span class="s2">&quot;comport&quot;</span>
+    <span class="n">CONFIGURATION_PENDING</span> <span class="o">=</span> <span class="s2">&quot;configurationPending&quot;</span>
+    <span class="n">CONFIGURED_BOOT_MODE</span> <span class="o">=</span> <span class="s2">&quot;configuredBootMode&quot;</span>
+    <span class="n">CONFIGURED_MODE</span> <span class="o">=</span> <span class="s2">&quot;configuredMode&quot;</span>
+    <span class="n">CONSISTENCY_CHECK_RATE</span> <span class="o">=</span> <span class="s2">&quot;consistencyCheckRate&quot;</span>
+    <span class="n">CONSUMED_POWER</span> <span class="o">=</span> <span class="s2">&quot;consumedPower&quot;</span>
+    <span class="n">CONTROLLER</span> <span class="o">=</span> <span class="s2">&quot;controller&quot;</span>
+    <span class="n">CONTROLLER_NAME</span> <span class="o">=</span> <span class="s2">&quot;controllerName&quot;</span>
+    <span class="n">CONTROLLER_REPORTED</span> <span class="o">=</span> <span class="s2">&quot;controllerReported&quot;</span>
+    <span class="n">CONTROLLER_STATUS</span> <span class="o">=</span> <span class="s2">&quot;controllerStatus&quot;</span>
+    <span class="n">CORES</span> <span class="o">=</span> <span class="s2">&quot;cores&quot;</span>
+    <span class="n">CORES_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;coresEnabled&quot;</span>
+    <span class="n">CORR_ACTION</span> <span class="o">=</span> <span class="s2">&quot;corrAction&quot;</span>
+    <span class="n">CORR_TIME</span> <span class="o">=</span> <span class="s2">&quot;corrTime&quot;</span>
+    <span class="n">COUNT</span> <span class="o">=</span> <span class="s2">&quot;count&quot;</span>
+    <span class="n">COUNTRY_CODE</span> <span class="o">=</span> <span class="s2">&quot;countryCode&quot;</span>
+    <span class="n">CPU_POWER_LIMIT</span> <span class="o">=</span> <span class="s2">&quot;cpuPowerLimit&quot;</span>
+    <span class="n">CPU_SAFE_THROT_LVL</span> <span class="o">=</span> <span class="s2">&quot;cpuSafeThrotLvl&quot;</span>
+    <span class="n">CPU_UTILIZATION</span> <span class="o">=</span> <span class="s2">&quot;cpuUtilization&quot;</span>
+    <span class="n">CREATED</span> <span class="o">=</span> <span class="s2">&quot;created&quot;</span>
+    <span class="n">CREATED_VIRTUAL_DRIVE_DN</span> <span class="o">=</span> <span class="s2">&quot;createdVirtualDriveDn&quot;</span>
+    <span class="n">CRITICAL_PHYSICAL_DRIVE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;criticalPhysicalDriveCount&quot;</span>
+    <span class="n">CSR_STATUS</span> <span class="o">=</span> <span class="s2">&quot;csrStatus&quot;</span>
+    <span class="n">CURR_CAPACITY</span> <span class="o">=</span> <span class="s2">&quot;currCapacity&quot;</span>
+    <span class="n">CURRENT</span> <span class="o">=</span> <span class="s2">&quot;current&quot;</span>
+    <span class="n">CURRENT_LROP</span> <span class="o">=</span> <span class="s2">&quot;currentLrop&quot;</span>
+    <span class="n">CURRENT_STATUS</span> <span class="o">=</span> <span class="s2">&quot;currentStatus&quot;</span>
+    <span class="n">CURRENT_TIME</span> <span class="o">=</span> <span class="s2">&quot;currentTime&quot;</span>
+    <span class="n">CURRENT_WRITE_CACHE_POLICY</span> <span class="o">=</span> <span class="s2">&quot;currentWriteCachePolicy&quot;</span>
+    <span class="n">CURRENTSPEED</span> <span class="o">=</span> <span class="s2">&quot;currentspeed&quot;</span>
+    <span class="n">DATAWIDTH</span> <span class="o">=</span> <span class="s2">&quot;datawidth&quot;</span>
+    <span class="n">DATE_OF_MANUFACTURE</span> <span class="o">=</span> <span class="s2">&quot;dateOfManufacture&quot;</span>
+    <span class="n">DDNS_DOMAIN</span> <span class="o">=</span> <span class="s2">&quot;ddnsDomain&quot;</span>
+    <span class="n">DDNS_ENABLE</span> <span class="o">=</span> <span class="s2">&quot;ddnsEnable&quot;</span>
+    <span class="n">DEDICATED_HOT_SPARE_FOR_VDID</span> <span class="o">=</span> <span class="s2">&quot;dedicatedHotSpareForVDId&quot;</span>
+    <span class="n">DEGRADED_VIRTUAL_DRIVE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;degradedVirtualDriveCount&quot;</span>
+    <span class="n">DELAY</span> <span class="o">=</span> <span class="s2">&quot;delay&quot;</span>
+    <span class="n">DELAY_TYPE</span> <span class="o">=</span> <span class="s2">&quot;delayType&quot;</span>
+    <span class="n">DEPLOYMENT</span> <span class="o">=</span> <span class="s2">&quot;deployment&quot;</span>
+    <span class="n">DESCR</span> <span class="o">=</span> <span class="s2">&quot;descr&quot;</span>
+    <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;description&quot;</span>
+    <span class="n">DESIGN_CAPACITY</span> <span class="o">=</span> <span class="s2">&quot;designCapacity&quot;</span>
+    <span class="n">DESIGN_VOLTAGE</span> <span class="o">=</span> <span class="s2">&quot;designVoltage&quot;</span>
+    <span class="n">DEVICE</span> <span class="o">=</span> <span class="s2">&quot;device&quot;</span>
+    <span class="n">DEVICE_ID</span> <span class="o">=</span> <span class="s2">&quot;deviceId&quot;</span>
+    <span class="n">DHCP_ENABLE</span> <span class="o">=</span> <span class="s2">&quot;dhcpEnable&quot;</span>
+    <span class="n">DHCP_ISCSI</span> <span class="o">=</span> <span class="s2">&quot;dhcpISCSI&quot;</span>
+    <span class="n">DHCP_ID</span> <span class="o">=</span> <span class="s2">&quot;dhcpId&quot;</span>
+    <span class="n">DHCP_NETWORK_SETTINGS</span> <span class="o">=</span> <span class="s2">&quot;dhcpNetworkSettings&quot;</span>
+    <span class="n">DHCP_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;dhcpTimeout&quot;</span>
+    <span class="n">DIMM_BLACK_LIST</span> <span class="o">=</span> <span class="s2">&quot;dimmBlackList&quot;</span>
+    <span class="n">DISK</span> <span class="o">=</span> <span class="s2">&quot;disk&quot;</span>
+    <span class="n">DISK_CACHE_POLICY</span> <span class="o">=</span> <span class="s2">&quot;diskCachePolicy&quot;</span>
+    <span class="n">DN</span> <span class="o">=</span> <span class="s2">&quot;dn&quot;</span>
+    <span class="n">DNS_ALTERNATE</span> <span class="o">=</span> <span class="s2">&quot;dnsAlternate&quot;</span>
+    <span class="n">DNS_DOMAIN_SOURCE</span> <span class="o">=</span> <span class="s2">&quot;dnsDomainSource&quot;</span>
+    <span class="n">DNS_PREFERRED</span> <span class="o">=</span> <span class="s2">&quot;dnsPreferred&quot;</span>
+    <span class="n">DNS_SEARCH_DOMAIN</span> <span class="o">=</span> <span class="s2">&quot;dnsSearchDomain&quot;</span>
+    <span class="n">DNS_SEARCH_FOREST</span> <span class="o">=</span> <span class="s2">&quot;dnsSearchForest&quot;</span>
+    <span class="n">DNS_USING_DHCP</span> <span class="o">=</span> <span class="s2">&quot;dnsUsingDhcp&quot;</span>
+    <span class="n">DOMAIN</span> <span class="o">=</span> <span class="s2">&quot;domain&quot;</span>
+    <span class="n">DRIVE_FIRMWARE</span> <span class="o">=</span> <span class="s2">&quot;driveFirmware&quot;</span>
+    <span class="n">DRIVE_GROUP</span> <span class="o">=</span> <span class="s2">&quot;driveGroup&quot;</span>
+    <span class="n">DRIVE_SCOPE</span> <span class="o">=</span> <span class="s2">&quot;driveScope&quot;</span>
+    <span class="n">DRIVE_SERIAL_NUMBER</span> <span class="o">=</span> <span class="s2">&quot;driveSerialNumber&quot;</span>
+    <span class="n">DRIVE_STATE</span> <span class="o">=</span> <span class="s2">&quot;driveState&quot;</span>
+    <span class="n">DRIVE_STATUS</span> <span class="o">=</span> <span class="s2">&quot;driveStatus&quot;</span>
+    <span class="n">DRIVE_TYPE</span> <span class="o">=</span> <span class="s2">&quot;driveType&quot;</span>
+    <span class="n">DRIVES_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;drivesEnabled&quot;</span>
+    <span class="n">DRIVES_PER_SPAN</span> <span class="o">=</span> <span class="s2">&quot;drivesPerSpan&quot;</span>
+    <span class="n">ECC_BUCKET_LEAK_RATE</span> <span class="o">=</span> <span class="s2">&quot;eccBucketLeakRate&quot;</span>
+    <span class="n">ELAPSED_SECONDS</span> <span class="o">=</span> <span class="s2">&quot;elapsedSeconds&quot;</span>
+    <span class="n">EMAIL</span> <span class="o">=</span> <span class="s2">&quot;email&quot;</span>
+    <span class="n">ENABLE</span> <span class="o">=</span> <span class="s2">&quot;enable&quot;</span>
+    <span class="n">ENABLE_COPYBACK_ON_SMART</span> <span class="o">=</span> <span class="s2">&quot;enableCopybackOnSmart&quot;</span>
+    <span class="n">ENABLE_COPYBACK_TO_SSD_ON_SMART_ERROR</span> <span class="o">=</span> <span class="s2">&quot;enableCopybackToSsdOnSmartError&quot;</span>
+    <span class="n">ENABLE_JBOD</span> <span class="o">=</span> <span class="s2">&quot;enableJbod&quot;</span>
+    <span class="n">ENABLE_SSD_PATROL_READ</span> <span class="o">=</span> <span class="s2">&quot;enableSsdPatrolRead&quot;</span>
+    <span class="n">ENABLED_STATUS</span> <span class="o">=</span> <span class="s2">&quot;enabledStatus&quot;</span>
+    <span class="n">ENCLOSURE_DEVICE_ID</span> <span class="o">=</span> <span class="s2">&quot;enclosureDeviceId&quot;</span>
+    <span class="n">ENCRYPTION</span> <span class="o">=</span> <span class="s2">&quot;encryption&quot;</span>
+    <span class="n">ENCRYPTION_STATE</span> <span class="o">=</span> <span class="s2">&quot;encryptionState&quot;</span>
+    <span class="n">ENGINE_ID</span> <span class="o">=</span> <span class="s2">&quot;engineId&quot;</span>
+    <span class="n">ERROR_DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;errorDescription&quot;</span>
+    <span class="n">ERROR_DETECT_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;errorDetectTimeout&quot;</span>
+    <span class="n">EXISTING_SECURITY_KEY</span> <span class="o">=</span> <span class="s2">&quot;existingSecurityKey&quot;</span>
+    <span class="n">EXPECTED_MARGIN_OF_ERROR</span> <span class="o">=</span> <span class="s2">&quot;expectedMarginOfError&quot;</span>
+    <span class="n">EXPOSE_ENCLOSURE_DEVICES</span> <span class="o">=</span> <span class="s2">&quot;exposeEnclosureDevices&quot;</span>
+    <span class="n">EXT_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;extEnabled&quot;</span>
+    <span class="n">EXT_GW</span> <span class="o">=</span> <span class="s2">&quot;extGw&quot;</span>
+    <span class="n">EXT_IP</span> <span class="o">=</span> <span class="s2">&quot;extIp&quot;</span>
+    <span class="n">EXT_MASK</span> <span class="o">=</span> <span class="s2">&quot;extMask&quot;</span>
+    <span class="n">FAIL_COUNT</span> <span class="o">=</span> <span class="s2">&quot;failCount&quot;</span>
+    <span class="n">FAIL_WINDOW</span> <span class="o">=</span> <span class="s2">&quot;failWindow&quot;</span>
+    <span class="n">FAILED_MEMORY</span> <span class="o">=</span> <span class="s2">&quot;failedMemory&quot;</span>
+    <span class="n">FAILED_PHYSICAL_DRIVE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;failedPhysicalDriveCount&quot;</span>
+    <span class="n">FCP_ERROR_RECOVERY</span> <span class="o">=</span> <span class="s2">&quot;fcpErrorRecovery&quot;</span>
+    <span class="n">FDE_CAPABLE</span> <span class="o">=</span> <span class="s2">&quot;fdeCapable&quot;</span>
+    <span class="n">FDE_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;fdeEnabled&quot;</span>
+    <span class="n">FILTER</span> <span class="o">=</span> <span class="s2">&quot;filter&quot;</span>
+    <span class="n">FIP_MODE</span> <span class="o">=</span> <span class="s2">&quot;fipMode&quot;</span>
+    <span class="n">FIRMWARE_PACKAGE_BUILD</span> <span class="o">=</span> <span class="s2">&quot;firmwarePackageBuild&quot;</span>
+    <span class="n">FIRMWARE_VERSION</span> <span class="o">=</span> <span class="s2">&quot;firmwareVersion&quot;</span>
+    <span class="n">FLASH_PRESENT</span> <span class="o">=</span> <span class="s2">&quot;flashPresent&quot;</span>
+    <span class="n">FOREIGN_LOCKED</span> <span class="o">=</span> <span class="s2">&quot;foreignLocked&quot;</span>
+    <span class="n">FORM_FACTOR</span> <span class="o">=</span> <span class="s2">&quot;formFactor&quot;</span>
+    <span class="n">FRONT_TEMP</span> <span class="o">=</span> <span class="s2">&quot;frontTemp&quot;</span>
+    <span class="n">FSM_DESCR</span> <span class="o">=</span> <span class="s2">&quot;fsmDescr&quot;</span>
+    <span class="n">FSM_PROGR</span> <span class="o">=</span> <span class="s2">&quot;fsmProgr&quot;</span>
+    <span class="n">FSM_RMT_INV_ERR_CODE</span> <span class="o">=</span> <span class="s2">&quot;fsmRmtInvErrCode&quot;</span>
+    <span class="n">FSM_RMT_INV_ERR_DESCR</span> <span class="o">=</span> <span class="s2">&quot;fsmRmtInvErrDescr&quot;</span>
+    <span class="n">FSM_STAGE_DESCR</span> <span class="o">=</span> <span class="s2">&quot;fsmStageDescr&quot;</span>
+    <span class="n">FSM_STATUS</span> <span class="o">=</span> <span class="s2">&quot;fsmStatus&quot;</span>
+    <span class="n">FULL_CAPACITY</span> <span class="o">=</span> <span class="s2">&quot;fullCapacity&quot;</span>
+    <span class="n">FW_VERSION</span> <span class="o">=</span> <span class="s2">&quot;fwVersion&quot;</span>
+    <span class="n">GENERATED_KEY_ID</span> <span class="o">=</span> <span class="s2">&quot;generatedKeyId&quot;</span>
+    <span class="n">GROUP_ATTRIBUTE</span> <span class="o">=</span> <span class="s2">&quot;groupAttribute&quot;</span>
+    <span class="n">GROUP_AUTH</span> <span class="o">=</span> <span class="s2">&quot;groupAuth&quot;</span>
+    <span class="n">GROUP_NESTED_SEARCH</span> <span class="o">=</span> <span class="s2">&quot;groupNestedSearch&quot;</span>
+    <span class="n">HARD_CAP</span> <span class="o">=</span> <span class="s2">&quot;hardCap&quot;</span>
+    <span class="n">HEALTH</span> <span class="o">=</span> <span class="s2">&quot;health&quot;</span>
+    <span class="n">HIGHEST_SEVERITY</span> <span class="o">=</span> <span class="s2">&quot;highestSeverity&quot;</span>
+    <span class="n">HOST</span> <span class="o">=</span> <span class="s2">&quot;host&quot;</span>
+    <span class="n">HOST_ACCESSIBLE</span> <span class="o">=</span> <span class="s2">&quot;hostAccessible&quot;</span>
+    <span class="n">HOST_WWPN</span> <span class="o">=</span> <span class="s2">&quot;hostWwpn&quot;</span>
+    <span class="n">HOSTNAME</span> <span class="o">=</span> <span class="s2">&quot;hostname&quot;</span>
+    <span class="n">HUU_IMAGE_VERSION</span> <span class="o">=</span> <span class="s2">&quot;huuImageVersion&quot;</span>
+    <span class="n">ID</span> <span class="o">=</span> <span class="s2">&quot;id&quot;</span>
+    <span class="n">IF_TYPE</span> <span class="o">=</span> <span class="s2">&quot;ifType&quot;</span>
+    <span class="n">IGNORE_COMP_CHECK</span> <span class="o">=</span> <span class="s2">&quot;ignoreCompCheck&quot;</span>
+    <span class="n">IGNORED_MEMORY</span> <span class="o">=</span> <span class="s2">&quot;ignoredMemory&quot;</span>
+    <span class="n">IMAGE</span> <span class="o">=</span> <span class="s2">&quot;image&quot;</span>
+    <span class="n">INDEX</span> <span class="o">=</span> <span class="s2">&quot;index&quot;</span>
+    <span class="n">INITIATOR_CHAP_NAME</span> <span class="o">=</span> <span class="s2">&quot;initiatorChapName&quot;</span>
+    <span class="n">INITIATOR_CHAP_SECRET</span> <span class="o">=</span> <span class="s2">&quot;initiatorChapSecret&quot;</span>
+    <span class="n">INITIATOR_GATEWAY</span> <span class="o">=</span> <span class="s2">&quot;initiatorGateway&quot;</span>
+    <span class="n">INITIATOR_IPADDRESS</span> <span class="o">=</span> <span class="s2">&quot;initiatorIPAddress&quot;</span>
+    <span class="n">INITIATOR_NAME</span> <span class="o">=</span> <span class="s2">&quot;initiatorName&quot;</span>
+    <span class="n">INITIATOR_PRIMARY_DNS</span> <span class="o">=</span> <span class="s2">&quot;initiatorPrimaryDns&quot;</span>
+    <span class="n">INITIATOR_PRIORITY</span> <span class="o">=</span> <span class="s2">&quot;initiatorPriority&quot;</span>
+    <span class="n">INITIATOR_SECONDARY_DNS</span> <span class="o">=</span> <span class="s2">&quot;initiatorSecondaryDns&quot;</span>
+    <span class="n">INITIATOR_SUBNET_MASK</span> <span class="o">=</span> <span class="s2">&quot;initiatorSubnetMask&quot;</span>
+    <span class="n">INITIATOR_TCPTIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;initiatorTCPTimeout&quot;</span>
+    <span class="n">INPUT</span> <span class="o">=</span> <span class="s2">&quot;input&quot;</span>
+    <span class="n">INPUT_CURRENT</span> <span class="o">=</span> <span class="s2">&quot;inputCurrent&quot;</span>
+    <span class="n">INPUT_VOLTAGE</span> <span class="o">=</span> <span class="s2">&quot;inputVoltage&quot;</span>
+    <span class="n">INTERFACE_TYPE</span> <span class="o">=</span> <span class="s2">&quot;interfaceType&quot;</span>
+    <span class="n">INTERNAL_STATE</span> <span class="o">=</span> <span class="s2">&quot;internalState&quot;</span>
+    <span class="n">INTERRUPT_COUNT</span> <span class="o">=</span> <span class="s2">&quot;interruptCount&quot;</span>
+    <span class="n">INTERRUPT_MODE</span> <span class="o">=</span> <span class="s2">&quot;interruptMode&quot;</span>
+    <span class="n">IO_READ_ERROR_THRESHOLD</span> <span class="o">=</span> <span class="s2">&quot;ioReadErrorThreshold&quot;</span>
+    <span class="n">IO_THROTTLE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;ioThrottleCount&quot;</span>
+    <span class="n">IO_UTILIZATION</span> <span class="o">=</span> <span class="s2">&quot;ioUtilization&quot;</span>
+    <span class="n">IO_WRITE_ERROR_THRESHOLD</span> <span class="o">=</span> <span class="s2">&quot;ioWriteErrorThreshold&quot;</span>
+    <span class="n">IOD_IMAGE_VERSION</span> <span class="o">=</span> <span class="s2">&quot;iodImageVersion&quot;</span>
+    <span class="n">IOH1_TEMP</span> <span class="o">=</span> <span class="s2">&quot;ioh1Temp&quot;</span>
+    <span class="n">IOH2_TEMP</span> <span class="o">=</span> <span class="s2">&quot;ioh2Temp&quot;</span>
+    <span class="n">IP_HASH</span> <span class="o">=</span> <span class="s2">&quot;ipHash&quot;</span>
+    <span class="n">IP_VER</span> <span class="o">=</span> <span class="s2">&quot;ipVer&quot;</span>
+    <span class="n">ISCSI_BOOT</span> <span class="o">=</span> <span class="s2">&quot;iscsiBoot&quot;</span>
+    <span class="n">ISCSI_BOOT_SUPPORTED</span> <span class="o">=</span> <span class="s2">&quot;iscsiBootSupported&quot;</span>
+    <span class="n">ISO_SHARE</span> <span class="o">=</span> <span class="s2">&quot;isoShare&quot;</span>
+    <span class="n">ISO_SHARE_FILE</span> <span class="o">=</span> <span class="s2">&quot;isoShareFile&quot;</span>
+    <span class="n">ISO_SHARE_IP</span> <span class="o">=</span> <span class="s2">&quot;isoShareIp&quot;</span>
+    <span class="n">ISO_SHARE_PATH</span> <span class="o">=</span> <span class="s2">&quot;isoSharePath&quot;</span>
+    <span class="n">ISO_SHARE_TYPE</span> <span class="o">=</span> <span class="s2">&quot;isoShareType&quot;</span>
+    <span class="n">ISSUER_COMMON_NAME</span> <span class="o">=</span> <span class="s2">&quot;issuerCommonName&quot;</span>
+    <span class="n">ISSUER_COUNTRY_CODE</span> <span class="o">=</span> <span class="s2">&quot;issuerCountryCode&quot;</span>
+    <span class="n">ISSUER_LOCALITY</span> <span class="o">=</span> <span class="s2">&quot;issuerLocality&quot;</span>
+    <span class="n">ISSUER_ORGANIZATION</span> <span class="o">=</span> <span class="s2">&quot;issuerOrganization&quot;</span>
+    <span class="n">ISSUER_ORGANIZATIONAL_UNIT</span> <span class="o">=</span> <span class="s2">&quot;issuerOrganizationalUnit&quot;</span>
+    <span class="n">ISSUER_STATE</span> <span class="o">=</span> <span class="s2">&quot;issuerState&quot;</span>
+    <span class="n">KEY</span> <span class="o">=</span> <span class="s2">&quot;key&quot;</span>
+    <span class="n">KEY_ID</span> <span class="o">=</span> <span class="s2">&quot;keyId&quot;</span>
+    <span class="n">LARGE_RECEIVE</span> <span class="o">=</span> <span class="s2">&quot;largeReceive&quot;</span>
+    <span class="n">LAST_CONFIGURED_BOOT_ORDER_SOURCE</span> <span class="o">=</span> <span class="s2">&quot;lastConfiguredBootOrderSource&quot;</span>
+    <span class="n">LAST_OPERATION_STATUS</span> <span class="o">=</span> <span class="s2">&quot;lastOperationStatus&quot;</span>
+    <span class="n">LAST_QUERIED_TIME_STAMP</span> <span class="o">=</span> <span class="s2">&quot;lastQueriedTimeStamp&quot;</span>
+    <span class="n">LAST_TRANSITION</span> <span class="o">=</span> <span class="s2">&quot;lastTransition&quot;</span>
+    <span class="n">LC</span> <span class="o">=</span> <span class="s2">&quot;lc&quot;</span>
+    <span class="n">LDAP_SERVER1</span> <span class="o">=</span> <span class="s2">&quot;ldapServer1&quot;</span>
+    <span class="n">LDAP_SERVER2</span> <span class="o">=</span> <span class="s2">&quot;ldapServer2&quot;</span>
+    <span class="n">LDAP_SERVER3</span> <span class="o">=</span> <span class="s2">&quot;ldapServer3&quot;</span>
+    <span class="n">LDAP_SERVER4</span> <span class="o">=</span> <span class="s2">&quot;ldapServer4&quot;</span>
+    <span class="n">LDAP_SERVER5</span> <span class="o">=</span> <span class="s2">&quot;ldapServer5&quot;</span>
+    <span class="n">LDAP_SERVER6</span> <span class="o">=</span> <span class="s2">&quot;ldapServer6&quot;</span>
+    <span class="n">LDAP_SERVER_PORT1</span> <span class="o">=</span> <span class="s2">&quot;ldapServerPort1&quot;</span>
+    <span class="n">LDAP_SERVER_PORT2</span> <span class="o">=</span> <span class="s2">&quot;ldapServerPort2&quot;</span>
+    <span class="n">LDAP_SERVER_PORT3</span> <span class="o">=</span> <span class="s2">&quot;ldapServerPort3&quot;</span>
+    <span class="n">LDAP_SERVER_PORT4</span> <span class="o">=</span> <span class="s2">&quot;ldapServerPort4&quot;</span>
+    <span class="n">LDAP_SERVER_PORT5</span> <span class="o">=</span> <span class="s2">&quot;ldapServerPort5&quot;</span>
+    <span class="n">LDAP_SERVER_PORT6</span> <span class="o">=</span> <span class="s2">&quot;ldapServerPort6&quot;</span>
+    <span class="n">LEARN_CYCLE_REQUESTED</span> <span class="o">=</span> <span class="s2">&quot;learnCycleRequested&quot;</span>
+    <span class="n">LEARN_CYCLE_STATUS</span> <span class="o">=</span> <span class="s2">&quot;learnCycleStatus&quot;</span>
+    <span class="n">LEARN_MODE</span> <span class="o">=</span> <span class="s2">&quot;learnMode&quot;</span>
+    <span class="n">LINK_BUSY_RETRY_COUNT</span> <span class="o">=</span> <span class="s2">&quot;linkBusyRetryCount&quot;</span>
+    <span class="n">LINK_DOWN_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;linkDownTimeout&quot;</span>
+    <span class="n">LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;linkSpeed&quot;</span>
+    <span class="n">LINK_STATE</span> <span class="o">=</span> <span class="s2">&quot;linkState&quot;</span>
+    <span class="n">LINK_TRAINING</span> <span class="o">=</span> <span class="s2">&quot;linkTraining&quot;</span>
+    <span class="n">LINKUP_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;linkupTimeout&quot;</span>
+    <span class="n">LOCAL_SEVERITY</span> <span class="o">=</span> <span class="s2">&quot;localSeverity&quot;</span>
+    <span class="n">LOCAL_TIME</span> <span class="o">=</span> <span class="s2">&quot;localTime&quot;</span>
+    <span class="n">LOCAL_VIDEO_STATE</span> <span class="o">=</span> <span class="s2">&quot;localVideoState&quot;</span>
+    <span class="n">LOCALITY</span> <span class="o">=</span> <span class="s2">&quot;locality&quot;</span>
+    <span class="n">LOCATE_DIRECTORY_USING_DNS</span> <span class="o">=</span> <span class="s2">&quot;locateDirectoryUsingDNS&quot;</span>
+    <span class="n">LOCATION</span> <span class="o">=</span> <span class="s2">&quot;location&quot;</span>
+    <span class="n">LOCATOR_LEDSTATUS</span> <span class="o">=</span> <span class="s2">&quot;locatorLEDStatus&quot;</span>
+    <span class="n">LOCKED</span> <span class="o">=</span> <span class="s2">&quot;locked&quot;</span>
+    <span class="n">LROP_IN_PROGRESS</span> <span class="o">=</span> <span class="s2">&quot;lropInProgress&quot;</span>
+    <span class="n">LUN</span> <span class="o">=</span> <span class="s2">&quot;lun&quot;</span>
+    <span class="n">LUNS_PER_TARGET</span> <span class="o">=</span> <span class="s2">&quot;lunsPerTarget&quot;</span>
+    <span class="n">MAC</span> <span class="o">=</span> <span class="s2">&quot;mac&quot;</span>
+    <span class="n">MAC_ADDR</span> <span class="o">=</span> <span class="s2">&quot;macAddr&quot;</span>
+    <span class="n">MAINTAIN_PD_FAIL_HISTORY</span> <span class="o">=</span> <span class="s2">&quot;maintainPdFailHistory&quot;</span>
+    <span class="n">MANUFACTURER</span> <span class="o">=</span> <span class="s2">&quot;manufacturer&quot;</span>
+    <span class="n">MANUFACTURER_DATE</span> <span class="o">=</span> <span class="s2">&quot;manufacturerDate&quot;</span>
+    <span class="n">MANUFACTURER_ID</span> <span class="o">=</span> <span class="s2">&quot;manufacturerId&quot;</span>
+    <span class="n">MAP</span> <span class="o">=</span> <span class="s2">&quot;map&quot;</span>
+    <span class="n">MAP_TYPE</span> <span class="o">=</span> <span class="s2">&quot;mapType&quot;</span>
+    <span class="n">MAPPING_STATUS</span> <span class="o">=</span> <span class="s2">&quot;mappingStatus&quot;</span>
+    <span class="n">MAX_AVAILABLE_SPACE</span> <span class="o">=</span> <span class="s2">&quot;maxAvailableSpace&quot;</span>
+    <span class="n">MAX_CPU_POWER</span> <span class="o">=</span> <span class="s2">&quot;maxCpuPower&quot;</span>
+    <span class="n">MAX_DATA_FIELD_SIZE</span> <span class="o">=</span> <span class="s2">&quot;maxDataFieldSize&quot;</span>
+    <span class="n">MAX_DEVICES</span> <span class="o">=</span> <span class="s2">&quot;maxDevices&quot;</span>
+    <span class="n">MAX_MEMORY_POWER</span> <span class="o">=</span> <span class="s2">&quot;maxMemoryPower&quot;</span>
+    <span class="n">MAX_OUTPUT</span> <span class="o">=</span> <span class="s2">&quot;maxOutput&quot;</span>
+    <span class="n">MAX_POWER</span> <span class="o">=</span> <span class="s2">&quot;maxPower&quot;</span>
+    <span class="n">MAXIMUM</span> <span class="o">=</span> <span class="s2">&quot;maximum&quot;</span>
+    <span class="n">MAXIMUM_SESSIONS</span> <span class="o">=</span> <span class="s2">&quot;maximumSessions&quot;</span>
+    <span class="n">MEDIA_ERROR_COUNT</span> <span class="o">=</span> <span class="s2">&quot;mediaErrorCount&quot;</span>
+    <span class="n">MEDIA_TYPE</span> <span class="o">=</span> <span class="s2">&quot;mediaType&quot;</span>
+    <span class="n">MEM_SAFE_THROT_LVL</span> <span class="o">=</span> <span class="s2">&quot;memSafeThrotLvl&quot;</span>
+    <span class="n">MEMORY_CONFIGURATION</span> <span class="o">=</span> <span class="s2">&quot;memoryConfiguration&quot;</span>
+    <span class="n">MEMORY_CORRECTABLE_ERRORS</span> <span class="o">=</span> <span class="s2">&quot;memoryCorrectableErrors&quot;</span>
+    <span class="n">MEMORY_POWER_LIMIT</span> <span class="o">=</span> <span class="s2">&quot;memoryPowerLimit&quot;</span>
+    <span class="n">MEMORY_PRESENT</span> <span class="o">=</span> <span class="s2">&quot;memoryPresent&quot;</span>
+    <span class="n">MEMORY_RASPOSSIBLE</span> <span class="o">=</span> <span class="s2">&quot;memoryRASPossible&quot;</span>
+    <span class="n">MEMORY_SIZE</span> <span class="o">=</span> <span class="s2">&quot;memorySize&quot;</span>
+    <span class="n">MEMORY_SPEED</span> <span class="o">=</span> <span class="s2">&quot;memorySpeed&quot;</span>
+    <span class="n">MEMORY_TYPE_DETAIL</span> <span class="o">=</span> <span class="s2">&quot;memoryTypeDetail&quot;</span>
+    <span class="n">MEMORY_UNCORRECTABLE_ERRORS</span> <span class="o">=</span> <span class="s2">&quot;memoryUncorrectableErrors&quot;</span>
+    <span class="n">MEMORY_UTILIZATION</span> <span class="o">=</span> <span class="s2">&quot;memoryUtilization&quot;</span>
+    <span class="n">MFGID</span> <span class="o">=</span> <span class="s2">&quot;mfgid&quot;</span>
+    <span class="n">MIN_CPU_POWER</span> <span class="o">=</span> <span class="s2">&quot;minCpuPower&quot;</span>
+    <span class="n">MIN_MEMORY_POWER</span> <span class="o">=</span> <span class="s2">&quot;minMemoryPower&quot;</span>
+    <span class="n">MIN_POWER</span> <span class="o">=</span> <span class="s2">&quot;minPower&quot;</span>
+    <span class="n">MIN_REQUIRED_PHYSICAL_DRIVES</span> <span class="o">=</span> <span class="s2">&quot;minRequiredPhysicalDrives&quot;</span>
+    <span class="n">MINIMUM</span> <span class="o">=</span> <span class="s2">&quot;minimum&quot;</span>
+    <span class="n">MISS_RDG_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;missRdgTimeout&quot;</span>
+    <span class="n">MODE</span> <span class="o">=</span> <span class="s2">&quot;mode&quot;</span>
+    <span class="n">MODEL</span> <span class="o">=</span> <span class="s2">&quot;model&quot;</span>
+    <span class="n">MODULE</span> <span class="o">=</span> <span class="s2">&quot;module&quot;</span>
+    <span class="n">MOUNT_OPTIONS</span> <span class="o">=</span> <span class="s2">&quot;mountOptions&quot;</span>
+    <span class="n">MTU</span> <span class="o">=</span> <span class="s2">&quot;mtu&quot;</span>
+    <span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span>
+    <span class="n">NCQ_STATUS</span> <span class="o">=</span> <span class="s2">&quot;ncqStatus&quot;</span>
+    <span class="n">NEW_VERSION</span> <span class="o">=</span> <span class="s2">&quot;newVersion&quot;</span>
+    <span class="n">NEXT_LEARN_CYCLE</span> <span class="o">=</span> <span class="s2">&quot;nextLearnCycle&quot;</span>
+    <span class="n">NIC_MODE</span> <span class="o">=</span> <span class="s2">&quot;nicMode&quot;</span>
+    <span class="n">NIC_REDUNDANCY</span> <span class="o">=</span> <span class="s2">&quot;nicRedundancy&quot;</span>
+    <span class="n">NON_COERCED_SIZE</span> <span class="o">=</span> <span class="s2">&quot;nonCoercedSize&quot;</span>
+    <span class="n">NON_UTIL_PARTITION_NAME</span> <span class="o">=</span> <span class="s2">&quot;nonUtilPartitionName&quot;</span>
+    <span class="n">NOTIFICATION_TYPE</span> <span class="o">=</span> <span class="s2">&quot;notificationType&quot;</span>
+    <span class="n">NTP_ENABLE</span> <span class="o">=</span> <span class="s2">&quot;ntpEnable&quot;</span>
+    <span class="n">NTP_SERVER1</span> <span class="o">=</span> <span class="s2">&quot;ntpServer1&quot;</span>
+    <span class="n">NTP_SERVER2</span> <span class="o">=</span> <span class="s2">&quot;ntpServer2&quot;</span>
+    <span class="n">NTP_SERVER3</span> <span class="o">=</span> <span class="s2">&quot;ntpServer3&quot;</span>
+    <span class="n">NTP_SERVER4</span> <span class="o">=</span> <span class="s2">&quot;ntpServer4&quot;</span>
+    <span class="n">NTP_SERVER_STATUS</span> <span class="o">=</span> <span class="s2">&quot;ntpServerStatus&quot;</span>
+    <span class="n">NUM_INTF</span> <span class="o">=</span> <span class="s2">&quot;numIntf&quot;</span>
+    <span class="n">NUM_OF_ADAPTORS</span> <span class="o">=</span> <span class="s2">&quot;numOfAdaptors&quot;</span>
+    <span class="n">NUM_OF_COMPONENTS</span> <span class="o">=</span> <span class="s2">&quot;numOfComponents&quot;</span>
+    <span class="n">NUM_OF_CORES</span> <span class="o">=</span> <span class="s2">&quot;numOfCores&quot;</span>
+    <span class="n">NUM_OF_CORES_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;numOfCoresEnabled&quot;</span>
+    <span class="n">NUM_OF_CPUS</span> <span class="o">=</span> <span class="s2">&quot;numOfCpus&quot;</span>
+    <span class="n">NUM_OF_ETH_HOST_IFS</span> <span class="o">=</span> <span class="s2">&quot;numOfEthHostIfs&quot;</span>
+    <span class="n">NUM_OF_FAILED_DIMMS</span> <span class="o">=</span> <span class="s2">&quot;numOfFailedDimms&quot;</span>
+    <span class="n">NUM_OF_FC_HOST_IFS</span> <span class="o">=</span> <span class="s2">&quot;numOfFcHostIfs&quot;</span>
+    <span class="n">NUM_OF_IGNORED_DIMMS</span> <span class="o">=</span> <span class="s2">&quot;numOfIgnoredDimms&quot;</span>
+    <span class="n">NUM_OF_THREADS</span> <span class="o">=</span> <span class="s2">&quot;numOfThreads&quot;</span>
+    <span class="n">NUM_OF_VMFEX_IFS</span> <span class="o">=</span> <span class="s2">&quot;numOfVMFexIfs&quot;</span>
+    <span class="n">NUMBER_OF_BLOCKS</span> <span class="o">=</span> <span class="s2">&quot;numberOfBlocks&quot;</span>
+    <span class="n">NVDATA_VERSION</span> <span class="o">=</span> <span class="s2">&quot;nvdataVersion&quot;</span>
+    <span class="n">NVRAM_PRESENT</span> <span class="o">=</span> <span class="s2">&quot;nvramPresent&quot;</span>
+    <span class="n">OCCUR</span> <span class="o">=</span> <span class="s2">&quot;occur&quot;</span>
+    <span class="n">OEM_ID</span> <span class="o">=</span> <span class="s2">&quot;oemId&quot;</span>
+    <span class="n">OFFLINE_VIRTUAL_DRIVE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;offlineVirtualDriveCount&quot;</span>
+    <span class="n">ONLINE</span> <span class="o">=</span> <span class="s2">&quot;online&quot;</span>
+    <span class="n">OPER_DUPLEX</span> <span class="o">=</span> <span class="s2">&quot;operDuplex&quot;</span>
+    <span class="n">OPER_NET_SPEED</span> <span class="o">=</span> <span class="s2">&quot;operNetSpeed&quot;</span>
+    <span class="n">OPER_POWER</span> <span class="o">=</span> <span class="s2">&quot;operPower&quot;</span>
+    <span class="n">OPER_SPEED</span> <span class="o">=</span> <span class="s2">&quot;operSpeed&quot;</span>
+    <span class="n">OPER_STATE</span> <span class="o">=</span> <span class="s2">&quot;operState&quot;</span>
+    <span class="n">OPER_STATUS</span> <span class="o">=</span> <span class="s2">&quot;operStatus&quot;</span>
+    <span class="n">OPERABILITY</span> <span class="o">=</span> <span class="s2">&quot;operability&quot;</span>
+    <span class="n">OPERATING_MODE</span> <span class="o">=</span> <span class="s2">&quot;operatingMode&quot;</span>
+    <span class="n">OPERATION_IN_PROGRESS</span> <span class="o">=</span> <span class="s2">&quot;operationInProgress&quot;</span>
+    <span class="n">ORDER</span> <span class="o">=</span> <span class="s2">&quot;order&quot;</span>
+    <span class="n">ORGANIZATION</span> <span class="o">=</span> <span class="s2">&quot;organization&quot;</span>
+    <span class="n">ORGANIZATIONAL_UNIT</span> <span class="o">=</span> <span class="s2">&quot;organizationalUnit&quot;</span>
+    <span class="n">ORIG_SEVERITY</span> <span class="o">=</span> <span class="s2">&quot;origSeverity&quot;</span>
+    <span class="n">ORIGINAL_UUID</span> <span class="o">=</span> <span class="s2">&quot;originalUuid&quot;</span>
+    <span class="n">OTHER_ERROR_COUNT</span> <span class="o">=</span> <span class="s2">&quot;otherErrorCount&quot;</span>
+    <span class="n">OVERALL_DIMMSTATUS</span> <span class="o">=</span> <span class="s2">&quot;overallDIMMStatus&quot;</span>
+    <span class="n">OVERALL_STATUS</span> <span class="o">=</span> <span class="s2">&quot;overallStatus&quot;</span>
+    <span class="n">OVERALL_UTILIZATION</span> <span class="o">=</span> <span class="s2">&quot;overallUtilization&quot;</span>
+    <span class="n">OWNERSHIP</span> <span class="o">=</span> <span class="s2">&quot;ownership&quot;</span>
+    <span class="n">PART_NUMBER</span> <span class="o">=</span> <span class="s2">&quot;partNumber&quot;</span>
+    <span class="n">PART_REVISION</span> <span class="o">=</span> <span class="s2">&quot;partRevision&quot;</span>
+    <span class="n">PARTITION_COUNT</span> <span class="o">=</span> <span class="s2">&quot;partitionCount&quot;</span>
+    <span class="n">PARTITION_ID</span> <span class="o">=</span> <span class="s2">&quot;partitionId&quot;</span>
+    <span class="n">PARTITION_NAME</span> <span class="o">=</span> <span class="s2">&quot;partitionName&quot;</span>
+    <span class="n">PASSPHRASE</span> <span class="o">=</span> <span class="s2">&quot;passphrase&quot;</span>
+    <span class="n">PASSWORD</span> <span class="o">=</span> <span class="s2">&quot;password&quot;</span>
+    <span class="n">PASSWORD_POLICY_RULES</span> <span class="o">=</span> <span class="s2">&quot;passwordPolicyRules&quot;</span>
+    <span class="n">PASSWORD_PROTECTED</span> <span class="o">=</span> <span class="s2">&quot;passwordProtected&quot;</span>
+    <span class="n">PATROL_READ_RATE</span> <span class="o">=</span> <span class="s2">&quot;patrolReadRate&quot;</span>
+    <span class="n">PCI_ADDR</span> <span class="o">=</span> <span class="s2">&quot;pciAddr&quot;</span>
+    <span class="n">PCI_ORDER</span> <span class="o">=</span> <span class="s2">&quot;pciOrder&quot;</span>
+    <span class="n">PCI_SLOT</span> <span class="o">=</span> <span class="s2">&quot;pciSlot&quot;</span>
+    <span class="n">PD_STATUS</span> <span class="o">=</span> <span class="s2">&quot;pdStatus&quot;</span>
+    <span class="n">PENALTY_TIME</span> <span class="o">=</span> <span class="s2">&quot;penaltyTime&quot;</span>
+    <span class="n">PERF</span> <span class="o">=</span> <span class="s2">&quot;perf&quot;</span>
+    <span class="n">PERSISTENT_LUN_BIND</span> <span class="o">=</span> <span class="s2">&quot;persistentLunBind&quot;</span>
+    <span class="n">PHYS_DRIVE_COERCION_MODE</span> <span class="o">=</span> <span class="s2">&quot;physDriveCoercionMode&quot;</span>
+    <span class="n">PHYSICAL_DRIVE</span> <span class="o">=</span> <span class="s2">&quot;physicalDrive&quot;</span>
+    <span class="n">PHYSICAL_DRIVE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;physicalDriveCount&quot;</span>
+    <span class="n">PHYSICAL_DRIVE_ID</span> <span class="o">=</span> <span class="s2">&quot;physicalDriveId&quot;</span>
+    <span class="n">PHYSICAL_DRIVES_LIST</span> <span class="o">=</span> <span class="s2">&quot;physicalDrivesList&quot;</span>
+    <span class="n">PID</span> <span class="o">=</span> <span class="s2">&quot;pid&quot;</span>
+    <span class="n">PLAT_SAFE_THROT_LVL</span> <span class="o">=</span> <span class="s2">&quot;platSafeThrotLvl&quot;</span>
+    <span class="n">PLATFORM_THERMAL</span> <span class="o">=</span> <span class="s2">&quot;platformThermal&quot;</span>
+    <span class="n">POPULATED</span> <span class="o">=</span> <span class="s2">&quot;populated&quot;</span>
+    <span class="n">PORT</span> <span class="o">=</span> <span class="s2">&quot;port&quot;</span>
+    <span class="n">PORT_DOWN_IO_RETRY_COUNT</span> <span class="o">=</span> <span class="s2">&quot;portDownIoRetryCount&quot;</span>
+    <span class="n">PORT_DOWN_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;portDownTimeout&quot;</span>
+    <span class="n">PORT_ID</span> <span class="o">=</span> <span class="s2">&quot;portId&quot;</span>
+    <span class="n">PORT_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;portProfile&quot;</span>
+    <span class="n">PORT_PROFILES_COUNT</span> <span class="o">=</span> <span class="s2">&quot;portProfilesCount&quot;</span>
+    <span class="n">PORT_PROFILES_NAME</span> <span class="o">=</span> <span class="s2">&quot;portProfilesName&quot;</span>
+    <span class="n">POWER</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span>
+    <span class="n">POWER_CHAR_STATUS</span> <span class="o">=</span> <span class="s2">&quot;powerCharStatus&quot;</span>
+    <span class="n">POWER_LIMIT</span> <span class="o">=</span> <span class="s2">&quot;powerLimit&quot;</span>
+    <span class="n">POWER_STATE</span> <span class="o">=</span> <span class="s2">&quot;powerState&quot;</span>
+    <span class="n">PREBOOT_CLI_VERSION</span> <span class="o">=</span> <span class="s2">&quot;prebootCliVersion&quot;</span>
+    <span class="n">PREDICTIVE_FAIL_POLL_INTERVAL</span> <span class="o">=</span> <span class="s2">&quot;predictiveFailPollInterval&quot;</span>
+    <span class="n">PREDICTIVE_FAILURE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;predictiveFailureCount&quot;</span>
+    <span class="n">PRESENCE</span> <span class="o">=</span> <span class="s2">&quot;presence&quot;</span>
+    <span class="n">PRESENT</span> <span class="o">=</span> <span class="s2">&quot;present&quot;</span>
+    <span class="n">PREV_SEVERITY</span> <span class="o">=</span> <span class="s2">&quot;prevSeverity&quot;</span>
+    <span class="n">PRIMARY_TARGET_BOOT_LUN</span> <span class="o">=</span> <span class="s2">&quot;primaryTargetBootLun&quot;</span>
+    <span class="n">PRIMARY_TARGET_CHAP_NAME</span> <span class="o">=</span> <span class="s2">&quot;primaryTargetChapName&quot;</span>
+    <span class="n">PRIMARY_TARGET_CHAP_SECRET</span> <span class="o">=</span> <span class="s2">&quot;primaryTargetChapSecret&quot;</span>
+    <span class="n">PRIMARY_TARGET_IPADDRESS</span> <span class="o">=</span> <span class="s2">&quot;primaryTargetIPAddress&quot;</span>
+    <span class="n">PRIMARY_TARGET_NAME</span> <span class="o">=</span> <span class="s2">&quot;primaryTargetName&quot;</span>
+    <span class="n">PRIMARY_TARGET_PORT</span> <span class="o">=</span> <span class="s2">&quot;primaryTargetPort&quot;</span>
+    <span class="n">PRIV</span> <span class="o">=</span> <span class="s2">&quot;priv&quot;</span>
+    <span class="n">PRIVACY</span> <span class="o">=</span> <span class="s2">&quot;privacy&quot;</span>
+    <span class="n">PRIVACY_PWD</span> <span class="o">=</span> <span class="s2">&quot;privacyPwd&quot;</span>
+    <span class="n">PRODUCT_ID</span> <span class="o">=</span> <span class="s2">&quot;productId&quot;</span>
+    <span class="n">PRODUCT_NAME</span> <span class="o">=</span> <span class="s2">&quot;productName&quot;</span>
+    <span class="n">PRODUCT_REVISION</span> <span class="o">=</span> <span class="s2">&quot;productRevision&quot;</span>
+    <span class="n">PROFILE_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;profileEnabled&quot;</span>
+    <span class="n">PROFILE_TYPE</span> <span class="o">=</span> <span class="s2">&quot;profileType&quot;</span>
+    <span class="n">PROGRESS</span> <span class="o">=</span> <span class="s2">&quot;progress&quot;</span>
+    <span class="n">PROGRESS_PERCENT</span> <span class="o">=</span> <span class="s2">&quot;progressPercent&quot;</span>
+    <span class="n">PROT</span> <span class="o">=</span> <span class="s2">&quot;prot&quot;</span>
+    <span class="n">PROTO</span> <span class="o">=</span> <span class="s2">&quot;proto&quot;</span>
+    <span class="n">PROTOCOL</span> <span class="o">=</span> <span class="s2">&quot;protocol&quot;</span>
+    <span class="n">PURPOSE</span> <span class="o">=</span> <span class="s2">&quot;purpose&quot;</span>
+    <span class="n">PWD</span> <span class="o">=</span> <span class="s2">&quot;pwd&quot;</span>
+    <span class="n">PXE_BOOT</span> <span class="o">=</span> <span class="s2">&quot;pxeBoot&quot;</span>
+    <span class="n">RAID_CHIP_TEMP_CENTIGRADE</span> <span class="o">=</span> <span class="s2">&quot;raidChipTempCentigrade&quot;</span>
+    <span class="n">RAID_LEVEL</span> <span class="o">=</span> <span class="s2">&quot;raidLevel&quot;</span>
+    <span class="n">RAID_PRIMARY_MEMBER</span> <span class="o">=</span> <span class="s2">&quot;raidPrimaryMember&quot;</span>
+    <span class="n">RAID_ROLE</span> <span class="o">=</span> <span class="s2">&quot;raidRole&quot;</span>
+    <span class="n">RAID_SECONDARY_ROLE</span> <span class="o">=</span> <span class="s2">&quot;raidSecondaryRole&quot;</span>
+    <span class="n">RAID_SUPPORT</span> <span class="o">=</span> <span class="s2">&quot;raidSupport&quot;</span>
+    <span class="n">RATE_LIMIT</span> <span class="o">=</span> <span class="s2">&quot;rateLimit&quot;</span>
+    <span class="n">RAW_SIZE</span> <span class="o">=</span> <span class="s2">&quot;rawSize&quot;</span>
+    <span class="n">RD_ERR_COUNT_SLOT1_THRESHOLD</span> <span class="o">=</span> <span class="s2">&quot;rdErrCountSlot1Threshold&quot;</span>
+    <span class="n">RD_ERR_COUNT_SLOT2_THRESHOLD</span> <span class="o">=</span> <span class="s2">&quot;rdErrCountSlot2Threshold&quot;</span>
+    <span class="n">READ_ERROR_COUNT</span> <span class="o">=</span> <span class="s2">&quot;readErrorCount&quot;</span>
+    <span class="n">READ_ERROR_THRESHOLD</span> <span class="o">=</span> <span class="s2">&quot;readErrorThreshold&quot;</span>
+    <span class="n">READ_POLICY</span> <span class="o">=</span> <span class="s2">&quot;readPolicy&quot;</span>
+    <span class="n">REAPPLY</span> <span class="o">=</span> <span class="s2">&quot;reapply&quot;</span>
+    <span class="n">REAR_TEMP</span> <span class="o">=</span> <span class="s2">&quot;rearTemp&quot;</span>
+    <span class="n">REBOOT_ON_UPDATE</span> <span class="o">=</span> <span class="s2">&quot;rebootOnUpdate&quot;</span>
+    <span class="n">REBUILD_RATE</span> <span class="o">=</span> <span class="s2">&quot;rebuildRate&quot;</span>
+    <span class="n">RECEIVE_QUEUE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;receiveQueueCount&quot;</span>
+    <span class="n">RECEIVE_QUEUE_RING_SIZE</span> <span class="o">=</span> <span class="s2">&quot;receiveQueueRingSize&quot;</span>
+    <span class="n">RECEIVE_SIDE_SCALING</span> <span class="o">=</span> <span class="s2">&quot;receiveSideScaling&quot;</span>
+    <span class="n">RECEIVE_SIDE_SCALING_EXT_IP_V6_HASH</span> <span class="o">=</span> <span class="s2">&quot;receiveSideScalingExtIpV6Hash&quot;</span>
+    <span class="n">RECEIVE_SIDE_SCALING_EXT_TCPIP_V6_HASH</span> <span class="o">=</span> <span class="s2">&quot;receiveSideScalingExtTCPIpV6Hash&quot;</span>
+    <span class="n">RECEIVE_SIDE_SCALING_IP_V4_HASH</span> <span class="o">=</span> <span class="s2">&quot;receiveSideScalingIpV4Hash&quot;</span>
+    <span class="n">RECEIVE_SIDE_SCALING_IP_V6_HASH</span> <span class="o">=</span> <span class="s2">&quot;receiveSideScalingIpV6Hash&quot;</span>
+    <span class="n">RECEIVE_SIDE_SCALING_TCPIP_V4_HASH</span> <span class="o">=</span> <span class="s2">&quot;receiveSideScalingTCPIpV4Hash&quot;</span>
+    <span class="n">RECEIVE_SIDE_SCALING_TCPIP_V6_HASH</span> <span class="o">=</span> <span class="s2">&quot;receiveSideScalingTCPIpV6Hash&quot;</span>
+    <span class="n">RECONSTRUCTION_RATE</span> <span class="o">=</span> <span class="s2">&quot;reconstructionRate&quot;</span>
+    <span class="n">REDIRECT_STATE</span> <span class="o">=</span> <span class="s2">&quot;redirectState&quot;</span>
+    <span class="n">REDUNDANT_MEMORY</span> <span class="o">=</span> <span class="s2">&quot;redundantMemory&quot;</span>
+    <span class="n">RELATIVE_STATE_OF_CHARGE</span> <span class="o">=</span> <span class="s2">&quot;relativeStateOfCharge&quot;</span>
+    <span class="n">REMAINING_CAPACITY</span> <span class="o">=</span> <span class="s2">&quot;remainingCapacity&quot;</span>
+    <span class="n">REMOTE_FILE</span> <span class="o">=</span> <span class="s2">&quot;remoteFile&quot;</span>
+    <span class="n">REMOTE_IP</span> <span class="o">=</span> <span class="s2">&quot;remoteIp&quot;</span>
+    <span class="n">REMOTE_PATH</span> <span class="o">=</span> <span class="s2">&quot;remotePath&quot;</span>
+    <span class="n">REMOTE_SERVER</span> <span class="o">=</span> <span class="s2">&quot;remoteServer&quot;</span>
+    <span class="n">REMOTE_SEVERITY</span> <span class="o">=</span> <span class="s2">&quot;remoteSeverity&quot;</span>
+    <span class="n">REMOTE_SHARE</span> <span class="o">=</span> <span class="s2">&quot;remoteShare&quot;</span>
+    <span class="n">REMOTE_SHARE_FILE</span> <span class="o">=</span> <span class="s2">&quot;remoteShareFile&quot;</span>
+    <span class="n">REMOTE_SHARE_IP</span> <span class="o">=</span> <span class="s2">&quot;remoteShareIp&quot;</span>
+    <span class="n">REMOTE_SHARE_PASSWORD</span> <span class="o">=</span> <span class="s2">&quot;remoteSharePassword&quot;</span>
+    <span class="n">REMOTE_SHARE_PATH</span> <span class="o">=</span> <span class="s2">&quot;remoteSharePath&quot;</span>
+    <span class="n">REMOTE_SHARE_TYPE</span> <span class="o">=</span> <span class="s2">&quot;remoteShareType&quot;</span>
+    <span class="n">REMOTE_SHARE_USERNAME</span> <span class="o">=</span> <span class="s2">&quot;remoteShareUsername&quot;</span>
+    <span class="n">REQUESTED_WRITE_CACHE_POLICY</span> <span class="o">=</span> <span class="s2">&quot;requestedWriteCachePolicy&quot;</span>
+    <span class="n">RESET_ON_ACTIVATE</span> <span class="o">=</span> <span class="s2">&quot;resetOnActivate&quot;</span>
+    <span class="n">RESOURCE_ALLOCATION_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;resourceAllocationTimeout&quot;</span>
+    <span class="n">RETENTION_TIME</span> <span class="o">=</span> <span class="s2">&quot;retentionTime&quot;</span>
+    <span class="n">RETRIES</span> <span class="o">=</span> <span class="s2">&quot;retries&quot;</span>
+    <span class="n">REVISION</span> <span class="o">=</span> <span class="s2">&quot;revision&quot;</span>
+    <span class="n">RING_SIZE</span> <span class="o">=</span> <span class="s2">&quot;ringSize&quot;</span>
+    <span class="n">RN</span> <span class="o">=</span> <span class="s2">&quot;rn&quot;</span>
+    <span class="n">ROLE</span> <span class="o">=</span> <span class="s2">&quot;role&quot;</span>
+    <span class="n">RULE</span> <span class="o">=</span> <span class="s2">&quot;rule&quot;</span>
+    <span class="n">RUN_POW_CHAR_AT_BOOT</span> <span class="o">=</span> <span class="s2">&quot;runPowCharAtBoot&quot;</span>
+    <span class="n">RUNNING_FW_VERSION</span> <span class="o">=</span> <span class="s2">&quot;runningFwVersion&quot;</span>
+    <span class="n">RUNNING_TIME</span> <span class="o">=</span> <span class="s2">&quot;runningTime&quot;</span>
+    <span class="n">RUNNING_VERSION</span> <span class="o">=</span> <span class="s2">&quot;runningVersion&quot;</span>
+    <span class="n">SAN_BOOT</span> <span class="o">=</span> <span class="s2">&quot;sanBoot&quot;</span>
+    <span class="n">SAS_ADDRESS0</span> <span class="o">=</span> <span class="s2">&quot;sasAddress0&quot;</span>
+    <span class="n">SAS_ADDRESS1</span> <span class="o">=</span> <span class="s2">&quot;sasAddress1&quot;</span>
+    <span class="n">SAS_ADDRESS2</span> <span class="o">=</span> <span class="s2">&quot;sasAddress2&quot;</span>
+    <span class="n">SAS_ADDRESS3</span> <span class="o">=</span> <span class="s2">&quot;sasAddress3&quot;</span>
+    <span class="n">SAS_ADDRESS4</span> <span class="o">=</span> <span class="s2">&quot;sasAddress4&quot;</span>
+    <span class="n">SAS_ADDRESS5</span> <span class="o">=</span> <span class="s2">&quot;sasAddress5&quot;</span>
+    <span class="n">SAS_ADDRESS6</span> <span class="o">=</span> <span class="s2">&quot;sasAddress6&quot;</span>
+    <span class="n">SAS_ADDRESS7</span> <span class="o">=</span> <span class="s2">&quot;sasAddress7&quot;</span>
+    <span class="n">SECONDARY_TARGET_BOOT_LUN</span> <span class="o">=</span> <span class="s2">&quot;secondaryTargetBootLun&quot;</span>
+    <span class="n">SECONDARY_TARGET_CHAP_NAME</span> <span class="o">=</span> <span class="s2">&quot;secondaryTargetChapName&quot;</span>
+    <span class="n">SECONDARY_TARGET_CHAP_SECRET</span> <span class="o">=</span> <span class="s2">&quot;secondaryTargetChapSecret&quot;</span>
+    <span class="n">SECONDARY_TARGET_IPADDRESS</span> <span class="o">=</span> <span class="s2">&quot;secondaryTargetIPAddress&quot;</span>
+    <span class="n">SECONDARY_TARGET_NAME</span> <span class="o">=</span> <span class="s2">&quot;secondaryTargetName&quot;</span>
+    <span class="n">SECONDARY_TARGET_PORT</span> <span class="o">=</span> <span class="s2">&quot;secondaryTargetPort&quot;</span>
+    <span class="n">SECURE_BOOT</span> <span class="o">=</span> <span class="s2">&quot;secureBoot&quot;</span>
+    <span class="n">SECURED</span> <span class="o">=</span> <span class="s2">&quot;secured&quot;</span>
+    <span class="n">SECURITY_KEY</span> <span class="o">=</span> <span class="s2">&quot;securityKey&quot;</span>
+    <span class="n">SECURITY_LEVEL</span> <span class="o">=</span> <span class="s2">&quot;securityLevel&quot;</span>
+    <span class="n">SELF_ENCRYPT_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;selfEncryptEnabled&quot;</span>
+    <span class="n">SELF_SIGNED</span> <span class="o">=</span> <span class="s2">&quot;selfSigned&quot;</span>
+    <span class="n">SEQUENCE_NUMBER</span> <span class="o">=</span> <span class="s2">&quot;sequenceNumber&quot;</span>
+    <span class="n">SERIAL</span> <span class="o">=</span> <span class="s2">&quot;serial&quot;</span>
+    <span class="n">SERIAL_DEBUGGER_PRESENT</span> <span class="o">=</span> <span class="s2">&quot;serialDebuggerPresent&quot;</span>
+    <span class="n">SERIAL_NUMBER</span> <span class="o">=</span> <span class="s2">&quot;serialNumber&quot;</span>
+    <span class="n">SERIALNUMBER</span> <span class="o">=</span> <span class="s2">&quot;serialnumber&quot;</span>
+    <span class="n">SERVER_ID</span> <span class="o">=</span> <span class="s2">&quot;serverId&quot;</span>
+    <span class="n">SESSION_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;sessionTimeout&quot;</span>
+    <span class="n">SEVERITY</span> <span class="o">=</span> <span class="s2">&quot;severity&quot;</span>
+    <span class="n">SHARED_VIRTUAL_DRIVE_ID</span> <span class="o">=</span> <span class="s2">&quot;sharedVirtualDriveId&quot;</span>
+    <span class="n">SIGNATURE</span> <span class="o">=</span> <span class="s2">&quot;signature&quot;</span>
+    <span class="n">SIZE</span> <span class="o">=</span> <span class="s2">&quot;size&quot;</span>
+    <span class="n">SLOT</span> <span class="o">=</span> <span class="s2">&quot;slot&quot;</span>
+    <span class="n">SLOT_NUMBER</span> <span class="o">=</span> <span class="s2">&quot;slotNumber&quot;</span>
+    <span class="n">SMBIOS_ID</span> <span class="o">=</span> <span class="s2">&quot;smbiosId&quot;</span>
+    <span class="n">SNAPSHOT_CANCEL_OP</span> <span class="o">=</span> <span class="s2">&quot;snapshotCancelOp&quot;</span>
+    <span class="n">SNAPSHOT_REPORT</span> <span class="o">=</span> <span class="s2">&quot;snapshotReport&quot;</span>
+    <span class="n">SOCKET_DESIGNATION</span> <span class="o">=</span> <span class="s2">&quot;socketDesignation&quot;</span>
+    <span class="n">SOCKETDESIGNATION</span> <span class="o">=</span> <span class="s2">&quot;socketdesignation&quot;</span>
+    <span class="n">SPAN</span> <span class="o">=</span> <span class="s2">&quot;span&quot;</span>
+    <span class="n">SPAN_DEPTH</span> <span class="o">=</span> <span class="s2">&quot;spanDepth&quot;</span>
+    <span class="n">SPEED</span> <span class="o">=</span> <span class="s2">&quot;speed&quot;</span>
+    <span class="n">SPIN_DOWN_UNCONFIGURED</span> <span class="o">=</span> <span class="s2">&quot;spinDownUnconfigured&quot;</span>
+    <span class="n">SPINUP_DELAY</span> <span class="o">=</span> <span class="s2">&quot;spinupDelay&quot;</span>
+    <span class="n">SPINUP_DRIVE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;spinupDriveCount&quot;</span>
+    <span class="n">START_TIME</span> <span class="o">=</span> <span class="s2">&quot;startTime&quot;</span>
+    <span class="n">STARTING_BLOCK</span> <span class="o">=</span> <span class="s2">&quot;startingBlock&quot;</span>
+    <span class="n">STARTUP_FW_VERSION</span> <span class="o">=</span> <span class="s2">&quot;startupFwVersion&quot;</span>
+    <span class="n">STATE</span> <span class="o">=</span> <span class="s2">&quot;state&quot;</span>
+    <span class="n">STATUS</span> <span class="o">=</span> <span class="s2">&quot;status&quot;</span>
+    <span class="n">STEPPING</span> <span class="o">=</span> <span class="s2">&quot;stepping&quot;</span>
+    <span class="n">STOP_ON_ERROR</span> <span class="o">=</span> <span class="s2">&quot;stopOnError&quot;</span>
+    <span class="n">STRIP_SIZE</span> <span class="o">=</span> <span class="s2">&quot;stripSize&quot;</span>
+    <span class="n">SUB_DEVICE_ID</span> <span class="o">=</span> <span class="s2">&quot;subDeviceId&quot;</span>
+    <span class="n">SUB_VENDOR_ID</span> <span class="o">=</span> <span class="s2">&quot;subVendorId&quot;</span>
+    <span class="n">SUBDEVICE</span> <span class="o">=</span> <span class="s2">&quot;subdevice&quot;</span>
+    <span class="n">SUBJECT</span> <span class="o">=</span> <span class="s2">&quot;subject&quot;</span>
+    <span class="n">SUBTYPE</span> <span class="o">=</span> <span class="s2">&quot;subtype&quot;</span>
+    <span class="n">SUBVENDOR</span> <span class="o">=</span> <span class="s2">&quot;subvendor&quot;</span>
+    <span class="n">SUGGESTED_SECURITY_KEY</span> <span class="o">=</span> <span class="s2">&quot;suggestedSecurityKey&quot;</span>
+    <span class="n">SUPPORTED</span> <span class="o">=</span> <span class="s2">&quot;supported&quot;</span>
+    <span class="n">SUPPORTS_RAID0</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid0&quot;</span>
+    <span class="n">SUPPORTS_RAID00</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid00&quot;</span>
+    <span class="n">SUPPORTS_RAID1</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid1&quot;</span>
+    <span class="n">SUPPORTS_RAID10</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid10&quot;</span>
+    <span class="n">SUPPORTS_RAID1E</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid1e&quot;</span>
+    <span class="n">SUPPORTS_RAID1E0RLQ0</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid1e0rlq0&quot;</span>
+    <span class="n">SUPPORTS_RAID1ERLQ0</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid1erlq0&quot;</span>
+    <span class="n">SUPPORTS_RAID5</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid5&quot;</span>
+    <span class="n">SUPPORTS_RAID50</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid50&quot;</span>
+    <span class="n">SUPPORTS_RAID6</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid6&quot;</span>
+    <span class="n">SUPPORTS_RAID60</span> <span class="o">=</span> <span class="s2">&quot;supportsRaid60&quot;</span>
+    <span class="n">SUPPORTS_RAIDSRL03</span> <span class="o">=</span> <span class="s2">&quot;supportsRaidsrl03&quot;</span>
+    <span class="n">SUSPEND_PERIOD</span> <span class="o">=</span> <span class="s2">&quot;suspendPeriod&quot;</span>
+    <span class="n">SYNC_MODE</span> <span class="o">=</span> <span class="s2">&quot;syncMode&quot;</span>
+    <span class="n">SYS_CONTACT</span> <span class="o">=</span> <span class="s2">&quot;sysContact&quot;</span>
+    <span class="n">SYS_LOCATION</span> <span class="o">=</span> <span class="s2">&quot;sysLocation&quot;</span>
+    <span class="n">TAGS</span> <span class="o">=</span> <span class="s2">&quot;tags&quot;</span>
+    <span class="n">TARGET_ID</span> <span class="o">=</span> <span class="s2">&quot;targetId&quot;</span>
+    <span class="n">TARGET_WWPN</span> <span class="o">=</span> <span class="s2">&quot;targetWwpn&quot;</span>
+    <span class="n">TCP_HASH</span> <span class="o">=</span> <span class="s2">&quot;tcpHash&quot;</span>
+    <span class="n">TCP_RX_CHECKSUM</span> <span class="o">=</span> <span class="s2">&quot;tcpRxChecksum&quot;</span>
+    <span class="n">TCP_SEGMENT</span> <span class="o">=</span> <span class="s2">&quot;tcpSegment&quot;</span>
+    <span class="n">TCP_TX_CHECKSUM</span> <span class="o">=</span> <span class="s2">&quot;tcpTxChecksum&quot;</span>
+    <span class="n">TEMPERATURE</span> <span class="o">=</span> <span class="s2">&quot;temperature&quot;</span>
+    <span class="n">TEMPERATURE_HIGH</span> <span class="o">=</span> <span class="s2">&quot;temperatureHigh&quot;</span>
+    <span class="n">THERMAL</span> <span class="o">=</span> <span class="s2">&quot;thermal&quot;</span>
+    <span class="n">THERMAL_POW_LIMIT</span> <span class="o">=</span> <span class="s2">&quot;thermalPowLimit&quot;</span>
+    <span class="n">THREADS</span> <span class="o">=</span> <span class="s2">&quot;threads&quot;</span>
+    <span class="n">TIME_COLLECTED</span> <span class="o">=</span> <span class="s2">&quot;timeCollected&quot;</span>
+    <span class="n">TIME_OUT</span> <span class="o">=</span> <span class="s2">&quot;timeOut&quot;</span>
+    <span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s2">&quot;timeZone&quot;</span>
+    <span class="n">TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;timeout&quot;</span>
+    <span class="n">TOTAL_MEMORY</span> <span class="o">=</span> <span class="s2">&quot;totalMemory&quot;</span>
+    <span class="n">TOTAL_SESSIONS</span> <span class="o">=</span> <span class="s2">&quot;totalSessions&quot;</span>
+    <span class="n">TPM_REVISION</span> <span class="o">=</span> <span class="s2">&quot;tpmRevision&quot;</span>
+    <span class="n">TRANSMIT_QUEUE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;transmitQueueCount&quot;</span>
+    <span class="n">TRANSMIT_QUEUE_RING_SIZE</span> <span class="o">=</span> <span class="s2">&quot;transmitQueueRingSize&quot;</span>
+    <span class="n">TRANSPORT</span> <span class="o">=</span> <span class="s2">&quot;transport&quot;</span>
+    <span class="n">TRAP_COMMUNITY</span> <span class="o">=</span> <span class="s2">&quot;trapCommunity&quot;</span>
+    <span class="n">TRAY</span> <span class="o">=</span> <span class="s2">&quot;tray&quot;</span>
+    <span class="n">TRUSTED_CLASS_OF_SERVICE</span> <span class="o">=</span> <span class="s2">&quot;trustedClassOfService&quot;</span>
+    <span class="n">TTY_LOG_STATUS</span> <span class="o">=</span> <span class="s2">&quot;ttyLogStatus&quot;</span>
+    <span class="n">TYPE</span> <span class="o">=</span> <span class="s2">&quot;type&quot;</span>
+    <span class="n">UI</span> <span class="o">=</span> <span class="s2">&quot;ui&quot;</span>
+    <span class="n">UPDATE_COMPONENT</span> <span class="o">=</span> <span class="s2">&quot;updateComponent&quot;</span>
+    <span class="n">UPDATE_END_TIME</span> <span class="o">=</span> <span class="s2">&quot;updateEndTime&quot;</span>
+    <span class="n">UPDATE_START_TIME</span> <span class="o">=</span> <span class="s2">&quot;updateStartTime&quot;</span>
+    <span class="n">UPDATE_STATUS</span> <span class="o">=</span> <span class="s2">&quot;updateStatus&quot;</span>
+    <span class="n">UPLINK_FAILBACK_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;uplinkFailbackTimeout&quot;</span>
+    <span class="n">UPLINK_FAILOVER</span> <span class="o">=</span> <span class="s2">&quot;uplinkFailover&quot;</span>
+    <span class="n">UPLINK_PORT</span> <span class="o">=</span> <span class="s2">&quot;uplinkPort&quot;</span>
+    <span class="n">USED_PHYSICAL_DRIVE_IDS</span> <span class="o">=</span> <span class="s2">&quot;usedPhysicalDriveIds&quot;</span>
+    <span class="n">USER</span> <span class="o">=</span> <span class="s2">&quot;user&quot;</span>
+    <span class="n">USER_PASSWORD_POLICY</span> <span class="o">=</span> <span class="s2">&quot;userPasswordPolicy&quot;</span>
+    <span class="n">USERNAME</span> <span class="o">=</span> <span class="s2">&quot;username&quot;</span>
+    <span class="n">USNIC_COUNT</span> <span class="o">=</span> <span class="s2">&quot;usnicCount&quot;</span>
+    <span class="n">USNIC_SUPPORTED</span> <span class="o">=</span> <span class="s2">&quot;usnicSupported&quot;</span>
+    <span class="n">USR_LBL</span> <span class="o">=</span> <span class="s2">&quot;usrLbl&quot;</span>
+    <span class="n">UUID</span> <span class="o">=</span> <span class="s2">&quot;uuid&quot;</span>
+    <span class="n">VALID_FROM</span> <span class="o">=</span> <span class="s2">&quot;validFrom&quot;</span>
+    <span class="n">VALID_TO</span> <span class="o">=</span> <span class="s2">&quot;validTo&quot;</span>
+    <span class="n">VD_STATUS</span> <span class="o">=</span> <span class="s2">&quot;vdStatus&quot;</span>
+    <span class="n">VENDOR</span> <span class="o">=</span> <span class="s2">&quot;vendor&quot;</span>
+    <span class="n">VENDOR_ID</span> <span class="o">=</span> <span class="s2">&quot;vendorId&quot;</span>
+    <span class="n">VERIFY_STATUS</span> <span class="o">=</span> <span class="s2">&quot;verifyStatus&quot;</span>
+    <span class="n">VERIFY_UPDATE</span> <span class="o">=</span> <span class="s2">&quot;verifyUpdate&quot;</span>
+    <span class="n">VERSION</span> <span class="o">=</span> <span class="s2">&quot;version&quot;</span>
+    <span class="n">VIC_SLOT</span> <span class="o">=</span> <span class="s2">&quot;vicSlot&quot;</span>
+    <span class="n">VIRTUAL_DRIVE</span> <span class="o">=</span> <span class="s2">&quot;virtualDrive&quot;</span>
+    <span class="n">VIRTUAL_DRIVE_COUNT</span> <span class="o">=</span> <span class="s2">&quot;virtualDriveCount&quot;</span>
+    <span class="n">VIRTUAL_DRIVE_NAME</span> <span class="o">=</span> <span class="s2">&quot;virtualDriveName&quot;</span>
+    <span class="n">VIRTUAL_DRIVES_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;virtualDrivesEnabled&quot;</span>
+    <span class="n">VISIBILITY</span> <span class="o">=</span> <span class="s2">&quot;visibility&quot;</span>
+    <span class="n">VLAN</span> <span class="o">=</span> <span class="s2">&quot;vlan&quot;</span>
+    <span class="n">VLAN_ENABLE</span> <span class="o">=</span> <span class="s2">&quot;vlanEnable&quot;</span>
+    <span class="n">VLAN_ID</span> <span class="o">=</span> <span class="s2">&quot;vlanId&quot;</span>
+    <span class="n">VLAN_MODE</span> <span class="o">=</span> <span class="s2">&quot;vlanMode&quot;</span>
+    <span class="n">VLAN_PRIORITY</span> <span class="o">=</span> <span class="s2">&quot;vlanPriority&quot;</span>
+    <span class="n">VMQ</span> <span class="o">=</span> <span class="s2">&quot;vmq&quot;</span>
+    <span class="n">VNTAG_MODE</span> <span class="o">=</span> <span class="s2">&quot;vntagMode&quot;</span>
+    <span class="n">VOLTAGE</span> <span class="o">=</span> <span class="s2">&quot;voltage&quot;</span>
+    <span class="n">VOLUME_NAME</span> <span class="o">=</span> <span class="s2">&quot;volumeName&quot;</span>
+    <span class="n">VP_ASPMSUPPORT</span> <span class="o">=</span> <span class="s2">&quot;vpASPMSupport&quot;</span>
+    <span class="n">VP_ADJACENT_CACHE_LINE_PREFETCH</span> <span class="o">=</span> <span class="s2">&quot;vpAdjacentCacheLinePrefetch&quot;</span>
+    <span class="n">VP_ALL_USB_DEVICES</span> <span class="o">=</span> <span class="s2">&quot;vpAllUsbDevices&quot;</span>
+    <span class="n">VP_ALTITUDE</span> <span class="o">=</span> <span class="s2">&quot;vpAltitude&quot;</span>
+    <span class="n">VP_ASSERT_NMION_PERR</span> <span class="o">=</span> <span class="s2">&quot;vpAssertNMIOnPERR&quot;</span>
+    <span class="n">VP_ASSERT_NMION_SERR</span> <span class="o">=</span> <span class="s2">&quot;vpAssertNMIOnSERR&quot;</span>
+    <span class="n">VP_AUTONUMOUS_CSTATE_ENABLE</span> <span class="o">=</span> <span class="s2">&quot;vpAutonumousCstateEnable&quot;</span>
+    <span class="n">VP_BAUD_RATE</span> <span class="o">=</span> <span class="s2">&quot;vpBaudRate&quot;</span>
+    <span class="n">VP_BOOT_OPTION_RETRY</span> <span class="o">=</span> <span class="s2">&quot;vpBootOptionRetry&quot;</span>
+    <span class="n">VP_CDNENABLE</span> <span class="o">=</span> <span class="s2">&quot;vpCDNEnable&quot;</span>
+    <span class="n">VP_CDNSUPPORT</span> <span class="o">=</span> <span class="s2">&quot;vpCDNSupport&quot;</span>
+    <span class="n">VP_CPUENERGY_PERFORMANCE</span> <span class="o">=</span> <span class="s2">&quot;vpCPUEnergyPerformance&quot;</span>
+    <span class="n">VP_CPUFREQUENCY_FLOOR</span> <span class="o">=</span> <span class="s2">&quot;vpCPUFrequencyFloor&quot;</span>
+    <span class="n">VP_CPUPERFORMANCE</span> <span class="o">=</span> <span class="s2">&quot;vpCPUPerformance&quot;</span>
+    <span class="n">VP_CPUPOWER_MANAGEMENT</span> <span class="o">=</span> <span class="s2">&quot;vpCPUPowerManagement&quot;</span>
+    <span class="n">VP_CHANNEL_INTER_LEAVE</span> <span class="o">=</span> <span class="s2">&quot;vpChannelInterLeave&quot;</span>
+    <span class="n">VP_CKE_LOW_POLICY</span> <span class="o">=</span> <span class="s2">&quot;vpCkeLowPolicy&quot;</span>
+    <span class="n">VP_CONSOLE_REDIRECTION</span> <span class="o">=</span> <span class="s2">&quot;vpConsoleRedirection&quot;</span>
+    <span class="n">VP_CORE_MULTI_PROCESSING</span> <span class="o">=</span> <span class="s2">&quot;vpCoreMultiProcessing&quot;</span>
+    <span class="n">VP_DRAMCLOCK_THROTTLING</span> <span class="o">=</span> <span class="s2">&quot;vpDRAMClockThrottling&quot;</span>
+    <span class="n">VP_DEMAND_SCRUB</span> <span class="o">=</span> <span class="s2">&quot;vpDemandScrub&quot;</span>
+    <span class="n">VP_DIRECT_CACHE_ACCESS</span> <span class="o">=</span> <span class="s2">&quot;vpDirectCacheAccess&quot;</span>
+    <span class="n">VP_DRAM_REFRESH_RATE</span> <span class="o">=</span> <span class="s2">&quot;vpDramRefreshRate&quot;</span>
+    <span class="n">VP_ENHANCED_INTEL_SPEED_STEP_TECH</span> <span class="o">=</span> <span class="s2">&quot;vpEnhancedIntelSpeedStepTech&quot;</span>
+    <span class="n">VP_EXECUTE_DISABLE_BIT</span> <span class="o">=</span> <span class="s2">&quot;vpExecuteDisableBit&quot;</span>
+    <span class="n">VP_EXTENDED_APIC</span> <span class="o">=</span> <span class="s2">&quot;vpExtendedAPIC&quot;</span>
+    <span class="n">VP_FRB2_ENABLE</span> <span class="o">=</span> <span class="s2">&quot;vpFRB2Enable&quot;</span>
+    <span class="n">VP_FLOW_CONTROL</span> <span class="o">=</span> <span class="s2">&quot;vpFlowControl&quot;</span>
+    <span class="n">VP_HWPMENABLE</span> <span class="o">=</span> <span class="s2">&quot;vpHWPMEnable&quot;</span>
+    <span class="n">VP_HARDWARE_PREFETCH</span> <span class="o">=</span> <span class="s2">&quot;vpHardwarePrefetch&quot;</span>
+    <span class="n">VP_IOHRESOURCE</span> <span class="o">=</span> <span class="s2">&quot;vpIOHResource&quot;</span>
+    <span class="n">VP_IPPREFETCH</span> <span class="o">=</span> <span class="s2">&quot;vpIPPrefetch&quot;</span>
+    <span class="n">VP_INTEL_HYPER_THREADING_TECH</span> <span class="o">=</span> <span class="s2">&quot;vpIntelHyperThreadingTech&quot;</span>
+    <span class="n">VP_INTEL_TURBO_BOOST_TECH</span> <span class="o">=</span> <span class="s2">&quot;vpIntelTurboBoostTech&quot;</span>
+    <span class="n">VP_INTEL_VTDATSSUPPORT</span> <span class="o">=</span> <span class="s2">&quot;vpIntelVTDATSSupport&quot;</span>
+    <span class="n">VP_INTEL_VTDCOHERENCY_SUPPORT</span> <span class="o">=</span> <span class="s2">&quot;vpIntelVTDCoherencySupport&quot;</span>
+    <span class="n">VP_INTEL_VTDINTERRUPT_REMAPPING</span> <span class="o">=</span> <span class="s2">&quot;vpIntelVTDInterruptRemapping&quot;</span>
+    <span class="n">VP_INTEL_VTDPASS_THROUGH_DMASUPPORT</span> <span class="o">=</span> <span class="s2">&quot;vpIntelVTDPassThroughDMASupport&quot;</span>
+    <span class="n">VP_INTEL_VTFOR_DIRECTED_IO</span> <span class="o">=</span> <span class="s2">&quot;vpIntelVTForDirectedIO&quot;</span>
+    <span class="n">VP_INTEL_VIRTUALIZATION_TECHNOLOGY</span> <span class="o">=</span> <span class="s2">&quot;vpIntelVirtualizationTechnology&quot;</span>
+    <span class="n">VP_LOMPORT0_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpLOMPort0State&quot;</span>
+    <span class="n">VP_LOMPORT1_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpLOMPort1State&quot;</span>
+    <span class="n">VP_LOMPORT2_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpLOMPort2State&quot;</span>
+    <span class="n">VP_LOMPORT3_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpLOMPort3State&quot;</span>
+    <span class="n">VP_LOMPORTS_ALL_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpLOMPortsAllState&quot;</span>
+    <span class="n">VP_LEGACY_OSREDIRECTION</span> <span class="o">=</span> <span class="s2">&quot;vpLegacyOSRedirection&quot;</span>
+    <span class="n">VP_LEGACY_USBSUPPORT</span> <span class="o">=</span> <span class="s2">&quot;vpLegacyUSBSupport&quot;</span>
+    <span class="n">VP_LV_DDRMODE</span> <span class="o">=</span> <span class="s2">&quot;vpLvDDRMode&quot;</span>
+    <span class="n">VP_MMCFGBASE</span> <span class="o">=</span> <span class="s2">&quot;vpMMCFGBase&quot;</span>
+    <span class="n">VP_MAKE_DEVICE_NON_BOOTABLE</span> <span class="o">=</span> <span class="s2">&quot;vpMakeDeviceNonBootable&quot;</span>
+    <span class="n">VP_MEMORY_INTER_LEAVE</span> <span class="o">=</span> <span class="s2">&quot;vpMemoryInterLeave&quot;</span>
+    <span class="n">VP_MEMORY_MAPPED_IOABOVE4_GB</span> <span class="o">=</span> <span class="s2">&quot;vpMemoryMappedIOAbove4GB&quot;</span>
+    <span class="n">VP_MIRRORING_MODE</span> <span class="o">=</span> <span class="s2">&quot;vpMirroringMode&quot;</span>
+    <span class="n">VP_NUMAOPTIMIZED</span> <span class="o">=</span> <span class="s2">&quot;vpNUMAOptimized&quot;</span>
+    <span class="n">VP_OSBOOT_WATCHDOG_TIMER</span> <span class="o">=</span> <span class="s2">&quot;vpOSBootWatchdogTimer&quot;</span>
+    <span class="n">VP_OSBOOT_WATCHDOG_TIMER_POLICY</span> <span class="o">=</span> <span class="s2">&quot;vpOSBootWatchdogTimerPolicy&quot;</span>
+    <span class="n">VP_OSBOOT_WATCHDOG_TIMER_TIMEOUT</span> <span class="o">=</span> <span class="s2">&quot;vpOSBootWatchdogTimerTimeout&quot;</span>
+    <span class="n">VP_ONBOARD10_GBIT_LOM</span> <span class="o">=</span> <span class="s2">&quot;vpOnboard10GbitLOM&quot;</span>
+    <span class="n">VP_ONBOARD_GBIT_LOM</span> <span class="o">=</span> <span class="s2">&quot;vpOnboardGbitLOM&quot;</span>
+    <span class="n">VP_ONBOARD_SCUSTORAGE_SWSTACK</span> <span class="o">=</span> <span class="s2">&quot;vpOnboardSCUStorageSWStack&quot;</span>
+    <span class="n">VP_ONBOARD_SCUSTORAGE_SUPPORT</span> <span class="o">=</span> <span class="s2">&quot;vpOnboardSCUStorageSupport&quot;</span>
+    <span class="n">VP_OUT_OF_BAND_MGMT_PORT</span> <span class="o">=</span> <span class="s2">&quot;vpOutOfBandMgmtPort&quot;</span>
+    <span class="n">VP_PCIOPTION_ROMS</span> <span class="o">=</span> <span class="s2">&quot;vpPCIOptionROMs&quot;</span>
+    <span class="n">VP_POSTERROR_PAUSE</span> <span class="o">=</span> <span class="s2">&quot;vpPOSTErrorPause&quot;</span>
+    <span class="n">VP_PSTATE_COORD_TYPE</span> <span class="o">=</span> <span class="s2">&quot;vpPStateCoordType&quot;</span>
+    <span class="n">VP_PACKAGE_CSTATE_LIMIT</span> <span class="o">=</span> <span class="s2">&quot;vpPackageCStateLimit&quot;</span>
+    <span class="n">VP_PATROL_SCRUB</span> <span class="o">=</span> <span class="s2">&quot;vpPatrolScrub&quot;</span>
+    <span class="n">VP_PATROL_SCRUB_DURATION</span> <span class="o">=</span> <span class="s2">&quot;vpPatrolScrubDuration&quot;</span>
+    <span class="n">VP_PCH_USB30_MODE</span> <span class="o">=</span> <span class="s2">&quot;vpPchUsb30Mode&quot;</span>
+    <span class="n">VP_PCI_ROM_CLP</span> <span class="o">=</span> <span class="s2">&quot;vpPciRomClp&quot;</span>
+    <span class="n">VP_PROCESSOR_C1_E</span> <span class="o">=</span> <span class="s2">&quot;vpProcessorC1E&quot;</span>
+    <span class="n">VP_PROCESSOR_C3_REPORT</span> <span class="o">=</span> <span class="s2">&quot;vpProcessorC3Report&quot;</span>
+    <span class="n">VP_PROCESSOR_C6_REPORT</span> <span class="o">=</span> <span class="s2">&quot;vpProcessorC6Report&quot;</span>
+    <span class="n">VP_PROCESSOR_CSTATE</span> <span class="o">=</span> <span class="s2">&quot;vpProcessorCState&quot;</span>
+    <span class="n">VP_PUTTY_KEY_PAD</span> <span class="o">=</span> <span class="s2">&quot;vpPuttyKeyPad&quot;</span>
+    <span class="n">VP_PWR_PERF_TUNING</span> <span class="o">=</span> <span class="s2">&quot;vpPwrPerfTuning&quot;</span>
+    <span class="n">VP_QPILINK_FREQUENCY</span> <span class="o">=</span> <span class="s2">&quot;vpQPILinkFrequency&quot;</span>
+    <span class="n">VP_QPI_SNOOP_MODE</span> <span class="o">=</span> <span class="s2">&quot;vpQpiSnoopMode&quot;</span>
+    <span class="n">VP_RANK_INTER_LEAVE</span> <span class="o">=</span> <span class="s2">&quot;vpRankInterLeave&quot;</span>
+    <span class="n">VP_REDIRECTION_AFTER_POST</span> <span class="o">=</span> <span class="s2">&quot;vpRedirectionAfterPOST&quot;</span>
+    <span class="n">VP_RESUME_ON_ACPOWER_LOSS</span> <span class="o">=</span> <span class="s2">&quot;vpResumeOnACPowerLoss&quot;</span>
+    <span class="n">VP_SATA_MODE_SELECT</span> <span class="o">=</span> <span class="s2">&quot;vpSataModeSelect&quot;</span>
+    <span class="n">VP_SELECT_MEMORY_RASCONFIGURATION</span> <span class="o">=</span> <span class="s2">&quot;vpSelectMemoryRASConfiguration&quot;</span>
+    <span class="n">VP_SERIAL_PORT_AENABLE</span> <span class="o">=</span> <span class="s2">&quot;vpSerialPortAEnable&quot;</span>
+    <span class="n">VP_SLOT10_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlot10LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT10_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlot10State&quot;</span>
+    <span class="n">VP_SLOT1_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlot1LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT1_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlot1State&quot;</span>
+    <span class="n">VP_SLOT2_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlot2LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT2_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlot2State&quot;</span>
+    <span class="n">VP_SLOT3_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlot3LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT3_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlot3State&quot;</span>
+    <span class="n">VP_SLOT4_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlot4LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT4_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlot4State&quot;</span>
+    <span class="n">VP_SLOT5_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlot5LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT5_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlot5State&quot;</span>
+    <span class="n">VP_SLOT6_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlot6LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT6_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlot6State&quot;</span>
+    <span class="n">VP_SLOT7_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlot7LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT7_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlot7State&quot;</span>
+    <span class="n">VP_SLOT8_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlot8LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT8_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlot8State&quot;</span>
+    <span class="n">VP_SLOT9_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlot9LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT9_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlot9State&quot;</span>
+    <span class="n">VP_SLOT_FLOMLINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotFLOMLinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_FRONT_SLOT5_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotFrontSlot5LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_FRONT_SLOT6_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotFrontSlot6LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_HBALINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotHBALinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_HBASTATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlotHBAState&quot;</span>
+    <span class="n">VP_SLOT_MLOMLINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotMLOMLinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_MLOMSTATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlotMLOMState&quot;</span>
+    <span class="n">VP_SLOT_MEZZ_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlotMezzState&quot;</span>
+    <span class="n">VP_SLOT_N1_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlotN1State&quot;</span>
+    <span class="n">VP_SLOT_N2_STATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlotN2State&quot;</span>
+    <span class="n">VP_SLOT_RISER1_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotRiser1LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_RISER1_SLOT1_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotRiser1Slot1LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_RISER1_SLOT2_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotRiser1Slot2LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_RISER1_SLOT3_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotRiser1Slot3LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_RISER2_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotRiser2LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_RISER2_SLOT4_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotRiser2Slot4LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_RISER2_SLOT5_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotRiser2Slot5LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_RISER2_SLOT6_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotRiser2Slot6LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_SASSTATE</span> <span class="o">=</span> <span class="s2">&quot;vpSlotSASState&quot;</span>
+    <span class="n">VP_SLOT_SSDSLOT1_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotSSDSlot1LinkSpeed&quot;</span>
+    <span class="n">VP_SLOT_SSDSLOT2_LINK_SPEED</span> <span class="o">=</span> <span class="s2">&quot;vpSlotSSDSlot2LinkSpeed&quot;</span>
+    <span class="n">VP_SPARING_MODE</span> <span class="o">=</span> <span class="s2">&quot;vpSparingMode&quot;</span>
+    <span class="n">VP_SR_IOV</span> <span class="o">=</span> <span class="s2">&quot;vpSrIov&quot;</span>
+    <span class="n">VP_STREAMER_PREFETCH</span> <span class="o">=</span> <span class="s2">&quot;vpStreamerPrefetch&quot;</span>
+    <span class="n">VP_TPMSUPPORT</span> <span class="o">=</span> <span class="s2">&quot;vpTPMSupport&quot;</span>
+    <span class="n">VP_TERMINAL_TYPE</span> <span class="o">=</span> <span class="s2">&quot;vpTerminalType&quot;</span>
+    <span class="n">VP_UCSMBOOT_ORDER_RULE</span> <span class="o">=</span> <span class="s2">&quot;vpUCSMBootOrderRule&quot;</span>
+    <span class="n">VP_USBEMUL6064</span> <span class="o">=</span> <span class="s2">&quot;vpUSBEmul6064&quot;</span>
+    <span class="n">VP_USB_PORT_FRONT</span> <span class="o">=</span> <span class="s2">&quot;vpUsbPortFront&quot;</span>
+    <span class="n">VP_USB_PORT_INTERNAL</span> <span class="o">=</span> <span class="s2">&quot;vpUsbPortInternal&quot;</span>
+    <span class="n">VP_USB_PORT_KVM</span> <span class="o">=</span> <span class="s2">&quot;vpUsbPortKVM&quot;</span>
+    <span class="n">VP_USB_PORT_REAR</span> <span class="o">=</span> <span class="s2">&quot;vpUsbPortRear&quot;</span>
+    <span class="n">VP_USB_PORT_SDCARD</span> <span class="o">=</span> <span class="s2">&quot;vpUsbPortSDCard&quot;</span>
+    <span class="n">VP_USB_PORT_VMEDIA</span> <span class="o">=</span> <span class="s2">&quot;vpUsbPortVMedia&quot;</span>
+    <span class="n">VP_VGA_PRIORITY</span> <span class="o">=</span> <span class="s2">&quot;vpVgaPriority&quot;</span>
+    <span class="n">VP_WORK_LOAD_CONFIG</span> <span class="o">=</span> <span class="s2">&quot;vpWorkLoadConfig&quot;</span>
+    <span class="n">WEB_BIOS_VERSION</span> <span class="o">=</span> <span class="s2">&quot;webBiosVersion&quot;</span>
+    <span class="n">WIDTH</span> <span class="o">=</span> <span class="s2">&quot;width&quot;</span>
+    <span class="n">WR_ERR_COUNT_SLOT1_THRESHOLD</span> <span class="o">=</span> <span class="s2">&quot;wrErrCountSlot1Threshold&quot;</span>
+    <span class="n">WR_ERR_COUNT_SLOT2_THRESHOLD</span> <span class="o">=</span> <span class="s2">&quot;wrErrCountSlot2Threshold&quot;</span>
+    <span class="n">WRITE_CACHE_POLICY</span> <span class="o">=</span> <span class="s2">&quot;writeCachePolicy&quot;</span>
+    <span class="n">WRITE_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;writeEnabled&quot;</span>
+    <span class="n">WRITE_ERROR_COUNT</span> <span class="o">=</span> <span class="s2">&quot;writeErrorCount&quot;</span>
+    <span class="n">WRITE_ERROR_THRESHOLD</span> <span class="o">=</span> <span class="s2">&quot;writeErrorThreshold&quot;</span>
+    <span class="n">WRITE_POLICY</span> <span class="o">=</span> <span class="s2">&quot;writePolicy&quot;</span>
+    <span class="n">WWNN</span> <span class="o">=</span> <span class="s2">&quot;wwnn&quot;</span>
+    <span class="n">WWPN</span> <span class="o">=</span> <span class="s2">&quot;wwpn&quot;</span></div>
+
+
+<div class="viewcode-block" id="ObjectStatus"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcconstants.ObjectStatus">[docs]</a><span class="k">class</span> <span class="nc">ObjectStatus</span><span class="p">:</span>
+    <span class="n">CREATED</span> <span class="o">=</span> <span class="s2">&quot;created&quot;</span>
+    <span class="n">DELETED</span> <span class="o">=</span> <span class="s2">&quot;deleted&quot;</span>
+    <span class="n">MODIFIED</span> <span class="o">=</span> <span class="s2">&quot;modified&quot;</span>
+    <span class="n">REMOVED</span> <span class="o">=</span> <span class="s2">&quot;removed&quot;</span></div>
+
+
+<div class="viewcode-block" id="Status"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcconstants.Status">[docs]</a><span class="k">class</span> <span class="nc">Status</span><span class="p">:</span>
+    <span class="n">CREATED</span> <span class="o">=</span> <span class="s2">&quot;created&quot;</span>
+    <span class="n">DELETED</span> <span class="o">=</span> <span class="s2">&quot;deleted&quot;</span>
+    <span class="n">MODIFIED</span> <span class="o">=</span> <span class="s2">&quot;modified&quot;</span>
+    <span class="n">REMOVED</span> <span class="o">=</span> <span class="s2">&quot;removed&quot;</span></div>
+
+
+<div class="viewcode-block" id="SyslogSeverity"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcconstants.SyslogSeverity">[docs]</a><span class="k">class</span> <span class="nc">SyslogSeverity</span><span class="p">:</span>
+    <span class="n">ALERT</span> <span class="o">=</span> <span class="s2">&quot;alert&quot;</span>
+    <span class="n">CRITICAL</span> <span class="o">=</span> <span class="s2">&quot;critical&quot;</span>
+    <span class="n">DEBUG</span> <span class="o">=</span> <span class="s2">&quot;debug&quot;</span>
+    <span class="n">EMERGENCY</span> <span class="o">=</span> <span class="s2">&quot;emergency&quot;</span>
+    <span class="n">ERROR</span> <span class="o">=</span> <span class="s2">&quot;error&quot;</span>
+    <span class="n">INFORMATIONAL</span> <span class="o">=</span> <span class="s2">&quot;informational&quot;</span>
+    <span class="n">NOTICE</span> <span class="o">=</span> <span class="s2">&quot;notice&quot;</span>
+    <span class="n">WARNING</span> <span class="o">=</span> <span class="s2">&quot;warning&quot;</span></div>
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+imcsdk.mometa.self package
+==========================
+
+Submodules
+----------
+
+.. automodule:: imcsdk.mometa.self.SelfEncryptStorageController
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk.mometa.self
+    :members:
+    :undoc-members:
+    :show-inheritance:

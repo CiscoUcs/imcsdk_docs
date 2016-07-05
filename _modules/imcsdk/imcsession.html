@@ -1,0 +1,706 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.imcsession &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.imcsession</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2015 Cisco Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#  http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Timer</span>
+
+<span class="kn">from</span> <span class="nn">.imcexception</span> <span class="kn">import</span> <span class="n">ImcException</span><span class="p">,</span> <span class="n">ImcLoginError</span>
+<span class="kn">from</span> <span class="nn">.imcdriver</span> <span class="kn">import</span> <span class="n">ImcDriver</span>
+<span class="kn">from</span> <span class="nn">.imcgenutils</span> <span class="kn">import</span> <span class="n">Progress</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;imc&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ImcSession"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcsession.ImcSession">[docs]</a><span class="k">class</span> <span class="nc">ImcSession</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ImcSession class is session interface for any Imc related communication.</span>
+<span class="sd">    Parent class of ImcHandle, used internally by ImcHandle class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">secure</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">proxy</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ip</span> <span class="o">=</span> <span class="n">ip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__password</span> <span class="o">=</span> <span class="n">password</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span> <span class="o">=</span> <span class="n">proxy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__create_uri</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">secure</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__imc</span> <span class="o">=</span> <span class="n">ip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__session_id</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__version</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_period</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__priv</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__domains</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__channel</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__evt_channel</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__last_update_time</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_timer</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__force</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dump_xml</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__redirect</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__driver</span> <span class="o">=</span> <span class="n">ImcDriver</span><span class="p">(</span><span class="n">proxy</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ip</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__username</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__proxy</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">uri</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__uri</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">imc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__imc</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cookie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">session_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__session_id</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__version</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">refresh_period</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_period</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">priv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__priv</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">domains</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__domains</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__channel</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">evt_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__evt_channel</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">last_update_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__last_update_time</span>
+
+    <span class="k">def</span> <span class="nf">__create_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">secure</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates IMC URI used for connection</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            port (int or None): The port number to be used during connection</span>
+<span class="sd">            secure (bool or None): True for secure connection otherwise False</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            uri (str)</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            uri = __create_uri(port=443, secure=True)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">port</span> <span class="o">=</span> <span class="n">_get_port</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">secure</span><span class="p">)</span>
+        <span class="n">protocol</span> <span class="o">=</span> <span class="n">_get_proto</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">secure</span><span class="p">)</span>
+
+        <span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">://</span><span class="si">%s%s%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ip</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">port</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">uri</span>
+
+    <span class="k">def</span> <span class="nf">__clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to clear the session variables</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__session_id</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__version</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_period</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__priv</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__domains</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__channel</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__evt_channel</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__last_update_time</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">__update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to update the session variables</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imccoremeta</span> <span class="kn">import</span> <span class="n">ImcVersion</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_cookie</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__session_id</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_session_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__version</span> <span class="o">=</span> <span class="n">ImcVersion</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">out_version</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_period</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_refresh_period</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__priv</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_priv</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__domains</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_domains</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__channel</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_channel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__evt_channel</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_evt_channel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__last_update_time</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">())</span>
+
+<div class="viewcode-block" id="ImcSession.post"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcsession.ImcSession.post">[docs]</a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        sends the request and receives the response from imcm server</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            uri (str): URI of the  the imc Server</span>
+<span class="sd">            data (str): request data to send via post request</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            response xml string</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            response = post(&quot;http://192.168.1.1:80&quot;, data=xml_str)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__driver</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="n">read</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span></div>
+
+<div class="viewcode-block" id="ImcSession.post_xml"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcsession.ImcSession.post_xml">[docs]</a>    <span class="k">def</span> <span class="nf">post_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml_str</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        sends the xml request and receives the response from imc server</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            xml_str (str): xml string</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            response xml string</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            response = post_xml(&#39;&lt;aaaLogin inName=&quot;user&quot; inPassword=&quot;pass&quot;&gt;&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">imc_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__uri</span> <span class="o">+</span> <span class="s2">&quot;/nuova&quot;</span>
+        <span class="n">response_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">imc_uri</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">xml_str</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="n">read</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__driver</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__driver</span><span class="o">.</span><span class="n">redirect_uri</span>
+
+        <span class="k">return</span> <span class="n">response_str</span></div>
+
+<div class="viewcode-block" id="ImcSession.dump_xml_request"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcsession.ImcSession.dump_xml_request">[docs]</a>    <span class="k">def</span> <span class="nf">dump_xml_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imcxmlcodec</span> <span class="k">as</span> <span class="n">xc</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dump_xml</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;aaaLogin&quot;</span><span class="p">:</span>
+            <span class="n">elem</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;inPassword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;*********&quot;</span>
+            <span class="n">xml_str</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">to_xml_str</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> ====&gt; </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__uri</span><span class="p">,</span> <span class="n">xml_str</span><span class="p">))</span>
+            <span class="n">elem</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;inPassword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__password</span>
+            <span class="n">xml_str</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">to_xml_str</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">xml_str</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">to_xml_str</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> ====&gt; </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__uri</span><span class="p">,</span> <span class="n">xml_str</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="ImcSession.dump_xml_response"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcsession.ImcSession.dump_xml_response">[docs]</a>    <span class="k">def</span> <span class="nf">dump_xml_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resp</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dump_xml</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> &lt;==== </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__uri</span><span class="p">,</span> <span class="n">resp</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="ImcSession.post_elem"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcsession.ImcSession.post_elem">[docs]</a>    <span class="k">def</span> <span class="nf">post_elem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        sends the request and receives the response from imc server using xml</span>
+<span class="sd">        element</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            elem (xml element)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            response xml string</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            response = post_elem(elem=xml_element)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imcxmlcodec</span> <span class="k">as</span> <span class="n">xc</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_stale_cookie</span><span class="p">(</span><span class="n">elem</span><span class="p">):</span>
+            <span class="n">elem</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;cookie&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cookie</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dump_xml_request</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="n">xml_str</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">to_xml_str</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+
+        <span class="n">response_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_xml</span><span class="p">(</span><span class="n">xml_str</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dump_xml_response</span><span class="p">(</span><span class="n">response_str</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">response_str</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">from_xml_str</span><span class="p">(</span><span class="n">response_str</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+            <span class="c1"># Cookie update should happen with-in the lock</span>
+            <span class="c1"># this ensures that the next packet goes out</span>
+            <span class="c1"># with the new cookie</span>
+            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;aaaRefresh&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_update_cookie</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">response</span>
+
+        <span class="k">return</span> <span class="bp">None</span></div>
+
+<div class="viewcode-block" id="ImcSession.file_download"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcsession.ImcSession.file_download">[docs]</a>    <span class="k">def</span> <span class="nf">file_download</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">url_suffix</span><span class="p">,</span>
+            <span class="n">file_dir</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="p">,</span>
+            <span class="n">progress</span><span class="o">=</span><span class="n">Progress</span><span class="p">()):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Downloads the file from imc server</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            url_suffix (str): suffix url to be appended to</span>
+<span class="sd">                    http\https://host:port/ to locate the file on the server</span>
+<span class="sd">            file_dir (str): The directory to download to</span>
+<span class="sd">            file_name (str): The destination file name for the download</span>
+<span class="sd">            progress (imcgenutils.Progress): Class that has method to display progress</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            file_download(url_suffix=&#39;backupfile/config_backup.xml&#39;,</span>
+<span class="sd">            file_dir=&#39;/home/user/backup&#39;, file_name=&#39;my_config_backup.xml&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imcgenutils</span> <span class="kn">import</span> <span class="n">download_file</span>
+
+        <span class="n">file_url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__uri</span><span class="p">,</span> <span class="n">url_suffix</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__driver</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s1">&#39;Cookie&#39;</span><span class="p">,</span> <span class="s1">&#39;imc-cookie=</span><span class="si">%s</span><span class="s1">&#39;</span>
+                                 <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span><span class="p">)</span>
+
+        <span class="n">download_file</span><span class="p">(</span><span class="n">driver</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__driver</span><span class="p">,</span>
+                      <span class="n">file_url</span><span class="o">=</span><span class="n">file_url</span><span class="p">,</span>
+                      <span class="n">file_dir</span><span class="o">=</span><span class="n">file_dir</span><span class="p">,</span>
+                      <span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">,</span>
+                      <span class="n">progress</span><span class="o">=</span><span class="n">progress</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__driver</span><span class="o">.</span><span class="n">remove_header</span><span class="p">(</span><span class="s1">&#39;Cookie&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ImcSession.file_upload"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcsession.ImcSession.file_upload">[docs]</a>    <span class="k">def</span> <span class="nf">file_upload</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">url_suffix</span><span class="p">,</span>
+            <span class="n">file_dir</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="p">,</span>
+            <span class="n">progress</span><span class="o">=</span><span class="n">Progress</span><span class="p">()):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Uploads the file on IMC server.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            url_suffix (str): suffix url to be appended to</span>
+<span class="sd">                http\https://host:port/ to locate the file on the server</span>
+<span class="sd">            file_dir (str): The directory to upload from</span>
+<span class="sd">            file_name (str): The destination file name for the download</span>
+<span class="sd">            progress (imcgenutils.Progress): Class that has method to display progress</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            file_dir = &quot;/home/user/backup&quot;\n</span>
+<span class="sd">            file_name = &quot;config_backup.xml&quot;\n</span>
+<span class="sd">            uri_suffix = &quot;operations/file-%s/importconfig.txt&quot; % file_name\n</span>
+<span class="sd">            file_upload(url_suffix=uri_suffix, file_dir=file_dir,</span>
+<span class="sd">            file_name=file_name)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imcgenutils</span> <span class="kn">import</span> <span class="n">upload_file</span>
+
+        <span class="n">file_url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__uri</span><span class="p">,</span> <span class="n">url_suffix</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__driver</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s1">&#39;Cookie&#39;</span><span class="p">,</span> <span class="s1">&#39;imc-cookie=</span><span class="si">%s</span><span class="s1">&#39;</span>
+                                 <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span><span class="p">)</span>
+
+        <span class="n">upload_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__driver</span><span class="p">,</span>
+                    <span class="n">uri</span><span class="o">=</span><span class="n">file_url</span><span class="p">,</span>
+                    <span class="n">file_dir</span><span class="o">=</span><span class="n">file_dir</span><span class="p">,</span>
+                    <span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">,</span>
+                    <span class="n">progress</span><span class="o">=</span><span class="n">progress</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__driver</span><span class="o">.</span><span class="n">remove_header</span><span class="p">(</span><span class="s1">&#39;Cookie&#39;</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">__start_refresh_timer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to support auto-refresh functionality.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_period</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span>
+            <span class="n">interval</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__refresh_period</span><span class="p">)</span> <span class="o">-</span> <span class="mi">60</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">interval</span> <span class="o">=</span> <span class="mi">60</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_refresh</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_timer</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__stop_refresh_timer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to support auto-refresh functionality.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_timer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_timer</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_timer</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">_update_cookie</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_cookie</span>
+
+    <span class="k">def</span> <span class="nf">_is_stale_cookie</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;cookie&#39;</span> <span class="ow">in</span> <span class="n">elem</span><span class="o">.</span><span class="n">attrib</span> <span class="ow">and</span> <span class="n">elem</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span>
+            <span class="s1">&#39;cookie&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">elem</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;cookie&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cookie</span>
+
+    <span class="k">def</span> <span class="nf">_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auto_relogin</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sends the aaaRefresh query to the imc to refresh the connection</span>
+<span class="sd">        (to prevent session expiration).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">aaa_refresh</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__stop_refresh_timer</span><span class="p">()</span>
+
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">aaa_refresh</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span><span class="p">,</span>
+                           <span class="bp">self</span><span class="o">.</span><span class="n">__username</span><span class="p">,</span>
+                           <span class="bp">self</span><span class="o">.</span><span class="n">__password</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">if</span> <span class="n">auto_relogin</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_login</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_cookie</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_period</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">out_refresh_period</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__priv</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_priv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__domains</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_domains</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__last_update_time</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">())</span>
+
+        <span class="c1"># re-enable the timer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__start_refresh_timer</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">__is_fabric_interconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">config_resolve_class</span>
+
+        <span class="n">nw_elem</span> <span class="o">=</span> <span class="n">config_resolve_class</span><span class="p">(</span><span class="n">cookie</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span><span class="p">,</span>
+                                       <span class="n">class_id</span><span class="o">=</span><span class="s2">&quot;networkElement&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">nw_elem_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">nw_elem</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">nw_elem_response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">__validate_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to validate if needs to reconnect or if exist use the</span>
+<span class="sd">        existing connection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.mometa.top.TopSystem</span> <span class="kn">import</span> <span class="n">TopSystem</span>
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">config_resolve_dn</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__force</span><span class="p">:</span>
+                <span class="n">top_system</span> <span class="o">=</span> <span class="n">TopSystem</span><span class="p">()</span>
+                <span class="n">elem</span> <span class="o">=</span> <span class="n">config_resolve_dn</span><span class="p">(</span><span class="n">cookie</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span><span class="p">,</span>
+                                         <span class="n">dn</span><span class="o">=</span><span class="n">top_system</span><span class="o">.</span><span class="n">dn</span><span class="p">)</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">False</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_logout</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">__validate_imc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; ValidateIMC method validates if a given host is valid IMC Server.&quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">config_resolve_class</span>
+
+        <span class="n">valid_models</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;R460-4640810&quot;</span><span class="p">,</span> <span class="s2">&quot;C260-BASE-2646&quot;</span><span class="p">)</span>
+        <span class="n">model_validated</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="n">rack_elem</span> <span class="o">=</span> <span class="n">config_resolve_class</span><span class="p">(</span><span class="n">cookie</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span><span class="p">,</span>
+                                         <span class="n">class_id</span><span class="o">=</span><span class="s2">&quot;computeRackUnit&quot;</span><span class="p">)</span>
+        <span class="n">rack_elem_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">rack_elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rack_elem_response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">rack</span> <span class="ow">in</span> <span class="n">rack_elem_response</span><span class="o">.</span><span class="n">out_configs</span><span class="o">.</span><span class="n">child</span><span class="p">:</span>
+                <span class="n">model_name</span> <span class="o">=</span> <span class="n">rack</span><span class="o">.</span><span class="n">model</span>
+                <span class="k">if</span> <span class="n">model_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;UCSC&quot;</span><span class="p">):</span>
+                    <span class="n">model_validated</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">elif</span> <span class="n">model_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;UCS-E&quot;</span><span class="p">):</span>
+                    <span class="n">model_validated</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">elif</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="n">valid_models</span><span class="p">:</span>
+                    <span class="n">model_validated</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">model_validated</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_logout</span><span class="p">()</span>
+                <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__is_fabric_interconnect</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logout</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">_update_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.imccoremeta</span> <span class="kn">import</span> <span class="n">ImcVersion</span>
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">config_resolve_dn</span>
+        <span class="kn">from</span> <span class="nn">.mometa.top.TopSystem</span> <span class="kn">import</span> <span class="n">TopSystem</span>
+        <span class="kn">from</span> <span class="nn">.mometa.firmware.FirmwareRunning</span> <span class="kn">import</span> <span class="n">FirmwareRunning</span><span class="p">,</span> \
+            <span class="n">FirmwareRunningConsts</span>
+
+        <span class="c1"># If the aaaLogin response has the version populated, we do not</span>
+        <span class="c1"># need to query for it</span>
+        <span class="c1"># There are cases where version is missing from aaaLogin response</span>
+        <span class="c1"># In such cases the later part of this method populates it</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">out_version</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">response</span><span class="o">.</span><span class="n">out_version</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">top_system</span> <span class="o">=</span> <span class="n">TopSystem</span><span class="p">()</span>
+        <span class="n">firmware</span> <span class="o">=</span> <span class="n">FirmwareRunning</span><span class="p">(</span><span class="n">top_system</span><span class="p">,</span>
+                                   <span class="n">FirmwareRunningConsts</span><span class="o">.</span><span class="n">DEPLOYMENT_SYSTEM</span><span class="p">)</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">config_resolve_dn</span><span class="p">(</span><span class="n">cookie</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span><span class="p">,</span>
+                                 <span class="n">dn</span><span class="o">=</span><span class="n">firmware</span><span class="o">.</span><span class="n">dn</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span>
+                               <span class="n">response</span><span class="o">.</span><span class="n">error_descr</span><span class="p">)</span>
+        <span class="n">firmware</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_config</span><span class="o">.</span><span class="n">child</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__version</span> <span class="o">=</span> <span class="n">ImcVersion</span><span class="p">(</span><span class="n">firmware</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_update_domain_name_and_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">config_resolve_dn</span>
+        <span class="kn">from</span> <span class="nn">.mometa.top.TopSystem</span> <span class="kn">import</span> <span class="n">TopSystem</span>
+
+        <span class="n">top_system</span> <span class="o">=</span> <span class="n">TopSystem</span><span class="p">()</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">config_resolve_dn</span><span class="p">(</span><span class="n">cookie</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span><span class="p">,</span> <span class="n">dn</span><span class="o">=</span><span class="n">top_system</span><span class="o">.</span><span class="n">dn</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">error_descr</span><span class="p">)</span>
+        <span class="n">top_system</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_config</span><span class="o">.</span><span class="n">child</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__imc</span> <span class="o">=</span> <span class="n">top_system</span><span class="o">.</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__virtual_ipv4_address</span> <span class="o">=</span> <span class="n">top_system</span><span class="o">.</span><span class="n">address</span>
+
+    <span class="k">def</span> <span class="nf">_login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auto_refresh</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method responsible to do a login on imc server.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auto_refresh (bool): if set to True, it refresh the cookie</span>
+<span class="sd">                                    continuously</span>
+<span class="sd">            force (bool): if set to True it reconnects even if cookie exists</span>
+<span class="sd">                                    and is valid for respective connection.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True on successful connect</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">aaa_login</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__force</span> <span class="o">=</span> <span class="n">force</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__validate_connection</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">True</span>
+
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">aaa_login</span><span class="p">(</span><span class="n">in_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__username</span><span class="p">,</span>
+                         <span class="n">in_password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__password</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__clear</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="n">ImcException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">error_descr</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__update</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+        <span class="c1"># Verify not to connect to IMC</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__validate_imc</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">ImcLoginError</span><span class="p">(</span><span class="s2">&quot;Not a supported server.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_version</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_domain_name_and_ip</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">auto_refresh</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__start_refresh_timer</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">_logout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to disconnect from imc server.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True on successful disconnect</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">aaa_logout</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_timer</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_timer</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">aaa_logout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__cookie</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">==</span> <span class="s2">&quot;555&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span>
+                               <span class="n">response</span><span class="o">.</span><span class="n">error_descr</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__clear</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">_set_dump_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to set dump_xml to True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dump_xml</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">_unset_dump_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to set dump_xml to False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dump_xml</span> <span class="o">=</span> <span class="bp">False</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_port</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">secure</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">secure</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">80</span>
+    <span class="k">return</span> <span class="mi">443</span>
+
+
+<span class="k">def</span> <span class="nf">_get_proto</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">secure</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">secure</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">port</span> <span class="o">==</span> <span class="s2">&quot;80&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;http&quot;</span>
+    <span class="k">elif</span> <span class="n">secure</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;http&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;https&quot;</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

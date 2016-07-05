@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.generate.GenerateCertificateSigningRequest &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.mometa.generate.GenerateCertificateSigningRequest</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module contains the general information for GenerateCertificateSigningRequest ManagedObject.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">...imcmo</span> <span class="kn">import</span> <span class="n">ManagedObject</span>
+<span class="kn">from</span> <span class="nn">...imccoremeta</span> <span class="kn">import</span> <span class="n">MoPropertyMeta</span><span class="p">,</span> <span class="n">MoMeta</span>
+<span class="kn">from</span> <span class="nn">...imcmeta</span> <span class="kn">import</span> <span class="n">VersionMeta</span>
+
+
+<div class="viewcode-block" id="GenerateCertificateSigningRequestConsts"><a class="viewcode-back" href="../../../../imcsdk.mometa.generate.html#imcsdk.mometa.generate.GenerateCertificateSigningRequest.GenerateCertificateSigningRequestConsts">[docs]</a><span class="k">class</span> <span class="nc">GenerateCertificateSigningRequestConsts</span><span class="p">:</span>
+    <span class="n">COUNTRY_CODE_ALBANIA</span> <span class="o">=</span> <span class="s2">&quot;Albania&quot;</span>
+    <span class="n">COUNTRY_CODE_ALGERIA</span> <span class="o">=</span> <span class="s2">&quot;Algeria&quot;</span>
+    <span class="n">COUNTRY_CODE_AMERICAN_SAMOA</span> <span class="o">=</span> <span class="s2">&quot;American Samoa&quot;</span>
+    <span class="n">COUNTRY_CODE_ANDORRA</span> <span class="o">=</span> <span class="s2">&quot;Andorra&quot;</span>
+    <span class="n">COUNTRY_CODE_ANGOLA</span> <span class="o">=</span> <span class="s2">&quot;Angola&quot;</span>
+    <span class="n">COUNTRY_CODE_ANGUILLA</span> <span class="o">=</span> <span class="s2">&quot;Anguilla&quot;</span>
+    <span class="n">COUNTRY_CODE_ANTARCTICA</span> <span class="o">=</span> <span class="s2">&quot;Antarctica&quot;</span>
+    <span class="n">COUNTRY_CODE_ANTIGUA_AND_BARBUDA</span> <span class="o">=</span> <span class="s2">&quot;Antigua and Barbuda&quot;</span>
+    <span class="n">COUNTRY_CODE_ARGENTINA</span> <span class="o">=</span> <span class="s2">&quot;Argentina&quot;</span>
+    <span class="n">COUNTRY_CODE_ARMENIA</span> <span class="o">=</span> <span class="s2">&quot;Armenia&quot;</span>
+    <span class="n">COUNTRY_CODE_ARUBA</span> <span class="o">=</span> <span class="s2">&quot;Aruba&quot;</span>
+    <span class="n">COUNTRY_CODE_AUSTRALIA</span> <span class="o">=</span> <span class="s2">&quot;Australia&quot;</span>
+    <span class="n">COUNTRY_CODE_AUSTRIA</span> <span class="o">=</span> <span class="s2">&quot;Austria&quot;</span>
+    <span class="n">COUNTRY_CODE_AZERBAIJAN</span> <span class="o">=</span> <span class="s2">&quot;Azerbaijan&quot;</span>
+    <span class="n">COUNTRY_CODE_BAHAMAS</span> <span class="o">=</span> <span class="s2">&quot;Bahamas&quot;</span>
+    <span class="n">COUNTRY_CODE_BAHRAIN</span> <span class="o">=</span> <span class="s2">&quot;Bahrain&quot;</span>
+    <span class="n">COUNTRY_CODE_BANGLADESH</span> <span class="o">=</span> <span class="s2">&quot;Bangladesh&quot;</span>
+    <span class="n">COUNTRY_CODE_BARBADOS</span> <span class="o">=</span> <span class="s2">&quot;Barbados&quot;</span>
+    <span class="n">COUNTRY_CODE_BELARUS</span> <span class="o">=</span> <span class="s2">&quot;Belarus&quot;</span>
+    <span class="n">COUNTRY_CODE_BELGIUM</span> <span class="o">=</span> <span class="s2">&quot;Belgium&quot;</span>
+    <span class="n">COUNTRY_CODE_BELIZE</span> <span class="o">=</span> <span class="s2">&quot;Belize&quot;</span>
+    <span class="n">COUNTRY_CODE_BENIN</span> <span class="o">=</span> <span class="s2">&quot;Benin&quot;</span>
+    <span class="n">COUNTRY_CODE_BERMUDA</span> <span class="o">=</span> <span class="s2">&quot;Bermuda&quot;</span>
+    <span class="n">COUNTRY_CODE_BHUTAN</span> <span class="o">=</span> <span class="s2">&quot;Bhutan&quot;</span>
+    <span class="n">COUNTRY_CODE_BOLIVIA</span> <span class="o">=</span> <span class="s2">&quot;Bolivia&quot;</span>
+    <span class="n">COUNTRY_CODE_BOSNIA_AND_HERZEGOVINA</span> <span class="o">=</span> <span class="s2">&quot;Bosnia and Herzegovina&quot;</span>
+    <span class="n">COUNTRY_CODE_BOTSWANA</span> <span class="o">=</span> <span class="s2">&quot;Botswana&quot;</span>
+    <span class="n">COUNTRY_CODE_BOUVET_ISLAND</span> <span class="o">=</span> <span class="s2">&quot;Bouvet Island&quot;</span>
+    <span class="n">COUNTRY_CODE_BRAZIL</span> <span class="o">=</span> <span class="s2">&quot;Brazil&quot;</span>
+    <span class="n">COUNTRY_CODE_BRITISH_INDIAN_OCEAN_TERRITORY</span> <span class="o">=</span> <span class="s2">&quot;British Indian Ocean Territory&quot;</span>
+    <span class="n">COUNTRY_CODE_BRUNEI_DARUSSALAM</span> <span class="o">=</span> <span class="s2">&quot;Brunei Darussalam&quot;</span>
+    <span class="n">COUNTRY_CODE_BULGARIA</span> <span class="o">=</span> <span class="s2">&quot;Bulgaria&quot;</span>
+    <span class="n">COUNTRY_CODE_BURKINA_FASO</span> <span class="o">=</span> <span class="s2">&quot;Burkina Faso&quot;</span>
+    <span class="n">COUNTRY_CODE_BURUNDI</span> <span class="o">=</span> <span class="s2">&quot;Burundi&quot;</span>
+    <span class="n">COUNTRY_CODE_CAMBODIA</span> <span class="o">=</span> <span class="s2">&quot;Cambodia&quot;</span>
+    <span class="n">COUNTRY_CODE_CAMEROON</span> <span class="o">=</span> <span class="s2">&quot;Cameroon&quot;</span>
+    <span class="n">COUNTRY_CODE_CANADA</span> <span class="o">=</span> <span class="s2">&quot;Canada&quot;</span>
+    <span class="n">COUNTRY_CODE_CAPE_VERDE</span> <span class="o">=</span> <span class="s2">&quot;Cape Verde&quot;</span>
+    <span class="n">COUNTRY_CODE_CAYMAN_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Cayman Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_CENTRAL_AFRICAN_REPUBLIC</span> <span class="o">=</span> <span class="s2">&quot;Central African Republic&quot;</span>
+    <span class="n">COUNTRY_CODE_CHAD</span> <span class="o">=</span> <span class="s2">&quot;Chad&quot;</span>
+    <span class="n">COUNTRY_CODE_CHILE</span> <span class="o">=</span> <span class="s2">&quot;Chile&quot;</span>
+    <span class="n">COUNTRY_CODE_CHINA</span> <span class="o">=</span> <span class="s2">&quot;China&quot;</span>
+    <span class="n">COUNTRY_CODE_CHRISTMAS_ISLAND</span> <span class="o">=</span> <span class="s2">&quot;Christmas Island&quot;</span>
+    <span class="n">COUNTRY_CODE_COCOS_KEELING_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Cocos (Keeling) Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_COLOMBIA</span> <span class="o">=</span> <span class="s2">&quot;Colombia&quot;</span>
+    <span class="n">COUNTRY_CODE_COMOROS</span> <span class="o">=</span> <span class="s2">&quot;Comoros&quot;</span>
+    <span class="n">COUNTRY_CODE_CONGO</span> <span class="o">=</span> <span class="s2">&quot;Congo&quot;</span>
+    <span class="n">COUNTRY_CODE_COOK_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Cook Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_COSTA_RICA</span> <span class="o">=</span> <span class="s2">&quot;Costa Rica&quot;</span>
+    <span class="n">COUNTRY_CODE_COTE_D_IVOIRE_IVORY_COAST</span> <span class="o">=</span> <span class="s2">&quot;Cote D&#39;Ivoire (Ivory Coast)&quot;</span>
+    <span class="n">COUNTRY_CODE_CROATIA_HRVATSKA</span> <span class="o">=</span> <span class="s2">&quot;Croatia (Hrvatska)&quot;</span>
+    <span class="n">COUNTRY_CODE_CUBA</span> <span class="o">=</span> <span class="s2">&quot;Cuba&quot;</span>
+    <span class="n">COUNTRY_CODE_CYPRUS</span> <span class="o">=</span> <span class="s2">&quot;Cyprus&quot;</span>
+    <span class="n">COUNTRY_CODE_CZECH_REPUBLIC</span> <span class="o">=</span> <span class="s2">&quot;Czech Republic&quot;</span>
+    <span class="n">COUNTRY_CODE_CZECHOSLOVAKIA</span> <span class="o">=</span> <span class="s2">&quot;Czechoslovakia&quot;</span>
+    <span class="n">COUNTRY_CODE_DENMARK</span> <span class="o">=</span> <span class="s2">&quot;Denmark&quot;</span>
+    <span class="n">COUNTRY_CODE_DJIBOUTI</span> <span class="o">=</span> <span class="s2">&quot;Djibouti&quot;</span>
+    <span class="n">COUNTRY_CODE_DOMINICA</span> <span class="o">=</span> <span class="s2">&quot;Dominica&quot;</span>
+    <span class="n">COUNTRY_CODE_DOMINICAN_REPUBLIC</span> <span class="o">=</span> <span class="s2">&quot;Dominican Republic&quot;</span>
+    <span class="n">COUNTRY_CODE_EAST_TIMOR</span> <span class="o">=</span> <span class="s2">&quot;East Timor&quot;</span>
+    <span class="n">COUNTRY_CODE_ECUADOR</span> <span class="o">=</span> <span class="s2">&quot;Ecuador&quot;</span>
+    <span class="n">COUNTRY_CODE_EGYPT</span> <span class="o">=</span> <span class="s2">&quot;Egypt&quot;</span>
+    <span class="n">COUNTRY_CODE_EL_SALVADOR</span> <span class="o">=</span> <span class="s2">&quot;El Salvador&quot;</span>
+    <span class="n">COUNTRY_CODE_EQUATORIAL_GUINEA</span> <span class="o">=</span> <span class="s2">&quot;Equatorial Guinea&quot;</span>
+    <span class="n">COUNTRY_CODE_ERITREA</span> <span class="o">=</span> <span class="s2">&quot;Eritrea&quot;</span>
+    <span class="n">COUNTRY_CODE_ESTONIA</span> <span class="o">=</span> <span class="s2">&quot;Estonia&quot;</span>
+    <span class="n">COUNTRY_CODE_ETHIOPIA</span> <span class="o">=</span> <span class="s2">&quot;Ethiopia&quot;</span>
+    <span class="n">COUNTRY_CODE_FALKLAND_ISLANDS_MALVINAS</span> <span class="o">=</span> <span class="s2">&quot;Falkland Islands (Malvinas)&quot;</span>
+    <span class="n">COUNTRY_CODE_FAROE_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Faroe Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_FIJI</span> <span class="o">=</span> <span class="s2">&quot;Fiji&quot;</span>
+    <span class="n">COUNTRY_CODE_FINLAND</span> <span class="o">=</span> <span class="s2">&quot;Finland&quot;</span>
+    <span class="n">COUNTRY_CODE_FRANCE</span> <span class="o">=</span> <span class="s2">&quot;France&quot;</span>
+    <span class="n">COUNTRY_CODE_FRANCE_METROPOLITAN</span> <span class="o">=</span> <span class="s2">&quot;France, Metropolitan&quot;</span>
+    <span class="n">COUNTRY_CODE_FRENCH_GUIANA</span> <span class="o">=</span> <span class="s2">&quot;French Guiana&quot;</span>
+    <span class="n">COUNTRY_CODE_FRENCH_POLYNESIA</span> <span class="o">=</span> <span class="s2">&quot;French Polynesia&quot;</span>
+    <span class="n">COUNTRY_CODE_FRENCH_SOUTHERN_TERRITORIES</span> <span class="o">=</span> <span class="s2">&quot;French Southern Territories&quot;</span>
+    <span class="n">COUNTRY_CODE_GABON</span> <span class="o">=</span> <span class="s2">&quot;Gabon&quot;</span>
+    <span class="n">COUNTRY_CODE_GAMBIA</span> <span class="o">=</span> <span class="s2">&quot;Gambia&quot;</span>
+    <span class="n">COUNTRY_CODE_GEORGIA</span> <span class="o">=</span> <span class="s2">&quot;Georgia&quot;</span>
+    <span class="n">COUNTRY_CODE_GERMANY</span> <span class="o">=</span> <span class="s2">&quot;Germany&quot;</span>
+    <span class="n">COUNTRY_CODE_GHANA</span> <span class="o">=</span> <span class="s2">&quot;Ghana&quot;</span>
+    <span class="n">COUNTRY_CODE_GIBRALTAR</span> <span class="o">=</span> <span class="s2">&quot;Gibraltar&quot;</span>
+    <span class="n">COUNTRY_CODE_GREAT_BRITAIN_UK</span> <span class="o">=</span> <span class="s2">&quot;Great Britain (UK)&quot;</span>
+    <span class="n">COUNTRY_CODE_GREECE</span> <span class="o">=</span> <span class="s2">&quot;Greece&quot;</span>
+    <span class="n">COUNTRY_CODE_GREENLAND</span> <span class="o">=</span> <span class="s2">&quot;Greenland&quot;</span>
+    <span class="n">COUNTRY_CODE_GRENADA</span> <span class="o">=</span> <span class="s2">&quot;Grenada&quot;</span>
+    <span class="n">COUNTRY_CODE_GUADELOUPE</span> <span class="o">=</span> <span class="s2">&quot;Guadeloupe&quot;</span>
+    <span class="n">COUNTRY_CODE_GUAM</span> <span class="o">=</span> <span class="s2">&quot;Guam&quot;</span>
+    <span class="n">COUNTRY_CODE_GUATEMALA</span> <span class="o">=</span> <span class="s2">&quot;Guatemala&quot;</span>
+    <span class="n">COUNTRY_CODE_GUINEA</span> <span class="o">=</span> <span class="s2">&quot;Guinea&quot;</span>
+    <span class="n">COUNTRY_CODE_GUINEA_BISSAU</span> <span class="o">=</span> <span class="s2">&quot;Guinea-Bissau&quot;</span>
+    <span class="n">COUNTRY_CODE_GUYANA</span> <span class="o">=</span> <span class="s2">&quot;Guyana&quot;</span>
+    <span class="n">COUNTRY_CODE_HAITI</span> <span class="o">=</span> <span class="s2">&quot;Haiti&quot;</span>
+    <span class="n">COUNTRY_CODE_HEARD_AND_MC_DONALD_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Heard and McDonald Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_HONDURAS</span> <span class="o">=</span> <span class="s2">&quot;Honduras&quot;</span>
+    <span class="n">COUNTRY_CODE_HONG_KONG</span> <span class="o">=</span> <span class="s2">&quot;Hong Kong&quot;</span>
+    <span class="n">COUNTRY_CODE_HUNGARY</span> <span class="o">=</span> <span class="s2">&quot;Hungary&quot;</span>
+    <span class="n">COUNTRY_CODE_ICELAND</span> <span class="o">=</span> <span class="s2">&quot;Iceland&quot;</span>
+    <span class="n">COUNTRY_CODE_INDIA</span> <span class="o">=</span> <span class="s2">&quot;India&quot;</span>
+    <span class="n">COUNTRY_CODE_INDONESIA</span> <span class="o">=</span> <span class="s2">&quot;Indonesia&quot;</span>
+    <span class="n">COUNTRY_CODE_IRAN</span> <span class="o">=</span> <span class="s2">&quot;Iran&quot;</span>
+    <span class="n">COUNTRY_CODE_IRAQ</span> <span class="o">=</span> <span class="s2">&quot;Iraq&quot;</span>
+    <span class="n">COUNTRY_CODE_IRELAND</span> <span class="o">=</span> <span class="s2">&quot;Ireland&quot;</span>
+    <span class="n">COUNTRY_CODE_ISRAEL</span> <span class="o">=</span> <span class="s2">&quot;Israel&quot;</span>
+    <span class="n">COUNTRY_CODE_ITALY</span> <span class="o">=</span> <span class="s2">&quot;Italy&quot;</span>
+    <span class="n">COUNTRY_CODE_JAMAICA</span> <span class="o">=</span> <span class="s2">&quot;Jamaica&quot;</span>
+    <span class="n">COUNTRY_CODE_JAPAN</span> <span class="o">=</span> <span class="s2">&quot;Japan&quot;</span>
+    <span class="n">COUNTRY_CODE_JORDAN</span> <span class="o">=</span> <span class="s2">&quot;Jordan&quot;</span>
+    <span class="n">COUNTRY_CODE_KAZAKHSTAN</span> <span class="o">=</span> <span class="s2">&quot;Kazakhstan&quot;</span>
+    <span class="n">COUNTRY_CODE_KENYA</span> <span class="o">=</span> <span class="s2">&quot;Kenya&quot;</span>
+    <span class="n">COUNTRY_CODE_KIRIBATI</span> <span class="o">=</span> <span class="s2">&quot;Kiribati&quot;</span>
+    <span class="n">COUNTRY_CODE_KOREA_NORTH</span> <span class="o">=</span> <span class="s2">&quot;Korea (North)&quot;</span>
+    <span class="n">COUNTRY_CODE_KOREA_SOUTH</span> <span class="o">=</span> <span class="s2">&quot;Korea (South)&quot;</span>
+    <span class="n">COUNTRY_CODE_KUWAIT</span> <span class="o">=</span> <span class="s2">&quot;Kuwait&quot;</span>
+    <span class="n">COUNTRY_CODE_KYRGYZSTAN</span> <span class="o">=</span> <span class="s2">&quot;Kyrgyzstan&quot;</span>
+    <span class="n">COUNTRY_CODE_LAOS</span> <span class="o">=</span> <span class="s2">&quot;Laos&quot;</span>
+    <span class="n">COUNTRY_CODE_LATVIA</span> <span class="o">=</span> <span class="s2">&quot;Latvia&quot;</span>
+    <span class="n">COUNTRY_CODE_LEBANON</span> <span class="o">=</span> <span class="s2">&quot;Lebanon&quot;</span>
+    <span class="n">COUNTRY_CODE_LESOTHO</span> <span class="o">=</span> <span class="s2">&quot;Lesotho&quot;</span>
+    <span class="n">COUNTRY_CODE_LIBERIA</span> <span class="o">=</span> <span class="s2">&quot;Liberia&quot;</span>
+    <span class="n">COUNTRY_CODE_LIBYA</span> <span class="o">=</span> <span class="s2">&quot;Libya&quot;</span>
+    <span class="n">COUNTRY_CODE_LIECHTENSTEIN</span> <span class="o">=</span> <span class="s2">&quot;Liechtenstein&quot;</span>
+    <span class="n">COUNTRY_CODE_LITHUANIA</span> <span class="o">=</span> <span class="s2">&quot;Lithuania&quot;</span>
+    <span class="n">COUNTRY_CODE_LUXEMBOURG</span> <span class="o">=</span> <span class="s2">&quot;Luxembourg&quot;</span>
+    <span class="n">COUNTRY_CODE_MACAU</span> <span class="o">=</span> <span class="s2">&quot;Macau&quot;</span>
+    <span class="n">COUNTRY_CODE_MACEDONIA</span> <span class="o">=</span> <span class="s2">&quot;Macedonia&quot;</span>
+    <span class="n">COUNTRY_CODE_MADAGASCAR</span> <span class="o">=</span> <span class="s2">&quot;Madagascar&quot;</span>
+    <span class="n">COUNTRY_CODE_MALAWI</span> <span class="o">=</span> <span class="s2">&quot;Malawi&quot;</span>
+    <span class="n">COUNTRY_CODE_MALAYSIA</span> <span class="o">=</span> <span class="s2">&quot;Malaysia&quot;</span>
+    <span class="n">COUNTRY_CODE_MALDIVES</span> <span class="o">=</span> <span class="s2">&quot;Maldives&quot;</span>
+    <span class="n">COUNTRY_CODE_MALI</span> <span class="o">=</span> <span class="s2">&quot;Mali&quot;</span>
+    <span class="n">COUNTRY_CODE_MALTA</span> <span class="o">=</span> <span class="s2">&quot;Malta&quot;</span>
+    <span class="n">COUNTRY_CODE_MARSHALL_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Marshall Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_MARTINIQUE</span> <span class="o">=</span> <span class="s2">&quot;Martinique&quot;</span>
+    <span class="n">COUNTRY_CODE_MAURITANIA</span> <span class="o">=</span> <span class="s2">&quot;Mauritania&quot;</span>
+    <span class="n">COUNTRY_CODE_MAURITIUS</span> <span class="o">=</span> <span class="s2">&quot;Mauritius&quot;</span>
+    <span class="n">COUNTRY_CODE_MAYOTTE</span> <span class="o">=</span> <span class="s2">&quot;Mayotte&quot;</span>
+    <span class="n">COUNTRY_CODE_MEXICO</span> <span class="o">=</span> <span class="s2">&quot;Mexico&quot;</span>
+    <span class="n">COUNTRY_CODE_MICRONESIA</span> <span class="o">=</span> <span class="s2">&quot;Micronesia&quot;</span>
+    <span class="n">COUNTRY_CODE_MOLDOVA</span> <span class="o">=</span> <span class="s2">&quot;Moldova&quot;</span>
+    <span class="n">COUNTRY_CODE_MONACO</span> <span class="o">=</span> <span class="s2">&quot;Monaco&quot;</span>
+    <span class="n">COUNTRY_CODE_MONGOLIA</span> <span class="o">=</span> <span class="s2">&quot;Mongolia&quot;</span>
+    <span class="n">COUNTRY_CODE_MONTSERRAT</span> <span class="o">=</span> <span class="s2">&quot;Montserrat&quot;</span>
+    <span class="n">COUNTRY_CODE_MOROCCO</span> <span class="o">=</span> <span class="s2">&quot;Morocco&quot;</span>
+    <span class="n">COUNTRY_CODE_MOZAMBIQUE</span> <span class="o">=</span> <span class="s2">&quot;Mozambique&quot;</span>
+    <span class="n">COUNTRY_CODE_MYANMAR</span> <span class="o">=</span> <span class="s2">&quot;Myanmar&quot;</span>
+    <span class="n">COUNTRY_CODE_NAMIBIA</span> <span class="o">=</span> <span class="s2">&quot;Namibia&quot;</span>
+    <span class="n">COUNTRY_CODE_NAURU</span> <span class="o">=</span> <span class="s2">&quot;Nauru&quot;</span>
+    <span class="n">COUNTRY_CODE_NEPAL</span> <span class="o">=</span> <span class="s2">&quot;Nepal&quot;</span>
+    <span class="n">COUNTRY_CODE_NETHERLANDS</span> <span class="o">=</span> <span class="s2">&quot;Netherlands&quot;</span>
+    <span class="n">COUNTRY_CODE_NETHERLANDS_ANTILLES</span> <span class="o">=</span> <span class="s2">&quot;Netherlands Antilles&quot;</span>
+    <span class="n">COUNTRY_CODE_NEUTRAL_ZONE</span> <span class="o">=</span> <span class="s2">&quot;Neutral Zone&quot;</span>
+    <span class="n">COUNTRY_CODE_NEW_CALEDONIA</span> <span class="o">=</span> <span class="s2">&quot;New Caledonia&quot;</span>
+    <span class="n">COUNTRY_CODE_NEW_ZEALAND_AOTEAROA</span> <span class="o">=</span> <span class="s2">&quot;New Zealand (Aotearoa)&quot;</span>
+    <span class="n">COUNTRY_CODE_NICARAGUA</span> <span class="o">=</span> <span class="s2">&quot;Nicaragua&quot;</span>
+    <span class="n">COUNTRY_CODE_NIGER</span> <span class="o">=</span> <span class="s2">&quot;Niger&quot;</span>
+    <span class="n">COUNTRY_CODE_NIGERIA</span> <span class="o">=</span> <span class="s2">&quot;Nigeria&quot;</span>
+    <span class="n">COUNTRY_CODE_NIUE</span> <span class="o">=</span> <span class="s2">&quot;Niue&quot;</span>
+    <span class="n">COUNTRY_CODE_NORFOLK_ISLAND</span> <span class="o">=</span> <span class="s2">&quot;Norfolk Island&quot;</span>
+    <span class="n">COUNTRY_CODE_NORTHERN_MARIANA_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Northern Mariana Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_NORWAY</span> <span class="o">=</span> <span class="s2">&quot;Norway&quot;</span>
+    <span class="n">COUNTRY_CODE_OMAN</span> <span class="o">=</span> <span class="s2">&quot;Oman&quot;</span>
+    <span class="n">COUNTRY_CODE_PAKISTAN</span> <span class="o">=</span> <span class="s2">&quot;Pakistan&quot;</span>
+    <span class="n">COUNTRY_CODE_PALAU</span> <span class="o">=</span> <span class="s2">&quot;Palau&quot;</span>
+    <span class="n">COUNTRY_CODE_PANAMA</span> <span class="o">=</span> <span class="s2">&quot;Panama&quot;</span>
+    <span class="n">COUNTRY_CODE_PAPUA_NEW_GUINEA</span> <span class="o">=</span> <span class="s2">&quot;Papua New Guinea&quot;</span>
+    <span class="n">COUNTRY_CODE_PARAGUAY</span> <span class="o">=</span> <span class="s2">&quot;Paraguay&quot;</span>
+    <span class="n">COUNTRY_CODE_PERU</span> <span class="o">=</span> <span class="s2">&quot;Peru&quot;</span>
+    <span class="n">COUNTRY_CODE_PHILIPPINES</span> <span class="o">=</span> <span class="s2">&quot;Philippines&quot;</span>
+    <span class="n">COUNTRY_CODE_PITCAIRN</span> <span class="o">=</span> <span class="s2">&quot;Pitcairn&quot;</span>
+    <span class="n">COUNTRY_CODE_POLAND</span> <span class="o">=</span> <span class="s2">&quot;Poland&quot;</span>
+    <span class="n">COUNTRY_CODE_PORTUGAL</span> <span class="o">=</span> <span class="s2">&quot;Portugal&quot;</span>
+    <span class="n">COUNTRY_CODE_PUERTO_RICO</span> <span class="o">=</span> <span class="s2">&quot;Puerto Rico&quot;</span>
+    <span class="n">COUNTRY_CODE_QATAR</span> <span class="o">=</span> <span class="s2">&quot;Qatar&quot;</span>
+    <span class="n">COUNTRY_CODE_REUNION</span> <span class="o">=</span> <span class="s2">&quot;Reunion&quot;</span>
+    <span class="n">COUNTRY_CODE_ROMANIA</span> <span class="o">=</span> <span class="s2">&quot;Romania&quot;</span>
+    <span class="n">COUNTRY_CODE_RUSSIAN_FEDERATION</span> <span class="o">=</span> <span class="s2">&quot;Russian Federation&quot;</span>
+    <span class="n">COUNTRY_CODE_RWANDA</span> <span class="o">=</span> <span class="s2">&quot;Rwanda&quot;</span>
+    <span class="n">COUNTRY_CODE_S_GEORGIA_AND_S_SANDWICH_ISLS_</span> <span class="o">=</span> <span class="s2">&quot;S. Georgia and S. Sandwich Isls.&quot;</span>
+    <span class="n">COUNTRY_CODE_SAINT_KITTS_AND_NEVIS</span> <span class="o">=</span> <span class="s2">&quot;Saint Kitts and Nevis&quot;</span>
+    <span class="n">COUNTRY_CODE_SAINT_LUCIA</span> <span class="o">=</span> <span class="s2">&quot;Saint Lucia&quot;</span>
+    <span class="n">COUNTRY_CODE_SAINT_VINCENT_AND_THE_GRENADINES</span> <span class="o">=</span> <span class="s2">&quot;Saint Vincent and the Grenadines&quot;</span>
+    <span class="n">COUNTRY_CODE_SAMOA</span> <span class="o">=</span> <span class="s2">&quot;Samoa&quot;</span>
+    <span class="n">COUNTRY_CODE_SAN_MARINO</span> <span class="o">=</span> <span class="s2">&quot;San Marino&quot;</span>
+    <span class="n">COUNTRY_CODE_SAO_TOME_AND_PRINCIPE</span> <span class="o">=</span> <span class="s2">&quot;Sao Tome and Principe&quot;</span>
+    <span class="n">COUNTRY_CODE_SAUDI_ARABIA</span> <span class="o">=</span> <span class="s2">&quot;Saudi Arabia&quot;</span>
+    <span class="n">COUNTRY_CODE_SENEGAL</span> <span class="o">=</span> <span class="s2">&quot;Senegal&quot;</span>
+    <span class="n">COUNTRY_CODE_SEYCHELLES</span> <span class="o">=</span> <span class="s2">&quot;Seychelles&quot;</span>
+    <span class="n">COUNTRY_CODE_SIERRA_LEONE</span> <span class="o">=</span> <span class="s2">&quot;Sierra Leone&quot;</span>
+    <span class="n">COUNTRY_CODE_SINGAPORE</span> <span class="o">=</span> <span class="s2">&quot;Singapore&quot;</span>
+    <span class="n">COUNTRY_CODE_SLOVAK_REPUBLIC</span> <span class="o">=</span> <span class="s2">&quot;Slovak Republic&quot;</span>
+    <span class="n">COUNTRY_CODE_SLOVENIA</span> <span class="o">=</span> <span class="s2">&quot;Slovenia&quot;</span>
+    <span class="n">COUNTRY_CODE_SOLOMON_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Solomon Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_SOMALIA</span> <span class="o">=</span> <span class="s2">&quot;Somalia&quot;</span>
+    <span class="n">COUNTRY_CODE_SOUTH_AFRICA</span> <span class="o">=</span> <span class="s2">&quot;South Africa&quot;</span>
+    <span class="n">COUNTRY_CODE_SPAIN</span> <span class="o">=</span> <span class="s2">&quot;Spain&quot;</span>
+    <span class="n">COUNTRY_CODE_SRI_LANKA</span> <span class="o">=</span> <span class="s2">&quot;Sri Lanka&quot;</span>
+    <span class="n">COUNTRY_CODE_ST_HELENA</span> <span class="o">=</span> <span class="s2">&quot;St. Helena&quot;</span>
+    <span class="n">COUNTRY_CODE_ST_PIERRE_AND_MIQUELON</span> <span class="o">=</span> <span class="s2">&quot;St. Pierre and Miquelon&quot;</span>
+    <span class="n">COUNTRY_CODE_SUDAN</span> <span class="o">=</span> <span class="s2">&quot;Sudan&quot;</span>
+    <span class="n">COUNTRY_CODE_SURINAME</span> <span class="o">=</span> <span class="s2">&quot;Suriname&quot;</span>
+    <span class="n">COUNTRY_CODE_SVALBARD_AND_JAN_MAYEN_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Svalbard and Jan Mayen Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_SWAZILAND</span> <span class="o">=</span> <span class="s2">&quot;Swaziland&quot;</span>
+    <span class="n">COUNTRY_CODE_SWEDEN</span> <span class="o">=</span> <span class="s2">&quot;Sweden&quot;</span>
+    <span class="n">COUNTRY_CODE_SWITZERLAND</span> <span class="o">=</span> <span class="s2">&quot;Switzerland&quot;</span>
+    <span class="n">COUNTRY_CODE_SYRIA</span> <span class="o">=</span> <span class="s2">&quot;Syria&quot;</span>
+    <span class="n">COUNTRY_CODE_TAIWAN</span> <span class="o">=</span> <span class="s2">&quot;Taiwan&quot;</span>
+    <span class="n">COUNTRY_CODE_TAJIKISTAN</span> <span class="o">=</span> <span class="s2">&quot;Tajikistan&quot;</span>
+    <span class="n">COUNTRY_CODE_TANZANIA</span> <span class="o">=</span> <span class="s2">&quot;Tanzania&quot;</span>
+    <span class="n">COUNTRY_CODE_THAILAND</span> <span class="o">=</span> <span class="s2">&quot;Thailand&quot;</span>
+    <span class="n">COUNTRY_CODE_TOGO</span> <span class="o">=</span> <span class="s2">&quot;Togo&quot;</span>
+    <span class="n">COUNTRY_CODE_TOKELAU</span> <span class="o">=</span> <span class="s2">&quot;Tokelau&quot;</span>
+    <span class="n">COUNTRY_CODE_TONGA</span> <span class="o">=</span> <span class="s2">&quot;Tonga&quot;</span>
+    <span class="n">COUNTRY_CODE_TRINIDAD_AND_TOBAGO</span> <span class="o">=</span> <span class="s2">&quot;Trinidad and Tobago&quot;</span>
+    <span class="n">COUNTRY_CODE_TUNISIA</span> <span class="o">=</span> <span class="s2">&quot;Tunisia&quot;</span>
+    <span class="n">COUNTRY_CODE_TURKEY</span> <span class="o">=</span> <span class="s2">&quot;Turkey&quot;</span>
+    <span class="n">COUNTRY_CODE_TURKMENISTAN</span> <span class="o">=</span> <span class="s2">&quot;Turkmenistan&quot;</span>
+    <span class="n">COUNTRY_CODE_TURKS_AND_CAICOS_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Turks and Caicos Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_TUVALU</span> <span class="o">=</span> <span class="s2">&quot;Tuvalu&quot;</span>
+    <span class="n">COUNTRY_CODE_US_MINOR_OUTLYING_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;US Minor Outlying Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_USSR_FORMER</span> <span class="o">=</span> <span class="s2">&quot;USSR (former)&quot;</span>
+    <span class="n">COUNTRY_CODE_UGANDA</span> <span class="o">=</span> <span class="s2">&quot;Uganda&quot;</span>
+    <span class="n">COUNTRY_CODE_UKRAINE</span> <span class="o">=</span> <span class="s2">&quot;Ukraine&quot;</span>
+    <span class="n">COUNTRY_CODE_UNITED_ARAB_EMIRATES</span> <span class="o">=</span> <span class="s2">&quot;United Arab Emirates&quot;</span>
+    <span class="n">COUNTRY_CODE_UNITED_KINGDOM</span> <span class="o">=</span> <span class="s2">&quot;United Kingdom&quot;</span>
+    <span class="n">COUNTRY_CODE_UNITED_STATES</span> <span class="o">=</span> <span class="s2">&quot;United States&quot;</span>
+    <span class="n">COUNTRY_CODE_URUGUAY</span> <span class="o">=</span> <span class="s2">&quot;Uruguay&quot;</span>
+    <span class="n">COUNTRY_CODE_UZBEKISTAN</span> <span class="o">=</span> <span class="s2">&quot;Uzbekistan&quot;</span>
+    <span class="n">COUNTRY_CODE_VANUATU</span> <span class="o">=</span> <span class="s2">&quot;Vanuatu&quot;</span>
+    <span class="n">COUNTRY_CODE_VATICAN_CITY_STATE_HOLY_SEE</span> <span class="o">=</span> <span class="s2">&quot;Vatican City State (Holy See)&quot;</span>
+    <span class="n">COUNTRY_CODE_VENEZUELA</span> <span class="o">=</span> <span class="s2">&quot;Venezuela&quot;</span>
+    <span class="n">COUNTRY_CODE_VIET_NAM</span> <span class="o">=</span> <span class="s2">&quot;Viet Nam&quot;</span>
+    <span class="n">COUNTRY_CODE_VIRGIN_ISLANDS_BRITISH</span> <span class="o">=</span> <span class="s2">&quot;Virgin Islands (British)&quot;</span>
+    <span class="n">COUNTRY_CODE_VIRGIN_ISLANDS_U_S_</span> <span class="o">=</span> <span class="s2">&quot;Virgin Islands (U.S.)&quot;</span>
+    <span class="n">COUNTRY_CODE_WALLIS_AND_FUTUNA_ISLANDS</span> <span class="o">=</span> <span class="s2">&quot;Wallis and Futuna Islands&quot;</span>
+    <span class="n">COUNTRY_CODE_WESTERN_SAHARA</span> <span class="o">=</span> <span class="s2">&quot;Western Sahara&quot;</span>
+    <span class="n">COUNTRY_CODE_YEMEN</span> <span class="o">=</span> <span class="s2">&quot;Yemen&quot;</span>
+    <span class="n">COUNTRY_CODE_YUGOSLAVIA</span> <span class="o">=</span> <span class="s2">&quot;Yugoslavia&quot;</span>
+    <span class="n">COUNTRY_CODE_ZAIRE</span> <span class="o">=</span> <span class="s2">&quot;Zaire&quot;</span>
+    <span class="n">COUNTRY_CODE_ZAMBIA</span> <span class="o">=</span> <span class="s2">&quot;Zambia&quot;</span>
+    <span class="n">COUNTRY_CODE_ZIMBABWE</span> <span class="o">=</span> <span class="s2">&quot;Zimbabwe&quot;</span>
+    <span class="n">PROTOCOL_FTP</span> <span class="o">=</span> <span class="s2">&quot;ftp&quot;</span>
+    <span class="n">PROTOCOL_HTTP</span> <span class="o">=</span> <span class="s2">&quot;http&quot;</span>
+    <span class="n">PROTOCOL_NONE</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
+    <span class="n">PROTOCOL_SCP</span> <span class="o">=</span> <span class="s2">&quot;scp&quot;</span>
+    <span class="n">PROTOCOL_SFTP</span> <span class="o">=</span> <span class="s2">&quot;sftp&quot;</span>
+    <span class="n">PROTOCOL_TFTP</span> <span class="o">=</span> <span class="s2">&quot;tftp&quot;</span>
+    <span class="n">SELF_SIGNED_NO</span> <span class="o">=</span> <span class="s2">&quot;No&quot;</span>
+    <span class="n">SELF_SIGNED_YES</span> <span class="o">=</span> <span class="s2">&quot;Yes&quot;</span>
+    <span class="n">_SELF_SIGNED_NO</span> <span class="o">=</span> <span class="s2">&quot;no&quot;</span>
+    <span class="n">_SELF_SIGNED_YES</span> <span class="o">=</span> <span class="s2">&quot;yes&quot;</span></div>
+
+
+<div class="viewcode-block" id="GenerateCertificateSigningRequest"><a class="viewcode-back" href="../../../../imcsdk.mometa.generate.html#imcsdk.mometa.generate.GenerateCertificateSigningRequest.GenerateCertificateSigningRequest">[docs]</a><span class="k">class</span> <span class="nc">GenerateCertificateSigningRequest</span><span class="p">(</span><span class="n">ManagedObject</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is GenerateCertificateSigningRequest class.&quot;&quot;&quot;</span>
+
+    <span class="n">consts</span> <span class="o">=</span> <span class="n">GenerateCertificateSigningRequestConsts</span><span class="p">()</span>
+    <span class="n">naming_props</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([])</span>
+
+    <span class="n">mo_meta</span> <span class="o">=</span> <span class="n">MoMeta</span><span class="p">(</span><span class="s2">&quot;GenerateCertificateSigningRequest&quot;</span><span class="p">,</span> <span class="s2">&quot;generateCertificateSigningRequest&quot;</span><span class="p">,</span> <span class="s2">&quot;gen-csr-req&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="s2">&quot;InputOutput&quot;</span><span class="p">,</span> <span class="mh">0x1ffff</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="s2">&quot;read-only&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s1">u&#39;certificateManagement&#39;</span><span class="p">],</span> <span class="p">[],</span> <span class="p">[</span><span class="bp">None</span><span class="p">])</span>
+
+    <span class="n">prop_meta</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;child_action&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;child_action&quot;</span><span class="p">,</span> <span class="s2">&quot;childAction&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">INTERNAL</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;common_name&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;common_name&quot;</span><span class="p">,</span> <span class="s2">&quot;commonName&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;country_code&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;country_code&quot;</span><span class="p">,</span> <span class="s2">&quot;countryCode&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Albania&quot;</span><span class="p">,</span> <span class="s2">&quot;Algeria&quot;</span><span class="p">,</span> <span class="s2">&quot;American Samoa&quot;</span><span class="p">,</span> <span class="s2">&quot;Andorra&quot;</span><span class="p">,</span> <span class="s2">&quot;Angola&quot;</span><span class="p">,</span> <span class="s2">&quot;Anguilla&quot;</span><span class="p">,</span> <span class="s2">&quot;Antarctica&quot;</span><span class="p">,</span> <span class="s2">&quot;Antigua and Barbuda&quot;</span><span class="p">,</span> <span class="s2">&quot;Argentina&quot;</span><span class="p">,</span> <span class="s2">&quot;Armenia&quot;</span><span class="p">,</span> <span class="s2">&quot;Aruba&quot;</span><span class="p">,</span> <span class="s2">&quot;Australia&quot;</span><span class="p">,</span> <span class="s2">&quot;Austria&quot;</span><span class="p">,</span> <span class="s2">&quot;Azerbaijan&quot;</span><span class="p">,</span> <span class="s2">&quot;Bahamas&quot;</span><span class="p">,</span> <span class="s2">&quot;Bahrain&quot;</span><span class="p">,</span> <span class="s2">&quot;Bangladesh&quot;</span><span class="p">,</span> <span class="s2">&quot;Barbados&quot;</span><span class="p">,</span> <span class="s2">&quot;Belarus&quot;</span><span class="p">,</span> <span class="s2">&quot;Belgium&quot;</span><span class="p">,</span> <span class="s2">&quot;Belize&quot;</span><span class="p">,</span> <span class="s2">&quot;Benin&quot;</span><span class="p">,</span> <span class="s2">&quot;Bermuda&quot;</span><span class="p">,</span> <span class="s2">&quot;Bhutan&quot;</span><span class="p">,</span> <span class="s2">&quot;Bolivia&quot;</span><span class="p">,</span> <span class="s2">&quot;Bosnia and Herzegovina&quot;</span><span class="p">,</span> <span class="s2">&quot;Botswana&quot;</span><span class="p">,</span> <span class="s2">&quot;Bouvet Island&quot;</span><span class="p">,</span> <span class="s2">&quot;Brazil&quot;</span><span class="p">,</span> <span class="s2">&quot;British Indian Ocean Territory&quot;</span><span class="p">,</span> <span class="s2">&quot;Brunei Darussalam&quot;</span><span class="p">,</span> <span class="s2">&quot;Bulgaria&quot;</span><span class="p">,</span> <span class="s2">&quot;Burkina Faso&quot;</span><span class="p">,</span> <span class="s2">&quot;Burundi&quot;</span><span class="p">,</span> <span class="s2">&quot;Cambodia&quot;</span><span class="p">,</span> <span class="s2">&quot;Cameroon&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">,</span> <span class="s2">&quot;Cape Verde&quot;</span><span class="p">,</span> <span class="s2">&quot;Cayman Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Central African Republic&quot;</span><span class="p">,</span> <span class="s2">&quot;Chad&quot;</span><span class="p">,</span> <span class="s2">&quot;Chile&quot;</span><span class="p">,</span> <span class="s2">&quot;China&quot;</span><span class="p">,</span> <span class="s2">&quot;Christmas Island&quot;</span><span class="p">,</span> <span class="s2">&quot;Cocos (Keeling) Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Colombia&quot;</span><span class="p">,</span> <span class="s2">&quot;Comoros&quot;</span><span class="p">,</span> <span class="s2">&quot;Congo&quot;</span><span class="p">,</span> <span class="s2">&quot;Cook Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Costa Rica&quot;</span><span class="p">,</span> <span class="s2">&quot;Cote D&#39;Ivoire (Ivory Coast)&quot;</span><span class="p">,</span> <span class="s2">&quot;Croatia (Hrvatska)&quot;</span><span class="p">,</span> <span class="s2">&quot;Cuba&quot;</span><span class="p">,</span> <span class="s2">&quot;Cyprus&quot;</span><span class="p">,</span> <span class="s2">&quot;Czech Republic&quot;</span><span class="p">,</span> <span class="s2">&quot;Czechoslovakia&quot;</span><span class="p">,</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">,</span> <span class="s2">&quot;Djibouti&quot;</span><span class="p">,</span> <span class="s2">&quot;Dominica&quot;</span><span class="p">,</span> <span class="s2">&quot;Dominican Republic&quot;</span><span class="p">,</span> <span class="s2">&quot;East Timor&quot;</span><span class="p">,</span> <span class="s2">&quot;Ecuador&quot;</span><span class="p">,</span> <span class="s2">&quot;Egypt&quot;</span><span class="p">,</span> <span class="s2">&quot;El Salvador&quot;</span><span class="p">,</span> <span class="s2">&quot;Equatorial Guinea&quot;</span><span class="p">,</span> <span class="s2">&quot;Eritrea&quot;</span><span class="p">,</span> <span class="s2">&quot;Estonia&quot;</span><span class="p">,</span> <span class="s2">&quot;Ethiopia&quot;</span><span class="p">,</span> <span class="s2">&quot;Falkland Islands (Malvinas)&quot;</span><span class="p">,</span> <span class="s2">&quot;Faroe Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Fiji&quot;</span><span class="p">,</span> <span class="s2">&quot;Finland&quot;</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="s2">&quot;France, Metropolitan&quot;</span><span class="p">,</span> <span class="s2">&quot;French Guiana&quot;</span><span class="p">,</span> <span class="s2">&quot;French Polynesia&quot;</span><span class="p">,</span> <span class="s2">&quot;French Southern Territories&quot;</span><span class="p">,</span> <span class="s2">&quot;Gabon&quot;</span><span class="p">,</span> <span class="s2">&quot;Gambia&quot;</span><span class="p">,</span> <span class="s2">&quot;Georgia&quot;</span><span class="p">,</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span> <span class="s2">&quot;Ghana&quot;</span><span class="p">,</span> <span class="s2">&quot;Gibraltar&quot;</span><span class="p">,</span> <span class="s2">&quot;Great Britain (UK)&quot;</span><span class="p">,</span> <span class="s2">&quot;Greece&quot;</span><span class="p">,</span> <span class="s2">&quot;Greenland&quot;</span><span class="p">,</span> <span class="s2">&quot;Grenada&quot;</span><span class="p">,</span> <span class="s2">&quot;Guadeloupe&quot;</span><span class="p">,</span> <span class="s2">&quot;Guam&quot;</span><span class="p">,</span> <span class="s2">&quot;Guatemala&quot;</span><span class="p">,</span> <span class="s2">&quot;Guinea&quot;</span><span class="p">,</span> <span class="s2">&quot;Guinea-Bissau&quot;</span><span class="p">,</span> <span class="s2">&quot;Guyana&quot;</span><span class="p">,</span> <span class="s2">&quot;Haiti&quot;</span><span class="p">,</span> <span class="s2">&quot;Heard and McDonald Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Honduras&quot;</span><span class="p">,</span> <span class="s2">&quot;Hong Kong&quot;</span><span class="p">,</span> <span class="s2">&quot;Hungary&quot;</span><span class="p">,</span> <span class="s2">&quot;Iceland&quot;</span><span class="p">,</span> <span class="s2">&quot;India&quot;</span><span class="p">,</span> <span class="s2">&quot;Indonesia&quot;</span><span class="p">,</span> <span class="s2">&quot;Iran&quot;</span><span class="p">,</span> <span class="s2">&quot;Iraq&quot;</span><span class="p">,</span> <span class="s2">&quot;Ireland&quot;</span><span class="p">,</span> <span class="s2">&quot;Israel&quot;</span><span class="p">,</span> <span class="s2">&quot;Italy&quot;</span><span class="p">,</span> <span class="s2">&quot;Jamaica&quot;</span><span class="p">,</span> <span class="s2">&quot;Japan&quot;</span><span class="p">,</span> <span class="s2">&quot;Jordan&quot;</span><span class="p">,</span> <span class="s2">&quot;Kazakhstan&quot;</span><span class="p">,</span> <span class="s2">&quot;Kenya&quot;</span><span class="p">,</span> <span class="s2">&quot;Kiribati&quot;</span><span class="p">,</span> <span class="s2">&quot;Korea (North)&quot;</span><span class="p">,</span> <span class="s2">&quot;Korea (South)&quot;</span><span class="p">,</span> <span class="s2">&quot;Kuwait&quot;</span><span class="p">,</span> <span class="s2">&quot;Kyrgyzstan&quot;</span><span class="p">,</span> <span class="s2">&quot;Laos&quot;</span><span class="p">,</span> <span class="s2">&quot;Latvia&quot;</span><span class="p">,</span> <span class="s2">&quot;Lebanon&quot;</span><span class="p">,</span> <span class="s2">&quot;Lesotho&quot;</span><span class="p">,</span> <span class="s2">&quot;Liberia&quot;</span><span class="p">,</span> <span class="s2">&quot;Libya&quot;</span><span class="p">,</span> <span class="s2">&quot;Liechtenstein&quot;</span><span class="p">,</span> <span class="s2">&quot;Lithuania&quot;</span><span class="p">,</span> <span class="s2">&quot;Luxembourg&quot;</span><span class="p">,</span> <span class="s2">&quot;Macau&quot;</span><span class="p">,</span> <span class="s2">&quot;Macedonia&quot;</span><span class="p">,</span> <span class="s2">&quot;Madagascar&quot;</span><span class="p">,</span> <span class="s2">&quot;Malawi&quot;</span><span class="p">,</span> <span class="s2">&quot;Malaysia&quot;</span><span class="p">,</span> <span class="s2">&quot;Maldives&quot;</span><span class="p">,</span> <span class="s2">&quot;Mali&quot;</span><span class="p">,</span> <span class="s2">&quot;Malta&quot;</span><span class="p">,</span> <span class="s2">&quot;Marshall Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Martinique&quot;</span><span class="p">,</span> <span class="s2">&quot;Mauritania&quot;</span><span class="p">,</span> <span class="s2">&quot;Mauritius&quot;</span><span class="p">,</span> <span class="s2">&quot;Mayotte&quot;</span><span class="p">,</span> <span class="s2">&quot;Mexico&quot;</span><span class="p">,</span> <span class="s2">&quot;Micronesia&quot;</span><span class="p">,</span> <span class="s2">&quot;Moldova&quot;</span><span class="p">,</span> <span class="s2">&quot;Monaco&quot;</span><span class="p">,</span> <span class="s2">&quot;Mongolia&quot;</span><span class="p">,</span> <span class="s2">&quot;Montserrat&quot;</span><span class="p">,</span> <span class="s2">&quot;Morocco&quot;</span><span class="p">,</span> <span class="s2">&quot;Mozambique&quot;</span><span class="p">,</span> <span class="s2">&quot;Myanmar&quot;</span><span class="p">,</span> <span class="s2">&quot;Namibia&quot;</span><span class="p">,</span> <span class="s2">&quot;Nauru&quot;</span><span class="p">,</span> <span class="s2">&quot;Nepal&quot;</span><span class="p">,</span> <span class="s2">&quot;Netherlands&quot;</span><span class="p">,</span> <span class="s2">&quot;Netherlands Antilles&quot;</span><span class="p">,</span> <span class="s2">&quot;Neutral Zone&quot;</span><span class="p">,</span> <span class="s2">&quot;New Caledonia&quot;</span><span class="p">,</span> <span class="s2">&quot;New Zealand (Aotearoa)&quot;</span><span class="p">,</span> <span class="s2">&quot;Nicaragua&quot;</span><span class="p">,</span> <span class="s2">&quot;Niger&quot;</span><span class="p">,</span> <span class="s2">&quot;Nigeria&quot;</span><span class="p">,</span> <span class="s2">&quot;Niue&quot;</span><span class="p">,</span> <span class="s2">&quot;Norfolk Island&quot;</span><span class="p">,</span> <span class="s2">&quot;Northern Mariana Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Norway&quot;</span><span class="p">,</span> <span class="s2">&quot;Oman&quot;</span><span class="p">,</span> <span class="s2">&quot;Pakistan&quot;</span><span class="p">,</span> <span class="s2">&quot;Palau&quot;</span><span class="p">,</span> <span class="s2">&quot;Panama&quot;</span><span class="p">,</span> <span class="s2">&quot;Papua New Guinea&quot;</span><span class="p">,</span> <span class="s2">&quot;Paraguay&quot;</span><span class="p">,</span> <span class="s2">&quot;Peru&quot;</span><span class="p">,</span> <span class="s2">&quot;Philippines&quot;</span><span class="p">,</span> <span class="s2">&quot;Pitcairn&quot;</span><span class="p">,</span> <span class="s2">&quot;Poland&quot;</span><span class="p">,</span> <span class="s2">&quot;Portugal&quot;</span><span class="p">,</span> <span class="s2">&quot;Puerto Rico&quot;</span><span class="p">,</span> <span class="s2">&quot;Qatar&quot;</span><span class="p">,</span> <span class="s2">&quot;Reunion&quot;</span><span class="p">,</span> <span class="s2">&quot;Romania&quot;</span><span class="p">,</span> <span class="s2">&quot;Russian Federation&quot;</span><span class="p">,</span> <span class="s2">&quot;Rwanda&quot;</span><span class="p">,</span> <span class="s2">&quot;S. Georgia and S. Sandwich Isls.&quot;</span><span class="p">,</span> <span class="s2">&quot;Saint Kitts and Nevis&quot;</span><span class="p">,</span> <span class="s2">&quot;Saint Lucia&quot;</span><span class="p">,</span> <span class="s2">&quot;Saint Vincent and the Grenadines&quot;</span><span class="p">,</span> <span class="s2">&quot;Samoa&quot;</span><span class="p">,</span> <span class="s2">&quot;San Marino&quot;</span><span class="p">,</span> <span class="s2">&quot;Sao Tome and Principe&quot;</span><span class="p">,</span> <span class="s2">&quot;Saudi Arabia&quot;</span><span class="p">,</span> <span class="s2">&quot;Senegal&quot;</span><span class="p">,</span> <span class="s2">&quot;Seychelles&quot;</span><span class="p">,</span> <span class="s2">&quot;Sierra Leone&quot;</span><span class="p">,</span> <span class="s2">&quot;Singapore&quot;</span><span class="p">,</span> <span class="s2">&quot;Slovak Republic&quot;</span><span class="p">,</span> <span class="s2">&quot;Slovenia&quot;</span><span class="p">,</span> <span class="s2">&quot;Solomon Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Somalia&quot;</span><span class="p">,</span> <span class="s2">&quot;South Africa&quot;</span><span class="p">,</span> <span class="s2">&quot;Spain&quot;</span><span class="p">,</span> <span class="s2">&quot;Sri Lanka&quot;</span><span class="p">,</span> <span class="s2">&quot;St. Helena&quot;</span><span class="p">,</span> <span class="s2">&quot;St. Pierre and Miquelon&quot;</span><span class="p">,</span> <span class="s2">&quot;Sudan&quot;</span><span class="p">,</span> <span class="s2">&quot;Suriname&quot;</span><span class="p">,</span> <span class="s2">&quot;Svalbard and Jan Mayen Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Swaziland&quot;</span><span class="p">,</span> <span class="s2">&quot;Sweden&quot;</span><span class="p">,</span> <span class="s2">&quot;Switzerland&quot;</span><span class="p">,</span> <span class="s2">&quot;Syria&quot;</span><span class="p">,</span> <span class="s2">&quot;Taiwan&quot;</span><span class="p">,</span> <span class="s2">&quot;Tajikistan&quot;</span><span class="p">,</span> <span class="s2">&quot;Tanzania&quot;</span><span class="p">,</span> <span class="s2">&quot;Thailand&quot;</span><span class="p">,</span> <span class="s2">&quot;Togo&quot;</span><span class="p">,</span> <span class="s2">&quot;Tokelau&quot;</span><span class="p">,</span> <span class="s2">&quot;Tonga&quot;</span><span class="p">,</span> <span class="s2">&quot;Trinidad and Tobago&quot;</span><span class="p">,</span> <span class="s2">&quot;Tunisia&quot;</span><span class="p">,</span> <span class="s2">&quot;Turkey&quot;</span><span class="p">,</span> <span class="s2">&quot;Turkmenistan&quot;</span><span class="p">,</span> <span class="s2">&quot;Turks and Caicos Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Tuvalu&quot;</span><span class="p">,</span> <span class="s2">&quot;US Minor Outlying Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;USSR (former)&quot;</span><span class="p">,</span> <span class="s2">&quot;Uganda&quot;</span><span class="p">,</span> <span class="s2">&quot;Ukraine&quot;</span><span class="p">,</span> <span class="s2">&quot;United Arab Emirates&quot;</span><span class="p">,</span> <span class="s2">&quot;United Kingdom&quot;</span><span class="p">,</span> <span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="s2">&quot;Uruguay&quot;</span><span class="p">,</span> <span class="s2">&quot;Uzbekistan&quot;</span><span class="p">,</span> <span class="s2">&quot;Vanuatu&quot;</span><span class="p">,</span> <span class="s2">&quot;Vatican City State (Holy See)&quot;</span><span class="p">,</span> <span class="s2">&quot;Venezuela&quot;</span><span class="p">,</span> <span class="s2">&quot;Viet Nam&quot;</span><span class="p">,</span> <span class="s2">&quot;Virgin Islands (British)&quot;</span><span class="p">,</span> <span class="s2">&quot;Virgin Islands (U.S.)&quot;</span><span class="p">,</span> <span class="s2">&quot;Wallis and Futuna Islands&quot;</span><span class="p">,</span> <span class="s2">&quot;Western Sahara&quot;</span><span class="p">,</span> <span class="s2">&quot;Yemen&quot;</span><span class="p">,</span> <span class="s2">&quot;Yugoslavia&quot;</span><span class="p">,</span> <span class="s2">&quot;Zaire&quot;</span><span class="p">,</span> <span class="s2">&quot;Zambia&quot;</span><span class="p">,</span> <span class="s2">&quot;Zimbabwe&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;csr_status&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;csr_status&quot;</span><span class="p">,</span> <span class="s2">&quot;csrStatus&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_ONLY</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;dn&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;dn&quot;</span><span class="p">,</span> <span class="s2">&quot;dn&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="s2">r&quot;&quot;&quot;[_\-a-zA-Z0-9\.\+]+@[a-zA-Z0-9](\.?[\-a-zA-Z0-9]*[a-zA-Z0-9])*&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;locality&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;locality&quot;</span><span class="p">,</span> <span class="s2">&quot;locality&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;organization&quot;</span><span class="p">,</span> <span class="s2">&quot;organization&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;organizational_unit&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;organizational_unit&quot;</span><span class="p">,</span> <span class="s2">&quot;organizationalUnit&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x80</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;protocol&quot;</span><span class="p">,</span> <span class="s2">&quot;protocol&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x100</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;ftp&quot;</span><span class="p">,</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;scp&quot;</span><span class="p">,</span> <span class="s2">&quot;sftp&quot;</span><span class="p">,</span> <span class="s2">&quot;tftp&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;pwd&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;pwd&quot;</span><span class="p">,</span> <span class="s2">&quot;pwd&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;remote_file&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;remote_file&quot;</span><span class="p">,</span> <span class="s2">&quot;remoteFile&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x400</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s2">r&quot;&quot;&quot;[^\(\)~`&#39;\?\\&quot;&quot;;&lt;&gt;\|&amp;\*\^$%]{0,128}&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;remote_server&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;remote_server&quot;</span><span class="p">,</span> <span class="s2">&quot;remoteServer&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x800</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="s2">r&quot;&quot;&quot;(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:) |((([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6})|(([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)+)|([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;rn&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;rn&quot;</span><span class="p">,</span> <span class="s2">&quot;rn&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;self_signed&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;self_signed&quot;</span><span class="p">,</span> <span class="s2">&quot;selfSigned&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x2000</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;yes&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x4000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x8000</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span> <span class="s2">&quot;deleted&quot;</span><span class="p">,</span> <span class="s2">&quot;modified&quot;</span><span class="p">,</span> <span class="s2">&quot;removed&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version209c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x10000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+    <span class="p">}</span>
+
+    <span class="n">prop_map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;childAction&quot;</span><span class="p">:</span> <span class="s2">&quot;child_action&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;commonName&quot;</span><span class="p">:</span> <span class="s2">&quot;common_name&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;countryCode&quot;</span><span class="p">:</span> <span class="s2">&quot;country_code&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;csrStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;csr_status&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;dn&quot;</span><span class="p">:</span> <span class="s2">&quot;dn&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;locality&quot;</span><span class="p">:</span> <span class="s2">&quot;locality&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;organization&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;organizationalUnit&quot;</span><span class="p">:</span> <span class="s2">&quot;organizational_unit&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;protocol&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;pwd&quot;</span><span class="p">:</span> <span class="s2">&quot;pwd&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;remoteFile&quot;</span><span class="p">:</span> <span class="s2">&quot;remote_file&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;remoteServer&quot;</span><span class="p">:</span> <span class="s2">&quot;remote_server&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;rn&quot;</span><span class="p">:</span> <span class="s2">&quot;rn&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;selfSigned&quot;</span><span class="p">:</span> <span class="s2">&quot;self_signed&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> 
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent_mo_or_dn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dirty_mask</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">child_action</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">common_name</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">country_code</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">csr_status</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">locality</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">organization</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">organizational_unit</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pwd</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remote_file</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remote_server</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">self_signed</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">ManagedObject</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;GenerateCertificateSigningRequest&quot;</span><span class="p">,</span> <span class="n">parent_mo_or_dn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

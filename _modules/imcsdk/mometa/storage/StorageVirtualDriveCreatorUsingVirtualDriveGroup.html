@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.storage.StorageVirtualDriveCreatorUsingVirtualDriveGroup &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.mometa.storage.StorageVirtualDriveCreatorUsingVirtualDriveGroup</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module contains the general information for StorageVirtualDriveCreatorUsingVirtualDriveGroup ManagedObject.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">...imcmo</span> <span class="kn">import</span> <span class="n">ManagedObject</span>
+<span class="kn">from</span> <span class="nn">...imccoremeta</span> <span class="kn">import</span> <span class="n">MoPropertyMeta</span><span class="p">,</span> <span class="n">MoMeta</span>
+<span class="kn">from</span> <span class="nn">...imcmeta</span> <span class="kn">import</span> <span class="n">VersionMeta</span>
+
+
+<div class="viewcode-block" id="StorageVirtualDriveCreatorUsingVirtualDriveGroupConsts"><a class="viewcode-back" href="../../../../imcsdk.mometa.storage.html#imcsdk.mometa.storage.StorageVirtualDriveCreatorUsingVirtualDriveGroup.StorageVirtualDriveCreatorUsingVirtualDriveGroupConsts">[docs]</a><span class="k">class</span> <span class="nc">StorageVirtualDriveCreatorUsingVirtualDriveGroupConsts</span><span class="p">:</span>
+    <span class="n">ACCESS_POLICY_</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">ACCESS_POLICY_BLOCKED</span> <span class="o">=</span> <span class="s2">&quot;blocked&quot;</span>
+    <span class="n">ACCESS_POLICY_DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">ACCESS_POLICY_HIDDEN</span> <span class="o">=</span> <span class="s2">&quot;hidden&quot;</span>
+    <span class="n">ACCESS_POLICY_READ_ONLY</span> <span class="o">=</span> <span class="s2">&quot;read-only&quot;</span>
+    <span class="n">ACCESS_POLICY_READ_WRITE</span> <span class="o">=</span> <span class="s2">&quot;read-write&quot;</span>
+    <span class="n">ADMIN_STATE_TRIGGER</span> <span class="o">=</span> <span class="s2">&quot;trigger&quot;</span>
+    <span class="n">ADMIN_STATE_TRIGGERED</span> <span class="o">=</span> <span class="s2">&quot;triggered&quot;</span>
+    <span class="n">CACHE_POLICY_</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">CACHE_POLICY_CACHED_IO</span> <span class="o">=</span> <span class="s2">&quot;cached-io&quot;</span>
+    <span class="n">CACHE_POLICY_DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">CACHE_POLICY_DIRECT_IO</span> <span class="o">=</span> <span class="s2">&quot;direct-io&quot;</span>
+    <span class="n">DISK_CACHE_POLICY_</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">DISK_CACHE_POLICY_DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">DISK_CACHE_POLICY_DISABLED</span> <span class="o">=</span> <span class="s2">&quot;disabled&quot;</span>
+    <span class="n">DISK_CACHE_POLICY_ENABLED</span> <span class="o">=</span> <span class="s2">&quot;enabled&quot;</span>
+    <span class="n">DISK_CACHE_POLICY_UNCHANGED</span> <span class="o">=</span> <span class="s2">&quot;unchanged&quot;</span>
+    <span class="n">READ_POLICY_</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">READ_POLICY_ALWAYS_READ_AHEAD</span> <span class="o">=</span> <span class="s2">&quot;always-read-ahead&quot;</span>
+    <span class="n">READ_POLICY_DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">READ_POLICY_NO_READ_AHEAD</span> <span class="o">=</span> <span class="s2">&quot;no-read-ahead&quot;</span>
+    <span class="n">SHARED_VIRTUAL_DRIVE_ID_</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">STRIP_SIZE_</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">STRIP_SIZE_1024K</span> <span class="o">=</span> <span class="s2">&quot;1024k&quot;</span>
+    <span class="n">STRIP_SIZE_128K</span> <span class="o">=</span> <span class="s2">&quot;128k&quot;</span>
+    <span class="n">STRIP_SIZE_16K</span> <span class="o">=</span> <span class="s2">&quot;16k&quot;</span>
+    <span class="n">STRIP_SIZE_256K</span> <span class="o">=</span> <span class="s2">&quot;256k&quot;</span>
+    <span class="n">STRIP_SIZE_32K</span> <span class="o">=</span> <span class="s2">&quot;32k&quot;</span>
+    <span class="n">STRIP_SIZE_512K</span> <span class="o">=</span> <span class="s2">&quot;512k&quot;</span>
+    <span class="n">STRIP_SIZE_64K</span> <span class="o">=</span> <span class="s2">&quot;64k&quot;</span>
+    <span class="n">STRIP_SIZE_8K</span> <span class="o">=</span> <span class="s2">&quot;8k&quot;</span>
+    <span class="n">STRIP_SIZE_DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">WRITE_POLICY_</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">WRITE_POLICY_ALWAYS_WRITE_BACK</span> <span class="o">=</span> <span class="s2">&quot;Always Write Back&quot;</span>
+    <span class="n">WRITE_POLICY_WRITE_BACK_GOOD_BBU</span> <span class="o">=</span> <span class="s2">&quot;Write Back Good BBU&quot;</span>
+    <span class="n">WRITE_POLICY_WRITE_THROUGH</span> <span class="o">=</span> <span class="s2">&quot;Write Through&quot;</span>
+    <span class="n">_WRITE_POLICY_ALWAYS_WRITE_BACK</span> <span class="o">=</span> <span class="s2">&quot;always-write-back&quot;</span>
+    <span class="n">WRITE_POLICY_DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">_WRITE_POLICY_WRITE_BACK_GOOD_BBU</span> <span class="o">=</span> <span class="s2">&quot;write-back-good-bbu&quot;</span>
+    <span class="n">_WRITE_POLICY_WRITE_THROUGH</span> <span class="o">=</span> <span class="s2">&quot;write-through&quot;</span></div>
+
+
+<div class="viewcode-block" id="StorageVirtualDriveCreatorUsingVirtualDriveGroup"><a class="viewcode-back" href="../../../../imcsdk.mometa.storage.html#imcsdk.mometa.storage.StorageVirtualDriveCreatorUsingVirtualDriveGroup.StorageVirtualDriveCreatorUsingVirtualDriveGroup">[docs]</a><span class="k">class</span> <span class="nc">StorageVirtualDriveCreatorUsingVirtualDriveGroup</span><span class="p">(</span><span class="n">ManagedObject</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is StorageVirtualDriveCreatorUsingVirtualDriveGroup class.&quot;&quot;&quot;</span>
+
+    <span class="n">consts</span> <span class="o">=</span> <span class="n">StorageVirtualDriveCreatorUsingVirtualDriveGroupConsts</span><span class="p">()</span>
+    <span class="n">naming_props</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([])</span>
+
+    <span class="n">mo_meta</span> <span class="o">=</span> <span class="n">MoMeta</span><span class="p">(</span><span class="s2">&quot;StorageVirtualDriveCreatorUsingVirtualDriveGroup&quot;</span><span class="p">,</span> <span class="s2">&quot;storageVirtualDriveCreatorUsingVirtualDriveGroup&quot;</span><span class="p">,</span> <span class="s2">&quot;virtual-drive-carve&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="s2">&quot;InputOutput&quot;</span><span class="p">,</span> <span class="mh">0x3fff</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="s2">&quot;admin&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s1">u&#39;storageController&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">u&#39;storageVirtualDriveWithDriveGroupSpace&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Get&quot;</span><span class="p">,</span> <span class="s2">&quot;Set&quot;</span><span class="p">])</span>
+
+    <span class="n">prop_meta</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;access_policy&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;access_policy&quot;</span><span class="p">,</span> <span class="s2">&quot;accessPolicy&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version204c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x2</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;blocked&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;hidden&quot;</span><span class="p">,</span> <span class="s2">&quot;read-only&quot;</span><span class="p">,</span> <span class="s2">&quot;read-write&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;admin_state&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;admin_state&quot;</span><span class="p">,</span> <span class="s2">&quot;adminState&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x4</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;trigger&quot;</span><span class="p">,</span> <span class="s2">&quot;triggered&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;cache_policy&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;cache_policy&quot;</span><span class="p">,</span> <span class="s2">&quot;cachePolicy&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version204c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x8</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;cached-io&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;direct-io&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;created_virtual_drive_dn&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;created_virtual_drive_dn&quot;</span><span class="p">,</span> <span class="s2">&quot;createdVirtualDriveDn&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_ONLY</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_ONLY</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;disk_cache_policy&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;disk_cache_policy&quot;</span><span class="p">,</span> <span class="s2">&quot;diskCachePolicy&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version204c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x10</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;disabled&quot;</span><span class="p">,</span> <span class="s2">&quot;enabled&quot;</span><span class="p">,</span> <span class="s2">&quot;unchanged&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;dn&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;dn&quot;</span><span class="p">,</span> <span class="s2">&quot;dn&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;oper_status&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;oper_status&quot;</span><span class="p">,</span> <span class="s2">&quot;operStatus&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_ONLY</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;read_policy&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;read_policy&quot;</span><span class="p">,</span> <span class="s2">&quot;readPolicy&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version204c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;always-read-ahead&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;no-read-ahead&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;rn&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;rn&quot;</span><span class="p">,</span> <span class="s2">&quot;rn&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x80</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;shared_virtual_drive_id&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;shared_virtual_drive_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sharedVirtualDriveId&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x100</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;0-4294967295&quot;</span><span class="p">]),</span> 
+        <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x200</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="s2">r&quot;&quot;&quot;(\d+\s?([MGT]B)?)&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x400</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span> <span class="s2">&quot;deleted&quot;</span><span class="p">,</span> <span class="s2">&quot;modified&quot;</span><span class="p">,</span> <span class="s2">&quot;removed&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;strip_size&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;strip_size&quot;</span><span class="p">,</span> <span class="s2">&quot;stripSize&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version204c</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x800</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;1024k&quot;</span><span class="p">,</span> <span class="s2">&quot;128k&quot;</span><span class="p">,</span> <span class="s2">&quot;16k&quot;</span><span class="p">,</span> <span class="s2">&quot;256k&quot;</span><span class="p">,</span> <span class="s2">&quot;32k&quot;</span><span class="p">,</span> <span class="s2">&quot;512k&quot;</span><span class="p">,</span> <span class="s2">&quot;64k&quot;</span><span class="p">,</span> <span class="s2">&quot;8k&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;virtual_drive_name&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;virtual_drive_name&quot;</span><span class="p">,</span> <span class="s2">&quot;virtualDriveName&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]),</span> 
+        <span class="s2">&quot;write_policy&quot;</span><span class="p">:</span> <span class="n">MoPropertyMeta</span><span class="p">(</span><span class="s2">&quot;write_policy&quot;</span><span class="p">,</span> <span class="s2">&quot;writePolicy&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">VersionMeta</span><span class="o">.</span><span class="n">Version201a</span><span class="p">,</span> <span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">,</span> <span class="mh">0x2000</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Always Write Back&quot;</span><span class="p">,</span> <span class="s2">&quot;Write Back Good BBU&quot;</span><span class="p">,</span> <span class="s2">&quot;Write Through&quot;</span><span class="p">,</span> <span class="s2">&quot;always-write-back&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;write-back-good-bbu&quot;</span><span class="p">,</span> <span class="s2">&quot;write-through&quot;</span><span class="p">],</span> <span class="p">[]),</span> 
+    <span class="p">}</span>
+
+    <span class="n">prop_map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;accessPolicy&quot;</span><span class="p">:</span> <span class="s2">&quot;access_policy&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;adminState&quot;</span><span class="p">:</span> <span class="s2">&quot;admin_state&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;cachePolicy&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_policy&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;createdVirtualDriveDn&quot;</span><span class="p">:</span> <span class="s2">&quot;created_virtual_drive_dn&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;diskCachePolicy&quot;</span><span class="p">:</span> <span class="s2">&quot;disk_cache_policy&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;dn&quot;</span><span class="p">:</span> <span class="s2">&quot;dn&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;operStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;oper_status&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;readPolicy&quot;</span><span class="p">:</span> <span class="s2">&quot;read_policy&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;rn&quot;</span><span class="p">:</span> <span class="s2">&quot;rn&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;sharedVirtualDriveId&quot;</span><span class="p">:</span> <span class="s2">&quot;shared_virtual_drive_id&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;size&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;stripSize&quot;</span><span class="p">:</span> <span class="s2">&quot;strip_size&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;virtualDriveName&quot;</span><span class="p">:</span> <span class="s2">&quot;virtual_drive_name&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;writePolicy&quot;</span><span class="p">:</span> <span class="s2">&quot;write_policy&quot;</span><span class="p">,</span> 
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent_mo_or_dn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dirty_mask</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">access_policy</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">admin_state</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache_policy</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">created_virtual_drive_dn</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disk_cache_policy</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oper_status</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">read_policy</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shared_virtual_drive_id</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strip_size</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">virtual_drive_name</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_policy</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">ManagedObject</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;StorageVirtualDriveCreatorUsingVirtualDriveGroup&quot;</span><span class="p">,</span> <span class="n">parent_mo_or_dn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

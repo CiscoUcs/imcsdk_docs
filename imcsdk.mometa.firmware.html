@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.firmware package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk.mometa package" href="imcsdk.mometa.html" />
+    <link rel="next" title="imcsdk.mometa.generate package" href="imcsdk.mometa.generate.html" />
+    <link rel="prev" title="imcsdk.mometa.fault package" href="imcsdk.mometa.fault.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.generate.html" title="imcsdk.mometa.generate package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.fault.html" title="imcsdk.mometa.fault package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" accesskey="U">imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-mometa-firmware-package">
+<h1>imcsdk.mometa.firmware package<a class="headerlink" href="#imcsdk-mometa-firmware-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.mometa.firmware.FirmwareBootDefinition">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.mometa.firmware.FirmwareBootDefinition" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the general information for FirmwareBootDefinition ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.firmware.FirmwareBootDefinition.</code><code class="descname">FirmwareBootDefinition</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/firmware/FirmwareBootDefinition.html#FirmwareBootDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is FirmwareBootDefinition class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'rn': 'rn', 'type': 'type', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191d090&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191d4d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191dc50&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191d710&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191d050&gt;}</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinition.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.firmware.FirmwareBootDefinition.</code><code class="descname">FirmwareBootDefinitionConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/firmware/FirmwareBootDefinition.html#FirmwareBootDefinitionConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_ADAPTOR">
+<code class="descname">TYPE_ADAPTOR</code><em class="property"> = 'adaptor'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_ADAPTOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_BLADE_BIOS">
+<code class="descname">TYPE_BLADE_BIOS</code><em class="property"> = 'blade-bios'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_BLADE_BIOS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_BLADE_CONTROLLER">
+<code class="descname">TYPE_BLADE_CONTROLLER</code><em class="property"> = 'blade-controller'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_BLADE_CONTROLLER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_FEX">
+<code class="descname">TYPE_FEX</code><em class="property"> = 'fex'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_FEX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_SIOC">
+<code class="descname">TYPE_SIOC</code><em class="property"> = 'sioc'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_SIOC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_STORAGE_CONTROLLER">
+<code class="descname">TYPE_STORAGE_CONTROLLER</code><em class="property"> = 'storage-controller'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_STORAGE_CONTROLLER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_SYSTEM">
+<code class="descname">TYPE_SYSTEM</code><em class="property"> = 'system'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootDefinition.FirmwareBootDefinitionConsts.TYPE_SYSTEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.firmware.FirmwareBootUnit"></span><p>This module contains the general information for FirmwareBootUnit ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.firmware.FirmwareBootUnit.</code><code class="descname">FirmwareBootUnit</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>type</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/firmware/FirmwareBootUnit.html#FirmwareBootUnit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is FirmwareBootUnit class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'type'])</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'operState': 'oper_state', 'description': 'description', 'image': 'image', 'resetOnActivate': 'reset_on_activate', 'childAction': 'child_action', 'ignoreCompCheck': 'ignore_comp_check', 'adminState': 'admin_state', 'version': 'version', 'rn': 'rn', 'type': 'type'}</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135b83d0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111396050&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135b8210&gt;, 'image': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135b8610&gt;, 'admin_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135b8b10&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135b8110&gt;, 'ignore_comp_check': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135b8510&gt;, 'reset_on_activate': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111396590&gt;, 'version': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111396650&gt;, 'oper_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111396150&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1113963d0&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111396a10&gt;}</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnit.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.firmware.FirmwareBootUnit.</code><code class="descname">FirmwareBootUnitConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/firmware/FirmwareBootUnit.html#FirmwareBootUnitConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.ADMIN_STATE_TRIGGER">
+<code class="descname">ADMIN_STATE_TRIGGER</code><em class="property"> = 'trigger'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.ADMIN_STATE_TRIGGER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.ADMIN_STATE_TRIGGERED">
+<code class="descname">ADMIN_STATE_TRIGGERED</code><em class="property"> = 'triggered'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.ADMIN_STATE_TRIGGERED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IGNORE_COMP_CHECK_FALSE">
+<code class="descname">IGNORE_COMP_CHECK_FALSE</code><em class="property"> = 'false'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IGNORE_COMP_CHECK_FALSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IGNORE_COMP_CHECK_NO">
+<code class="descname">IGNORE_COMP_CHECK_NO</code><em class="property"> = 'no'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IGNORE_COMP_CHECK_NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IGNORE_COMP_CHECK_TRUE">
+<code class="descname">IGNORE_COMP_CHECK_TRUE</code><em class="property"> = 'true'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IGNORE_COMP_CHECK_TRUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IGNORE_COMP_CHECK_YES">
+<code class="descname">IGNORE_COMP_CHECK_YES</code><em class="property"> = 'yes'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IGNORE_COMP_CHECK_YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IMAGE_BACKUP">
+<code class="descname">IMAGE_BACKUP</code><em class="property"> = 'backup'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IMAGE_BACKUP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IMAGE_RUNNING">
+<code class="descname">IMAGE_RUNNING</code><em class="property"> = 'running'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.IMAGE_RUNNING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_ACTIVATING">
+<code class="descname">OPER_STATE_ACTIVATING</code><em class="property"> = 'activating'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_ACTIVATING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_BAD_IMAGE">
+<code class="descname">OPER_STATE_BAD_IMAGE</code><em class="property"> = 'bad-image'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_BAD_IMAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_FAILED">
+<code class="descname">OPER_STATE_FAILED</code><em class="property"> = 'failed'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_PENDING_NEXT_BOOT">
+<code class="descname">OPER_STATE_PENDING_NEXT_BOOT</code><em class="property"> = 'pending-next-boot'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_PENDING_NEXT_BOOT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_READY">
+<code class="descname">OPER_STATE_READY</code><em class="property"> = 'ready'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_READY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_REBOOTING">
+<code class="descname">OPER_STATE_REBOOTING</code><em class="property"> = 'rebooting'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_REBOOTING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_SCHEDULED">
+<code class="descname">OPER_STATE_SCHEDULED</code><em class="property"> = 'scheduled'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_SCHEDULED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_SET_STARTUP">
+<code class="descname">OPER_STATE_SET_STARTUP</code><em class="property"> = 'set-startup'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_SET_STARTUP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_THROTTLED">
+<code class="descname">OPER_STATE_THROTTLED</code><em class="property"> = 'throttled'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_THROTTLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_UPDATING">
+<code class="descname">OPER_STATE_UPDATING</code><em class="property"> = 'updating'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.OPER_STATE_UPDATING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.RESET_ON_ACTIVATE_FALSE">
+<code class="descname">RESET_ON_ACTIVATE_FALSE</code><em class="property"> = 'false'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.RESET_ON_ACTIVATE_FALSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.RESET_ON_ACTIVATE_NO">
+<code class="descname">RESET_ON_ACTIVATE_NO</code><em class="property"> = 'No'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.RESET_ON_ACTIVATE_NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.RESET_ON_ACTIVATE_TRUE">
+<code class="descname">RESET_ON_ACTIVATE_TRUE</code><em class="property"> = 'true'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.RESET_ON_ACTIVATE_TRUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.RESET_ON_ACTIVATE_YES">
+<code class="descname">RESET_ON_ACTIVATE_YES</code><em class="property"> = 'Yes'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareBootUnit.FirmwareBootUnitConsts.RESET_ON_ACTIVATE_YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.firmware.FirmwareRunning"></span><p>This module contains the general information for FirmwareRunning ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.firmware.FirmwareRunning.</code><code class="descname">FirmwareRunning</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>deployment</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/firmware/FirmwareRunning.html#FirmwareRunning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is FirmwareRunning class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'deployment'])</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'version': 'version', 'description': 'description', 'deployment': 'deployment', 'rn': 'rn', 'type': 'type', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ad34d0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ad3050&gt;, 'version': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ad3410&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ad3750&gt;, 'deployment': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ad3bd0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ad3210&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ad3150&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ad3810&gt;}</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunning.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.firmware.FirmwareRunning.</code><code class="descname">FirmwareRunningConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/firmware/FirmwareRunning.html#FirmwareRunningConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.DEPLOYMENT_BOOT_LOADER">
+<code class="descname">DEPLOYMENT_BOOT_LOADER</code><em class="property"> = 'boot-loader'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.DEPLOYMENT_BOOT_LOADER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.DEPLOYMENT_KERNEL">
+<code class="descname">DEPLOYMENT_KERNEL</code><em class="property"> = 'kernel'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.DEPLOYMENT_KERNEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.DEPLOYMENT_SYSTEM">
+<code class="descname">DEPLOYMENT_SYSTEM</code><em class="property"> = 'system'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.DEPLOYMENT_SYSTEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.DEPLOYMENT_UNSPECIFIED">
+<code class="descname">DEPLOYMENT_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.DEPLOYMENT_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_ADAPTOR">
+<code class="descname">TYPE_ADAPTOR</code><em class="property"> = 'adaptor'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_ADAPTOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_BLADE_BIOS">
+<code class="descname">TYPE_BLADE_BIOS</code><em class="property"> = 'blade-bios'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_BLADE_BIOS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_BLADE_CONTROLLER">
+<code class="descname">TYPE_BLADE_CONTROLLER</code><em class="property"> = 'blade-controller'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_BLADE_CONTROLLER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_SIOC">
+<code class="descname">TYPE_SIOC</code><em class="property"> = 'sioc'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_SIOC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_STORAGE_CONTROLLER">
+<code class="descname">TYPE_STORAGE_CONTROLLER</code><em class="property"> = 'storage-controller'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_STORAGE_CONTROLLER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_SYSTEM">
+<code class="descname">TYPE_SYSTEM</code><em class="property"> = 'system'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_SYSTEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_UNSPECIFIED">
+<code class="descname">TYPE_UNSPECIFIED</code><em class="property"> = 'unspecified'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareRunning.FirmwareRunningConsts.TYPE_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.firmware.FirmwareUpdatable"></span><p>This module contains the general information for FirmwareUpdatable ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.firmware.FirmwareUpdatable.</code><code class="descname">FirmwareUpdatable</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/firmware/FirmwareUpdatable.html#FirmwareUpdatable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is FirmwareUpdatable class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'operState': 'oper_state', 'protocol': 'protocol', 'description': 'description', 'user': 'user', 'remoteServer': 'remote_server', 'pwd': 'pwd', 'secureBoot': 'secure_boot', 'adminState': 'admin_state', 'version': 'version', 'remotePath': 'remote_path', 'deployment': 'deployment', 'progress': 'progress', 'rn': 'rn', 'type': 'type', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112676950&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113636cd0&gt;, 'protocol': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1118cfc50&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112676490&gt;, 'user': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121f6650&gt;, 'remote_server': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112602510&gt;, 'remote_path': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1118cf910&gt;, 'pwd': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1118cfcd0&gt;, 'version': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121f6cd0&gt;, 'admin_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1113636d0&gt;, 'progress': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1118cf790&gt;, 'deployment': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191df50&gt;, 'oper_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1125bc4d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1126025d0&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1136361d0&gt;, 'secure_boot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1126020d0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111363190&gt;}</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatable.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.firmware.FirmwareUpdatable.</code><code class="descname">FirmwareUpdatableConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/firmware/FirmwareUpdatable.html#FirmwareUpdatableConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.ADMIN_STATE_TRIGGER">
+<code class="descname">ADMIN_STATE_TRIGGER</code><em class="property"> = 'trigger'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.ADMIN_STATE_TRIGGER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.ADMIN_STATE_TRIGGERED">
+<code class="descname">ADMIN_STATE_TRIGGERED</code><em class="property"> = 'triggered'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.ADMIN_STATE_TRIGGERED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.DEPLOYMENT_BACKUP">
+<code class="descname">DEPLOYMENT_BACKUP</code><em class="property"> = 'backup'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.DEPLOYMENT_BACKUP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.DEPLOYMENT_PRIMARY">
+<code class="descname">DEPLOYMENT_PRIMARY</code><em class="property"> = 'primary'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.DEPLOYMENT_PRIMARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_ACTIVATING">
+<code class="descname">OPER_STATE_ACTIVATING</code><em class="property"> = 'activating'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_ACTIVATING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_BAD_IMAGE">
+<code class="descname">OPER_STATE_BAD_IMAGE</code><em class="property"> = 'bad-image'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_BAD_IMAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_FAILED">
+<code class="descname">OPER_STATE_FAILED</code><em class="property"> = 'failed'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_PENDING_NEXT_BOOT">
+<code class="descname">OPER_STATE_PENDING_NEXT_BOOT</code><em class="property"> = 'pending-next-boot'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_PENDING_NEXT_BOOT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_READY">
+<code class="descname">OPER_STATE_READY</code><em class="property"> = 'ready'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_READY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_REBOOTING">
+<code class="descname">OPER_STATE_REBOOTING</code><em class="property"> = 'rebooting'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_REBOOTING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_SCHEDULED">
+<code class="descname">OPER_STATE_SCHEDULED</code><em class="property"> = 'scheduled'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_SCHEDULED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_SET_STARTUP">
+<code class="descname">OPER_STATE_SET_STARTUP</code><em class="property"> = 'set-startup'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_SET_STARTUP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_THROTTLED">
+<code class="descname">OPER_STATE_THROTTLED</code><em class="property"> = 'throttled'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_THROTTLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_UPDATING">
+<code class="descname">OPER_STATE_UPDATING</code><em class="property"> = 'updating'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_UPDATING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_UPGRADING">
+<code class="descname">OPER_STATE_UPGRADING</code><em class="property"> = 'upgrading'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.OPER_STATE_UPGRADING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_FTP">
+<code class="descname">PROTOCOL_FTP</code><em class="property"> = 'ftp'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_FTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_HTTP">
+<code class="descname">PROTOCOL_HTTP</code><em class="property"> = 'http'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_HTTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_NONE">
+<code class="descname">PROTOCOL_NONE</code><em class="property"> = 'none'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_SCP">
+<code class="descname">PROTOCOL_SCP</code><em class="property"> = 'scp'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_SCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_SFTP">
+<code class="descname">PROTOCOL_SFTP</code><em class="property"> = 'sftp'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_SFTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_TFTP">
+<code class="descname">PROTOCOL_TFTP</code><em class="property"> = 'tftp'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.PROTOCOL_TFTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.SECURE_BOOT_DISABLE">
+<code class="descname">SECURE_BOOT_DISABLE</code><em class="property"> = 'disable'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.SECURE_BOOT_DISABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.SECURE_BOOT_DISABLED">
+<code class="descname">SECURE_BOOT_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.SECURE_BOOT_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.SECURE_BOOT_ENABLE">
+<code class="descname">SECURE_BOOT_ENABLE</code><em class="property"> = 'enable'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.SECURE_BOOT_ENABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.SECURE_BOOT_ENABLED">
+<code class="descname">SECURE_BOOT_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.SECURE_BOOT_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.TYPE_ADAPTOR">
+<code class="descname">TYPE_ADAPTOR</code><em class="property"> = 'adaptor'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.TYPE_ADAPTOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.TYPE_BLADE_BIOS">
+<code class="descname">TYPE_BLADE_BIOS</code><em class="property"> = 'blade-bios'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.TYPE_BLADE_BIOS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.TYPE_BLADE_CONTROLLER">
+<code class="descname">TYPE_BLADE_CONTROLLER</code><em class="property"> = 'blade-controller'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.TYPE_BLADE_CONTROLLER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.TYPE_SIOC">
+<code class="descname">TYPE_SIOC</code><em class="property"> = 'sioc'</em><a class="headerlink" href="#imcsdk.mometa.firmware.FirmwareUpdatable.FirmwareUpdatableConsts.TYPE_SIOC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.mometa.firmware">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.mometa.firmware" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.mometa.firmware package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.mometa.firmware.FirmwareBootDefinition">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.mometa.firmware">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.fault.html"
+                        title="previous chapter">imcsdk.mometa.fault package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.generate.html"
+                        title="next chapter">imcsdk.mometa.generate package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.mometa.firmware.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.generate.html" title="imcsdk.mometa.generate package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.fault.html" title="imcsdk.mometa.fault package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" >imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

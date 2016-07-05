@@ -1,0 +1,59 @@
+imcsdk.mometa.huu package
+=========================
+
+Submodules
+----------
+
+.. automodule:: imcsdk.mometa.huu.HuuController
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.huu.HuuFirmwareCatalog
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.huu.HuuFirmwareCatalogComponent
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.huu.HuuFirmwareComponent
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.huu.HuuFirmwareRunning
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.huu.HuuFirmwareUpdateCancel
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.huu.HuuFirmwareUpdateStatus
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.huu.HuuFirmwareUpdater
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.huu.HuuUpdateComponentStatus
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk.mometa.huu
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.utils.imcfirmwareinstall &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.utils.imcfirmwareinstall</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2015 Cisco Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#  http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">imcsdk.imcgenutils</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<div class="viewcode-block" id="update_imc_firmware_huu"><a class="viewcode-back" href="../../../imcsdk.utils.html#imcsdk.utils.imcfirmwareinstall.update_imc_firmware_huu">[docs]</a><span class="k">def</span> <span class="nf">update_imc_firmware_huu</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">remote_share</span><span class="p">,</span> <span class="n">share_type</span><span class="p">,</span> <span class="n">remote_ip</span><span class="p">,</span>
+                            <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">update_component</span><span class="p">,</span>
+                            <span class="n">stop_on_error</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                            <span class="n">verify_update</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cimc_secure_boot</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+    <span class="kn">from</span> <span class="nn">imcsdk.mometa.huu.HuuFirmwareUpdater</span> <span class="kn">import</span> <span class="n">HuuFirmwareUpdater</span><span class="p">,</span> \
+        <span class="n">HuuFirmwareUpdaterConsts</span>
+    <span class="kn">from</span> <span class="nn">imcsdk.mometa.top.TopSystem</span> <span class="kn">import</span> <span class="n">TopSystem</span>
+    <span class="kn">from</span> <span class="nn">imcsdk.mometa.huu.HuuController</span> <span class="kn">import</span> <span class="n">HuuController</span>
+
+    <span class="n">top_system</span> <span class="o">=</span> <span class="n">TopSystem</span><span class="p">()</span>
+    <span class="n">huu</span> <span class="o">=</span> <span class="n">HuuController</span><span class="p">(</span><span class="n">top_system</span><span class="p">)</span>
+
+    <span class="n">huu_firmware_updater</span> <span class="o">=</span> <span class="n">HuuFirmwareUpdater</span><span class="p">(</span><span class="n">parent_mo_or_dn</span><span class="o">=</span><span class="n">huu</span><span class="p">,</span>
+                                              <span class="n">remote_share</span><span class="o">=</span><span class="n">remote_share</span><span class="p">,</span>
+                                              <span class="n">map_type</span><span class="o">=</span><span class="n">share_type</span><span class="p">,</span>
+                                              <span class="n">remote_ip</span><span class="o">=</span><span class="n">remote_ip</span><span class="p">,</span>
+                                              <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
+                                              <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
+                                              <span class="n">update_component</span><span class="o">=</span><span class="n">update_component</span><span class="p">,</span>
+                                              <span class="n">admin_state</span><span class="o">=</span>
+                                              <span class="n">HuuFirmwareUpdaterConsts</span><span class="o">.</span><span class="n">ADMIN_STATE_TRIGGER</span><span class="p">,</span>
+                                              <span class="n">stop_on_error</span><span class="o">=</span><span class="n">stop_on_error</span><span class="p">,</span>
+                                              <span class="n">time_out</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+                                              <span class="n">verify_update</span><span class="o">=</span><span class="n">verify_update</span><span class="p">,</span>
+                                              <span class="n">cimc_secure_boot</span><span class="o">=</span><span class="n">cimc_secure_boot</span><span class="p">)</span>
+    <span class="n">handle</span><span class="o">.</span><span class="n">add_mo</span><span class="p">(</span><span class="n">huu_firmware_updater</span><span class="p">,</span> <span class="n">modify_present</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">huu_firmware_updater</span></div>
+
+
+<div class="viewcode-block" id="monitor_huu_firmware_update"><a class="viewcode-back" href="../../../imcsdk.utils.html#imcsdk.utils.imcfirmwareinstall.monitor_huu_firmware_update">[docs]</a><span class="k">def</span> <span class="nf">monitor_huu_firmware_update</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">time_out</span><span class="o">=</span><span class="mi">600</span><span class="p">):</span>
+    <span class="n">current_status</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">firmware_upgrade_complete</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">firmware_upgrade_complete</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">update_class</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">query_classid</span><span class="p">(</span><span class="s2">&quot;huuFirmwareUpdateStatus&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">update_class</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">update_end_time</span> <span class="o">!=</span> <span class="s2">&quot;NA&quot;</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Firmware Upgrade Finished!!! Final Status is : </span><span class="si">%s</span><span class="s2">&quot;</span>
+                         <span class="o">%</span> <span class="n">update_class</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">overall_status</span><span class="p">)</span>
+                <span class="n">firmware_upgrade_complete</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">elif</span> <span class="n">update_class</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">overall_status</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">current_status</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Firmware Upgrade still running. Current Status:&quot;</span>
+                             <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">update_class</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">overall_status</span><span class="p">)</span>
+                    <span class="n">current_status</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">update_class</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">overall_status</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">time_out</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;TimeOut: Firmware Upgrade Timed Out&quot;</span><span class="p">)</span>
+                <span class="k">break</span>
+        <span class="k">except</span> <span class="p">:</span>
+            <span class="n">validate_connection</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="validate_connection"><a class="viewcode-back" href="../../../imcsdk.utils.html#imcsdk.utils.imcfirmwareinstall.validate_connection">[docs]</a><span class="k">def</span> <span class="nf">validate_connection</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span> <span class="o">*</span> <span class="mi">60</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Montiors IMC onnection, if connection exists return True else False</span>
+<span class="sd">    Args:</span>
+<span class="sd">        handle (ImcHandle)</span>
+<span class="sd">        timeout (number): timeout in seconds</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        True/False(bool)</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception if unable to connect to UCSM</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">connected</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">connected</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># If the session is already established,</span>
+            <span class="c1"># this will validate the session</span>
+            <span class="n">connected</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># IMC may been in the middle of activation,</span>
+            <span class="c1"># hence connection would fail</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Login to IMC failed: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">connected</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Login to IMC, elapsed time </span><span class="si">%d</span><span class="s2">s&quot;</span><span class="p">,</span>
+                          <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">())</span>
+                <span class="n">handle</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">force</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Login successful&quot;</span><span class="p">)</span>
+                <span class="n">connected</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">except</span> <span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Login failed. Sleeping for 60 seconds&quot;</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TimeOut: Unable to login to IMC&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">connected</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

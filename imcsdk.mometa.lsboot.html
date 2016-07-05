@@ -1,0 +1,1211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.lsboot package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk.mometa package" href="imcsdk.mometa.html" />
+    <link rel="next" title="imcsdk.mometa.memory package" href="imcsdk.mometa.memory.html" />
+    <link rel="prev" title="imcsdk.mometa.ip package" href="imcsdk.mometa.ip.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.memory.html" title="imcsdk.mometa.memory package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.ip.html" title="imcsdk.mometa.ip package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" accesskey="U">imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-mometa-lsboot-package">
+<h1>imcsdk.mometa.lsboot package<a class="headerlink" href="#imcsdk-mometa-lsboot-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.mometa.lsboot.LsbootBootSecurity">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.mometa.lsboot.LsbootBootSecurity" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the general information for LsbootBootSecurity ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootBootSecurity.</code><code class="descname">LsbootBootSecurity</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootBootSecurity.html#LsbootBootSecurity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootBootSecurity class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'secureBoot': 'secure_boot', 'rn': 'rn', 'status': 'status', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112fc4dd0&gt;, 'secure_boot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112fc4510&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112fc4350&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112fc43d0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112fc46d0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurity.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootBootSecurity.</code><code class="descname">LsbootBootSecurityConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootBootSecurity.html#LsbootBootSecurityConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts.SECURE_BOOT_DISABLE">
+<code class="descname">SECURE_BOOT_DISABLE</code><em class="property"> = 'disable'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts.SECURE_BOOT_DISABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts.SECURE_BOOT_DISABLED">
+<code class="descname">SECURE_BOOT_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts.SECURE_BOOT_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts.SECURE_BOOT_ENABLE">
+<code class="descname">SECURE_BOOT_ENABLE</code><em class="property"> = 'enable'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts.SECURE_BOOT_ENABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts.SECURE_BOOT_ENABLED">
+<code class="descname">SECURE_BOOT_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootBootSecurity.LsbootBootSecurityConsts.SECURE_BOOT_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootDef"></span><p>This module contains the general information for LsbootDef ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDef">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootDef.</code><code class="descname">LsbootDef</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootDef.html#LsbootDef"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootDef class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDef.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDef.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDef.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDef.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDef.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDef.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDef.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'rebootOnUpdate': 'reboot_on_update', 'name': 'name', 'status': 'status', 'purpose': 'purpose', 'rn': 'rn', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDef.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDef.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111c96990&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111c96450&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111c96d90&gt;, 'reboot_on_update': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111c96210&gt;, 'purpose': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111c96950&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111c96a50&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111c969d0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDef.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootDef.</code><code class="descname">LsbootDefConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootDef.html#LsbootDefConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.PURPOSE_OPERATIONAL">
+<code class="descname">PURPOSE_OPERATIONAL</code><em class="property"> = 'operational'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.PURPOSE_OPERATIONAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.PURPOSE_UTILITY">
+<code class="descname">PURPOSE_UTILITY</code><em class="property"> = 'utility'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.PURPOSE_UTILITY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.REBOOT_ON_UPDATE_FALSE">
+<code class="descname">REBOOT_ON_UPDATE_FALSE</code><em class="property"> = 'false'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.REBOOT_ON_UPDATE_FALSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.REBOOT_ON_UPDATE_NO">
+<code class="descname">REBOOT_ON_UPDATE_NO</code><em class="property"> = 'no'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.REBOOT_ON_UPDATE_NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.REBOOT_ON_UPDATE_TRUE">
+<code class="descname">REBOOT_ON_UPDATE_TRUE</code><em class="property"> = 'true'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.REBOOT_ON_UPDATE_TRUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.REBOOT_ON_UPDATE_YES">
+<code class="descname">REBOOT_ON_UPDATE_YES</code><em class="property"> = 'yes'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDef.LsbootDefConsts.REBOOT_ON_UPDATE_YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootDevPrecision"></span><p>This module contains the general information for LsbootDevPrecision ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootDevPrecision.</code><code class="descname">LsbootDevPrecision</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootDevPrecision.html#LsbootDevPrecision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootDevPrecision class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'rebootOnUpdate': 'reboot_on_update', 'reapply': 'reapply', 'status': 'status', 'name': 'name', 'purpose': 'purpose', 'lastConfiguredBootOrderSource': 'last_configured_boot_order_source', 'configuredBootMode': 'configured_boot_mode', 'rn': 'rn', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11176e790&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112e62890&gt;, 'reapply': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112e62990&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112e62650&gt;, 'reboot_on_update': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112e62290&gt;, 'purpose': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112e62690&gt;, 'configured_boot_mode': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11176ee50&gt;, 'last_configured_boot_order_source': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112e621d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112e62550&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112d380d0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecision.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootDevPrecision.</code><code class="descname">LsbootDevPrecisionConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootDevPrecision.html#LsbootDevPrecisionConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.CONFIGURED_BOOT_MODE_LEGACY">
+<code class="descname">CONFIGURED_BOOT_MODE_LEGACY</code><em class="property"> = 'Legacy'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.CONFIGURED_BOOT_MODE_LEGACY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.CONFIGURED_BOOT_MODE_NONE">
+<code class="descname">CONFIGURED_BOOT_MODE_NONE</code><em class="property"> = 'None'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.CONFIGURED_BOOT_MODE_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.CONFIGURED_BOOT_MODE_UEFI">
+<code class="descname">CONFIGURED_BOOT_MODE_UEFI</code><em class="property"> = 'Uefi'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.CONFIGURED_BOOT_MODE_UEFI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.LAST_CONFIGURED_BOOT_ORDER_SOURCE_BIOS">
+<code class="descname">LAST_CONFIGURED_BOOT_ORDER_SOURCE_BIOS</code><em class="property"> = 'BIOS'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.LAST_CONFIGURED_BOOT_ORDER_SOURCE_BIOS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.LAST_CONFIGURED_BOOT_ORDER_SOURCE_CIMC">
+<code class="descname">LAST_CONFIGURED_BOOT_ORDER_SOURCE_CIMC</code><em class="property"> = 'CIMC'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.LAST_CONFIGURED_BOOT_ORDER_SOURCE_CIMC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.LAST_CONFIGURED_BOOT_ORDER_SOURCE_UNKNOWN">
+<code class="descname">LAST_CONFIGURED_BOOT_ORDER_SOURCE_UNKNOWN</code><em class="property"> = 'UNKNOWN'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.LAST_CONFIGURED_BOOT_ORDER_SOURCE_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.PURPOSE_OPERATIONAL">
+<code class="descname">PURPOSE_OPERATIONAL</code><em class="property"> = 'operational'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.PURPOSE_OPERATIONAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.PURPOSE_UTILITY">
+<code class="descname">PURPOSE_UTILITY</code><em class="property"> = 'utility'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.PURPOSE_UTILITY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REAPPLY_FALSE">
+<code class="descname">REAPPLY_FALSE</code><em class="property"> = 'false'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REAPPLY_FALSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REAPPLY_NO">
+<code class="descname">REAPPLY_NO</code><em class="property"> = 'no'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REAPPLY_NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REAPPLY_TRUE">
+<code class="descname">REAPPLY_TRUE</code><em class="property"> = 'true'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REAPPLY_TRUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REAPPLY_YES">
+<code class="descname">REAPPLY_YES</code><em class="property"> = 'yes'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REAPPLY_YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REBOOT_ON_UPDATE_FALSE">
+<code class="descname">REBOOT_ON_UPDATE_FALSE</code><em class="property"> = 'false'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REBOOT_ON_UPDATE_FALSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REBOOT_ON_UPDATE_NO">
+<code class="descname">REBOOT_ON_UPDATE_NO</code><em class="property"> = 'no'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REBOOT_ON_UPDATE_NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REBOOT_ON_UPDATE_TRUE">
+<code class="descname">REBOOT_ON_UPDATE_TRUE</code><em class="property"> = 'true'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REBOOT_ON_UPDATE_TRUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REBOOT_ON_UPDATE_YES">
+<code class="descname">REBOOT_ON_UPDATE_YES</code><em class="property"> = 'yes'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootDevPrecision.LsbootDevPrecisionConsts.REBOOT_ON_UPDATE_YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootEfi"></span><p>This module contains the general information for LsbootEfi ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootEfi.</code><code class="descname">LsbootEfi</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootEfi.html#LsbootEfi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootEfi class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootEfi.LsbootEfiConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'access': 'access', 'rn': 'rn', 'type': 'type', 'order': 'order', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113036c10&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113036dd0&gt;, 'access': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113036c50&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1130361d0&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113036b10&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113036710&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113036d50&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootEfi.LsbootEfi.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootEfi.LsbootEfiConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootEfi.</code><code class="descname">LsbootEfiConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootEfi.html#LsbootEfiConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootEfi.LsbootEfiConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootEfi.LsbootEfiConsts.ACCESS_READ_ONLY">
+<code class="descname">ACCESS_READ_ONLY</code><em class="property"> = 'read-only'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootEfi.LsbootEfiConsts.ACCESS_READ_ONLY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootEfi.LsbootEfiConsts.TYPE_EFI">
+<code class="descname">TYPE_EFI</code><em class="property"> = 'efi'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootEfi.LsbootEfiConsts.TYPE_EFI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootHdd"></span><p>This module contains the general information for LsbootHdd ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootHdd.</code><code class="descname">LsbootHdd</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootHdd.html#LsbootHdd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootHdd class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'name'])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'slot': 'slot', 'state': 'state', 'status': 'status', 'name': 'name', 'subtype': 'subtype', 'rn': 'rn', 'type': 'type', 'order': 'order', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112265310&gt;, 'slot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112265350&gt;, 'state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112265f90&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112265210&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112265690&gt;, 'subtype': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112265cd0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112265990&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112265710&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112265ad0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112265050&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHdd.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootHdd.</code><code class="descname">LsbootHddConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootHdd.html#LsbootHddConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts.STATE_DISABLED">
+<code class="descname">STATE_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts.STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts.STATE_ENABLED">
+<code class="descname">STATE_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts.STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts.SUBTYPE_LOCALHDD">
+<code class="descname">SUBTYPE_LOCALHDD</code><em class="property"> = 'LOCALHDD'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts.SUBTYPE_LOCALHDD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts.TYPE_LOCALHDD">
+<code class="descname">TYPE_LOCALHDD</code><em class="property"> = 'LOCALHDD'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootHdd.LsbootHddConsts.TYPE_LOCALHDD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootIscsi"></span><p>This module contains the general information for LsbootIscsi ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootIscsi.</code><code class="descname">LsbootIscsi</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootIscsi.html#LsbootIscsi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootIscsi class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'name'])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'port': 'port', 'childAction': 'child_action', 'slot': 'slot', 'name': 'name', 'subtype': 'subtype', 'state': 'state', 'rn': 'rn', 'type': 'type', 'order': 'order'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b3910&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b3110&gt;, 'port': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b3ad0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b30d0&gt;, 'slot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b3d10&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b3450&gt;, 'subtype': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b39d0&gt;, 'state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b33d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b3050&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b3bd0&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1127b3ed0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsi.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootIscsi.</code><code class="descname">LsbootIscsiConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootIscsi.html#LsbootIscsiConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts.STATE_DISABLED">
+<code class="descname">STATE_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts.STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts.STATE_ENABLED">
+<code class="descname">STATE_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts.STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts.SUBTYPE_ISCSI">
+<code class="descname">SUBTYPE_ISCSI</code><em class="property"> = 'ISCSI'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts.SUBTYPE_ISCSI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts.TYPE_ISCSI">
+<code class="descname">TYPE_ISCSI</code><em class="property"> = 'ISCSI'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootIscsi.LsbootIscsiConsts.TYPE_ISCSI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootLan"></span><p>This module contains the general information for LsbootLan ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLan">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootLan.</code><code class="descname">LsbootLan</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootLan.html#LsbootLan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootLan class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLan.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLan.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLan.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLan.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLan.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLan.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLan.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'access': 'access', 'dn': 'dn', 'status': 'status', 'rn': 'rn', 'prot': 'prot', 'type': 'type', 'order': 'order', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLan.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLan.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'access': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11134be50&gt;, 'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11134b510&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11134bc10&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11134b090&gt;, 'prot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11134b690&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11134b110&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11134bb50&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11134b490&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLan.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootLan.</code><code class="descname">LsbootLanConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootLan.html#LsbootLanConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts.ACCESS_READ_ONLY">
+<code class="descname">ACCESS_READ_ONLY</code><em class="property"> = 'read-only'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts.ACCESS_READ_ONLY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts.PROT_GPXE">
+<code class="descname">PROT_GPXE</code><em class="property"> = 'gpxe'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts.PROT_GPXE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts.PROT_I_SCSI">
+<code class="descname">PROT_I_SCSI</code><em class="property"> = 'iSCSI'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts.PROT_I_SCSI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts.PROT_PXE">
+<code class="descname">PROT_PXE</code><em class="property"> = 'pxe'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts.PROT_PXE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts.TYPE_LAN">
+<code class="descname">TYPE_LAN</code><em class="property"> = 'lan'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLan.LsbootLanConsts.TYPE_LAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootLocalStorage"></span><p>This module contains the general information for LsbootLocalStorage ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootLocalStorage.</code><code class="descname">LsbootLocalStorage</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootLocalStorage.html#LsbootLocalStorage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootLocalStorage class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorageConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'rn': 'rn', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111b01a90&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111b018d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111b01c10&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111b01990&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorage.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorageConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootLocalStorage.</code><code class="descname">LsbootLocalStorageConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootLocalStorage.html#LsbootLocalStorageConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootLocalStorage.LsbootLocalStorageConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootPchStorage"></span><p>This module contains the general information for LsbootPchStorage ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootPchStorage.</code><code class="descname">LsbootPchStorage</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootPchStorage.html#LsbootPchStorage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootPchStorage class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorageConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'name'])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'state': 'state', 'name': 'name', 'rn': 'rn', 'type': 'type', 'order': 'order', 'lun': 'lun', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117d7190&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117d73d0&gt;, 'state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117d7610&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117d7d90&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117d7590&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1119de890&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117d7810&gt;, 'lun': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117d7750&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1117d7790&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorage.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorageConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootPchStorage.</code><code class="descname">LsbootPchStorageConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootPchStorage.html#LsbootPchStorageConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorageConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorageConsts.STATE_DISABLED">
+<code class="descname">STATE_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorageConsts.STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorageConsts.STATE_ENABLED">
+<code class="descname">STATE_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorageConsts.STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorageConsts.TYPE_PCHSTORAGE">
+<code class="descname">TYPE_PCHSTORAGE</code><em class="property"> = 'PCHSTORAGE'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPchStorage.LsbootPchStorageConsts.TYPE_PCHSTORAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootPxe"></span><p>This module contains the general information for LsbootPxe ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootPxe.</code><code class="descname">LsbootPxe</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootPxe.html#LsbootPxe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootPxe class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'name'])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'port': 'port', 'childAction': 'child_action', 'slot': 'slot', 'name': 'name', 'subtype': 'subtype', 'state': 'state', 'rn': 'rn', 'type': 'type', 'order': 'order'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112aa7050&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11271b910&gt;, 'port': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112aa75d0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112aa71d0&gt;, 'slot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112aa7110&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112aa7190&gt;, 'subtype': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11271ba50&gt;, 'state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11271b550&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112aa7ad0&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11271bf90&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112aa7510&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxe.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootPxe.</code><code class="descname">LsbootPxeConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootPxe.html#LsbootPxeConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts.STATE_DISABLED">
+<code class="descname">STATE_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts.STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts.STATE_ENABLED">
+<code class="descname">STATE_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts.STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts.SUBTYPE_PXE">
+<code class="descname">SUBTYPE_PXE</code><em class="property"> = 'PXE'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts.SUBTYPE_PXE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts.TYPE_PXE">
+<code class="descname">TYPE_PXE</code><em class="property"> = 'PXE'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootPxe.LsbootPxeConsts.TYPE_PXE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootSan"></span><p>This module contains the general information for LsbootSan ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSan">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootSan.</code><code class="descname">LsbootSan</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootSan.html#LsbootSan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootSan class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSan.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSan.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSan.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSan.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSan.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'name'])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSan.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSan.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'childAction': 'child_action', 'slot': 'slot', 'name': 'name', 'subtype': 'subtype', 'state': 'state', 'rn': 'rn', 'type': 'type', 'order': 'order', 'lun': 'lun'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSan.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSan.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11238e710&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113154410&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11238ec50&gt;, 'slot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113154d10&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113154990&gt;, 'subtype': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113154e90&gt;, 'state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1131541d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113154550&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113154dd0&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113154150&gt;, 'lun': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11238e910&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSan.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootSan.</code><code class="descname">LsbootSanConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootSan.html#LsbootSanConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts.STATE_DISABLED">
+<code class="descname">STATE_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts.STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts.STATE_ENABLED">
+<code class="descname">STATE_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts.STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts.SUBTYPE_SAN">
+<code class="descname">SUBTYPE_SAN</code><em class="property"> = 'SAN'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts.SUBTYPE_SAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts.TYPE_SAN">
+<code class="descname">TYPE_SAN</code><em class="property"> = 'SAN'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSan.LsbootSanConsts.TYPE_SAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootSd"></span><p>This module contains the general information for LsbootSd ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSd">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootSd.</code><code class="descname">LsbootSd</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootSd.html#LsbootSd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootSd class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSd.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSd.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSd.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSd.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSd.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'name'])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSd.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSd.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'state': 'state', 'name': 'name', 'subtype': 'subtype', 'rn': 'rn', 'type': 'type', 'order': 'order', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSd.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSd.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1120e6c90&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1120e6890&gt;, 'state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1120e6290&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1120e6bd0&gt;, 'subtype': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1120e6ed0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1120e6850&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1120e64d0&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1120e67d0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11037db90&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSd.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootSd.</code><code class="descname">LsbootSdConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootSd.html#LsbootSdConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts.STATE_DISABLED">
+<code class="descname">STATE_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts.STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts.STATE_ENABLED">
+<code class="descname">STATE_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts.STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts.SUBTYPE_SDCARD">
+<code class="descname">SUBTYPE_SDCARD</code><em class="property"> = 'SDCARD'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts.SUBTYPE_SDCARD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts.TYPE_SDCARD">
+<code class="descname">TYPE_SDCARD</code><em class="property"> = 'SDCARD'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootSd.LsbootSdConsts.TYPE_SDCARD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootStorage"></span><p>This module contains the general information for LsbootStorage ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootStorage.</code><code class="descname">LsbootStorage</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootStorage.html#LsbootStorage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootStorage class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootStorage.LsbootStorageConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'access': 'access', 'rn': 'rn', 'type': 'type', 'order': 'order', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113387050&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x10fda1350&gt;, 'access': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113387e90&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1133879d0&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x10fda1190&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113387dd0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113387d50&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootStorage.LsbootStorage.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootStorage.LsbootStorageConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootStorage.</code><code class="descname">LsbootStorageConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootStorage.html#LsbootStorageConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootStorage.LsbootStorageConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootStorage.LsbootStorageConsts.ACCESS_READ_WRITE">
+<code class="descname">ACCESS_READ_WRITE</code><em class="property"> = 'read-write'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootStorage.LsbootStorageConsts.ACCESS_READ_WRITE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootStorage.LsbootStorageConsts.TYPE_STORAGE">
+<code class="descname">TYPE_STORAGE</code><em class="property"> = 'storage'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootStorage.LsbootStorageConsts.TYPE_STORAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootUefiShell"></span><p>This module contains the general information for LsbootUefiShell ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootUefiShell.</code><code class="descname">LsbootUefiShell</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootUefiShell.html#LsbootUefiShell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootUefiShell class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShellConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'name'])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'state': 'state', 'name': 'name', 'rn': 'rn', 'type': 'type', 'order': 'order', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d43410&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d43310&gt;, 'state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d43610&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d43c90&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d43690&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d43950&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d433d0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d437d0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShell.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShellConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootUefiShell.</code><code class="descname">LsbootUefiShellConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootUefiShell.html#LsbootUefiShellConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShellConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShellConsts.STATE_DISABLED">
+<code class="descname">STATE_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShellConsts.STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShellConsts.STATE_ENABLED">
+<code class="descname">STATE_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShellConsts.STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShellConsts.TYPE_UEFISHELL">
+<code class="descname">TYPE_UEFISHELL</code><em class="property"> = 'UEFISHELL'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUefiShell.LsbootUefiShellConsts.TYPE_UEFISHELL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootUsb"></span><p>This module contains the general information for LsbootUsb ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootUsb.</code><code class="descname">LsbootUsb</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootUsb.html#LsbootUsb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootUsb class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'name'])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'state': 'state', 'name': 'name', 'subtype': 'subtype', 'rn': 'rn', 'type': 'type', 'order': 'order', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111eb5450&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11246ec50&gt;, 'state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11246ea50&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111eb5e90&gt;, 'subtype': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11246e550&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11246e950&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11246ec90&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11246e390&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111eb5350&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsb.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootUsb.</code><code class="descname">LsbootUsbConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootUsb.html#LsbootUsbConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.STATE_DISABLED">
+<code class="descname">STATE_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.STATE_ENABLED">
+<code class="descname">STATE_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.SUBTYPE_">
+<code class="descname">SUBTYPE_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.SUBTYPE_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.SUBTYPE_USB_CD">
+<code class="descname">SUBTYPE_USB_CD</code><em class="property"> = 'usb-cd'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.SUBTYPE_USB_CD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.SUBTYPE_USB_FDD">
+<code class="descname">SUBTYPE_USB_FDD</code><em class="property"> = 'usb-fdd'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.SUBTYPE_USB_FDD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.SUBTYPE_USB_HDD">
+<code class="descname">SUBTYPE_USB_HDD</code><em class="property"> = 'usb-hdd'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.SUBTYPE_USB_HDD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.TYPE_USB">
+<code class="descname">TYPE_USB</code><em class="property"> = 'USB'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootUsb.LsbootUsbConsts.TYPE_USB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootVMedia"></span><p>This module contains the general information for LsbootVMedia ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootVMedia.</code><code class="descname">LsbootVMedia</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootVMedia.html#LsbootVMedia"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootVMedia class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'name'])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'access': 'access', 'dn': 'dn', 'state': 'state', 'status': 'status', 'name': 'name', 'subtype': 'subtype', 'rn': 'rn', 'type': 'type', 'order': 'order', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'access': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112be4d10&gt;, 'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111843cd0&gt;, 'state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111843310&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111843ed0&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111843050&gt;, 'subtype': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111843390&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1118431d0&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111843b10&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111843a50&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112be4c50&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMedia.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootVMedia.</code><code class="descname">LsbootVMediaConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootVMedia.html#LsbootVMediaConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_">
+<code class="descname">ACCESS_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_READ_ONLY_LOCAL">
+<code class="descname">ACCESS_READ_ONLY_LOCAL</code><em class="property"> = 'read-only-local'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_READ_ONLY_LOCAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_READ_ONLY_REMOTE">
+<code class="descname">ACCESS_READ_ONLY_REMOTE</code><em class="property"> = 'read-only-remote'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_READ_ONLY_REMOTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_READ_WRITE_DRIVE">
+<code class="descname">ACCESS_READ_WRITE_DRIVE</code><em class="property"> = 'read-write-drive'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_READ_WRITE_DRIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_READ_WRITE_LOCAL">
+<code class="descname">ACCESS_READ_WRITE_LOCAL</code><em class="property"> = 'read-write-local'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_READ_WRITE_LOCAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_READ_WRITE_REMOTE">
+<code class="descname">ACCESS_READ_WRITE_REMOTE</code><em class="property"> = 'read-write-remote'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.ACCESS_READ_WRITE_REMOTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.STATE_DISABLED">
+<code class="descname">STATE_DISABLED</code><em class="property"> = 'Disabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.STATE_ENABLED">
+<code class="descname">STATE_ENABLED</code><em class="property"> = 'Enabled'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_">
+<code class="descname">SUBTYPE_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_CIMC_MAPPED_DVD">
+<code class="descname">SUBTYPE_CIMC_MAPPED_DVD</code><em class="property"> = 'cimc-mapped-dvd'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_CIMC_MAPPED_DVD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_CIMC_MAPPED_HDD">
+<code class="descname">SUBTYPE_CIMC_MAPPED_HDD</code><em class="property"> = 'cimc-mapped-hdd'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_CIMC_MAPPED_HDD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_KVM_MAPPED_DVD">
+<code class="descname">SUBTYPE_KVM_MAPPED_DVD</code><em class="property"> = 'kvm-mapped-dvd'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_KVM_MAPPED_DVD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_KVM_MAPPED_FDD">
+<code class="descname">SUBTYPE_KVM_MAPPED_FDD</code><em class="property"> = 'kvm-mapped-fdd'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_KVM_MAPPED_FDD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_KVM_MAPPED_HDD">
+<code class="descname">SUBTYPE_KVM_MAPPED_HDD</code><em class="property"> = 'kvm-mapped-hdd'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.SUBTYPE_KVM_MAPPED_HDD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.TYPE_VMEDIA">
+<code class="descname">TYPE_VMEDIA</code><em class="property"> = 'VMEDIA'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVMedia.LsbootVMediaConsts.TYPE_VMEDIA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.lsboot.LsbootVirtualMedia"></span><p>This module contains the general information for LsbootVirtualMedia ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootVirtualMedia.</code><code class="descname">LsbootVirtualMedia</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>access</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootVirtualMedia.html#LsbootVirtualMedia"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is LsbootVirtualMedia class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMediaConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'access'])</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'access': 'access', 'rn': 'rn', 'type': 'type', 'order': 'order', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111e86d50&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111e86450&gt;, 'access': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111e86f50&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111e86c10&gt;, 'type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111e86050&gt;, 'order': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111e86750&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111e86990&gt;}</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMedia.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMediaConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.lsboot.LsbootVirtualMedia.</code><code class="descname">LsbootVirtualMediaConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/lsboot/LsbootVirtualMedia.html#LsbootVirtualMediaConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMediaConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMediaConsts.ACCESS_READ_ONLY">
+<code class="descname">ACCESS_READ_ONLY</code><em class="property"> = 'read-only'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMediaConsts.ACCESS_READ_ONLY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMediaConsts.ACCESS_READ_WRITE">
+<code class="descname">ACCESS_READ_WRITE</code><em class="property"> = 'read-write'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMediaConsts.ACCESS_READ_WRITE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMediaConsts.TYPE_VIRTUAL_MEDIA">
+<code class="descname">TYPE_VIRTUAL_MEDIA</code><em class="property"> = 'virtual-media'</em><a class="headerlink" href="#imcsdk.mometa.lsboot.LsbootVirtualMedia.LsbootVirtualMediaConsts.TYPE_VIRTUAL_MEDIA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.mometa.lsboot">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.mometa.lsboot" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.mometa.lsboot package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.mometa.lsboot.LsbootBootSecurity">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.mometa.lsboot">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.ip.html"
+                        title="previous chapter">imcsdk.mometa.ip package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.memory.html"
+                        title="next chapter">imcsdk.mometa.memory package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.mometa.lsboot.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.memory.html" title="imcsdk.mometa.memory package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.ip.html" title="imcsdk.mometa.ip package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" >imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.imcmethodfactory &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.imcmethodfactory</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2015 Cisco Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1"># http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This is an auto-generated module.</span>
+<span class="sd">It contains supporting classes for External Method.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imcgenutils</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imccoreutils</span> <span class="k">as</span> <span class="n">coreutils</span>
+<span class="kn">from</span> <span class="nn">.imcmethod</span> <span class="kn">import</span> <span class="n">ExternalMethod</span>
+<span class="kn">from</span> <span class="nn">.imccoremeta</span> <span class="kn">import</span> <span class="n">WriteXmlOption</span>
+<span class="kn">from</span> <span class="nn">.imcconstants</span> <span class="kn">import</span> <span class="n">YesOrNo</span>
+
+
+<div class="viewcode-block" id="aaa_get_compute_auth_tokens"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.aaa_get_compute_auth_tokens">[docs]</a><span class="k">def</span> <span class="nf">aaa_get_compute_auth_tokens</span><span class="p">(</span><span class="n">cookie</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;AaaGetComputeAuthTokens&quot;</span><span class="p">)</span>
+
+    <span class="n">method</span><span class="o">.</span><span class="n">cookie</span> <span class="o">=</span> <span class="n">cookie</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="aaa_keep_alive"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.aaa_keep_alive">[docs]</a><span class="k">def</span> <span class="nf">aaa_keep_alive</span><span class="p">(</span><span class="n">cookie</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;AaaKeepAlive&quot;</span><span class="p">)</span>
+
+    <span class="n">method</span><span class="o">.</span><span class="n">cookie</span> <span class="o">=</span> <span class="n">cookie</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="aaa_login"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.aaa_login">[docs]</a><span class="k">def</span> <span class="nf">aaa_login</span><span class="p">(</span><span class="n">in_name</span><span class="p">,</span> <span class="n">in_password</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;AaaLogin&quot;</span><span class="p">)</span>
+
+    <span class="n">method</span><span class="o">.</span><span class="n">in_name</span> <span class="o">=</span> <span class="n">in_name</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">in_password</span> <span class="o">=</span> <span class="n">in_password</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="aaa_logout"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.aaa_logout">[docs]</a><span class="k">def</span> <span class="nf">aaa_logout</span><span class="p">(</span><span class="n">in_cookie</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;AaaLogout&quot;</span><span class="p">)</span>
+
+    <span class="n">method</span><span class="o">.</span><span class="n">in_cookie</span> <span class="o">=</span> <span class="n">in_cookie</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="aaa_refresh"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.aaa_refresh">[docs]</a><span class="k">def</span> <span class="nf">aaa_refresh</span><span class="p">(</span><span class="n">in_cookie</span><span class="p">,</span> <span class="n">in_name</span><span class="p">,</span> <span class="n">in_password</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;AaaRefresh&quot;</span><span class="p">)</span>
+
+    <span class="n">method</span><span class="o">.</span><span class="n">in_cookie</span> <span class="o">=</span> <span class="n">in_cookie</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">in_name</span> <span class="o">=</span> <span class="n">in_name</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">in_password</span> <span class="o">=</span> <span class="n">in_password</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="config_conf_mo"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.config_conf_mo">[docs]</a><span class="k">def</span> <span class="nf">config_conf_mo</span><span class="p">(</span><span class="n">cookie</span><span class="p">,</span> <span class="n">dn</span><span class="p">,</span> <span class="n">in_config</span><span class="p">,</span> <span class="n">in_hierarchical</span><span class="o">=</span><span class="n">YesOrNo</span><span class="o">.</span><span class="n">FALSE</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;ConfigConfMo&quot;</span><span class="p">)</span>
+
+    <span class="n">method</span><span class="o">.</span><span class="n">cookie</span> <span class="o">=</span> <span class="n">cookie</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="n">dn</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">in_config</span> <span class="o">=</span> <span class="n">in_config</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">in_hierarchical</span> <span class="o">=</span> <span class="p">((</span><span class="s2">&quot;false&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)[</span><span class="n">in_hierarchical</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">AFFIRMATIVE_LIST</span><span class="p">])</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="config_resolve_children"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.config_resolve_children">[docs]</a><span class="k">def</span> <span class="nf">config_resolve_children</span><span class="p">(</span><span class="n">cookie</span><span class="p">,</span> <span class="n">class_id</span><span class="p">,</span> <span class="n">in_dn</span><span class="p">,</span> <span class="n">in_hierarchical</span><span class="o">=</span><span class="n">YesOrNo</span><span class="o">.</span><span class="n">FALSE</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;ConfigResolveChildren&quot;</span><span class="p">)</span>
+
+    <span class="n">meta_class_id</span> <span class="o">=</span> <span class="n">coreutils</span><span class="o">.</span><span class="n">find_class_id_in_mo_meta_ignore_case</span><span class="p">(</span><span class="n">class_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">meta_class_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">class_id</span> <span class="o">=</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">word_l</span><span class="p">(</span><span class="n">meta_class_id</span><span class="p">)</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">class_id</span> <span class="o">=</span> <span class="n">class_id</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">cookie</span> <span class="o">=</span> <span class="n">cookie</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">in_dn</span> <span class="o">=</span> <span class="n">in_dn</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">in_hierarchical</span> <span class="o">=</span> <span class="p">((</span><span class="s2">&quot;false&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)[</span><span class="n">in_hierarchical</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">AFFIRMATIVE_LIST</span><span class="p">])</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="config_resolve_class"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.config_resolve_class">[docs]</a><span class="k">def</span> <span class="nf">config_resolve_class</span><span class="p">(</span><span class="n">cookie</span><span class="p">,</span> <span class="n">class_id</span><span class="p">,</span> <span class="n">in_hierarchical</span><span class="o">=</span><span class="n">YesOrNo</span><span class="o">.</span><span class="n">FALSE</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;ConfigResolveClass&quot;</span><span class="p">)</span>
+
+    <span class="n">meta_class_id</span> <span class="o">=</span> <span class="n">coreutils</span><span class="o">.</span><span class="n">find_class_id_in_mo_meta_ignore_case</span><span class="p">(</span><span class="n">class_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">meta_class_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">class_id</span> <span class="o">=</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">word_l</span><span class="p">(</span><span class="n">meta_class_id</span><span class="p">)</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">class_id</span> <span class="o">=</span> <span class="n">class_id</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">cookie</span> <span class="o">=</span> <span class="n">cookie</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">in_hierarchical</span> <span class="o">=</span> <span class="p">((</span><span class="s2">&quot;false&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)[</span><span class="n">in_hierarchical</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">AFFIRMATIVE_LIST</span><span class="p">])</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="config_resolve_dn"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.config_resolve_dn">[docs]</a><span class="k">def</span> <span class="nf">config_resolve_dn</span><span class="p">(</span><span class="n">cookie</span><span class="p">,</span> <span class="n">dn</span><span class="p">,</span> <span class="n">in_hierarchical</span><span class="o">=</span><span class="n">YesOrNo</span><span class="o">.</span><span class="n">FALSE</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;ConfigResolveDn&quot;</span><span class="p">)</span>
+
+    <span class="n">method</span><span class="o">.</span><span class="n">cookie</span> <span class="o">=</span> <span class="n">cookie</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="n">dn</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">in_hierarchical</span> <span class="o">=</span> <span class="p">((</span><span class="s2">&quot;false&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)[</span><span class="n">in_hierarchical</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">AFFIRMATIVE_LIST</span><span class="p">])</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="config_resolve_parent"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.config_resolve_parent">[docs]</a><span class="k">def</span> <span class="nf">config_resolve_parent</span><span class="p">(</span><span class="n">cookie</span><span class="p">,</span> <span class="n">dn</span><span class="p">,</span> <span class="n">in_hierarchical</span><span class="o">=</span><span class="n">YesOrNo</span><span class="o">.</span><span class="n">FALSE</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;ConfigResolveParent&quot;</span><span class="p">)</span>
+
+    <span class="n">method</span><span class="o">.</span><span class="n">cookie</span> <span class="o">=</span> <span class="n">cookie</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="n">dn</span>
+    <span class="n">method</span><span class="o">.</span><span class="n">in_hierarchical</span> <span class="o">=</span> <span class="p">((</span><span class="s2">&quot;false&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)[</span><span class="n">in_hierarchical</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">AFFIRMATIVE_LIST</span><span class="p">])</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="event_subscribe"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.event_subscribe">[docs]</a><span class="k">def</span> <span class="nf">event_subscribe</span><span class="p">(</span><span class="n">cookie</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;EventSubscribe&quot;</span><span class="p">)</span>
+
+    <span class="n">method</span><span class="o">.</span><span class="n">cookie</span> <span class="o">=</span> <span class="n">cookie</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+
+<div class="viewcode-block" id="event_unsubscribe"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmethodfactory.event_unsubscribe">[docs]</a><span class="k">def</span> <span class="nf">event_unsubscribe</span><span class="p">(</span><span class="n">cookie</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Auto-generated IMC XML API Method. &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">ExternalMethod</span><span class="p">(</span><span class="s2">&quot;EventUnsubscribe&quot;</span><span class="p">)</span>
+
+    <span class="n">method</span><span class="o">.</span><span class="n">cookie</span> <span class="o">=</span> <span class="n">cookie</span>
+
+    <span class="n">xml_request</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">to_xml</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xml_request</span></div>
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

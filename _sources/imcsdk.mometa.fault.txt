@@ -1,0 +1,19 @@
+imcsdk.mometa.fault package
+===========================
+
+Submodules
+----------
+
+.. automodule:: imcsdk.mometa.fault.FaultInst
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk.mometa.fault
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.utils package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk package" href="imcsdk.html" />
+    <link rel="next" title="&lt;no title&gt;" href="readme.html" />
+    <link rel="prev" title="imcsdk.mometa.upload package" href="imcsdk.mometa.upload.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="readme.html" title="&lt;no title&gt;"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.upload.html" title="imcsdk.mometa.upload package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" accesskey="U">imcsdk package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-utils-package">
+<h1>imcsdk.utils package<a class="headerlink" href="#imcsdk-utils-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.utils.imcbackup">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.utils.imcbackup" title="Permalink to this headline">¶</a></h2>
+<p>This module contains APIs to facilitate Imc backup and import</p>
+<dl class="function">
+<dt id="imcsdk.utils.imcbackup.backup_imc">
+<code class="descclassname">imcsdk.utils.imcbackup.</code><code class="descname">backup_imc</code><span class="sig-paren">(</span><em>handle</em>, <em>remote_host</em>, <em>remote_file</em>, <em>protocol</em>, <em>username</em>, <em>password</em>, <em>passphrase=''</em>, <em>timeout_in_sec=600</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/utils/imcbackup.html#backup_imc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.utils.imcbackup.backup_imc" title="Permalink to this definition">¶</a></dt>
+<dd><p>backup_imc helps create and download Imc backups.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">handle (ImcHandle): Imc Connection handle
+remote_host (str): IP or Hostname for the remote host.
+remote_file (str): Absolute path and name for the backup file
+protocol (str) : &#8220;ftp&#8221;, &#8220;http&#8221;, &#8220;none&#8221;, &#8220;scp&#8221;, &#8220;sftp&#8221;, &#8220;tftp&#8221;
+username (str) : Remote Host user name
+password (str) : Remote Host user credentials/password
+passphrase (str) : Password for the backup file.
+timeout_in_sec (number) : time in seconds for which method waits</p>
+<blockquote class="last">
+<div>for the backUp file to generate before it exits.</div></blockquote>
+</dd>
+<dt>Example:</dt>
+<dd><p class="first">remote_file = &#8220;/root/config_backup.xml&#8221;
+backup_imc(h,remote_file=remote_file,</p>
+<blockquote class="last">
+<div>protocol=&#8221;ftp&#8221;,username=&#8221;user&#8221;,password=&#8221;pass&#8221;,
+remote_host=&#8221;10.10.10.10&#8221;,passphrase=&#8221;xxxxxx&#8221;)</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="imcsdk.utils.imcbackup.import_imc_backup">
+<code class="descclassname">imcsdk.utils.imcbackup.</code><code class="descname">import_imc_backup</code><span class="sig-paren">(</span><em>handle</em>, <em>remote_host</em>, <em>remote_file</em>, <em>protocol</em>, <em>username</em>, <em>password</em>, <em>passphrase=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/utils/imcbackup.html#import_imc_backup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.utils.imcbackup.import_imc_backup" title="Permalink to this definition">¶</a></dt>
+<dd><p>This operation uploads a Imc backup taken earlier via GUI
+or backup_imc operation for all configuration, system configuration,
+and logical configuration files. User can perform an import while the
+system is up and running.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>handle (ImcHandle): connection handle
+remote_host (str): IP or Hostname for the remote host.
+remote_file (str): Absolute path and name for the backup file
+protocol (str) : &#8220;ftp&#8221;, &#8220;http&#8221;, &#8220;none&#8221;, &#8220;scp&#8221;, &#8220;sftp&#8221;, &#8220;tftp&#8221;
+username (str) : Remote Host user name
+password (str) : Remote Host user credentials/password
+passphrase (str) : Password for the backup file.</dd>
+<dt>Example:</dt>
+<dd><p class="first">remote_file = &#8220;/root/config_backup.xml&#8221;
+import_imc_backup(h,remote_file=remote_file,</p>
+<blockquote class="last">
+<div>protocol=&#8221;ftp&#8221;,username=&#8221;user&#8221;,password=&#8221;pass&#8221;,
+remote_host=&#8221;10.10.10.10&#8221;,passphrase=&#8221;xxxxxx&#8221;)</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-imcsdk.utils.imcfirmwareinstall"></span><dl class="function">
+<dt id="imcsdk.utils.imcfirmwareinstall.monitor_huu_firmware_update">
+<code class="descclassname">imcsdk.utils.imcfirmwareinstall.</code><code class="descname">monitor_huu_firmware_update</code><span class="sig-paren">(</span><em>handle</em>, <em>time_out=600</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/utils/imcfirmwareinstall.html#monitor_huu_firmware_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.utils.imcfirmwareinstall.monitor_huu_firmware_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="imcsdk.utils.imcfirmwareinstall.update_imc_firmware_huu">
+<code class="descclassname">imcsdk.utils.imcfirmwareinstall.</code><code class="descname">update_imc_firmware_huu</code><span class="sig-paren">(</span><em>handle</em>, <em>remote_share</em>, <em>share_type</em>, <em>remote_ip</em>, <em>username</em>, <em>password</em>, <em>update_component</em>, <em>stop_on_error=None</em>, <em>timeout=None</em>, <em>verify_update=None</em>, <em>cimc_secure_boot=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/utils/imcfirmwareinstall.html#update_imc_firmware_huu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.utils.imcfirmwareinstall.update_imc_firmware_huu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="imcsdk.utils.imcfirmwareinstall.validate_connection">
+<code class="descclassname">imcsdk.utils.imcfirmwareinstall.</code><code class="descname">validate_connection</code><span class="sig-paren">(</span><em>handle</em>, <em>timeout=900</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/utils/imcfirmwareinstall.html#validate_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.utils.imcfirmwareinstall.validate_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Montiors IMC onnection, if connection exists return True else False
+Args:</p>
+<blockquote>
+<div>handle (ImcHandle)
+timeout (number): timeout in seconds</div></blockquote>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>True/False(bool)</dd>
+<dt>Raises:</dt>
+<dd>Exception if unable to connect to UCSM</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-imcsdk.utils.imctechsupport"></span><p>This module contains the APIs used to create and download tech_support file.</p>
+<dl class="function">
+<dt id="imcsdk.utils.imctechsupport.get_imc_tech_support">
+<code class="descclassname">imcsdk.utils.imctechsupport.</code><code class="descname">get_imc_tech_support</code><span class="sig-paren">(</span><em>handle</em>, <em>remote_host</em>, <em>remote_file</em>, <em>protocol</em>, <em>username</em>, <em>password</em>, <em>timeout_in_sec=600</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/utils/imctechsupport.html#get_imc_tech_support"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.utils.imctechsupport.get_imc_tech_support" title="Permalink to this definition">¶</a></dt>
+<dd><p>This operation creates and downloads the technical support file for
+the specified Ucs server.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">handle (ImcHandle): Imc Connection handle
+remote_host (str): IP or Hostname for the remote host.
+remote_file (str): Absolute path and name for the tech support file
+protocol (str) : &#8220;ftp&#8221;, &#8220;http&#8221;, &#8220;none&#8221;, &#8220;scp&#8221;, &#8220;sftp&#8221;, &#8220;tftp&#8221;
+username (str) : Remote Host user name
+password (str) : Remote Host user credentials/password
+timeout_in_sec (number) : time in seconds for which method waits</p>
+<blockquote class="last">
+<div>for the backUp file to generate before it exits.</div></blockquote>
+</dd>
+<dt>Example:</dt>
+<dd><p class="first">remote_file = &#8220;/root/tech_sup_backup.tar.gz&#8221;
+get_imc_tech_support(h,remote_file=remote_file,</p>
+<blockquote class="last">
+<div>protocol=&#8221;scp&#8221;,username=&#8221;user&#8221;,password=&#8221;pass&#8221;,
+remote_host=&#8221;10.10.10.10&#8221;)</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.utils" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.utils package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.utils.imcbackup">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.upload.html"
+                        title="previous chapter">imcsdk.mometa.upload package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="readme.html"
+                        title="next chapter">&lt;no title&gt;</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.utils.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="readme.html" title="&lt;no title&gt;"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.upload.html" title="imcsdk.mometa.upload package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

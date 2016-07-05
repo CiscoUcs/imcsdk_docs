@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.huu package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk.mometa package" href="imcsdk.mometa.html" />
+    <link rel="next" title="imcsdk.mometa.iod package" href="imcsdk.mometa.iod.html" />
+    <link rel="prev" title="imcsdk.mometa.generated package" href="imcsdk.mometa.generated.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.iod.html" title="imcsdk.mometa.iod package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.generated.html" title="imcsdk.mometa.generated package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" accesskey="U">imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-mometa-huu-package">
+<h1>imcsdk.mometa.huu package<a class="headerlink" href="#imcsdk-mometa-huu-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.mometa.huu.HuuController">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.mometa.huu.HuuController" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the general information for HuuController ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuController.HuuController">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuController.</code><code class="descname">HuuController</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuController.html#HuuController"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuController.HuuController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is HuuController class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuController.HuuController.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.huu.HuuController.HuuControllerConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuController.HuuController.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuController.HuuController.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuController.HuuController.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuController.HuuController.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuController.HuuController.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuController.HuuController.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'rn': 'rn', 'description': 'description', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuController.HuuController.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuController.HuuController.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1125244d0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112524450&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112524b90&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1125240d0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112e9bcd0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuController.HuuController.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuController.HuuControllerConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuController.</code><code class="descname">HuuControllerConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuController.html#HuuControllerConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuController.HuuControllerConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.huu.HuuFirmwareCatalog"></span><p>This module contains the general information for HuuFirmwareCatalog ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareCatalog.</code><code class="descname">HuuFirmwareCatalog</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareCatalog.html#HuuFirmwareCatalog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is HuuFirmwareCatalog class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalogConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'numOfComponents': 'num_of_components', 'description': 'description', 'status': 'status', 'rn': 'rn', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d69490&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d69350&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d69890&gt;, 'num_of_components': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d69c90&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d69250&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111d69c10&gt;}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalog.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalogConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareCatalog.</code><code class="descname">HuuFirmwareCatalogConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareCatalog.html#HuuFirmwareCatalogConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalog.HuuFirmwareCatalogConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.huu.HuuFirmwareCatalogComponent"></span><p>This module contains the general information for HuuFirmwareCatalogComponent ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareCatalogComponent.</code><code class="descname">HuuFirmwareCatalogComponent</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>id</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareCatalogComponent.html#HuuFirmwareCatalogComponent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is HuuFirmwareCatalogComponent class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponentConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'id'])</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'description': 'description', 'componentName': 'component_name', 'rn': 'rn', 'id': 'id', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1123e2350&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135c9150&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1123e20d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1123e2c10&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1123e2410&gt;, 'id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1123e2590&gt;, 'component_name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1123e25d0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponent.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponentConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareCatalogComponent.</code><code class="descname">HuuFirmwareCatalogComponentConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareCatalogComponent.html#HuuFirmwareCatalogComponentConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareCatalogComponent.HuuFirmwareCatalogComponentConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.huu.HuuFirmwareComponent"></span><p>This module contains the general information for HuuFirmwareComponent ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareComponent.</code><code class="descname">HuuFirmwareComponent</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>component</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareComponent.html#HuuFirmwareComponent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is HuuFirmwareComponent class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponentConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'component'])</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'runningVersion': 'running_version', 'vendorId': 'vendor_id', 'component': 'component', 'deviceId': 'device_id', 'id': 'id', 'description': 'description', 'slot': 'slot', 'macAddr': 'mac_addr', 'childAction': 'child_action', 'subDeviceId': 'sub_device_id', 'rn': 'rn', 'cntrlId': 'cntrl_id', 'subVendorId': 'sub_vendor_id'}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112537510&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ac1910&gt;, 'sub_vendor_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ac1390&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112537450&gt;, 'vendor_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112676f10&gt;, 'component': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112537b50&gt;, 'running_version': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ac1050&gt;, 'id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112537e50&gt;, 'device_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112537290&gt;, 'slot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ac1210&gt;, 'cntrl_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112537c50&gt;, 'sub_device_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ac1950&gt;, 'mac_addr': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ac1650&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111ac1f10&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112537190&gt;}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponent.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponentConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareComponent.</code><code class="descname">HuuFirmwareComponentConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareComponent.html#HuuFirmwareComponentConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareComponent.HuuFirmwareComponentConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.huu.HuuFirmwareRunning"></span><p>This module contains the general information for HuuFirmwareRunning ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareRunning.</code><code class="descname">HuuFirmwareRunning</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareRunning.html#HuuFirmwareRunning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is HuuFirmwareRunning class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunningConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'lastQueriedTimeStamp': 'last_queried_time_stamp', 'currentTime': 'current_time', 'rn': 'rn', 'childAction': 'child_action', 'description': 'description'}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11248d950&gt;, 'current_time': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11248d4d0&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11248df50&gt;, 'last_queried_time_stamp': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11248dc90&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11248d490&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11248dbd0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11248dd50&gt;}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunning.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunningConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareRunning.</code><code class="descname">HuuFirmwareRunningConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareRunning.html#HuuFirmwareRunningConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareRunning.HuuFirmwareRunningConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.huu.HuuFirmwareUpdateCancel"></span><p>This module contains the general information for HuuFirmwareUpdateCancel ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareUpdateCancel.</code><code class="descname">HuuFirmwareUpdateCancel</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareUpdateCancel.html#HuuFirmwareUpdateCancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is HuuFirmwareUpdateCancel class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancelConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'adminState': 'admin_state', 'rn': 'rn', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111a21550&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111a21b50&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111a21450&gt;, 'admin_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11310e950&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11310e350&gt;}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancel.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancelConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareUpdateCancel.</code><code class="descname">HuuFirmwareUpdateCancelConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareUpdateCancel.html#HuuFirmwareUpdateCancelConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancelConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancelConsts.ADMIN_STATE_TRIGGER">
+<code class="descname">ADMIN_STATE_TRIGGER</code><em class="property"> = 'trigger'</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancelConsts.ADMIN_STATE_TRIGGER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancelConsts.ADMIN_STATE_TRIGGERED">
+<code class="descname">ADMIN_STATE_TRIGGERED</code><em class="property"> = 'triggered'</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateCancel.HuuFirmwareUpdateCancelConsts.ADMIN_STATE_TRIGGERED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.huu.HuuFirmwareUpdateStatus"></span><p>This module contains the general information for HuuFirmwareUpdateStatus ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareUpdateStatus.</code><code class="descname">HuuFirmwareUpdateStatus</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareUpdateStatus.html#HuuFirmwareUpdateStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is HuuFirmwareUpdateStatus class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatusConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'updateStartTime': 'update_start_time', 'currentTime': 'current_time', 'huuImageVersion': 'huu_image_version', 'rn': 'rn', 'overallStatus': 'overall_status', 'updateEndTime': 'update_end_time', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112524b50&gt;, 'current_time': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1123e2850&gt;, 'overall_status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112524a90&gt;, 'update_start_time': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112501710&gt;, 'huu_image_version': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112524890&gt;, 'update_end_time': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111779650&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112524cd0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112524650&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1123e2950&gt;}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatus.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatusConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareUpdateStatus.</code><code class="descname">HuuFirmwareUpdateStatusConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareUpdateStatus.html#HuuFirmwareUpdateStatusConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdateStatus.HuuFirmwareUpdateStatusConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.huu.HuuFirmwareUpdater"></span><p>This module contains the general information for HuuFirmwareUpdater ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareUpdater.</code><code class="descname">HuuFirmwareUpdater</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareUpdater.html#HuuFirmwareUpdater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is HuuFirmwareUpdater class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'cimcSecureBoot': 'cimc_secure_boot', 'remoteSharePath': 'remote_share_path', 'remoteShareFile': 'remote_share_file', 'updateComponent': 'update_component', 'mountOption': 'mount_option', 'username': 'username', 'status': 'status', 'adminState': 'admin_state', 'remoteShare': 'remote_share', 'mapType': 'map_type', 'timeOut': 'time_out', 'remoteIp': 'remote_ip', 'verifyUpdate': 'verify_update', 'rn': 'rn', 'password': 'password', 'stopOnError': 'stop_on_error', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11110f450&gt;, 'remote_share_path': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111fa8b10&gt;, 'update_component': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135c9890&gt;, 'remote_ip': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111fa8f50&gt;, 'time_out': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135c9950&gt;, 'cimc_secure_boot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11110f6d0&gt;, 'stop_on_error': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135c9190&gt;, 'username': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135c9cd0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135c9790&gt;, 'remote_share_file': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111fa8d50&gt;, 'admin_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112260510&gt;, 'mount_option': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111fa8f10&gt;, 'verify_update': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135c9490&gt;, 'map_type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111fa8dd0&gt;, 'remote_share': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111fa8e10&gt;, 'password': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111fa8d10&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135c9550&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112260e90&gt;}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdater.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuFirmwareUpdater.</code><code class="descname">HuuFirmwareUpdaterConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuFirmwareUpdater.html#HuuFirmwareUpdaterConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts.ADMIN_STATE_TRIGGER">
+<code class="descname">ADMIN_STATE_TRIGGER</code><em class="property"> = 'trigger'</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts.ADMIN_STATE_TRIGGER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts.ADMIN_STATE_TRIGGERED">
+<code class="descname">ADMIN_STATE_TRIGGERED</code><em class="property"> = 'triggered'</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts.ADMIN_STATE_TRIGGERED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts.MAP_TYPE_CIFS">
+<code class="descname">MAP_TYPE_CIFS</code><em class="property"> = 'cifs'</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts.MAP_TYPE_CIFS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts.MAP_TYPE_NFS">
+<code class="descname">MAP_TYPE_NFS</code><em class="property"> = 'nfs'</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts.MAP_TYPE_NFS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts.MAP_TYPE_WWW">
+<code class="descname">MAP_TYPE_WWW</code><em class="property"> = 'www'</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuFirmwareUpdater.HuuFirmwareUpdaterConsts.MAP_TYPE_WWW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.huu.HuuUpdateComponentStatus"></span><p>This module contains the general information for HuuUpdateComponentStatus ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuUpdateComponentStatus.</code><code class="descname">HuuUpdateComponentStatus</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>component</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuUpdateComponentStatus.html#HuuUpdateComponentStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is HuuUpdateComponentStatus class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatusConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'component'])</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'slot': 'slot', 'runningVersion': 'running_version', 'macAddr': 'mac_addr', 'description': 'description', 'vendorId': 'vendor_id', 'errorDescription': 'error_description', 'subVendorId': 'sub_vendor_id', 'component': 'component', 'updateStatus': 'update_status', 'subDeviceId': 'sub_device_id', 'status': 'status', 'deviceId': 'device_id', 'verifyStatus': 'verify_status', 'rn': 'rn', 'cntrlId': 'cntrl_id', 'newVersion': 'new_version', 'id': 'id', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479890&gt;, 'cntrl_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479d50&gt;, 'vendor_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1134791d0&gt;, 'running_version': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1134792d0&gt;, 'new_version': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479410&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479d10&gt;, 'slot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479390&gt;, 'sub_vendor_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479b10&gt;, 'component': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479050&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479b90&gt;, 'update_status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479510&gt;, 'error_description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479250&gt;, 'mac_addr': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479fd0&gt;, 'verify_status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113443550&gt;, 'sub_device_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479bd0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479810&gt;, 'device_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479c10&gt;, 'id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479210&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113479b50&gt;}</em><a class="headerlink" href="#imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatus.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatusConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.huu.HuuUpdateComponentStatus.</code><code class="descname">HuuUpdateComponentStatusConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/huu/HuuUpdateComponentStatus.html#HuuUpdateComponentStatusConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.huu.HuuUpdateComponentStatus.HuuUpdateComponentStatusConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.mometa.huu">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.mometa.huu" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.mometa.huu package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.mometa.huu.HuuController">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.mometa.huu">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.generated.html"
+                        title="previous chapter">imcsdk.mometa.generated package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.iod.html"
+                        title="next chapter">imcsdk.mometa.iod package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.mometa.huu.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.iod.html" title="imcsdk.mometa.iod package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.generated.html" title="imcsdk.mometa.generated package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" >imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

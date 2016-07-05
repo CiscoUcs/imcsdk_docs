@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.utils.imcbackup &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.utils.imcbackup</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2016 Cisco Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#  http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contains APIs to facilitate Imc backup and import</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">..imcexception</span> <span class="kn">import</span> <span class="n">ImcValidationException</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;imc&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="backup_imc"><a class="viewcode-back" href="../../../imcsdk.utils.html#imcsdk.utils.imcbackup.backup_imc">[docs]</a><span class="k">def</span> <span class="nf">backup_imc</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">remote_host</span><span class="p">,</span> <span class="n">remote_file</span><span class="p">,</span> <span class="n">protocol</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+               <span class="n">passphrase</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">timeout_in_sec</span><span class="o">=</span><span class="mi">600</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    backup_imc helps create and download Imc backups.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        handle (ImcHandle): Imc Connection handle</span>
+<span class="sd">        remote_host (str): IP or Hostname for the remote host.</span>
+<span class="sd">        remote_file (str): Absolute path and name for the backup file</span>
+<span class="sd">        protocol (str) : &quot;ftp&quot;, &quot;http&quot;, &quot;none&quot;, &quot;scp&quot;, &quot;sftp&quot;, &quot;tftp&quot;</span>
+<span class="sd">        username (str) : Remote Host user name</span>
+<span class="sd">        password (str) : Remote Host user credentials/password</span>
+<span class="sd">        passphrase (str) : Password for the backup file.</span>
+<span class="sd">        timeout_in_sec (number) : time in seconds for which method waits</span>
+<span class="sd">                              for the backUp file to generate before it exits.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        remote_file = &quot;/root/config_backup.xml&quot;</span>
+<span class="sd">        backup_imc(h,remote_file=remote_file,</span>
+<span class="sd">               protocol=&quot;ftp&quot;,username=&quot;user&quot;,password=&quot;pass&quot;,</span>
+<span class="sd">               remote_host=&quot;10.10.10.10&quot;,passphrase=&quot;xxxxxx&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">..mometa.mgmt.MgmtBackup</span> <span class="kn">import</span> <span class="n">MgmtBackup</span><span class="p">,</span> <span class="n">MgmtBackupConsts</span>
+    <span class="kn">from</span> <span class="nn">..mometa.top.TopSystem</span> <span class="kn">import</span> <span class="n">TopSystem</span>
+
+    <span class="n">top_system</span> <span class="o">=</span> <span class="n">TopSystem</span><span class="p">()</span>
+    <span class="n">mgmt_backup</span> <span class="o">=</span> <span class="n">MgmtBackup</span><span class="p">(</span><span class="n">parent_mo_or_dn</span><span class="o">=</span><span class="n">top_system</span><span class="p">,</span>
+                             <span class="n">hostname</span><span class="o">=</span><span class="n">remote_host</span><span class="p">,</span>
+                             <span class="n">admin_state</span><span class="o">=</span><span class="n">MgmtBackupConsts</span><span class="o">.</span><span class="n">ADMIN_STATE_ENABLED</span><span class="p">,</span>
+                             <span class="n">proto</span><span class="o">=</span><span class="n">protocol</span><span class="p">,</span>
+                             <span class="n">pwd</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
+                             <span class="n">user</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
+                             <span class="n">passphrase</span><span class="o">=</span><span class="n">passphrase</span><span class="p">,</span>
+                             <span class="n">remote_file</span><span class="o">=</span><span class="n">remote_file</span><span class="p">)</span>
+
+    <span class="n">handle</span><span class="o">.</span><span class="n">add_mo</span><span class="p">(</span><span class="n">mgmt_backup</span><span class="p">,</span> <span class="n">modify_present</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># Checking for the backup to compete.</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">timeout_in_sec</span>
+    <span class="n">poll_interval</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">download_status</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">download_status</span><span class="p">:</span>
+        <span class="n">mgmt_backup</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">query_dn</span><span class="p">(</span><span class="n">dn</span><span class="o">=</span><span class="n">mgmt_backup</span><span class="o">.</span><span class="n">dn</span><span class="p">)</span>
+        <span class="n">admin_state_temp</span> <span class="o">=</span> <span class="n">mgmt_backup</span><span class="o">.</span><span class="n">admin_state</span>
+
+        <span class="c1"># Break condition:- if state id disabled then break</span>
+        <span class="k">if</span> <span class="n">admin_state_temp</span> <span class="o">==</span> <span class="n">MgmtBackupConsts</span><span class="o">.</span><span class="n">ADMIN_STATE_DISABLED</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">mgmt_backup</span><span class="o">.</span><span class="n">fsm_stage_descr</span> <span class="o">==</span> <span class="s2">&quot;Completed successfully&quot;</span><span class="p">:</span>
+                <span class="n">download_status</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">if</span> <span class="n">mgmt_backup</span><span class="o">.</span><span class="n">fsm_stage_descr</span> <span class="o">==</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span><span class="s2">&quot;Failed to export the CIMC &quot;</span>
+                                             <span class="s2">&quot;configuration file.&quot;</span> <span class="o">+</span>
+                                             <span class="s2">&quot;Error Code: &quot;</span> <span class="o">+</span>
+                                             <span class="n">mgmt_backup</span><span class="o">.</span><span class="n">fsm_rmt_inv_err_code</span> <span class="o">+</span>
+                                             <span class="s2">&quot; Error Description: &quot;</span> <span class="o">+</span>
+                                             <span class="n">mgmt_backup</span><span class="o">.</span><span class="n">fsm_rmt_inv_err_descr</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">download_status</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">duration</span><span class="p">,</span> <span class="n">poll_interval</span><span class="p">))</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">duration</span> <span class="o">-</span> <span class="n">poll_interval</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">duration</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">handle</span><span class="o">.</span><span class="n">remove_mo</span><span class="p">(</span><span class="n">mgmt_backup</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span><span class="s1">&#39;backup_imc timed out&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="import_imc_backup"><a class="viewcode-back" href="../../../imcsdk.utils.html#imcsdk.utils.imcbackup.import_imc_backup">[docs]</a><span class="k">def</span> <span class="nf">import_imc_backup</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">remote_host</span><span class="p">,</span> <span class="n">remote_file</span><span class="p">,</span> <span class="n">protocol</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span>
+                      <span class="n">password</span><span class="p">,</span> <span class="n">passphrase</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This operation uploads a Imc backup taken earlier via GUI</span>
+<span class="sd">    or backup_imc operation for all configuration, system configuration,</span>
+<span class="sd">    and logical configuration files. User can perform an import while the</span>
+<span class="sd">    system is up and running.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        handle (ImcHandle): connection handle</span>
+<span class="sd">        remote_host (str): IP or Hostname for the remote host.</span>
+<span class="sd">        remote_file (str): Absolute path and name for the backup file</span>
+<span class="sd">        protocol (str) : &quot;ftp&quot;, &quot;http&quot;, &quot;none&quot;, &quot;scp&quot;, &quot;sftp&quot;, &quot;tftp&quot;</span>
+<span class="sd">        username (str) : Remote Host user name</span>
+<span class="sd">        password (str) : Remote Host user credentials/password</span>
+<span class="sd">        passphrase (str) : Password for the backup file.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        remote_file = &quot;/root/config_backup.xml&quot;</span>
+<span class="sd">        import_imc_backup(h,remote_file=remote_file,</span>
+<span class="sd">               protocol=&quot;ftp&quot;,username=&quot;user&quot;,password=&quot;pass&quot;,</span>
+<span class="sd">               remote_host=&quot;10.10.10.10&quot;,passphrase=&quot;xxxxxx&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">..mometa.top.TopSystem</span> <span class="kn">import</span> <span class="n">TopSystem</span>
+    <span class="kn">from</span> <span class="nn">..mometa.mgmt.MgmtImporter</span> <span class="kn">import</span> <span class="n">MgmtImporter</span><span class="p">,</span> <span class="n">MgmtImporterConsts</span>
+
+    <span class="c1"># create MgmtImporter</span>
+    <span class="n">top_system</span> <span class="o">=</span> <span class="n">TopSystem</span><span class="p">()</span>
+    <span class="n">mgmt_importer</span> <span class="o">=</span> <span class="n">MgmtImporter</span><span class="p">(</span><span class="n">parent_mo_or_dn</span><span class="o">=</span><span class="n">top_system</span><span class="p">,</span>
+                                 <span class="n">hostname</span><span class="o">=</span><span class="n">remote_host</span><span class="p">,</span>
+                                 <span class="n">remote_file</span><span class="o">=</span><span class="n">remote_file</span><span class="p">,</span>
+                                 <span class="n">proto</span><span class="o">=</span><span class="n">protocol</span><span class="p">,</span>
+                                 <span class="n">user</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
+                                 <span class="n">pwd</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
+                                 <span class="n">passphrase</span><span class="o">=</span><span class="n">passphrase</span><span class="p">,</span>
+                                 <span class="n">admin_state</span><span class="o">=</span>
+                                 <span class="n">MgmtImporterConsts</span><span class="o">.</span><span class="n">ADMIN_STATE_ENABLED</span><span class="p">)</span>
+
+    <span class="n">handle</span><span class="o">.</span><span class="n">add_mo</span><span class="p">(</span><span class="n">mgmt_importer</span><span class="p">,</span> <span class="n">modify_present</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">download_status</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">download_status</span><span class="p">:</span>
+        <span class="n">mgmt_importer</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">query_dn</span><span class="p">(</span><span class="n">dn</span><span class="o">=</span><span class="n">mgmt_importer</span><span class="o">.</span><span class="n">dn</span><span class="p">)</span>
+        <span class="n">admin_state_temp</span> <span class="o">=</span> <span class="n">mgmt_importer</span><span class="o">.</span><span class="n">admin_state</span>
+
+        <span class="c1"># Break condition:- if state id disabled then break</span>
+        <span class="k">if</span> <span class="n">admin_state_temp</span> <span class="o">==</span> <span class="n">MgmtImporterConsts</span><span class="o">.</span><span class="n">ADMIN_STATE_DISABLED</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">mgmt_importer</span><span class="o">.</span><span class="n">fsm_stage_descr</span> <span class="o">==</span> <span class="s2">&quot;Completed successfully&quot;</span><span class="p">:</span>
+                <span class="n">download_status</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">if</span> <span class="n">mgmt_importer</span><span class="o">.</span><span class="n">fsm_stage_descr</span> <span class="o">==</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span><span class="s2">&quot;Failed to import the CIMC &quot;</span>
+                                             <span class="s2">&quot;configuration file.&quot;</span> <span class="o">+</span>
+                                             <span class="s2">&quot;Error Code: &quot;</span> <span class="o">+</span>
+                                            <span class="n">mgmt_importer</span><span class="o">.</span><span class="n">fsm_rmt_inv_err_code</span> <span class="o">+</span>
+                                             <span class="s2">&quot; Error Description: &quot;</span> <span class="o">+</span>
+                                            <span class="n">mgmt_importer</span><span class="o">.</span><span class="n">fsm_rmt_inv_err_descr</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">download_status</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">mgmt_importer</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.utils.imctechsupport &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.utils.imctechsupport</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2013 Cisco Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#  http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contains the APIs used to create and download tech_support file.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">..imcexception</span> <span class="kn">import</span> <span class="n">ImcValidationException</span><span class="p">,</span> <span class="n">ImcWarning</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;imc&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="get_imc_tech_support"><a class="viewcode-back" href="../../../imcsdk.utils.html#imcsdk.utils.imctechsupport.get_imc_tech_support">[docs]</a><span class="k">def</span> <span class="nf">get_imc_tech_support</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">remote_host</span><span class="p">,</span> <span class="n">remote_file</span><span class="p">,</span> <span class="n">protocol</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span>
+                         <span class="n">password</span><span class="p">,</span> <span class="n">timeout_in_sec</span><span class="o">=</span><span class="mi">600</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This operation creates and downloads the technical support file for</span>
+<span class="sd">    the specified Ucs server.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        handle (ImcHandle): Imc Connection handle</span>
+<span class="sd">        remote_host (str): IP or Hostname for the remote host.</span>
+<span class="sd">        remote_file (str): Absolute path and name for the tech support file</span>
+<span class="sd">        protocol (str) : &quot;ftp&quot;, &quot;http&quot;, &quot;none&quot;, &quot;scp&quot;, &quot;sftp&quot;, &quot;tftp&quot;</span>
+<span class="sd">        username (str) : Remote Host user name</span>
+<span class="sd">        password (str) : Remote Host user credentials/password</span>
+<span class="sd">        timeout_in_sec (number) : time in seconds for which method waits</span>
+<span class="sd">                              for the backUp file to generate before it exits.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        remote_file = &quot;/root/tech_sup_backup.tar.gz&quot;</span>
+<span class="sd">        get_imc_tech_support(h,remote_file=remote_file,</span>
+<span class="sd">               protocol=&quot;scp&quot;,username=&quot;user&quot;,password=&quot;pass&quot;,</span>
+<span class="sd">               remote_host=&quot;10.10.10.10&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">..mometa.top.TopSystem</span> <span class="kn">import</span> <span class="n">TopSystem</span>
+    <span class="kn">from</span> <span class="nn">..mometa.compute.ComputeRackUnit</span> <span class="kn">import</span> <span class="n">ComputeRackUnit</span>
+    <span class="kn">from</span> <span class="nn">..mometa.sysdebug.SysdebugTechSupportExport</span> <span class="kn">import</span> \
+        <span class="n">SysdebugTechSupportExport</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">remote_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.tar.gz&#39;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span><span class="s1">&#39;file_name should end with .tar.gz&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">timeout_in_sec</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">timeout_in_sec</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">timeout_in_sec</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">timeout_in_sec</span> <span class="o">=</span> <span class="mi">600</span>
+        <span class="n">ImcWarning</span><span class="p">(</span><span class="s2">&quot;Inappropriate &lt;timeoutsec&gt;. &quot;</span>
+                   <span class="s2">&quot;Chosen default value is 600 Seconds&quot;</span><span class="p">)</span>
+
+    <span class="c1"># create SysdebugTechSupport</span>
+    <span class="n">top_system</span> <span class="o">=</span> <span class="n">TopSystem</span><span class="p">()</span>
+    <span class="n">compute_rack</span> <span class="o">=</span> <span class="n">ComputeRackUnit</span><span class="p">(</span><span class="n">parent_mo_or_dn</span><span class="o">=</span><span class="n">top_system</span><span class="p">,</span> <span class="n">server_id</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+    <span class="n">sys_debug_tech_support</span> <span class="o">=</span> <span class="n">SysdebugTechSupportExport</span><span class="p">(</span>
+        <span class="n">parent_mo_or_dn</span><span class="o">=</span><span class="n">compute_rack</span><span class="p">,</span>
+        <span class="n">hostname</span><span class="o">=</span><span class="n">remote_host</span><span class="p">,</span>
+        <span class="n">protocol</span><span class="o">=</span><span class="n">protocol</span><span class="p">,</span>
+        <span class="n">pwd</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
+        <span class="n">user</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
+        <span class="n">remote_file</span><span class="o">=</span><span class="n">remote_file</span><span class="p">,</span>
+        <span class="n">admin_state</span><span class="o">=</span><span class="s2">&quot;Enabled&quot;</span><span class="p">)</span>
+
+    <span class="n">handle</span><span class="o">.</span><span class="n">add_mo</span><span class="p">(</span><span class="n">sys_debug_tech_support</span><span class="p">,</span> <span class="n">modify_present</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="c1"># poll for tech support to complete</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">timeout_in_sec</span>
+    <span class="n">poll_interval</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">tech_support</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">query_dn</span><span class="p">(</span><span class="n">sys_debug_tech_support</span><span class="o">.</span><span class="n">dn</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tech_support</span><span class="o">.</span><span class="n">admin_state</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Disabled&quot;</span><span class="p">,</span> <span class="s2">&quot;disabled&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">tech_support</span><span class="o">.</span><span class="n">fsm_status</span> <span class="o">==</span> <span class="s2">&quot;success&quot;</span><span class="p">:</span>
+                <span class="n">status</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span><span class="s1">&#39;Failed to create/transfer the &#39;</span>
+                                             <span class="s1">&#39;TechSupport file.&#39;</span> <span class="o">+</span>
+                                             <span class="n">tech_support</span><span class="o">.</span><span class="n">fsm_status</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">duration</span><span class="p">,</span> <span class="n">poll_interval</span><span class="p">))</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">duration</span> <span class="o">-</span> <span class="n">poll_interval</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">duration</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">handle</span><span class="o">.</span><span class="n">remove_mo</span><span class="p">(</span><span class="n">tech_support</span><span class="p">)</span>
+            <span class="n">handle</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span><span class="s1">&#39;TechSupport file creation timed out&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">tech_support</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

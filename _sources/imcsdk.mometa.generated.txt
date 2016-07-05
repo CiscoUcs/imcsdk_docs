@@ -1,0 +1,19 @@
+imcsdk.mometa.generated package
+===============================
+
+Submodules
+----------
+
+.. automodule:: imcsdk.mometa.generated.GeneratedStorageControllerKeyId
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk.mometa.generated
+    :members:
+    :undoc-members:
+    :show-inheritance:

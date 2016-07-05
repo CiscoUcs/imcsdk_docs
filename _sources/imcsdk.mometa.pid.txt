@@ -1,0 +1,39 @@
+imcsdk.mometa.pid package
+=========================
+
+Submodules
+----------
+
+.. automodule:: imcsdk.mometa.pid.PidCatalog
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.pid.PidCatalogCpu
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.pid.PidCatalogDimm
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.pid.PidCatalogHdd
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.pid.PidCatalogPCIAdapter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk.mometa.pid
+    :members:
+    :undoc-members:
+    :show-inheritance:

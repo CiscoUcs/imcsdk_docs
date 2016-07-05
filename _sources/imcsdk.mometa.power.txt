@@ -1,0 +1,24 @@
+imcsdk.mometa.power package
+===========================
+
+Submodules
+----------
+
+.. automodule:: imcsdk.mometa.power.PowerBudget
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.power.PowerMonitor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk.mometa.power
+    :members:
+    :undoc-members:
+    :show-inheritance:

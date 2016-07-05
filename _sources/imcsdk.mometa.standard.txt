@@ -1,0 +1,19 @@
+imcsdk.mometa.standard package
+==============================
+
+Submodules
+----------
+
+.. automodule:: imcsdk.mometa.standard.StandardPowerProfile
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk.mometa.standard
+    :members:
+    :undoc-members:
+    :show-inheritance:

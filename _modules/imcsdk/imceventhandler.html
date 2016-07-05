@@ -1,0 +1,687 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.imceventhandler &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.imceventhandler</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2013 Cisco Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#  http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module is responsible for event handling of the events exposed by</span>
+<span class="sd">IMC server.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">Queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Condition</span><span class="p">,</span> <span class="n">Lock</span><span class="p">,</span> <span class="n">Thread</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imcmo</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imccoreutils</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imcxmlcodec</span> <span class="k">as</span> <span class="n">xc</span>
+<span class="kn">from</span> <span class="nn">.imcexception</span> <span class="kn">import</span> <span class="n">ImcWarning</span>
+<span class="kn">from</span> <span class="nn">.imcexception</span> <span class="kn">import</span> <span class="n">ImcValidationException</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;imc&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MoChangeEvent"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.MoChangeEvent">[docs]</a><span class="k">class</span> <span class="nc">MoChangeEvent</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class provides structure to save an event generated for any change,</span>
+<span class="sd">    its associated managed object and property change list.</span>
+<span class="sd">    This functionality is used during add_event_handler.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">mo</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">change_list</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="n">event_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mo</span> <span class="o">=</span> <span class="n">mo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">change_list</span> <span class="o">=</span> <span class="n">change_list</span></div>
+
+
+<div class="viewcode-block" id="WatchBlock"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.WatchBlock">[docs]</a><span class="k">class</span> <span class="nc">WatchBlock</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class handles the functionality about the Event Handling/Watch block.</span>
+<span class="sd">    enqueue/dequeue fuctionality of events is handled by this class.</span>
+<span class="sd">    This functionality is used during add_event_handler.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">fmce</span><span class="p">,</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fmce</span> <span class="o">=</span> <span class="n">fmce</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">capacity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overflow</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error_code</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># TODO:error_code to call notify as per PowerTool</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>  <span class="c1"># infinite size Queue</span>
+
+<div class="viewcode-block" id="WatchBlock.dequeue"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.WatchBlock.dequeue">[docs]</a>    <span class="k">def</span> <span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miliseconds_timeout</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Internal method to dequeue the events.&quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;queue error:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">error_code</span><span class="p">))</span>
+                <span class="k">return</span> <span class="bp">None</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_q</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span>
+                <span class="n">mo_chg_event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_q</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">mo_chg_event</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">None</span></div>
+
+<div class="viewcode-block" id="WatchBlock.enqueue"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.WatchBlock.enqueue">[docs]</a>    <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmce</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Internal method to enqueue the events.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_q</span><span class="o">.</span><span class="n">maxsize</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">event_q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">cmce</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">overflow</span> <span class="o">=</span> <span class="bp">True</span></div>
+
+<div class="viewcode-block" id="WatchBlock.dequeue_default_callback"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.WatchBlock.dequeue_default_callback">[docs]</a>    <span class="k">def</span> <span class="nf">dequeue_default_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mce</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Default callback method.&quot;&quot;&quot;</span>
+        <span class="n">tab_size</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;EventId&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">tab_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mce</span><span class="o">.</span><span class="n">event_id</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ChangeList&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">tab_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mce</span><span class="o">.</span><span class="n">change_list</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ClassId&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">tab_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mce</span><span class="o">.</span><span class="n">mo</span><span class="o">.</span><span class="n">get_class_id</span><span class="p">()))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;MoDn&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">tab_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mce</span><span class="o">.</span><span class="n">mo</span><span class="o">.</span><span class="n">dn</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="ImcEventHandle"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.ImcEventHandle">[docs]</a><span class="k">class</span> <span class="nc">ImcEventHandle</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This class provides api to add and remove event handler.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__handle</span> <span class="o">=</span> <span class="n">handle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__lock_object</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wbs_lock</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__enqueue_thread</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__condition</span> <span class="o">=</span> <span class="n">Condition</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__event_chan_resp</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_thread</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__lowest_timeout</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wb_to_remove</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">__get_mo_elem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml_str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to extract mo elements from xml string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">root</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">extract_root_elem</span><span class="p">(</span><span class="n">xml_str</span><span class="p">)</span>
+        <span class="n">mo_elems</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;methodVessel&quot;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">in_stimuli</span> <span class="ow">in</span> <span class="n">root</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">cmce</span> <span class="ow">in</span> <span class="n">in_stimuli</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">in_config</span> <span class="ow">in</span> <span class="n">cmce</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">mo_elem</span> <span class="ow">in</span> <span class="n">in_config</span><span class="p">:</span>
+                            <span class="n">mo_elems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="p">(</span><span class="n">mo_elem</span><span class="p">,</span> <span class="n">cmce</span><span class="o">.</span><span class="n">attrib</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;inEid&#39;</span><span class="p">)))</span>
+        <span class="k">elif</span> <span class="n">root</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;configMoChangeEvent&quot;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">in_config</span> <span class="ow">in</span> <span class="n">root</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">mo_elem</span> <span class="ow">in</span> <span class="n">in_config</span><span class="p">:</span>
+                    <span class="n">mo_elems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mo_elem</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mo_elems</span>
+
+    <span class="k">def</span> <span class="nf">__enqueue_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method used by add_event_handler.</span>
+<span class="sd">        Provides functionality of enqueue/dequeue of the events and</span>
+<span class="sd">        triggering callbacks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">xml_query</span> <span class="o">=</span> <span class="s1">&#39;&lt;eventSubscribe cookie=&quot;</span><span class="si">%s</span><span class="s1">&quot;/&gt;&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">__handle</span><span class="o">.</span><span class="n">cookie</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__event_chan_resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__handle</span><span class="o">.</span><span class="n">post_xml</span><span class="p">(</span>
+                <span class="n">xml_str</span><span class="o">=</span><span class="n">xml_query</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">read</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">raise</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">__event_chan_resp</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="p">):</span>
+
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__handle</span><span class="o">.</span><span class="n">cookie</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> \
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__event_chan_resp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+                <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__event_chan_resp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+                <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__event_chan_resp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">resp</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">mo_elem</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_mo_elem</span><span class="p">(</span><span class="n">resp</span><span class="p">):</span>
+                    <span class="n">gmo</span> <span class="o">=</span> <span class="n">imcmo</span><span class="o">.</span><span class="n">generic_mo_from_xml_elem</span><span class="p">(</span><span class="n">mo_elem</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">mce</span> <span class="o">=</span> <span class="n">MoChangeEvent</span><span class="p">(</span><span class="n">event_id</span><span class="o">=</span><span class="n">mo_elem</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                        <span class="n">mo</span><span class="o">=</span><span class="n">gmo</span><span class="o">.</span><span class="n">to_mo</span><span class="p">(),</span>
+                                        <span class="n">change_list</span><span class="o">=</span><span class="n">gmo</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+                    <span class="k">for</span> <span class="n">watch_block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">fmce</span><span class="p">(</span><span class="n">mce</span><span class="p">):</span>
+                            <span class="n">watch_block</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">mce</span><span class="p">)</span>
+                            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">__condition</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">__condition</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__condition</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__condition</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__condition</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span>
+
+    <span class="k">def</span> <span class="nf">__thread_enqueue_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to start the enqueue thread which adds the events in</span>
+<span class="sd">        an internal queue.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__enqueue_thread</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;enqueue_thread&quot;</span><span class="p">,</span>
+                                       <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__enqueue_function</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__enqueue_thread</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__enqueue_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__time_left</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">):</span>
+        <span class="n">timeout_sec</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;timeout_sec&quot;</span><span class="p">]</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;start_time&quot;</span><span class="p">]</span>
+        <span class="n">time_diff</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+        <span class="k">if</span> <span class="n">time_diff</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&lt;</span> <span class="n">timeout_sec</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">timeout_sec</span> <span class="o">-</span> <span class="n">time_diff</span><span class="o">.</span><span class="n">seconds</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="c1"># return 2147483647</span>
+
+    <span class="k">def</span> <span class="nf">__dequeue_mce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_left</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">time_left</span> <span class="ow">and</span> <span class="n">time_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__lowest_timeout</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> \
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__lowest_timeout</span> <span class="o">&gt;</span> <span class="n">time_left</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__lowest_timeout</span> <span class="o">=</span> <span class="n">time_left</span>
+            <span class="n">mce</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">dequeue</span><span class="p">(</span><span class="n">time_left</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mce</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">dequeue</span><span class="p">(</span><span class="mi">2147483647</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">mce</span>
+
+    <span class="k">def</span> <span class="nf">__prop_val_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">success_value</span><span class="p">,</span>
+                         <span class="n">failure_value</span><span class="p">,</span> <span class="n">transient_value</span><span class="p">,</span>
+                         <span class="n">change_list</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mo</span><span class="p">,</span> <span class="n">imcmo</span><span class="o">.</span><span class="n">GenericMo</span><span class="p">):</span>
+            <span class="n">n_prop</span> <span class="o">=</span> <span class="n">prop</span>
+            <span class="n">n_prop_val</span> <span class="o">=</span> <span class="n">mo</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="n">n_prop</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">prop</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mo</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">:</span>
+            <span class="n">n_prop</span> <span class="o">=</span> <span class="n">prop</span>
+            <span class="n">n_prop_val</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mo</span><span class="p">,</span> <span class="n">n_prop</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_prop</span> <span class="o">=</span> <span class="n">mo</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">[</span><span class="n">prop</span><span class="p">]</span><span class="o">.</span><span class="n">xml_attribute</span>
+            <span class="n">n_prop_val</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mo</span><span class="p">,</span> <span class="n">n_prop</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">change_list</span> <span class="ow">and</span> <span class="n">n_prop</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">change_list</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">success_value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n_prop_val</span> <span class="ow">in</span> <span class="n">success_value</span><span class="p">)</span> <span class="ow">or</span> \
+                <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">failure_value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n_prop_val</span> <span class="ow">in</span> <span class="n">failure_value</span><span class="p">)</span> <span class="ow">or</span> \
+                <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">transient_value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n_prop_val</span> <span class="ow">in</span> <span class="n">transient_value</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">__dequeue_mo_prop_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">poll_sec</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">,</span>
+                               <span class="n">timeout_sec</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">time_left</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+        <span class="n">success_value</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;success_value&quot;</span><span class="p">]</span>
+        <span class="n">failure_value</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;failure_value&quot;</span><span class="p">]</span>
+        <span class="n">transient_value</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;transient_value&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">success_value</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">success_value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;success_value is missing.&quot;</span><span class="p">)</span>
+
+        <span class="n">pmo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__handle</span><span class="o">.</span><span class="n">query_dn</span><span class="p">(</span><span class="n">mo</span><span class="o">.</span><span class="n">dn</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pmo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">ImcWarning</span><span class="p">(</span><span class="s1">&#39;Mo &#39;</span> <span class="o">+</span> <span class="n">pmo</span><span class="o">.</span><span class="n">dn</span> <span class="o">+</span> <span class="s1">&#39; not found.&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="n">timeout_sec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">time_left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">time_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">time_left</span> <span class="o">&lt;</span> <span class="n">poll_sec</span><span class="p">:</span>
+                <span class="n">poll_sec</span> <span class="o">=</span> <span class="n">timeout_sec</span> <span class="o">-</span> <span class="n">time_left</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__lowest_timeout</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">__lowest_timeout</span> <span class="o">&gt;</span> <span class="n">poll_sec</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__lowest_timeout</span> <span class="o">=</span> <span class="n">poll_sec</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__prop_val_exist</span><span class="p">(</span><span class="n">pmo</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">success_value</span><span class="p">,</span>
+                                 <span class="n">failure_value</span><span class="p">,</span> <span class="n">transient_value</span><span class="p">):</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successful&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__wb_to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">watch_block</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__dequeue_mo_prop_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">,</span> <span class="n">time_left</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+        <span class="n">success_value</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;success_value&quot;</span><span class="p">]</span>
+        <span class="n">failure_value</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;failure_value&quot;</span><span class="p">]</span>
+        <span class="n">transient_value</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;transient_value&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">success_value</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">success_value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;success_value is missing.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># dequeue mce</span>
+        <span class="n">mce</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_mce</span><span class="p">(</span><span class="n">time_left</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mce</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># checks if prop value exist in success or failure or transient values</span>
+        <span class="n">attributes</span> <span class="o">=</span> <span class="n">mce</span><span class="o">.</span><span class="n">change_list</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__prop_val_exist</span><span class="p">(</span><span class="n">mce</span><span class="o">.</span><span class="n">mo</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">success_value</span><span class="p">,</span> <span class="n">failure_value</span><span class="p">,</span>
+                                 <span class="n">transient_value</span><span class="p">,</span> <span class="n">attributes</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">callback</span><span class="p">:</span>
+                <span class="n">ctxt</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;context&#39;</span><span class="p">]</span>
+                <span class="n">ctxt</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">watch_block</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">mce</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__wb_to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">watch_block</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__dequeue_mo_until_removed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">,</span> <span class="n">time_left</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+        <span class="c1"># dequeue mce</span>
+        <span class="n">mce</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_mce</span><span class="p">(</span><span class="n">time_left</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mce</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">watch_block</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">mce</span><span class="p">)</span>
+
+        <span class="c1"># watch mo until gets deleted</span>
+        <span class="k">if</span> <span class="n">mce</span><span class="o">.</span><span class="n">mo</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;deleted&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__wb_to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">watch_block</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__dequeue_all_class_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">,</span> <span class="n">time_left</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+        <span class="c1"># dequeue mce</span>
+        <span class="n">mce</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_mce</span><span class="p">(</span><span class="n">time_left</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mce</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">watch_block</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">mce</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__dequeue_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to dequeue to events.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__lowest_timeout</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__wb_to_remove</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">watch_block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="p">:</span>
+                    <span class="n">mo</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;managed_object&quot;</span><span class="p">]</span>
+                    <span class="n">prop</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;prop&quot;</span><span class="p">]</span>
+                    <span class="n">poll_sec</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;poll_sec&quot;</span><span class="p">]</span>
+                    <span class="n">timeout_sec</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;timeout_sec&quot;</span><span class="p">]</span>
+
+                    <span class="c1"># checks if watch_block is not timed out, else remove</span>
+                    <span class="n">time_left</span> <span class="o">=</span> <span class="bp">None</span>
+                    <span class="k">if</span> <span class="n">timeout_sec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="n">time_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__time_left</span><span class="p">(</span><span class="n">watch_block</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">time_left</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">__wb_to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">watch_block</span><span class="p">)</span>
+                            <span class="k">continue</span>
+
+                    <span class="c1"># poll for mo. Not to monitor event.</span>
+                    <span class="k">if</span> <span class="n">poll_sec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">mo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_mo_prop_poll</span><span class="p">(</span><span class="n">mo</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">poll_sec</span><span class="p">,</span>
+                                                    <span class="n">watch_block</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">,</span>
+                                                    <span class="n">time_left</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">mo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="c1"># watch mo until prop_val changed to desired value</span>
+                        <span class="k">if</span> <span class="n">prop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_mo_prop_event</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">,</span>
+                                                         <span class="n">time_left</span><span class="p">)</span>
+                        <span class="c1"># watch mo until it is removed</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_mo_until_removed</span><span class="p">(</span><span class="n">watch_block</span><span class="p">,</span>
+                                                            <span class="n">time_left</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">mo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="c1"># watch all event or specific to class_id</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_all_class_id</span><span class="p">(</span><span class="n">watch_block</span><span class="p">,</span> <span class="n">time_left</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__wb_to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">watch_block</span><span class="p">)</span>
+
+            <span class="c1"># removing watch_block</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wb_to_remove</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__wbs_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+
+                <span class="k">for</span> <span class="n">wb</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__wb_to_remove</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="s2">&quot;context&quot;</span> <span class="ow">in</span> <span class="n">wb</span><span class="o">.</span><span class="n">params</span><span class="p">:</span>
+                        <span class="n">ctxt</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;context&#39;</span><span class="p">]</span>
+                        <span class="n">ctxt</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">watch_block_remove</span><span class="p">(</span><span class="n">wb</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__wb_to_remove</span> <span class="o">=</span> <span class="p">[]</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">__wbs_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+            <span class="c1"># wait for more events only if watch_block exists</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="p">):</span>
+                <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">__condition</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__condition</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__lowest_timeout</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">__thread_dequeue_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to start dequeue thread.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_thread</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;dequeue_thread&quot;</span><span class="p">,</span>
+                                       <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_function</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_thread</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dequeue_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ImcEventHandle.watch_block_add"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.ImcEventHandle.watch_block_add">[docs]</a>    <span class="k">def</span> <span class="nf">watch_block_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span>
+                        <span class="n">filter_callback</span><span class="p">,</span>
+                        <span class="n">capacity</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+                        <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to add a watch block for starting event monitoring.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__handle</span><span class="o">.</span><span class="n">cookie</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wbs_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="n">watch_block</span> <span class="o">=</span> <span class="n">WatchBlock</span><span class="p">(</span><span class="n">params</span><span class="p">,</span>
+                                 <span class="n">filter_callback</span><span class="p">,</span>
+                                 <span class="n">capacity</span><span class="p">,</span>
+                                 <span class="n">callback</span><span class="p">)</span>  <span class="c1"># Add a List of Watchers</span>
+
+        <span class="k">if</span> <span class="n">watch_block</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">callback</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">watch_block</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">watch_block</span><span class="o">.</span><span class="n">dequeue_default_callback</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">watch_block</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wbs_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">watch_block</span></div>
+
+<div class="viewcode-block" id="ImcEventHandle.watch_block_remove"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.ImcEventHandle.watch_block_remove">[docs]</a>    <span class="k">def</span> <span class="nf">watch_block_remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to remove a watch block for</span>
+<span class="sd">        stopping event monitoring.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">watch_block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">watch_block</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_add_class_id_watch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_id</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">find_class_id_in_mo_meta_ignore_case</span><span class="p">(</span><span class="n">class_id</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span>
+                <span class="s2">&quot;Invalid ClassId </span><span class="si">%s</span><span class="s2"> specified.&quot;</span> <span class="o">%</span> <span class="n">class_id</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">watch__type_filter</span><span class="p">(</span><span class="n">mce</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Callback method to work on events with a specific class_id.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="n">mce</span><span class="o">.</span><span class="n">mo</span><span class="o">.</span><span class="n">get_class_id</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">class_id</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="n">watch__type_filter</span>
+
+    <span class="k">def</span> <span class="nf">_add_mo_watch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">managed_object</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">success_value</span><span class="o">=</span><span class="p">[],</span>
+                      <span class="n">poll_sec</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">find_class_id_in_mo_meta_ignore_case</span><span class="p">(</span>
+                <span class="n">managed_object</span><span class="o">.</span><span class="n">get_class_id</span><span class="p">())</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span>
+                <span class="s2">&quot;Unknown ClassId </span><span class="si">%s</span><span class="s2"> provided.&quot;</span> <span class="o">%</span>
+                <span class="n">managed_object</span><span class="o">.</span><span class="n">get_class_id</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="n">prop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">mo_property_meta</span> <span class="o">=</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">get_mo_property_meta</span><span class="p">(</span>
+                <span class="n">managed_object</span><span class="o">.</span><span class="n">get_class_id</span><span class="p">(),</span> <span class="n">prop</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mo_property_meta</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span>
+                    <span class="s2">&quot;Unknown Property </span><span class="si">%s</span><span class="s2"> provided.&quot;</span> <span class="o">%</span> <span class="n">prop</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">success_value</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span>
+                    <span class="s2">&quot;success_value parameter is not provided.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">poll_sec</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">watch_mo_filter</span><span class="p">(</span><span class="n">mce</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Callback method to work on events specific to respective</span>
+<span class="sd">                managed object.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">if</span> <span class="n">mce</span><span class="o">.</span><span class="n">mo</span><span class="o">.</span><span class="n">dn</span> <span class="o">==</span> <span class="n">managed_object</span><span class="o">.</span><span class="n">dn</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">True</span>
+                <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">return</span> <span class="n">watch_mo_filter</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">watch_none_filter</span><span class="p">(</span><span class="n">mce</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Callback method to ignore all events.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">return</span> <span class="n">watch_none_filter</span>
+
+<div class="viewcode-block" id="ImcEventHandle.add"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.ImcEventHandle.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">class_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">managed_object</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">prop</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">success_value</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">failure_value</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">transient_value</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">poll_sec</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">timeout_sec</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">call_back</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds an event handler.</span>
+
+<span class="sd">        An event handler can be added using this method where an user can</span>
+<span class="sd">        subscribe for the event channel from IMC and can monitor those events</span>
+<span class="sd">        for any specific success value or failure value for a managed object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            class_id (str): managed object class id</span>
+<span class="sd">            managed_object (ManagedObject)</span>
+<span class="sd">            prop (str) - property of the managed object to monitor</span>
+<span class="sd">            success_value (list) - success values of a prop</span>
+<span class="sd">            failure_value (list) - failure values of a prop</span>
+<span class="sd">            transient_value (list) - transient values of a prop</span>
+<span class="sd">            poll_sec - specifies the time in seconds for polling event.</span>
+<span class="sd">            timeout_sec - time after which method should stop monitoring.</span>
+<span class="sd">            call_back - call back method</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">class_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">managed_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span>
+                <span class="s2">&quot;Specify either class_id or managedObject, not both&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">class_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">filter_callback</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_class_id_watch</span><span class="p">(</span><span class="n">class_id</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">managed_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">filter_callback</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_mo_watch</span><span class="p">(</span><span class="n">managed_object</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span>
+                                                 <span class="n">success_value</span><span class="p">,</span> <span class="n">poll_sec</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">watch_all_filter</span><span class="p">(</span><span class="n">mce</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Callback method to work on all events.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="n">filter_callback</span> <span class="o">=</span> <span class="n">watch_all_filter</span>
+
+        <span class="n">param_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;class_id&#39;</span><span class="p">:</span> <span class="n">class_id</span><span class="p">,</span>
+                      <span class="s1">&#39;managed_object&#39;</span><span class="p">:</span> <span class="n">managed_object</span><span class="p">,</span>
+                      <span class="s1">&#39;prop&#39;</span><span class="p">:</span> <span class="n">prop</span><span class="p">,</span>
+                      <span class="s1">&#39;success_value&#39;</span><span class="p">:</span> <span class="n">success_value</span><span class="p">,</span>
+                      <span class="s1">&#39;failure_value&#39;</span><span class="p">:</span> <span class="n">failure_value</span><span class="p">,</span>
+                      <span class="s1">&#39;transient_value&#39;</span><span class="p">:</span> <span class="n">transient_value</span><span class="p">,</span>
+                      <span class="s1">&#39;poll_sec&#39;</span><span class="p">:</span> <span class="n">poll_sec</span><span class="p">,</span>
+                      <span class="s1">&#39;timeout_sec&#39;</span><span class="p">:</span> <span class="n">timeout_sec</span><span class="p">,</span>
+                      <span class="s1">&#39;call_back&#39;</span><span class="p">:</span> <span class="n">call_back</span><span class="p">,</span>
+                      <span class="s1">&#39;start_time&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
+                      <span class="s1">&#39;context&#39;</span><span class="p">:</span> <span class="n">context</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">filter_callback</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span><span class="s2">&quot;Error adding WatchBlock...&quot;</span><span class="p">)</span>
+
+        <span class="n">watch_block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">watch_block_add</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">param_dict</span><span class="p">,</span>
+                                           <span class="n">filter_callback</span><span class="o">=</span><span class="n">filter_callback</span><span class="p">,</span>
+                                           <span class="n">callback</span><span class="o">=</span><span class="n">call_back</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">watch_block</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">poll_sec</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__thread_enqueue_start</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__thread_dequeue_start</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">watch_block</span></div>
+
+<div class="viewcode-block" id="ImcEventHandle.remove"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.ImcEventHandle.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">watch_block</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes an event handler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wbs_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">watch_block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">watch_block_remove</span><span class="p">(</span><span class="n">watch_block</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ImcWarning</span><span class="p">(</span><span class="s2">&quot;Event handler not found&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wbs_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ImcEventHandle.clean"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.ImcEventHandle.clean">[docs]</a>    <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes all the watch blocks from the event handler</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wbs_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">watch_block_remove</span><span class="p">(</span><span class="n">each</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wbs_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ImcEventHandle.get"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.ImcEventHandle.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the list of event handlers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__wbs</span></div></div>
+
+
+<div class="viewcode-block" id="wait"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imceventhandler.wait">[docs]</a><span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">mo</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">cb</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Waits for `mo.prop == value`</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        handle(ImcHandle): connection handle to the server</span>
+<span class="sd">        mo (Managed Object): managed object to watch</span>
+<span class="sd">        prop (str): property to watch</span>
+<span class="sd">        value (str): property value to wait for</span>
+<span class="sd">        cb(function): callback on success</span>
+<span class="sd">        timeout_sec (int): timeout</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        This method is called from ImcHandle class,</span>
+<span class="sd">        wait_for_event method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># create a new event handler</span>
+    <span class="n">ueh</span> <span class="o">=</span> <span class="n">ImcEventHandle</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">context</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">success_value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">success_value</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+
+    <span class="c1"># create a watch block</span>
+    <span class="n">ueh</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">managed_object</span><span class="o">=</span><span class="n">mo</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="n">prop</span><span class="p">,</span> <span class="n">success_value</span><span class="o">=</span><span class="n">success_value</span><span class="p">,</span>
+            <span class="n">call_back</span><span class="o">=</span><span class="n">cb</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="o">=</span><span class="n">timeout_sec</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+
+    <span class="c1"># wait for the event to occur</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">context</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

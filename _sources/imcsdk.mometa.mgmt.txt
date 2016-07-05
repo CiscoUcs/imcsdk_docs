@@ -1,0 +1,34 @@
+imcsdk.mometa.mgmt package
+==========================
+
+Submodules
+----------
+
+.. automodule:: imcsdk.mometa.mgmt.MgmtBackup
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.mgmt.MgmtController
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.mgmt.MgmtIf
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.mgmt.MgmtImporter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk.mometa.mgmt
+    :members:
+    :undoc-members:
+    :show-inheritance:

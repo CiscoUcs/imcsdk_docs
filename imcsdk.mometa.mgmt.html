@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.mgmt package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk.mometa package" href="imcsdk.mometa.html" />
+    <link rel="next" title="imcsdk.mometa.network package" href="imcsdk.mometa.network.html" />
+    <link rel="prev" title="imcsdk.mometa.memory package" href="imcsdk.mometa.memory.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.network.html" title="imcsdk.mometa.network package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.memory.html" title="imcsdk.mometa.memory package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" accesskey="U">imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-mometa-mgmt-package">
+<h1>imcsdk.mometa.mgmt package<a class="headerlink" href="#imcsdk-mometa-mgmt-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.mometa.mgmt.MgmtBackup">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.mometa.mgmt.MgmtBackup" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the general information for MgmtBackup ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.mgmt.MgmtBackup.</code><code class="descname">MgmtBackup</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/mgmt/MgmtBackup.html#MgmtBackup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is MgmtBackup class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'fsmRmtInvErrCode': 'fsm_rmt_inv_err_code', 'fsmStageDescr': 'fsm_stage_descr', 'fsmDescr': 'fsm_descr', 'pwd': 'pwd', 'user': 'user', 'passphrase': 'passphrase', 'childAction': 'child_action', 'proto': 'proto', 'hostname': 'hostname', 'adminState': 'admin_state', 'fsmRmtInvErrDescr': 'fsm_rmt_inv_err_descr', 'rn': 'rn', 'remoteFile': 'remote_file'}</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1136640d0&gt;, 'fsm_stage_descr': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664f10&gt;, 'fsm_rmt_inv_err_descr': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664a90&gt;, 'pwd': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664610&gt;, 'admin_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1136641d0&gt;, 'user': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112de1050&gt;, 'passphrase': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664410&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664ed0&gt;, 'proto': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664450&gt;, 'hostname': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664c10&gt;, 'fsm_rmt_inv_err_code': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664f50&gt;, 'fsm_descr': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664cd0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664650&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664990&gt;, 'remote_file': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113664510&gt;}</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackup.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.mgmt.MgmtBackup.</code><code class="descname">MgmtBackupConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/mgmt/MgmtBackup.html#MgmtBackupConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.ADMIN_STATE_DISABLED">
+<code class="descname">ADMIN_STATE_DISABLED</code><em class="property"> = 'disabled'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.ADMIN_STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.ADMIN_STATE_ENABLED">
+<code class="descname">ADMIN_STATE_ENABLED</code><em class="property"> = 'enabled'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.ADMIN_STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_">
+<code class="descname">FSM_RMT_INV_ERR_CODE_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_ABORTED">
+<code class="descname">FSM_RMT_INV_ERR_CODE_ABORTED</code><em class="property"> = 'Aborted'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_ABORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_ERROR_COLLECTING_CONFIGURATION_DATA">
+<code class="descname">FSM_RMT_INV_ERR_CODE_ERROR_COLLECTING_CONFIGURATION_DATA</code><em class="property"> = 'Error collecting configuration data'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_ERROR_COLLECTING_CONFIGURATION_DATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_ERROR_IMPORTING_CONFIGURATION">
+<code class="descname">FSM_RMT_INV_ERR_CODE_ERROR_IMPORTING_CONFIGURATION</code><em class="property"> = 'Error importing configuration'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_ERROR_IMPORTING_CONFIGURATION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_NONE">
+<code class="descname">FSM_RMT_INV_ERR_CODE_NONE</code><em class="property"> = 'none'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_PARTIALLY_IMPORTED">
+<code class="descname">FSM_RMT_INV_ERR_CODE_PARTIALLY_IMPORTED</code><em class="property"> = 'Partially Imported'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_PARTIALLY_IMPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_TFTP_ERROR">
+<code class="descname">FSM_RMT_INV_ERR_CODE_TFTP_ERROR</code><em class="property"> = 'TFTP Error'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_TFTP_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_UNKNOWN_ERROR">
+<code class="descname">FSM_RMT_INV_ERR_CODE_UNKNOWN_ERROR</code><em class="property"> = 'Unknown error'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.FSM_RMT_INV_ERR_CODE_UNKNOWN_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_FTP">
+<code class="descname">PROTO_FTP</code><em class="property"> = 'ftp'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_FTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_HTTP">
+<code class="descname">PROTO_HTTP</code><em class="property"> = 'http'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_HTTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_NONE">
+<code class="descname">PROTO_NONE</code><em class="property"> = 'none'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_SCP">
+<code class="descname">PROTO_SCP</code><em class="property"> = 'scp'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_SCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_SFTP">
+<code class="descname">PROTO_SFTP</code><em class="property"> = 'sftp'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_SFTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_TFTP">
+<code class="descname">PROTO_TFTP</code><em class="property"> = 'tftp'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtBackup.MgmtBackupConsts.PROTO_TFTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.mgmt.MgmtController"></span><p>This module contains the general information for MgmtController ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtController">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.mgmt.MgmtController.</code><code class="descname">MgmtController</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/mgmt/MgmtController.html#MgmtController"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is MgmtController class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtController.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtController.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtController.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtController.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtController.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtController.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtController.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'vendor': 'vendor', 'model': 'model', 'subject': 'subject', 'rn': 'rn', 'serial': 'serial', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtController.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtController.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1130ab090&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110bd0e10&gt;, 'vendor': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110bd0110&gt;, 'model': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1130ab550&gt;, 'subject': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110bd0190&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110bd0f10&gt;, 'serial': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x110bd0a90&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111901b10&gt;}</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtController.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.mgmt.MgmtController.</code><code class="descname">MgmtControllerConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/mgmt/MgmtController.html#MgmtControllerConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts.SUBJECT_ADAPTOR">
+<code class="descname">SUBJECT_ADAPTOR</code><em class="property"> = 'adaptor'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts.SUBJECT_ADAPTOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts.SUBJECT_BLADE">
+<code class="descname">SUBJECT_BLADE</code><em class="property"> = 'blade'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts.SUBJECT_BLADE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts.SUBJECT_BOARD_CONTROLLER">
+<code class="descname">SUBJECT_BOARD_CONTROLLER</code><em class="property"> = 'board-controller'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts.SUBJECT_BOARD_CONTROLLER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts.SUBJECT_SYSTEM">
+<code class="descname">SUBJECT_SYSTEM</code><em class="property"> = 'system'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts.SUBJECT_SYSTEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts.SUBJECT_UNKNOWN">
+<code class="descname">SUBJECT_UNKNOWN</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtController.MgmtControllerConsts.SUBJECT_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.mgmt.MgmtIf"></span><p>This module contains the general information for MgmtIf ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIf">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.mgmt.MgmtIf.</code><code class="descname">MgmtIf</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/mgmt/MgmtIf.html#MgmtIf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is MgmtIf class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIf.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIf.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIf.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIf.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIf.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIf.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIf.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'adminNetSpeed': 'admin_net_speed', 'ifType': 'if_type', 'rn': 'rn', 'description': 'description', 'vlanPriority': 'vlan_priority', 'operDuplex': 'oper_duplex', 'v6extEnabled': 'v6ext_enabled', 'subject': 'subject', 'extGw': 'ext_gw', 'vlanId': 'vlan_id', 'dnsPreferred': 'dns_preferred', 'mac': 'mac', 'vicSlot': 'vic_slot', 'v6dnsUsingDhcp': 'v6dns_using_dhcp', 'v6SlaacIp': 'v6_slaac_ip', 'dhcpEnable': 'dhcp_enable', 'dnsUsingDhcp': 'dns_using_dhcp', 'childAction': 'child_action', 'nicMode': 'nic_mode', 'extEnabled': 'ext_enabled', 'v6extIp': 'v6ext_ip', 'dnsAlternate': 'dns_alternate', 'v6linkLocal': 'v6link_local', 'ddnsDomain': 'ddns_domain', 'vlanEnable': 'vlan_enable', 'extMask': 'ext_mask', 'hostname': 'hostname', 'ddnsEnable': 'ddns_enable', 'id': 'id', 'v6extGw': 'v6ext_gw', 'v6dhcpEnable': 'v6dhcp_enable', 'v6dnsAlternate': 'v6dns_alternate', 'v6prefix': 'v6prefix', 'v6dnsPreferred': 'v6dns_preferred', 'portProfile': 'port_profile', 'autoNeg': 'auto_neg', 'extIp': 'ext_ip', 'adminDuplex': 'admin_duplex', 'operNetSpeed': 'oper_net_speed', 'nicRedundancy': 'nic_redundancy'}</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIf.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIf.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191fd50&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135965d0&gt;, 'oper_net_speed': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596210&gt;, 'vlan_priority': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112efd590&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191fc10&gt;, 'v6dns_preferred': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596b10&gt;, 'admin_duplex': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11259f990&gt;, 'nic_mode': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596cd0&gt;, 'subject': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596a10&gt;, 'dns_preferred': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596ed0&gt;, 'ext_gw': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596990&gt;, 'mac': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596390&gt;, 'v6dhcp_enable': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596f10&gt;, 'vic_slot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112efdf90&gt;, 'v6_slaac_ip': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135963d0&gt;, 'v6prefix': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112efdb90&gt;, 'ddns_enable': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191f490&gt;, 'v6ext_ip': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596110&gt;, 'vlan_enable': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112efd690&gt;, 'id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596910&gt;, 'vlan_id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112efded0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111e63d10&gt;, 'v6dns_using_dhcp': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596f50&gt;, 'dhcp_enable': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191fc90&gt;, 'ext_ip': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596350&gt;, 'v6link_local': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596a90&gt;, 'ext_enabled': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596dd0&gt;, 'nic_redundancy': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135964d0&gt;, 'hostname': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596410&gt;, 'dns_alternate': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596590&gt;, 'v6ext_gw': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596510&gt;, 'ext_mask': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135967d0&gt;, 'v6ext_enabled': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135966d0&gt;, 'if_type': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596290&gt;, 'auto_neg': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111e639d0&gt;, 'v6dns_alternate': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596d10&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596e90&gt;, 'ddns_domain': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11191f590&gt;, 'dns_using_dhcp': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596c50&gt;, 'admin_net_speed': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111e63fd0&gt;, 'oper_duplex': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113596690&gt;, 'port_profile': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1135969d0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIf.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.mgmt.MgmtIf.</code><code class="descname">MgmtIfConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/mgmt/MgmtIf.html#MgmtIfConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_DUPLEX_AUTO">
+<code class="descname">ADMIN_DUPLEX_AUTO</code><em class="property"> = 'auto'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_DUPLEX_AUTO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_DUPLEX_FULL">
+<code class="descname">ADMIN_DUPLEX_FULL</code><em class="property"> = 'full'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_DUPLEX_FULL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_DUPLEX_HALF">
+<code class="descname">ADMIN_DUPLEX_HALF</code><em class="property"> = 'half'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_DUPLEX_HALF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_DUPLEX_NA">
+<code class="descname">ADMIN_DUPLEX_NA</code><em class="property"> = 'NA'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_DUPLEX_NA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_NET_SPEED_100_MBPS">
+<code class="descname">ADMIN_NET_SPEED_100_MBPS</code><em class="property"> = '100Mbps'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_NET_SPEED_100_MBPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_NET_SPEED_10_MBPS">
+<code class="descname">ADMIN_NET_SPEED_10_MBPS</code><em class="property"> = '10Mbps'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_NET_SPEED_10_MBPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_NET_SPEED_1_GBPS">
+<code class="descname">ADMIN_NET_SPEED_1_GBPS</code><em class="property"> = '1Gbps'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_NET_SPEED_1_GBPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_NET_SPEED_AUTO">
+<code class="descname">ADMIN_NET_SPEED_AUTO</code><em class="property"> = 'auto'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_NET_SPEED_AUTO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_NET_SPEED_NA">
+<code class="descname">ADMIN_NET_SPEED_NA</code><em class="property"> = 'NA'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.ADMIN_NET_SPEED_NA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.IF_TYPE_PHYSICAL">
+<code class="descname">IF_TYPE_PHYSICAL</code><em class="property"> = 'physical'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.IF_TYPE_PHYSICAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_CISCO_CARD">
+<code class="descname">NIC_MODE_CISCO_CARD</code><em class="property"> = 'cisco_card'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_CISCO_CARD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_DEDICATED">
+<code class="descname">NIC_MODE_DEDICATED</code><em class="property"> = 'dedicated'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_DEDICATED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_SHARED_LOM">
+<code class="descname">NIC_MODE_SHARED_LOM</code><em class="property"> = 'shared_lom'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_SHARED_LOM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_SHARED_LOM_10G">
+<code class="descname">NIC_MODE_SHARED_LOM_10G</code><em class="property"> = 'shared_lom_10g'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_SHARED_LOM_10G" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_SHARED_LOM_EXT">
+<code class="descname">NIC_MODE_SHARED_LOM_EXT</code><em class="property"> = 'shared_lom_ext'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_SHARED_LOM_EXT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_SHIPPING">
+<code class="descname">NIC_MODE_SHIPPING</code><em class="property"> = 'shipping'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_MODE_SHIPPING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_REDUNDANCY_ACTIVE_ACTIVE">
+<code class="descname">NIC_REDUNDANCY_ACTIVE_ACTIVE</code><em class="property"> = 'active-active'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_REDUNDANCY_ACTIVE_ACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_REDUNDANCY_ACTIVE_STANDBY">
+<code class="descname">NIC_REDUNDANCY_ACTIVE_STANDBY</code><em class="property"> = 'active-standby'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_REDUNDANCY_ACTIVE_STANDBY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_REDUNDANCY_NONE">
+<code class="descname">NIC_REDUNDANCY_NONE</code><em class="property"> = 'none'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.NIC_REDUNDANCY_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_DUPLEX_AUTO">
+<code class="descname">OPER_DUPLEX_AUTO</code><em class="property"> = 'auto'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_DUPLEX_AUTO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_DUPLEX_FULL">
+<code class="descname">OPER_DUPLEX_FULL</code><em class="property"> = 'full'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_DUPLEX_FULL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_DUPLEX_HALF">
+<code class="descname">OPER_DUPLEX_HALF</code><em class="property"> = 'half'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_DUPLEX_HALF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_DUPLEX_NA">
+<code class="descname">OPER_DUPLEX_NA</code><em class="property"> = 'NA'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_DUPLEX_NA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_NET_SPEED_100_MBPS">
+<code class="descname">OPER_NET_SPEED_100_MBPS</code><em class="property"> = '100Mbps'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_NET_SPEED_100_MBPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_NET_SPEED_10_MBPS">
+<code class="descname">OPER_NET_SPEED_10_MBPS</code><em class="property"> = '10Mbps'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_NET_SPEED_10_MBPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_NET_SPEED_1_GBPS">
+<code class="descname">OPER_NET_SPEED_1_GBPS</code><em class="property"> = '1Gbps'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_NET_SPEED_1_GBPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_NET_SPEED_AUTO">
+<code class="descname">OPER_NET_SPEED_AUTO</code><em class="property"> = 'auto'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_NET_SPEED_AUTO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_NET_SPEED_NA">
+<code class="descname">OPER_NET_SPEED_NA</code><em class="property"> = 'NA'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.OPER_NET_SPEED_NA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_0">
+<code class="descname">VIC_SLOT_0</code><em class="property"> = '0'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_1">
+<code class="descname">VIC_SLOT_1</code><em class="property"> = '1'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_10">
+<code class="descname">VIC_SLOT_10</code><em class="property"> = '10'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_10" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_2">
+<code class="descname">VIC_SLOT_2</code><em class="property"> = '2'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_4">
+<code class="descname">VIC_SLOT_4</code><em class="property"> = '4'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_5">
+<code class="descname">VIC_SLOT_5</code><em class="property"> = '5'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_9">
+<code class="descname">VIC_SLOT_9</code><em class="property"> = '9'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_9" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_FLEX_LOM">
+<code class="descname">VIC_SLOT_FLEX_LOM</code><em class="property"> = 'flex-lom'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_FLEX_LOM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_RISER1">
+<code class="descname">VIC_SLOT_RISER1</code><em class="property"> = 'riser1'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_RISER1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_RISER2">
+<code class="descname">VIC_SLOT_RISER2</code><em class="property"> = 'riser2'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtIf.MgmtIfConsts.VIC_SLOT_RISER2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.mgmt.MgmtImporter"></span><p>This module contains the general information for MgmtImporter ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.mgmt.MgmtImporter.</code><code class="descname">MgmtImporter</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/mgmt/MgmtImporter.html#MgmtImporter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is MgmtImporter class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'fsmRmtInvErrCode': 'fsm_rmt_inv_err_code', 'fsmStageDescr': 'fsm_stage_descr', 'fsmDescr': 'fsm_descr', 'pwd': 'pwd', 'user': 'user', 'passphrase': 'passphrase', 'childAction': 'child_action', 'proto': 'proto', 'hostname': 'hostname', 'adminState': 'admin_state', 'fsmRmtInvErrDescr': 'fsm_rmt_inv_err_descr', 'rn': 'rn', 'remoteFile': 'remote_file'}</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111411f50&gt;, 'fsm_stage_descr': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111411210&gt;, 'fsm_rmt_inv_err_descr': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111411550&gt;, 'pwd': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113fe9ad0&gt;, 'admin_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111411910&gt;, 'user': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113fe9290&gt;, 'passphrase': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111411810&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111411f10&gt;, 'proto': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111411ed0&gt;, 'hostname': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111411f90&gt;, 'fsm_rmt_inv_err_code': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111411490&gt;, 'fsm_descr': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111411c90&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113fe92d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113fe9f90&gt;, 'remote_file': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113fe9e50&gt;}</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporter.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.mgmt.MgmtImporter.</code><code class="descname">MgmtImporterConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/mgmt/MgmtImporter.html#MgmtImporterConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.ADMIN_STATE_DISABLED">
+<code class="descname">ADMIN_STATE_DISABLED</code><em class="property"> = 'disabled'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.ADMIN_STATE_DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.ADMIN_STATE_ENABLED">
+<code class="descname">ADMIN_STATE_ENABLED</code><em class="property"> = 'enabled'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.ADMIN_STATE_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_">
+<code class="descname">FSM_RMT_INV_ERR_CODE_</code><em class="property"> = ''</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_ABORTED">
+<code class="descname">FSM_RMT_INV_ERR_CODE_ABORTED</code><em class="property"> = 'Aborted'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_ABORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_ERROR_COLLECTING_CONFIGURATION_DATA">
+<code class="descname">FSM_RMT_INV_ERR_CODE_ERROR_COLLECTING_CONFIGURATION_DATA</code><em class="property"> = 'Error collecting configuration data'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_ERROR_COLLECTING_CONFIGURATION_DATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_ERROR_IMPORTING_CONFIGURATION">
+<code class="descname">FSM_RMT_INV_ERR_CODE_ERROR_IMPORTING_CONFIGURATION</code><em class="property"> = 'Error importing configuration'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_ERROR_IMPORTING_CONFIGURATION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_NONE">
+<code class="descname">FSM_RMT_INV_ERR_CODE_NONE</code><em class="property"> = 'none'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_PARTIALLY_IMPORTED">
+<code class="descname">FSM_RMT_INV_ERR_CODE_PARTIALLY_IMPORTED</code><em class="property"> = 'Partially Imported'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_PARTIALLY_IMPORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_TFTP_ERROR">
+<code class="descname">FSM_RMT_INV_ERR_CODE_TFTP_ERROR</code><em class="property"> = 'TFTP Error'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_TFTP_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_UNKNOWN_ERROR">
+<code class="descname">FSM_RMT_INV_ERR_CODE_UNKNOWN_ERROR</code><em class="property"> = 'Unknown error'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.FSM_RMT_INV_ERR_CODE_UNKNOWN_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_FTP">
+<code class="descname">PROTO_FTP</code><em class="property"> = 'ftp'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_FTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_HTTP">
+<code class="descname">PROTO_HTTP</code><em class="property"> = 'http'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_HTTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_NONE">
+<code class="descname">PROTO_NONE</code><em class="property"> = 'none'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_SCP">
+<code class="descname">PROTO_SCP</code><em class="property"> = 'scp'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_SCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_SFTP">
+<code class="descname">PROTO_SFTP</code><em class="property"> = 'sftp'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_SFTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_TFTP">
+<code class="descname">PROTO_TFTP</code><em class="property"> = 'tftp'</em><a class="headerlink" href="#imcsdk.mometa.mgmt.MgmtImporter.MgmtImporterConsts.PROTO_TFTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.mometa.mgmt">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.mometa.mgmt" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.mometa.mgmt package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.mometa.mgmt.MgmtBackup">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.mometa.mgmt">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.memory.html"
+                        title="previous chapter">imcsdk.mometa.memory package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.network.html"
+                        title="next chapter">imcsdk.mometa.network package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.mometa.mgmt.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.network.html" title="imcsdk.mometa.network package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.memory.html" title="imcsdk.mometa.memory package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" >imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

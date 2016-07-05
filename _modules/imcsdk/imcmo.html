@@ -1,0 +1,716 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.imcmo &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.imcmo</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2015 Cisco Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License prop</span>
+<span class="c1">#  http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contains the ManagedObject and GenericManagedObject Class.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imcgenutils</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imccoreutils</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imccoremeta</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">xml.etree.cElementTree</span> <span class="kn">as</span> <span class="nn">ET</span>
+    <span class="kn">from</span> <span class="nn">xml.etree.cElementTree</span> <span class="kn">import</span> <span class="n">Element</span><span class="p">,</span> <span class="n">SubElement</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">cElementTree</span> <span class="kn">as</span> <span class="nn">ET</span>
+    <span class="kn">from</span> <span class="nn">cElementTree</span> <span class="kn">import</span> <span class="n">Element</span><span class="p">,</span> <span class="n">SubElement</span>
+
+<span class="kn">from</span> <span class="nn">.imccoremeta</span> <span class="kn">import</span> <span class="n">WriteXmlOption</span>
+<span class="kn">from</span> <span class="nn">.imcexception</span> <span class="kn">import</span> <span class="n">ImcValidationException</span><span class="p">,</span> <span class="n">ImcWarning</span>
+<span class="kn">from</span> <span class="nn">.imccore</span> <span class="kn">import</span> <span class="n">ImcBase</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;imc&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_GenericProp</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Internal class to handle the unknown property.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">is_dirty</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_dirty</span> <span class="o">=</span> <span class="n">is_dirty</span>
+
+
+<div class="viewcode-block" id="ManagedObject"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.ManagedObject">[docs]</a><span class="k">class</span> <span class="nc">ManagedObject</span><span class="p">(</span><span class="n">ImcBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class structures/represents all the managed objects.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DUMMY_DIRTY</span> <span class="o">=</span> <span class="s2">&quot;0x1L&quot;</span>
+    <span class="n">__internal_prop</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;_dirty_mask&quot;</span><span class="p">,</span> <span class="s2">&quot;_class_id&quot;</span><span class="p">,</span> <span class="s2">&quot;_child&quot;</span><span class="p">,</span> <span class="s2">&quot;_handle&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">class_id</span><span class="p">,</span>
+            <span class="n">parent_mo_or_dn</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">from_xml_response</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__status</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__xtra_props</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__xtra_props_dirty_mask</span> <span class="o">=</span> <span class="mh">0x1</span>
+
+        <span class="k">if</span> <span class="n">parent_mo_or_dn</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parent_mo_or_dn</span><span class="p">,</span> <span class="n">ManagedObject</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span> <span class="o">=</span> <span class="n">parent_mo_or_dn</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span><span class="o">.</span><span class="n">dn</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parent_mo_or_dn</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">=</span> <span class="n">parent_mo_or_dn</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;parent mo or dn must be specified&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">from_xml_response</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rn_set</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dn_set</span><span class="p">()</span>
+
+        <span class="n">xml_attribute</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_meta</span><span class="o">.</span><span class="n">xml_attribute</span>
+
+        <span class="n">ImcBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">word_u</span><span class="p">(</span><span class="n">xml_attribute</span><span class="p">))</span>
+        <span class="c1"># self.mark_dirty()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span><span class="o">.</span><span class="n">child_add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">prop_name</span><span class="p">,</span> <span class="n">prop_value</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">prop_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Unknown property </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">prop_name</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__set_prop</span><span class="p">(</span><span class="n">prop_name</span><span class="p">,</span> <span class="n">prop_value</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">parent_mo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Getter method of ManagedObject Class&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span>
+
+    <span class="k">def</span> <span class="nf">_rn_set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to set rn</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="s2">&quot;prop_meta&quot;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;rn&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_rn</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rn</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_dn_set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to set dn</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="s2">&quot;prop_meta&quot;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;dn&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        overridden setattr method</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="s2">&quot;prop_meta&quot;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__set_prop</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">validate_property_value</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid Value Exception - &quot;</span>
+                                         <span class="s2">&quot;[</span><span class="si">%s</span><span class="s2">]: Prop &lt;</span><span class="si">%s</span><span class="s2">&gt;, Value&lt;</span><span class="si">%s</span><span class="s2">&gt;. &quot;</span>
+                                         <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+                                            <span class="n">name</span><span class="p">,</span>
+                                            <span class="n">value</span><span class="p">))</span>
+                <span class="nb">object</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_dirty_mask</span> <span class="o">|=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span>
+        <span class="k">elif</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">):</span>
+            <span class="nb">object</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># These are properties which the current version of imc sdk</span>
+            <span class="c1"># does not know of.</span>
+            <span class="c1"># The code will come here lot often, when using older version of</span>
+            <span class="c1"># imcsdk with newer releases on the IMC.</span>
+            <span class="c1"># This needs to be handled so that the same sdk can work across</span>
+            <span class="c1"># multiple imc releases</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__xtra_props</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_GenericProp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dirty_mask</span> <span class="o">|=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xtra_props_dirty_mask</span>
+            <span class="nb">object</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__set_prop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">mark_dirty</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">forced</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to set the properties after validation</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (str): property name</span>
+<span class="sd">            value (str): property value</span>
+<span class="sd">            mark_dirty (bool): if True, property will be part of xml request</span>
+<span class="sd">            forced (bool): if True, set the value without validation</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">forced</span><span class="p">:</span>
+            <span class="n">prop_meta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">prop_meta</span><span class="o">.</span><span class="n">access</span> <span class="o">!=</span> <span class="n">imccoremeta</span><span class="o">.</span><span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">READ_WRITE</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">or</span> \
+                                <span class="n">prop_meta</span><span class="o">.</span><span class="n">access</span> <span class="o">!=</span> \
+                                <span class="n">imccoremeta</span><span class="o">.</span><span class="n">MoPropertyMeta</span><span class="o">.</span><span class="n">CREATE_ONLY</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> is not a read-write property.&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">prop_meta</span><span class="o">.</span><span class="n">validate_property_value</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid Value Exception - &quot;</span>
+                                 <span class="s2">&quot;[</span><span class="si">%s</span><span class="s2">]: Prop &lt;</span><span class="si">%s</span><span class="s2">&gt;, Value&lt;</span><span class="si">%s</span><span class="s2">&gt;. &quot;</span>
+                                 <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+                                    <span class="n">name</span><span class="p">,</span>
+                                    <span class="n">value</span><span class="p">))</span>
+                <span class="c1"># return False</span>
+            <span class="k">if</span> <span class="n">prop_meta</span><span class="o">.</span><span class="n">mask</span> <span class="ow">and</span> <span class="n">mark_dirty</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_dirty_mask</span> <span class="o">|=</span> <span class="n">prop_meta</span><span class="o">.</span><span class="n">mask</span>
+        <span class="nb">object</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to return string representation of a managed object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ts</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="n">out_str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">out_str</span> <span class="o">+=</span> <span class="s2">&quot;Managed Object</span><span class="se">\t\t\t</span><span class="s2">:</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_class_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">out_str</span> <span class="o">+=</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Managed Object&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">for</span> <span class="n">prop</span><span class="p">,</span> <span class="n">prop_value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">imcgenutils</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">ManagedObject</span><span class="o">.</span><span class="n">__internal_prop</span> <span class="ow">or</span> <span class="n">prop</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
+                    <span class="s2">&quot;_ManagedObject__&quot;</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xtra_props</span><span class="p">:</span>
+                <span class="n">prop</span> <span class="o">=</span> <span class="s2">&quot;[X]&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+            <span class="n">out_str</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">ts</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                <span class="n">prop_value</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">out_str</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">out_str</span>
+
+<div class="viewcode-block" id="ManagedObject.mark_dirty"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.ManagedObject.mark_dirty">[docs]</a>    <span class="k">def</span> <span class="nf">mark_dirty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method marks the managed object dirty.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;ManagedObject&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_dirty</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dirty_mask</span> <span class="o">=</span> <span class="n">ManagedObject</span><span class="o">.</span><span class="n">DUMMY_DIRTY</span>
+        <span class="k">elif</span> <span class="s2">&quot;mo_meta&quot;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dirty_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_meta</span><span class="o">.</span><span class="n">mask</span></div>
+
+<div class="viewcode-block" id="ManagedObject.is_dirty"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.ManagedObject.is_dirty">[docs]</a>    <span class="k">def</span> <span class="nf">is_dirty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method checks if managed object is dirty.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dirty_mask</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_is_dirty</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ManagedObject.make_rn"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.ManagedObject.make_rn">[docs]</a>    <span class="k">def</span> <span class="nf">make_rn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method returns the Rn for a managed object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">import</span> <span class="nn">re</span>
+
+        <span class="n">rn_pattern</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_meta</span><span class="o">.</span><span class="n">rn</span>
+        <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">r&quot;&quot;&quot;\[([^\]]*)\]&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">rn_pattern</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prop</span><span class="p">):</span>
+                    <span class="n">rn_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">r&quot;&quot;&quot;\[</span><span class="si">%s</span><span class="s2">\]&quot;&quot;&quot;</span> <span class="o">%</span> <span class="n">prop</span><span class="p">,</span>
+                                        <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prop</span><span class="p">),</span> <span class="n">rn_pattern</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Property &quot;</span><span class="si">%s</span><span class="s1">&quot; was None in make_rn&#39;</span> <span class="o">%</span> <span class="n">prop</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span>
+                        <span class="s1">&#39;Property &quot;</span><span class="si">%s</span><span class="s1">&quot; was None in make_rn&#39;</span> <span class="o">%</span> <span class="n">prop</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                    <span class="s1">&#39;Property &quot;</span><span class="si">%s</span><span class="s1">&quot; was not found in make_rn arguments&#39;</span> <span class="o">%</span> <span class="n">prop</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span>
+                    <span class="s1">&#39;Property &quot;</span><span class="si">%s</span><span class="s1">&quot; was not found in make_rn arguments&#39;</span> <span class="o">%</span> <span class="n">prop</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">rn_pattern</span></div>
+
+<div class="viewcode-block" id="ManagedObject.to_xml"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.ManagedObject.to_xml">[docs]</a>    <span class="k">def</span> <span class="nf">to_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml_doc</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">elem_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method writes the xml representation of the managed object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_dirty</span><span class="p">():</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Object is not dirty&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">xml_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elem_create</span><span class="p">(</span><span class="n">class_tag</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_meta</span><span class="o">.</span><span class="n">xml_attribute</span><span class="p">,</span>
+                                   <span class="n">xml_doc</span><span class="o">=</span><span class="n">xml_doc</span><span class="p">,</span>
+                                   <span class="n">override_tag</span><span class="o">=</span><span class="n">elem_name</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">&#39;rn&#39;</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">:</span>
+                <span class="n">mo_prop_meta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">option</span> <span class="o">!=</span> <span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span> <span class="ow">or</span> <span class="p">(</span>
+                            <span class="n">mo_prop_meta</span><span class="o">.</span><span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_dirty_mask</span> <span class="o">&amp;</span> <span class="n">mo_prop_meta</span><span class="o">.</span><span class="n">mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)):</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="n">xml_obj</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">mo_prop_meta</span><span class="o">.</span><span class="n">xml_attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xtra_props</span><span class="p">:</span>
+                    <span class="c1"># This is an internal property</span>
+                    <span class="c1"># This should not be a part of the xml</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># This is an unknown property</span>
+                <span class="c1"># This should be a part of the xml</span>
+                <span class="c1"># The server might understand this property, even though</span>
+                <span class="c1"># the sdk does not</span>
+                <span class="k">if</span> <span class="n">option</span> <span class="o">!=</span> <span class="n">WriteXmlOption</span><span class="o">.</span><span class="n">DIRTY</span> <span class="ow">or</span> \
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__xtra_props</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">is_dirty</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xtra_props</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+                    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="n">xml_obj</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;dn&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">xml_obj</span><span class="o">.</span><span class="n">attrib</span><span class="p">:</span>
+            <span class="n">xml_obj</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;dn&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">child_to_xml</span><span class="p">(</span><span class="n">xml_obj</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">xml_obj</span></div>
+
+<div class="viewcode-block" id="ManagedObject.from_xml"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.ManagedObject.from_xml">[docs]</a>    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem</span><span class="p">,</span> <span class="n">handle</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method updates the object from the xml representation of the managed</span>
+<span class="sd">        object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
+        <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">attrib</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span> <span class="o">!=</span> <span class="s2">&quot;ManagedObject&quot;</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">elem</span><span class="o">.</span><span class="n">attrib</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">attr_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_map</span><span class="p">:</span>
+                        <span class="n">attr_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prop_map</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__xtra_props</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_GenericProp</span><span class="p">(</span>
+                            <span class="n">attr_name</span><span class="p">,</span>
+                            <span class="n">attr_value</span><span class="p">,</span>
+                            <span class="bp">False</span><span class="p">)</span>
+                    <span class="nb">object</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">elem</span><span class="o">.</span><span class="n">attrib</span><span class="p">):</span>
+                    <span class="nb">object</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;rn&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;dn&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dn_set</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;rn&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;dn&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__set_prop</span><span class="p">(</span><span class="s2">&quot;rn&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dn</span><span class="p">),</span> <span class="n">forced</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mark_clean</span><span class="p">()</span>
+
+        <span class="n">child_elems</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">getchildren</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">child_elems</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">child_elem</span> <span class="ow">in</span> <span class="n">child_elems</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">ET</span><span class="o">.</span><span class="n">iselement</span><span class="p">(</span><span class="n">child_elem</span><span class="p">):</span>
+                    <span class="k">continue</span>
+
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span> <span class="o">!=</span> <span class="s2">&quot;ManagedObject&quot;</span> <span class="ow">and</span> <span class="p">(</span>
+                            <span class="n">child_elem</span><span class="o">.</span><span class="n">tag</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_meta</span><span class="o">.</span><span class="n">field_names</span><span class="p">):</span>
+                    <span class="k">pass</span>
+
+                <span class="n">class_id</span> <span class="o">=</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">word_u</span><span class="p">(</span><span class="n">child_elem</span><span class="o">.</span><span class="n">tag</span><span class="p">)</span>
+                <span class="n">child_obj</span> <span class="o">=</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">get_imc_obj</span><span class="p">(</span><span class="n">class_id</span><span class="p">,</span> <span class="n">child_elem</span><span class="p">,</span>
+                                                     <span class="bp">self</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">child_add</span><span class="p">(</span><span class="n">child_obj</span><span class="p">)</span>
+                <span class="n">child_obj</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">child_elem</span><span class="p">,</span> <span class="n">handle</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ManagedObject.sync_mo"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.ManagedObject.sync_mo">[docs]</a>    <span class="k">def</span> <span class="nf">sync_mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to return string representation of a managed object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">prop</span><span class="p">,</span> <span class="n">prop_value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">imcgenutils</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">ManagedObject</span><span class="o">.</span><span class="n">__internal_prop</span> <span class="ow">or</span> <span class="n">prop</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
+                    <span class="s2">&quot;_ManagedObject__&quot;</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">mo</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="n">prop</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop_value</span>
+        <span class="k">return</span> <span class="bp">None</span></div>
+
+<div class="viewcode-block" id="ManagedObject.show_tree"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.ManagedObject.show_tree">[docs]</a>    <span class="k">def</span> <span class="nf">show_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to return string representation of a managed object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">indent</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span>
+        <span class="n">level_indent</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">indent</span> <span class="o">*</span> <span class="n">level</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">[</span><span class="si">%s</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">level_indent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_class_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">ch_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">ch_</span><span class="o">.</span><span class="n">show_tree</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+            <span class="n">level</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">None</span></div>
+
+<div class="viewcode-block" id="ManagedObject.show_hierarchy"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.ManagedObject.show_hierarchy">[docs]</a>    <span class="k">def</span> <span class="nf">show_hierarchy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">show_level</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to return string representation of a managed object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imccoreutils</span> <span class="kn">import</span> <span class="n">print_mo_hierarchy</span>
+
+        <span class="n">print_mo_hierarchy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_class_id</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span>
+                           <span class="n">show_level</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="generic_mo_from_xml"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.generic_mo_from_xml">[docs]</a><span class="k">def</span> <span class="nf">generic_mo_from_xml</span><span class="p">(</span><span class="n">xml_str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    create GenericMo object from xml string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">root_elem</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">xml_str</span><span class="p">)</span>
+    <span class="n">class_id</span> <span class="o">=</span> <span class="n">root_elem</span><span class="o">.</span><span class="n">tag</span>
+    <span class="n">gmo</span> <span class="o">=</span> <span class="n">GenericMo</span><span class="p">(</span><span class="n">class_id</span><span class="p">)</span>
+    <span class="n">gmo</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">root_elem</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gmo</span></div>
+
+
+<div class="viewcode-block" id="generic_mo_from_xml_elem"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.generic_mo_from_xml_elem">[docs]</a><span class="k">def</span> <span class="nf">generic_mo_from_xml_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    create GenericMo object from xml element</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imcxmlcodec</span> <span class="k">as</span> <span class="n">xc</span>
+    <span class="n">xml_str</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">to_xml_str</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+    <span class="n">gmo</span> <span class="o">=</span> <span class="n">generic_mo_from_xml</span><span class="p">(</span><span class="n">xml_str</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gmo</span></div>
+
+
+<div class="viewcode-block" id="GenericMo"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.GenericMo">[docs]</a><span class="k">class</span> <span class="nc">GenericMo</span><span class="p">(</span><span class="n">ImcBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class implements a Generic Managed Object.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        class_id (str): class id of managed object</span>
+<span class="sd">        parent_mo_or_dn (ManagedObject or str): parent managed object or dn</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Every variable that should not be a part of the final xml</span>
+    <span class="c1"># should start with a underscore in this class</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_id</span><span class="p">,</span> <span class="n">parent_mo_or_dn</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parent_mo_or_dn</span><span class="p">,</span> <span class="n">GenericMo</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span> <span class="o">=</span> <span class="n">parent_mo_or_dn</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">=</span> <span class="n">parent_mo_or_dn</span><span class="o">.</span><span class="n">dn</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parent_mo_or_dn</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">=</span> <span class="n">parent_mo_or_dn</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">elif</span> <span class="n">parent_mo_or_dn</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;parent_mo_or_dn should be an instance of str or &quot;</span>
+                             <span class="s2">&quot;GenericMo&quot;</span><span class="p">)</span>
+
+        <span class="n">ImcBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_id</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;rn&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;dn&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="s1">&#39;rn&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;dn&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="s1">&#39;dn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="s1">&#39;dn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn</span>
+        <span class="k">elif</span> <span class="s1">&#39;rn&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;dn&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rn</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dn</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="s1">&#39;rn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rn</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__parent_mo</span><span class="o">.</span><span class="n">child_add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GenericMo.to_xml"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.GenericMo.to_xml">[docs]</a>    <span class="k">def</span> <span class="nf">to_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml_doc</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method returns the xml element node for the current object</span>
+<span class="sd">        with it&#39;s hierarchy.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            xml_doc: document to which the Mo attributes are added.</span>
+<span class="sd">                    Can be None.</span>
+<span class="sd">            option: not required for Generic Mo class object</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            from imcmsdk.imcmo import GenericMo\n</span>
+<span class="sd">            args = {&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;:3}\n</span>
+<span class="sd">            obj = GenericMo(&quot;testLsA&quot;, &quot;org-root&quot;, **args)\n</span>
+<span class="sd">            obj1 = GenericMo(&quot;testLsB&quot;, &quot;org-root&quot;, **args)\n</span>
+<span class="sd">            obj.add_child(obj1)\n</span>
+<span class="sd">            elem = obj.write_xml()\n</span>
+
+<span class="sd">            import imcmsdk.imcxmlcodec as xc\n</span>
+<span class="sd">            xc.to_xml_str(elem)\n</span>
+
+<span class="sd">        Output:</span>
+<span class="sd">            &#39;&lt;testLsA a=&quot;1&quot; b=&quot;2&quot; c=&quot;3&quot; dn=&quot;org-root/&quot; rn=&quot;&quot;&gt;\n</span>
+<span class="sd">                &lt;testLsB a=&quot;1&quot; b=&quot;2&quot; c=&quot;3&quot; dn=&quot;org-root/&quot; rn=&quot;&quot; /&gt;\n</span>
+<span class="sd">            &lt;/testLsA&gt;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">xml_doc</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">xml_obj</span> <span class="o">=</span> <span class="n">Element</span><span class="p">(</span><span class="n">imcgenutils</span><span class="o">.</span><span class="n">word_l</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_class_id</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">xml_obj</span> <span class="o">=</span> <span class="n">SubElement</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">,</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">word_l</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_class_id</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">):</span>
+                <span class="n">xml_obj</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">child_to_xml</span><span class="p">(</span><span class="n">xml_obj</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">xml_obj</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">properties</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Getter Method of GenericMO Class&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span>
+
+<div class="viewcode-block" id="GenericMo.from_xml"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.GenericMo.from_xml">[docs]</a>    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem</span><span class="p">,</span> <span class="n">handle</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method is form objects out of xml element.</span>
+<span class="sd">        This is called internally from imcxmlcode.from_xml_str</span>
+<span class="sd">        method.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            xml = &#39;&lt;testLsA a=&quot;1&quot; b=&quot;2&quot; c=&quot;3&quot; dn=&quot;org-root/&quot; rn=&quot;&quot;&gt;</span>
+<span class="sd">            &lt;testLsB a=&quot;1&quot; b=&quot;2&quot; c=&quot;3&quot; dn=&quot;org-root/&quot; rn=&quot;&quot; /&gt;&lt;/testLsA&gt;&#39;\n</span>
+<span class="sd">            obj = xc.from_xml_str(xml)\n</span>
+
+<span class="sd">            print type(obj)\n</span>
+
+<span class="sd">        Outputs:</span>
+<span class="sd">            &lt;class &#39;imcsdk.imcmo.GenericMo&#39;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">elem</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_class_id</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span>
+        <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">attrib</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">elem</span><span class="o">.</span><span class="n">attrib</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parent_dn</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="s1">&#39;dn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="s1">&#39;dn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rn</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dn</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="s1">&#39;rn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rn</span>
+
+        <span class="n">children</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">getchildren</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">children</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">children</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">ET</span><span class="o">.</span><span class="n">iselement</span><span class="p">(</span><span class="n">child</span><span class="p">):</span>
+                    <span class="k">continue</span>
+                <span class="n">class_id</span> <span class="o">=</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">word_u</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">tag</span><span class="p">)</span>
+                <span class="n">pdn</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="k">if</span> <span class="s1">&#39;dn&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                    <span class="n">pdn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn</span>
+                <span class="n">child_obj</span> <span class="o">=</span> <span class="n">GenericMo</span><span class="p">(</span><span class="n">class_id</span><span class="p">,</span> <span class="n">parent_mo_or_dn</span><span class="o">=</span><span class="n">pdn</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">child_add</span><span class="p">(</span><span class="n">child_obj</span><span class="p">)</span>
+                <span class="n">child_obj</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">handle</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">__get_mo_obj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal methods to create managed object from class_id</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">import</span> <span class="nn">inspect</span>
+
+        <span class="n">mo_class</span> <span class="o">=</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">load_class</span><span class="p">(</span><span class="n">class_id</span><span class="p">)</span>
+        <span class="n">mo_class_params</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getargspec</span><span class="p">(</span><span class="n">mo_class</span><span class="o">.</span><span class="n">__init__</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="n">mo_class_param_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">mo_class_params</span><span class="p">:</span>
+            <span class="n">mo_param</span> <span class="o">=</span> <span class="n">mo_class</span><span class="o">.</span><span class="n">prop_meta</span><span class="p">[</span><span class="n">param</span><span class="p">]</span><span class="o">.</span><span class="n">xml_attribute</span>
+            <span class="k">if</span> <span class="n">mo_param</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;rn&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">:</span>
+                    <span class="n">rn_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="s1">&#39;rn&#39;</span><span class="p">]</span>
+                <span class="k">elif</span> <span class="s1">&#39;dn&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">:</span>
+                    <span class="n">rn_str</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="s1">&#39;dn&#39;</span><span class="p">])</span>
+
+                <span class="n">rn_pattern</span> <span class="o">=</span> <span class="n">mo_class</span><span class="o">.</span><span class="n">mo_meta</span><span class="o">.</span><span class="n">rn</span>
+                <span class="n">np_dict</span> <span class="o">=</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">get_naming_props</span><span class="p">(</span><span class="n">rn_str</span><span class="p">,</span> <span class="n">rn_pattern</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">param</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">np_dict</span><span class="p">:</span>
+                    <span class="n">mo_class_param_dict</span><span class="p">[</span><span class="n">param</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">mo_class_param_dict</span><span class="p">[</span><span class="n">param</span><span class="p">]</span> <span class="o">=</span> <span class="n">np_dict</span><span class="p">[</span><span class="n">param</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">mo_class_param_dict</span><span class="p">[</span><span class="n">param</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="n">mo_param</span><span class="p">]</span>
+
+        <span class="n">p_dn</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="s1">&#39;topRoot&#39;</span> <span class="ow">in</span> <span class="n">mo_class</span><span class="o">.</span><span class="n">mo_meta</span><span class="o">.</span><span class="n">parents</span><span class="p">:</span>
+            <span class="n">mo_obj</span> <span class="o">=</span> <span class="n">mo_class</span><span class="p">(</span><span class="o">**</span><span class="n">mo_class_param_dict</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mo_obj</span> <span class="o">=</span> <span class="n">mo_class</span><span class="p">(</span><span class="n">parent_mo_or_dn</span><span class="o">=</span><span class="n">p_dn</span><span class="p">,</span> <span class="o">**</span><span class="n">mo_class_param_dict</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mo_obj</span>
+
+<div class="viewcode-block" id="GenericMo.to_mo"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcmo.GenericMo.to_mo">[docs]</a>    <span class="k">def</span> <span class="nf">to_mo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts GenericMo to ManagedObject</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imcmeta</span>
+
+        <span class="n">class_id</span> <span class="o">=</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">word_u</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_class_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">class_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">imcmeta</span><span class="o">.</span><span class="n">MO_CLASS_ID</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+        <span class="n">mo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_mo_obj</span><span class="p">(</span><span class="n">class_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mo</span><span class="p">:</span>  <span class="c1"># or not isinstance(mo, ManagedObject):</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+        <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">mo</span><span class="o">.</span><span class="n">prop_map</span><span class="p">:</span>
+                <span class="n">mo</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="n">mo</span><span class="o">.</span><span class="n">prop_map</span><span class="p">[</span><span class="n">prop</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="n">prop</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ImcWarning</span><span class="p">(</span><span class="s2">&quot;Property </span><span class="si">%s</span><span class="s2"> Not Exist in MO </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">imcgenutils</span><span class="o">.</span><span class="n">word_u</span><span class="p">(</span><span class="n">prop</span><span class="p">),</span> <span class="n">class_id</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">ch_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="p">:</span>
+                <span class="n">mo_ch</span> <span class="o">=</span> <span class="n">ch_</span><span class="o">.</span><span class="n">to_mo</span><span class="p">()</span>
+                <span class="n">mo</span><span class="o">.</span><span class="n">child_add</span><span class="p">(</span><span class="n">mo_ch</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">mo</span></div>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ts</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">GenericMo</span><span class="p">):</span>
+            <span class="n">out_str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">out_str</span> <span class="o">+=</span> <span class="s1">&#39;GenericMo&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">ts</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_class_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">out_str</span> <span class="o">+=</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;GenericMo&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">prop</span><span class="p">,</span> <span class="n">prop_val</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">imcgenutils</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">prop</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">):</span>
+                    <span class="k">continue</span>
+                <span class="n">out_str</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">ts</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">prop_val</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+            <span class="k">return</span> <span class="n">out_str</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

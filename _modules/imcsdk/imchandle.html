@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.imchandle &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.imchandle</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2015 Cisco Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#  http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imcgenutils</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imccoreutils</span>
+<span class="kn">from</span> <span class="nn">.imcexception</span> <span class="kn">import</span> <span class="n">ImcException</span>
+<span class="kn">from</span> <span class="nn">.imcconstants</span> <span class="kn">import</span> <span class="n">NamingId</span>
+<span class="kn">from</span> <span class="nn">.imcsession</span> <span class="kn">import</span> <span class="n">ImcSession</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;imc&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ImcHandle"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle">[docs]</a><span class="k">class</span> <span class="nc">ImcHandle</span><span class="p">(</span><span class="n">ImcSession</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ImcHandle class is the user interface point for any Imc communication.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ip (str): The IP or Hostname of the IMC Server</span>
+<span class="sd">        username (str): The username as configured on the Imc Server</span>
+<span class="sd">        password (str): The password as configured on the Imc Server</span>
+<span class="sd">        port (int or None): The port number to be used during connection</span>
+<span class="sd">        secure (bool or None): True for secure connection, otherwise False</span>
+<span class="sd">        proxy (str): The proxy object to be used to connect</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        handle = ImcHandle(&quot;192.168.1.1&quot;,&quot;admin&quot;,&quot;password&quot;)\n</span>
+<span class="sd">        handle = ImcHandle(&quot;192.168.1.1&quot;,&quot;admin&quot;,&quot;password&quot;, secure=True)\n</span>
+<span class="sd">        handle = ImcHandle(&quot;192.168.1.1&quot;,&quot;admin&quot;,&quot;password&quot;, secure=False)\n</span>
+<span class="sd">        handle = ImcHandle(&quot;192.168.1.1&quot;,&quot;admin&quot;,&quot;password&quot;, port=80)\n</span>
+<span class="sd">        handle = ImcHandle(&quot;192.168.1.1&quot;,&quot;admin&quot;,&quot;password&quot;, port=443)\n</span>
+<span class="sd">        handle = ImcHandle(&quot;192.168.1.1&quot;,&quot;admin&quot;,&quot;password&quot;, port=100,</span>
+<span class="sd">                 secure=True)\n</span>
+<span class="sd">        handle = ImcHandle(&quot;192.168.1.1&quot;,&quot;admin&quot;,&quot;password&quot;, port=100,</span>
+<span class="sd">                 secure=False)\n</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">secure</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">proxy</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">ImcSession</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">secure</span><span class="p">,</span> <span class="n">proxy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__to_commit</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="ImcHandle.set_dump_xml"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.set_dump_xml">[docs]</a>    <span class="k">def</span> <span class="nf">set_dump_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enables the logging of xml requests and responses.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_dump_xml</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ImcHandle.unset_dump_xml"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.unset_dump_xml">[docs]</a>    <span class="k">def</span> <span class="nf">unset_dump_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Disables the logging of xml requests and responses.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_unset_dump_xml</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ImcHandle.login"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.login">[docs]</a>    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auto_refresh</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initiates a connection to the server referenced by the ImcHandle.</span>
+<span class="sd">        A cookie is populated in the ImcHandle, if the login is successful.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auto_refresh (bool): if set to True, it refresh the cookie</span>
+<span class="sd">                continuously</span>
+<span class="sd">            force (bool): if set to True it reconnects even if cookie exists</span>
+<span class="sd">                and is valid for respective connection.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True on successful connect</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            handle.login()\n</span>
+<span class="sd">            handle.login(auto_refresh=True)\n</span>
+<span class="sd">            handle.login(force=True)\n</span>
+<span class="sd">            handle.login(auto_refresh=True, force=True)\n</span>
+
+<span class="sd">            where handle is ImcHandle()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_login</span><span class="p">(</span><span class="n">auto_refresh</span><span class="p">,</span> <span class="n">force</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ImcHandle.logout"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.logout">[docs]</a>    <span class="k">def</span> <span class="nf">logout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Disconnects from the server referenced by the ImcHandle.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True on successful disconnect</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            handle.logout()</span>
+
+<span class="sd">            where handle is ImcHandle()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logout</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ImcHandle.process_xml_elem"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.process_xml_elem">[docs]</a>    <span class="k">def</span> <span class="nf">process_xml_elem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        process_xml_elem is a helper method which posts xml elements to the</span>
+<span class="sd">        server and returns parsed response. It&#39;s role is to operate on the</span>
+<span class="sd">        output of methods from Imcmethodfactory, which return xml element</span>
+<span class="sd">        node(s).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            elem (xml element object)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            mo list or external method object</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            elem = imcmethodfactory.config_resolve_class(cookie=</span>
+<span class="sd">                handle.cookie, class_id=&quot;computeRackUnit&quot;)\n</span>
+<span class="sd">            objs = handle.process_xml_elem(elem)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">error_descr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s2">&quot;out_config&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">out_config</span><span class="o">.</span><span class="n">child</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">response</span></div>
+
+<div class="viewcode-block" id="ImcHandle.get_auth_token"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.get_auth_token">[docs]</a>    <span class="k">def</span> <span class="nf">get_auth_token</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a token that is used for IMC authentication.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            auth_token (str)</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            handle.get_auth_token()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">aaa_get_compute_auth_tokens</span>
+
+        <span class="n">auth_token</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">mo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_classid</span><span class="p">(</span><span class="n">class_id</span><span class="o">=</span><span class="n">NamingId</span><span class="o">.</span><span class="n">COMPUTE_BOARD</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mo</span><span class="p">:</span>
+            <span class="n">mo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_classid</span><span class="p">(</span><span class="n">class_id</span><span class="o">=</span><span class="n">NamingId</span><span class="o">.</span><span class="n">COMPUTE_RACK_UNIT</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">mo</span><span class="p">:</span>
+            <span class="n">elem</span> <span class="o">=</span> <span class="n">aaa_get_compute_auth_tokens</span><span class="p">(</span><span class="n">cookie</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cookie</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ImcException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span>
+                                   <span class="n">response</span><span class="o">.</span><span class="n">error_descr</span><span class="p">)</span>
+
+            <span class="c1"># cat = self.AaaGetNComputeAuthTokenByDn(mo[0].Dn, 1, None)</span>
+            <span class="n">auth_token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_tokens</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">auth_token</span></div>
+
+<div class="viewcode-block" id="ImcHandle.query_dn"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.query_dn">[docs]</a>    <span class="k">def</span> <span class="nf">query_dn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dn</span><span class="p">,</span> <span class="n">hierarchy</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">need_response</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds an object using it&#39;s distinguished name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dn (str): distinguished name of the object to be queried for.</span>
+<span class="sd">            hierarchy(bool): True/False,</span>
+<span class="sd">                                get all objects in hierarchy if True</span>
+<span class="sd">            need_response(bool): True/False,</span>
+<span class="sd">                                return the response xml node, instead of parsed</span>
+<span class="sd">                                objects</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            managedobject or None   by default\n</span>
+<span class="sd">            managedobject list      if hierarchy=True\n</span>
+<span class="sd">            externalmethod object   if need_response=True\n</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            obj = handle.query_dn(&quot;sys/rack-unit-1&quot;)\n</span>
+<span class="sd">            obj = handle.query_dn(&quot;sys/rack-unit-1&quot;, hierarchy=True)\n</span>
+<span class="sd">            obj = handle.query_dn(&quot;sys/rack-unit-1&quot;, need_response=True\n</span>
+<span class="sd">            obj = handle.query_dn(&quot;sys/rack-unit-1&quot;, hierarchy=True,</span>
+<span class="sd">            need_response=True)\n</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">config_resolve_dn</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dn</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Provide dn.&quot;</span><span class="p">)</span>
+
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">config_resolve_dn</span><span class="p">(</span><span class="n">cookie</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cookie</span><span class="p">,</span> <span class="n">dn</span><span class="o">=</span><span class="n">dn</span><span class="p">,</span>
+                                 <span class="n">in_hierarchical</span><span class="o">=</span><span class="n">hierarchy</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">error_descr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">need_response</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">response</span>
+
+        <span class="k">if</span> <span class="n">hierarchy</span><span class="p">:</span>
+            <span class="n">out_mo_list</span> <span class="o">=</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">extract_molist_from_method_response</span><span class="p">(</span>
+                <span class="n">response</span><span class="p">,</span>
+                <span class="n">hierarchy</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">out_mo_list</span>
+
+        <span class="n">mo</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">out_config</span><span class="o">.</span><span class="n">child</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">mo</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">out_config</span><span class="o">.</span><span class="n">child</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">mo</span></div>
+
+<div class="viewcode-block" id="ImcHandle.query_classid"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.query_classid">[docs]</a>    <span class="k">def</span> <span class="nf">query_classid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">hierarchy</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                      <span class="n">need_response</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds an object using it&#39;s class id.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            class_id (str): class id of the object to be queried for.</span>
+
+<span class="sd">            hierarchy(bool): if set to True will return all the child</span>
+<span class="sd">                             hierarchical objects.</span>
+<span class="sd">            need_response(bool): if set to True will return only response</span>
+<span class="sd">                                object.</span>
+
+
+<span class="sd">        Returns:</span>
+<span class="sd">            managedobjectlist or None   by default\n</span>
+<span class="sd">            managedobjectlist or None   if hierarchy=True\n</span>
+<span class="sd">            methodresponse              if need_response=True\n</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            obj = handle.query_classid(class_id=&quot;computeRackUnit&quot;)\n</span>
+<span class="sd">            obj = handle.query_classid(class_id=&quot;computeRackUnit&quot;,</span>
+<span class="sd">                hierarchy=True)\n</span>
+<span class="sd">            obj = handle.query_classid(class_id=&quot;computeRackUnit&quot;,</span>
+<span class="sd">                need_response=True)\n</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># ToDo - How to handle unknown class_id</span>
+
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">config_resolve_class</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">class_id</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Provide Parameter class_id&quot;</span><span class="p">)</span>
+
+        <span class="n">meta_class_id</span> <span class="o">=</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">find_class_id_in_mo_meta_ignore_case</span><span class="p">(</span>
+                                                                <span class="n">class_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">meta_class_id</span><span class="p">:</span>
+            <span class="n">meta_class_id</span> <span class="o">=</span> <span class="n">class_id</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">config_resolve_class</span><span class="p">(</span><span class="n">cookie</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cookie</span><span class="p">,</span>
+                                    <span class="n">class_id</span><span class="o">=</span><span class="n">meta_class_id</span><span class="p">,</span>
+                                    <span class="n">in_hierarchical</span><span class="o">=</span><span class="n">hierarchy</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">error_descr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">need_response</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">response</span>
+
+        <span class="n">out_mo_list</span> <span class="o">=</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">extract_molist_from_method_response</span><span class="p">(</span>
+                                                                    <span class="n">response</span><span class="p">,</span>
+                                                                    <span class="n">hierarchy</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out_mo_list</span></div>
+
+<div class="viewcode-block" id="ImcHandle.query_children"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.query_children">[docs]</a>    <span class="k">def</span> <span class="nf">query_children</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_mo</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">in_dn</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">class_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                       <span class="n">hierarchy</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds children of a given managed object or distinguished name.</span>
+<span class="sd">        Arguments can be specified to query only a specific type(class_id)</span>
+<span class="sd">        of children.</span>
+<span class="sd">        Arguments can also be specified to query only direct children or the</span>
+<span class="sd">        entire hierarchy of children.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            in_mo (managed object): query children managed object under this</span>
+<span class="sd">                                        object.</span>
+<span class="sd">            in_dn (dn string): query children managed object for a</span>
+<span class="sd">                                given managed object of the respective dn.</span>
+<span class="sd">            class_id(str): by default None, if given find only specific</span>
+<span class="sd">                            children object for a given class_id.</span>
+<span class="sd">            hierarchy(bool): if set to True will return all the child</span>
+<span class="sd">                              hierarchical objects.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            managedobjectlist or None   by default\n</span>
+<span class="sd">            managedobjectlist or None   if hierarchy=True\n</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            mo_list = handle.query_children(in_mo=mo)\n</span>
+<span class="sd">            mo_list = handle.query_children(in_mo=mo, class_id=&quot;classid&quot;)\n</span>
+<span class="sd">            mo_list = handle.query_children(in_dn=dn)\n</span>
+<span class="sd">            mo_list = handle.query_children(in_dn=dn, class_id=&quot;classid&quot;)\n</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">config_resolve_children</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">in_mo</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">in_dn</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;[Error]: GetChild: Provide in_mo or in_dn.&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">in_mo</span><span class="p">:</span>
+            <span class="n">parent_dn</span> <span class="o">=</span> <span class="n">in_mo</span><span class="o">.</span><span class="n">dn</span>
+        <span class="k">elif</span> <span class="n">in_dn</span><span class="p">:</span>
+            <span class="n">parent_dn</span> <span class="o">=</span> <span class="n">in_dn</span>
+
+        <span class="k">if</span> <span class="n">class_id</span><span class="p">:</span>
+            <span class="n">meta_class_id</span> <span class="o">=</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">find_class_id_in_mo_meta_ignore_case</span><span class="p">(</span>
+                <span class="n">class_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">meta_class_id</span><span class="p">:</span>
+                <span class="n">meta_class_id</span> <span class="o">=</span> <span class="n">class_id</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">meta_class_id</span> <span class="o">=</span> <span class="n">class_id</span>
+
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">config_resolve_children</span><span class="p">(</span><span class="n">cookie</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cookie</span><span class="p">,</span>
+                                       <span class="n">class_id</span><span class="o">=</span><span class="n">meta_class_id</span><span class="p">,</span>
+                                       <span class="n">in_dn</span><span class="o">=</span><span class="n">parent_dn</span><span class="p">,</span>
+                                       <span class="n">in_hierarchical</span><span class="o">=</span><span class="n">hierarchy</span><span class="p">)</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">error_descr</span><span class="p">)</span>
+
+        <span class="n">out_mo_list</span> <span class="o">=</span> <span class="n">imccoreutils</span><span class="o">.</span><span class="n">extract_molist_from_method_response</span><span class="p">(</span><span class="n">response</span><span class="p">,</span>
+                                                                       <span class="n">hierarchy</span>
+                                                                       <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out_mo_list</span></div>
+
+<div class="viewcode-block" id="ImcHandle.add_mo"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.add_mo">[docs]</a>    <span class="k">def</span> <span class="nf">add_mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo</span><span class="p">,</span> <span class="n">modify_present</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a managed object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            mo (managedobject): ManagedObject to be added.</span>
+<span class="sd">            modify_present (bool): True/False,</span>
+<span class="sd">                                    overwrite existing object if True</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            obj = handle.add_mo(mo)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">modify_present</span> <span class="ow">in</span> <span class="n">imcgenutils</span><span class="o">.</span><span class="n">AFFIRMATIVE_LIST</span><span class="p">:</span>
+            <span class="n">mo</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;modified&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mo</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;created&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__to_commit</span><span class="p">[</span><span class="n">mo</span><span class="o">.</span><span class="n">dn</span><span class="p">]</span> <span class="o">=</span> <span class="n">mo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_commit</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ImcHandle.set_mo"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.set_mo">[docs]</a>    <span class="k">def</span> <span class="nf">set_mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Modifies a managed object and adds it to ImcHandle commit buffer (if</span>
+<span class="sd">         not already in it).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            mo (managedobject): Managed object with modified properties.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            obj = handle.set_mo(mo)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">mo</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;modified&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__to_commit</span><span class="p">[</span><span class="n">mo</span><span class="o">.</span><span class="n">dn</span><span class="p">]</span> <span class="o">=</span> <span class="n">mo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_commit</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ImcHandle.remove_mo"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imchandle.ImcHandle.remove_mo">[docs]</a>    <span class="k">def</span> <span class="nf">remove_mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes a managed object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            mo (managedobject): Managed object to be removed.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            obj = handle.remove_mo(mo)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">mo</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;deleted&quot;</span>
+        <span class="k">if</span> <span class="n">mo</span><span class="o">.</span><span class="n">parent_mo</span><span class="p">:</span>
+            <span class="n">mo</span><span class="o">.</span><span class="n">parent_mo</span><span class="o">.</span><span class="n">child_remove</span><span class="p">(</span><span class="n">mo</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__to_commit</span><span class="p">[</span><span class="n">mo</span><span class="o">.</span><span class="n">dn</span><span class="p">]</span> <span class="o">=</span> <span class="n">mo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_commit</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">_commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Commit the buffer to the server. Pushes all the configuration changes</span>
+<span class="sd">        so far to the server.</span>
+<span class="sd">        Configuration could be added to the commit buffer using add_mo(),</span>
+<span class="sd">        set_mo(), remove_mo().</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            self._commit()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.imcbasetype</span> <span class="kn">import</span> <span class="n">ConfigMap</span>
+        <span class="kn">from</span> <span class="nn">.imcmethodfactory</span> <span class="kn">import</span> <span class="n">config_conf_mo</span>
+        <span class="n">mo_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__to_commit</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mo_dict</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Commit Buffer is Empty&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+        <span class="n">config_map</span> <span class="o">=</span> <span class="n">ConfigMap</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">mo_dn</span> <span class="ow">in</span> <span class="n">mo_dict</span><span class="p">:</span>
+        
+            <span class="n">config_map</span><span class="o">.</span><span class="n">child_add</span><span class="p">(</span><span class="n">mo_dict</span><span class="p">[</span><span class="n">mo_dn</span><span class="p">])</span>
+            <span class="n">elem</span> <span class="o">=</span> <span class="n">config_conf_mo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cookie</span><span class="p">,</span><span class="n">dn</span><span class="o">=</span><span class="n">mo_dn</span><span class="p">,</span>
+                                  <span class="n">in_config</span><span class="o">=</span><span class="n">config_map</span><span class="p">,</span>
+                                  <span class="n">in_hierarchical</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_elem</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">error_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ImcException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">error_descr</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">pair_</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">out_config</span><span class="o">.</span><span class="n">child</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">out_mo</span> <span class="ow">in</span> <span class="n">pair_</span><span class="o">.</span><span class="n">child</span><span class="p">:</span>
+                    <span class="n">out_mo</span><span class="o">.</span><span class="n">sync_mo</span><span class="p">(</span><span class="n">mo_dict</span><span class="p">[</span><span class="n">out_mo</span><span class="o">.</span><span class="n">dn</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__to_commit</span> <span class="o">=</span> <span class="p">{}</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

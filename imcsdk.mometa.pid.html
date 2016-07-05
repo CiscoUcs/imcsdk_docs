@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.pid package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk.mometa package" href="imcsdk.mometa.html" />
+    <link rel="next" title="imcsdk.mometa.power package" href="imcsdk.mometa.power.html" />
+    <link rel="prev" title="imcsdk.mometa.pci package" href="imcsdk.mometa.pci.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.power.html" title="imcsdk.mometa.power package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.pci.html" title="imcsdk.mometa.pci package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" accesskey="U">imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-mometa-pid-package">
+<h1>imcsdk.mometa.pid package<a class="headerlink" href="#imcsdk-mometa-pid-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.mometa.pid.PidCatalog">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.mometa.pid.PidCatalog" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the general information for PidCatalog ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.pid.PidCatalog.PidCatalog">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.pid.PidCatalog.</code><code class="descname">PidCatalog</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/pid/PidCatalog.html#PidCatalog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalog.PidCatalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is PidCatalog class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalog.PidCatalog.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.pid.PidCatalog.PidCatalogConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalog.PidCatalog.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalog.PidCatalog.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalog.PidCatalog.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalog.PidCatalog.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalog.PidCatalog.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalog.PidCatalog.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'rn': 'rn', 'name': 'name', 'childAction': 'child_action'}</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalog.PidCatalog.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalog.PidCatalog.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113443bd0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11259fd10&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113443510&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113443d50&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113443f10&gt;}</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalog.PidCatalog.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.pid.PidCatalog.PidCatalogConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.pid.PidCatalog.</code><code class="descname">PidCatalogConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/pid/PidCatalog.html#PidCatalogConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalog.PidCatalogConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.pid.PidCatalogCpu"></span><p>This module contains the general information for PidCatalogCpu ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.pid.PidCatalogCpu.</code><code class="descname">PidCatalogCpu</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>id</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/pid/PidCatalogCpu.html#PidCatalogCpu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is PidCatalogCpu class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpuConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'id'])</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'operState': 'oper_state', 'description': 'description', 'socketdesignation': 'socketdesignation', 'pid': 'pid', 'currentspeed': 'currentspeed', 'model': 'model', 'childAction': 'child_action', 'id': 'id', 'signature': 'signature', 'rn': 'rn'}</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113610350&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11039a5d0&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113fc5c50&gt;, 'socketdesignation': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113689c10&gt;, 'pid': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113689e10&gt;, 'oper_state': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113689850&gt;, 'currentspeed': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113fc5350&gt;, 'model': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1136105d0&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113fc5e10&gt;, 'id': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113610fd0&gt;, 'signature': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1136895d0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x113689890&gt;}</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpu.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpuConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.pid.PidCatalogCpu.</code><code class="descname">PidCatalogCpuConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/pid/PidCatalogCpu.html#PidCatalogCpuConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogCpu.PidCatalogCpuConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.pid.PidCatalogDimm"></span><p>This module contains the general information for PidCatalogDimm ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.pid.PidCatalogDimm.</code><code class="descname">PidCatalogDimm</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/pid/PidCatalogDimm.html#PidCatalogDimm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is PidCatalogDimm class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimmConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'name'])</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'description': 'description', 'serialnumber': 'serialnumber', 'pid': 'pid', 'mfgid': 'mfgid', 'datawidth': 'datawidth', 'speed': 'speed', 'rn': 'rn', 'manufacturer': 'manufacturer', 'capacity': 'capacity', 'name': 'name', 'model': 'model', 'childAction': 'child_action', 'operability': 'operability'}</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0c10&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0b90&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0e90&gt;, 'serialnumber': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0ed0&gt;, 'pid': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0110&gt;, 'mfgid': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b07d0&gt;, 'datawidth': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0a50&gt;, 'speed': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0850&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b00d0&gt;, 'manufacturer': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0710&gt;, 'capacity': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111a59110&gt;, 'name': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0410&gt;, 'model': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0690&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0610&gt;, 'operability': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x1121b0750&gt;}</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimm.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimmConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.pid.PidCatalogDimm.</code><code class="descname">PidCatalogDimmConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/pid/PidCatalogDimm.html#PidCatalogDimmConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogDimm.PidCatalogDimmConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.pid.PidCatalogHdd"></span><p>This module contains the general information for PidCatalogHdd ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.pid.PidCatalogHdd.</code><code class="descname">PidCatalogHdd</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>disk</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/pid/PidCatalogHdd.html#PidCatalogHdd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is PidCatalogHdd class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHddConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'disk'])</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'vendor': 'vendor', 'description': 'description', 'serialnumber': 'serialnumber', 'pid': 'pid', 'controller': 'controller', 'disk': 'disk', 'rn': 'rn', 'childAction': 'child_action', 'model': 'model'}</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111df5cd0&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111302d10&gt;, 'vendor': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111302b90&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111df5f90&gt;, 'serialnumber': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111302bd0&gt;, 'pid': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111302c90&gt;, 'controller': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111df5b50&gt;, 'disk': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111df5390&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111302a10&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111df5190&gt;, 'model': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111df55d0&gt;}</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHdd.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHddConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.pid.PidCatalogHdd.</code><code class="descname">PidCatalogHddConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/pid/PidCatalogHdd.html#PidCatalogHddConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogHdd.PidCatalogHddConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-imcsdk.mometa.pid.PidCatalogPCIAdapter"></span><p>This module contains the general information for PidCatalogPCIAdapter ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.pid.PidCatalogPCIAdapter.</code><code class="descname">PidCatalogPCIAdapter</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>slot</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/pid/PidCatalogPCIAdapter.html#PidCatalogPCIAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is PidCatalogPCIAdapter class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapterConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([u'slot'])</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'vendor': 'vendor', 'description': 'description', 'subvendor': 'subvendor', 'pid': 'pid', 'device': 'device', 'childAction': 'child_action', 'slot': 'slot', 'subdevice': 'subdevice', 'rn': 'rn'}</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11183f190&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111915ad0&gt;, 'vendor': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111915650&gt;, 'description': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11183f990&gt;, 'subvendor': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111915950&gt;, 'pid': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11183f150&gt;, 'device': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11183f690&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11183fcd0&gt;, 'slot': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11183fe10&gt;, 'subdevice': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x111915ed0&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11183f550&gt;}</em><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapter.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapterConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.pid.PidCatalogPCIAdapter.</code><code class="descname">PidCatalogPCIAdapterConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/pid/PidCatalogPCIAdapter.html#PidCatalogPCIAdapterConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.pid.PidCatalogPCIAdapter.PidCatalogPCIAdapterConsts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.mometa.pid">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.mometa.pid" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.mometa.pid package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.mometa.pid.PidCatalog">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.mometa.pid">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.pci.html"
+                        title="previous chapter">imcsdk.mometa.pci package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.power.html"
+                        title="next chapter">imcsdk.mometa.power package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.mometa.pid.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.power.html" title="imcsdk.mometa.power package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.pci.html" title="imcsdk.mometa.pci package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" >imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

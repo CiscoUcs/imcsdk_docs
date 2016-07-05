@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.mometa.upload package &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="index.html" />
+    <link rel="up" title="imcsdk.mometa package" href="imcsdk.mometa.html" />
+    <link rel="next" title="imcsdk.utils package" href="imcsdk.utils.html" />
+    <link rel="prev" title="imcsdk.mometa.top package" href="imcsdk.mometa.top.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.utils.html" title="imcsdk.utils package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.top.html" title="imcsdk.mometa.top package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" accesskey="U">imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="imcsdk-mometa-upload-package">
+<h1>imcsdk.mometa.upload package<a class="headerlink" href="#imcsdk-mometa-upload-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-imcsdk.mometa.upload.UploadCertificate">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-imcsdk.mometa.upload.UploadCertificate" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the general information for UploadCertificate ManagedObject.</p>
+<dl class="class">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificate">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.upload.UploadCertificate.</code><code class="descname">UploadCertificate</code><span class="sig-paren">(</span><em>parent_mo_or_dn</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imcsdk/mometa/upload/UploadCertificate.html#UploadCertificate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="imcsdk.html#imcsdk.imcmo.ManagedObject" title="imcsdk.imcmo.ManagedObject"><code class="xref py py-class docutils literal"><span class="pre">imcsdk.imcmo.ManagedObject</span></code></a></p>
+<p>This is UploadCertificate class.</p>
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificate.consts">
+<code class="descname">consts</code><em class="property"> = &lt;imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts instance&gt;</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificate.consts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificate.mo_meta">
+<code class="descname">mo_meta</code><em class="property"> = &lt;imcsdk.imccoremeta.MoMeta object&gt;</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificate.mo_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificate.naming_props">
+<code class="descname">naming_props</code><em class="property"> = set([])</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificate.naming_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificate.prop_map">
+<code class="descname">prop_map</code><em class="property"> = {'dn': 'dn', 'status': 'status', 'protocol': 'protocol', 'remoteFile': 'remote_file', 'certificateContent': 'certificate_content', 'adminAction': 'admin_action', 'user': 'user', 'childAction': 'child_action', 'pwd': 'pwd', 'remoteServer': 'remote_server', 'rn': 'rn'}</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificate.prop_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificate.prop_meta">
+<code class="descname">prop_meta</code><em class="property"> = {'dn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112f59050&gt;, 'status': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11219d310&gt;, 'protocol': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112f59310&gt;, 'admin_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112f59550&gt;, 'pwd': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112f59ad0&gt;, 'user': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11219df10&gt;, 'certificate_content': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112f59650&gt;, 'child_action': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112f59a10&gt;, 'remote_server': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11219d790&gt;, 'rn': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x11219d290&gt;, 'remote_file': &lt;imcsdk.imccoremeta.MoPropertyMeta object at 0x112f59210&gt;}</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificate.prop_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts">
+<em class="property">class </em><code class="descclassname">imcsdk.mometa.upload.UploadCertificate.</code><code class="descname">UploadCertificateConsts</code><a class="reference internal" href="_modules/imcsdk/mometa/upload/UploadCertificate.html#UploadCertificateConsts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.ADMIN_ACTION_REMOTE_CERT_UPLOAD">
+<code class="descname">ADMIN_ACTION_REMOTE_CERT_UPLOAD</code><em class="property"> = 'remote-cert-upload'</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.ADMIN_ACTION_REMOTE_CERT_UPLOAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_FTP">
+<code class="descname">PROTOCOL_FTP</code><em class="property"> = 'ftp'</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_FTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_HTTP">
+<code class="descname">PROTOCOL_HTTP</code><em class="property"> = 'http'</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_HTTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_NONE">
+<code class="descname">PROTOCOL_NONE</code><em class="property"> = 'none'</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_SCP">
+<code class="descname">PROTOCOL_SCP</code><em class="property"> = 'scp'</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_SCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_SFTP">
+<code class="descname">PROTOCOL_SFTP</code><em class="property"> = 'sftp'</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_SFTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_TFTP">
+<code class="descname">PROTOCOL_TFTP</code><em class="property"> = 'tftp'</em><a class="headerlink" href="#imcsdk.mometa.upload.UploadCertificate.UploadCertificateConsts.PROTOCOL_TFTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-imcsdk.mometa.upload">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-imcsdk.mometa.upload" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">imcsdk.mometa.upload package</a><ul>
+<li><a class="reference internal" href="#module-imcsdk.mometa.upload.UploadCertificate">Submodules</a></li>
+<li><a class="reference internal" href="#module-imcsdk.mometa.upload">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="imcsdk.mometa.top.html"
+                        title="previous chapter">imcsdk.mometa.top package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imcsdk.utils.html"
+                        title="next chapter">imcsdk.utils package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imcsdk.mometa.upload.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.utils.html" title="imcsdk.utils package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="imcsdk.mometa.top.html" title="imcsdk.mometa.top package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="imcsdk.html" >imcsdk package</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="imcsdk.mometa.html" >imcsdk.mometa package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

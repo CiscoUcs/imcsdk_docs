@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>imcsdk.imcgenutils &mdash; imcsdk 0.9.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.9.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="imcsdk 0.9.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for imcsdk.imcgenutils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2015 Cisco Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#  http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contains the SDK general utilities.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;imc&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">.imcexception</span> <span class="kn">import</span> <span class="n">ImcWarning</span><span class="p">,</span> <span class="n">ImcValidationException</span>
+
+<span class="n">AFFIRMATIVE_LIST</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;true&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="s1">&#39;TRUE&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;YES&#39;</span><span class="p">]</span>
+
+<span class="n">reserved_keywords</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;and&quot;</span><span class="p">,</span> <span class="s2">&quot;as&quot;</span><span class="p">,</span> <span class="s2">&quot;assert&quot;</span><span class="p">,</span> <span class="s2">&quot;break&quot;</span><span class="p">,</span> <span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;continue&quot;</span><span class="p">,</span> <span class="s2">&quot;def&quot;</span><span class="p">,</span> <span class="s2">&quot;del&quot;</span><span class="p">,</span> <span class="s2">&quot;elif&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;else&quot;</span><span class="p">,</span> <span class="s2">&quot;except&quot;</span><span class="p">,</span> <span class="s2">&quot;exec&quot;</span><span class="p">,</span> <span class="s2">&quot;finally&quot;</span><span class="p">,</span> <span class="s2">&quot;for&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span> <span class="s2">&quot;if&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;import&quot;</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;lambda&quot;</span><span class="p">,</span> <span class="s2">&quot;not&quot;</span><span class="p">,</span> <span class="s2">&quot;or&quot;</span><span class="p">,</span> <span class="s2">&quot;pass&quot;</span><span class="p">,</span> <span class="s2">&quot;print&quot;</span><span class="p">,</span> <span class="s2">&quot;raise&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;return&quot;</span><span class="p">,</span> <span class="s2">&quot;try&quot;</span><span class="p">,</span> <span class="s2">&quot;while&quot;</span><span class="p">,</span> <span class="s2">&quot;with&quot;</span><span class="p">,</span> <span class="s2">&quot;yield&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="is_python_reserved"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.is_python_reserved">[docs]</a><span class="k">def</span> <span class="nf">is_python_reserved</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if it is python reserved word.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">reserved_keywords</span></div>
+
+
+<div class="viewcode-block" id="to_safe_prop"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.to_safe_prop">[docs]</a><span class="k">def</span> <span class="nf">to_safe_prop</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if it is python reserved word, if yes returns word after prefixing</span>
+<span class="sd">    it with &#39;r_&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;r_&#39;</span> <span class="o">+</span> <span class="n">word</span> <span class="k">if</span> <span class="n">is_python_reserved</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">else</span> <span class="n">word</span></div>
+
+
+<div class="viewcode-block" id="from_safe_prop"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.from_safe_prop">[docs]</a><span class="k">def</span> <span class="nf">from_safe_prop</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    removes &#39;r_&#39; from word.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;^r_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="to_python_propname"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.to_python_propname">[docs]</a><span class="k">def</span> <span class="nf">to_python_propname</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts any word to lowercase word separated by underscore</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;_+&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span>
+                  <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;^_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                    <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[/\-: +]&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span>
+                      <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;([A-Z]+)([A-Z])([a-z0-9])&#39;</span><span class="p">,</span> <span class="s1">&#39;\g&lt;1&gt;_\g&lt;2&gt;\g&lt;3&gt;&#39;</span><span class="p">,</span>
+                        <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;([a-z0-9])([A-Z])&#39;</span><span class="p">,</span> <span class="s1">&#39;\g&lt;1&gt;_\g&lt;2&gt;&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span>
+                          <span class="n">to_safe_prop</span><span class="p">(</span><span class="n">word</span><span class="p">))[</span><span class="n">is_python_reserved</span><span class="p">(</span><span class="n">word</span><span class="p">)])</span>
+                             <span class="p">))))</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="convert_to_python_var_name"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.convert_to_python_var_name">[docs]</a><span class="k">def</span> <span class="nf">convert_to_python_var_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;converts a imc server variable to python recommended format</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name (str): string to be converted to python recommended format</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r&quot;(?&lt;!^)(?=[A-Z])&quot;</span><span class="p">)</span>
+    <span class="n">python_var</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">python_var</span> <span class="o">!=</span> <span class="s2">&quot;class&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">python_var</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;class_&quot;</span></div>
+
+
+<div class="viewcode-block" id="word_l"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.word_l">[docs]</a><span class="k">def</span> <span class="nf">word_l</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Method makes the first letter of the given string as lower case. &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span></div>
+
+
+<div class="viewcode-block" id="word_u"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.word_u">[docs]</a><span class="k">def</span> <span class="nf">word_u</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Method makes the first letter of the given string as capital. &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span></div>
+
+
+<div class="viewcode-block" id="make_dn"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.make_dn">[docs]</a><span class="k">def</span> <span class="nf">make_dn</span><span class="p">(</span><span class="n">rn_array</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Method forms Dn out of array of rns. &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rn_array</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FileReadStream"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.FileReadStream">[docs]</a><span class="k">class</span> <span class="nc">FileReadStream</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Internal class to show the progress while reading file.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">progress_cb</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fhandle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+        <span class="c1"># Set the seek positin to the end of the file</span>
+        <span class="c1"># and calcualte the total file size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fhandle</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_END</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tsize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fhandle</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+
+        <span class="c1"># Reset the position to the beginning of the file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fhandle</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_progress_cb</span> <span class="o">=</span> <span class="n">progress_cb</span>
+
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tsize</span>
+
+<div class="viewcode-block" id="FileReadStream.read"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.FileReadStream.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fhandle</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_progress_cb</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tsize</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div></div>
+
+
+<div class="viewcode-block" id="Progress"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.Progress">[docs]</a><span class="k">class</span> <span class="nc">Progress</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Internal class to show the progress in chunks of custom percentage &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seen</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_interval</span> <span class="o">=</span> <span class="n">interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_percent</span> <span class="o">=</span> <span class="n">interval</span>
+
+<div class="viewcode-block" id="Progress.update"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.Progress.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">stdout</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seen</span> <span class="o">+=</span> <span class="n">size</span>
+        <span class="n">percent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seen</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">total</span>
+        <span class="k">if</span> <span class="n">percent</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_percent</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">r&quot;</span><span class="si">%10d</span><span class="s2">  [</span><span class="si">%3.2f%%</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_seen</span><span class="p">,</span> <span class="n">percent</span><span class="p">)</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">status</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">status</span><span class="p">)</span>
+        <span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_percent</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interval</span></div></div>
+
+
+<div class="viewcode-block" id="download_file"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.download_file">[docs]</a><span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">file_url</span><span class="p">,</span> <span class="n">file_dir</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="n">Progress</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Downloads the file from web server</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        driver (ImcDriver)</span>
+<span class="sd">        file_url (str): url to download the file</span>
+<span class="sd">        file_dir (str): The directory to download to</span>
+<span class="sd">        file_name (str): The destination file name for the download</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        driver = ImcDriver()\n</span>
+<span class="sd">        download_file(driver=ImcDriver(), file_url=&quot;http://fileurl&quot;,</span>
+<span class="sd">            file_dir=&#39;/home/user/backup&#39;, file_name=&#39;my_config_backup.xml&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">stdout</span>
+
+    <span class="n">destination_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dir</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">file_url</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="c1"># Python 3 code in this block</span>
+        <span class="n">file_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Content-Length&#39;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Python 2 code in this block</span>
+        <span class="n">file_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">info</span><span class="p">()</span><span class="o">.</span><span class="n">getheaders</span><span class="p">(</span><span class="s2">&quot;Content-Length&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Downloading: </span><span class="si">%s</span><span class="s2"> Bytes: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">file_size</span><span class="p">))</span>
+
+    <span class="n">file_handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">destination_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+    <span class="n">block_sz</span> <span class="o">=</span> <span class="mi">64</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">r_buffer</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">128</span> <span class="o">*</span> <span class="n">block_sz</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">r_buffer</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="n">file_handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r_buffer</span><span class="p">)</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">file_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">r_buffer</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Downloading Finished.&#39;</span><span class="p">)</span>
+    <span class="n">file_handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="upload_file"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.upload_file">[docs]</a><span class="k">def</span> <span class="nf">upload_file</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">file_dir</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="n">Progress</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Uploads the file on web server</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        driver (ImcDriver)</span>
+<span class="sd">        uri (str): url to upload the file</span>
+<span class="sd">        file_dir (str): The directory to download to</span>
+<span class="sd">        file_name (str): The destination file name for the download</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        driver = ImcDriver()\n</span>
+<span class="sd">        upload_file(driver=ImcDriver(), uri=&quot;http://fileurl&quot;,</span>
+<span class="sd">            file_dir=&#39;/home/user/backup&#39;, file_name=&#39;my_config_backup.xml&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">FileReadStream</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dir</span><span class="p">,</span> <span class="n">file_name</span><span class="p">),</span> <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">stream</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;File upload failed.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="check_registry_key"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.check_registry_key">[docs]</a><span class="k">def</span> <span class="nf">check_registry_key</span><span class="p">(</span><span class="n">java_key</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Method checks for the java in the registry entries. &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">_winreg</span> <span class="kn">import</span> <span class="n">ConnectRegistry</span><span class="p">,</span> <span class="n">HKEY_LOCAL_MACHINE</span><span class="p">,</span> <span class="n">OpenKey</span><span class="p">,</span> \
+            <span class="n">QueryValueEx</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">winreg</span> <span class="kn">import</span> <span class="n">ConnectRegistry</span><span class="p">,</span> <span class="n">HKEY_LOCAL_MACHINE</span><span class="p">,</span> <span class="n">OpenKey</span><span class="p">,</span> \
+            <span class="n">QueryValueEx</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">a_reg</span> <span class="o">=</span> <span class="n">ConnectRegistry</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">HKEY_LOCAL_MACHINE</span><span class="p">)</span>
+        <span class="n">r_key</span> <span class="o">=</span> <span class="n">OpenKey</span><span class="p">(</span><span class="n">a_reg</span><span class="p">,</span> <span class="n">java_key</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i_cnt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1024</span><span class="p">):</span>
+            <span class="n">current_version</span> <span class="o">=</span> <span class="n">QueryValueEx</span><span class="p">(</span><span class="n">r_key</span><span class="p">,</span> <span class="s2">&quot;CurrentVersion&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">current_version</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="n">OpenKey</span><span class="p">(</span><span class="n">r_key</span><span class="p">,</span> <span class="n">current_version</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">path</span> <span class="o">=</span> <span class="n">QueryValueEx</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;JavaHome&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">ImcWarning</span><span class="p">(</span><span class="s2">&quot;Not able to access registry.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">None</span></div>
+
+
+<div class="viewcode-block" id="is_binary_in_path"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.is_binary_in_path">[docs]</a><span class="k">def</span> <span class="nf">is_binary_in_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">binary</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if the given binary is available in the specified path.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        True or False (Boolean)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+
+    <span class="k">def</span> <span class="nf">is_exe</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">X_OK</span><span class="p">)</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+    <span class="n">exe_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">binary</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_exe</span><span class="p">(</span><span class="n">exe_file</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span></div>
+
+
+<div class="viewcode-block" id="get_binary_path"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.get_binary_path">[docs]</a><span class="k">def</span> <span class="nf">get_binary_path</span><span class="p">(</span><span class="n">binary</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks the environment PATH variable for the specified binary file.</span>
+<span class="sd">    If found, it returns the path in which it was found.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        path = get_binary_path(&#39;javaws&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+
+    <span class="n">fpath</span><span class="p">,</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">fpath</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span><span class="s2">&quot;Expects only binary name, not Path.&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PATH&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pathsep</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_binary_in_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">path</span>
+    <span class="k">return</span> <span class="bp">None</span></div>
+
+
+<div class="viewcode-block" id="get_java_installation_path"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.get_java_installation_path">[docs]</a><span class="k">def</span> <span class="nf">get_java_installation_path</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Method returns the java installation path in the windows or</span>
+<span class="sd">    Linux environment.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Linux&quot;</span><span class="p">,</span> <span class="s2">&quot;Darwin&quot;</span><span class="p">]:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;JAVA_HOME&#39;</span><span class="p">)</span>
+        <span class="c1"># is javaws in $JAVA_HOME?</span>
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">and</span> <span class="n">is_binary_in_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;javaws&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;javaws&#39;</span>
+
+        <span class="c1"># is javaws available in system path?</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">get_binary_path</span><span class="p">(</span><span class="s1">&#39;javaws&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;javaws&#39;</span>
+
+        <span class="c1"># javaws was not found</span>
+        <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span>
+            <span class="s2">&quot;Please make sure JAVA is installed and variable JAVA_HOME&quot;</span>
+            <span class="s2">&quot;is set properly.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Get JavaPath for Windows</span>
+    <span class="c1"># elif os.name == &quot;nt&quot;:</span>
+    <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span> <span class="ow">or</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Microsoft&quot;</span><span class="p">:</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;JAVA_HOME&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">check_registry_key</span><span class="p">(</span>
+                <span class="s2">r&quot;SOFTWARE</span><span class="se">\\</span><span class="s2">JavaSoft</span><span class="se">\\</span><span class="s2">Java Runtime Environment</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>  <span class="c1"># Check for 32 bit Java on 64 bit machine.</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">check_registry_key</span><span class="p">(</span>
+                <span class="s2">r&quot;SOFTWARE</span><span class="se">\\</span><span class="s2">Wow6432Node</span><span class="se">\\</span><span class="s2">JavaSoft</span><span class="se">\\</span><span class="s2">Java Runtime Environment&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span><span class="s2">&quot;Please make sure JAVA is installed.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;bin&#39;</span><span class="p">)</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;javaws.exe&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">ImcValidationException</span><span class="p">(</span>
+                    <span class="s2">&quot;javaws.exe is not installed on System at path &lt;</span><span class="si">%s</span><span class="s2">&gt;.&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                        <span class="n">path</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">path</span></div>
+
+
+<div class="viewcode-block" id="check_output"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.check_output">[docs]</a><span class="k">def</span> <span class="nf">check_output</span><span class="p">(</span><span class="o">*</span><span class="n">popenargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Internal method to handle upload/download data from server.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;stdout&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;stdout argument not allowed, it will be overridden.&#39;</span><span class="p">)</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="o">*</span><span class="n">popenargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">output</span><span class="p">,</span> <span class="n">unused_err</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+    <span class="n">ret_code</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">ret_code</span><span class="p">:</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;args&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cmd</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">popenargs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">raise</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">(</span><span class="n">ret_code</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+<div class="viewcode-block" id="get_java_version"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.get_java_version">[docs]</a><span class="k">def</span> <span class="nf">get_java_version</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Method to get java version.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span> <span class="o">=</span> <span class="n">check_output</span>
+
+    <span class="n">java_ver_full_str</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;java&quot;</span><span class="p">,</span> <span class="s2">&quot;-version&quot;</span><span class="p">],</span>
+                                                <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
+
+    <span class="n">java_ver_full_str</span> <span class="o">=</span> <span class="n">java_ver_full_str</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">java_ver_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">r&#39;java version.*?&quot;(.*?)&quot;&#39;</span><span class="p">,</span> <span class="n">java_ver_full_str</span><span class="p">)</span>
+    <span class="n">java_ver_str</span> <span class="o">=</span> <span class="n">java_ver_match</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">java_ver_str</span></div>
+
+
+<div class="viewcode-block" id="get_md5_sum"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.get_md5_sum">[docs]</a><span class="k">def</span> <span class="nf">get_md5_sum</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Method to get md5sum for the image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        filename (str): file for which md5sum is to be computed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">import</span> <span class="nn">hashlib</span>
+
+    <span class="n">md5_obj</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+    <span class="n">file_handler</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">file_handler</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">128</span> <span class="o">*</span> <span class="n">md5_obj</span><span class="o">.</span><span class="n">block_size</span><span class="p">),</span> <span class="n">b</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="n">md5_obj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+    <span class="n">file_handler</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">md5_obj</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="get_sha_hash"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.get_sha_hash">[docs]</a><span class="k">def</span> <span class="nf">get_sha_hash</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Method returns the sha hash digest for a given string.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input_string (str): the input string for which sha has to be computed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">import</span> <span class="nn">hashlib</span>
+
+    <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">input_string</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="expand_key"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.expand_key">[docs]</a><span class="k">def</span> <span class="nf">expand_key</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">clen</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Internal method supporting encryption and decryption functionality.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">xrange</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">xrange</span> <span class="o">=</span> <span class="nb">range</span>
+
+    <span class="kn">import</span> <span class="nn">hashlib</span>
+    <span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+
+    <span class="n">blocks</span> <span class="o">=</span> <span class="p">(</span><span class="n">clen</span> <span class="o">+</span> <span class="mi">19</span><span class="p">)</span> <span class="o">/</span> <span class="mi">20</span>
+    <span class="n">x_key</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">key</span>
+    <span class="k">for</span> <span class="n">i_cnt</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">blocks</span><span class="p">):</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="n">seed</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+        <span class="n">x_key</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">j_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x_key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="n">j_str</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="encrypt_password"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.encrypt_password">[docs]</a><span class="k">def</span> <span class="nf">encrypt_password</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encrypts the password using the given key.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        password (str): password to be encrypted</span>
+<span class="sd">        key (str): key to be used to encrypt the password</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
+    <span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+    <span class="kn">import</span> <span class="nn">hmac</span>
+    <span class="kn">import</span> <span class="nn">base64</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">xrange</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">xrange</span> <span class="o">=</span> <span class="nb">range</span>
+
+    <span class="n">h_hash</span> <span class="o">=</span> <span class="n">get_sha_hash</span>
+    <span class="n">uhash</span> <span class="o">=</span> <span class="n">h_hash</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span>
+                            <span class="p">[</span><span class="nb">repr</span><span class="p">(</span><span class="n">time</span><span class="p">()),</span> <span class="nb">repr</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()),</span>
+                             <span class="nb">repr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)),</span>
+                             <span class="n">password</span><span class="p">,</span> <span class="n">key</span><span class="p">]))[:</span><span class="mi">16</span><span class="p">]</span>
+    <span class="n">k_enc</span><span class="p">,</span> <span class="n">k_auth</span> <span class="o">=</span> <span class="n">h_hash</span><span class="p">(</span><span class="s1">&#39;enc&#39;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="n">uhash</span><span class="p">),</span> <span class="n">h_hash</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="n">uhash</span><span class="p">)</span>
+    <span class="n">pwd_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+    <span class="n">password_stream</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="n">password</span> <span class="o">+</span> <span class="s1">&#39;0000&#39;</span><span class="p">[</span><span class="n">pwd_len</span> <span class="o">&amp;</span> <span class="mi">3</span><span class="p">:])</span>
+    <span class="n">x_key</span> <span class="o">=</span> <span class="n">expand_key</span><span class="p">(</span><span class="n">k_enc</span><span class="p">,</span> <span class="n">pwd_len</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i_cnt</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">password_stream</span><span class="p">)):</span>
+        <span class="n">password_stream</span><span class="p">[</span><span class="n">i_cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">password_stream</span><span class="p">[</span><span class="n">i_cnt</span><span class="p">]</span> <span class="o">^</span> <span class="n">x_key</span><span class="p">[</span><span class="n">i_cnt</span><span class="p">]</span>
+
+    <span class="n">cipher_t</span> <span class="o">=</span> <span class="n">uhash</span> <span class="o">+</span> <span class="n">password_stream</span><span class="o">.</span><span class="n">tostring</span><span class="p">()[:</span><span class="n">pwd_len</span><span class="p">]</span>
+    <span class="n">auth</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">cipher_t</span><span class="p">,</span> <span class="n">k_auth</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+    <span class="n">encrypt_str</span> <span class="o">=</span> <span class="n">cipher_t</span> <span class="o">+</span> <span class="n">auth</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span>
+    <span class="n">encoded_str</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">encodestring</span><span class="p">(</span><span class="n">encrypt_str</span><span class="p">)</span>
+    <span class="n">encrypted_password</span> <span class="o">=</span> <span class="n">encoded_str</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">encrypted_password</span></div>
+
+
+<div class="viewcode-block" id="decrypt_password"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.decrypt_password">[docs]</a><span class="k">def</span> <span class="nf">decrypt_password</span><span class="p">(</span><span class="n">cipher</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decrypts the password using the given key with which the password</span>
+<span class="sd">    was encrypted first.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">import</span> <span class="nn">base64</span>
+    <span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">xrange</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">xrange</span> <span class="o">=</span> <span class="nb">range</span>
+
+    <span class="n">h_hash</span> <span class="o">=</span> <span class="n">get_sha_hash</span>
+
+    <span class="n">cipher</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">cipher</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">decodestring</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span>
+    <span class="n">cipher_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span> <span class="o">-</span> <span class="mi">16</span> <span class="o">-</span> <span class="mi">8</span>
+
+    <span class="n">uhash</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">[:</span><span class="mi">16</span><span class="p">]</span>
+    <span class="n">password_stream</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">[</span><span class="mi">16</span><span class="p">:</span><span class="o">-</span><span class="mi">8</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;0000&quot;</span><span class="p">[</span><span class="n">cipher_len</span> <span class="o">&amp;</span> <span class="mi">3</span><span class="p">:]</span>
+    <span class="c1"># auth = cipher[-8:]</span>
+
+    <span class="n">k_enc</span> <span class="o">=</span> <span class="n">h_hash</span><span class="p">(</span><span class="s1">&#39;enc&#39;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="n">uhash</span><span class="p">)</span>
+    <span class="c1"># k_auth = h_hash(&#39;auth&#39; + key + uhash)</span>
+    <span class="c1"># vauth = hmac.new(cipher[-8:], k_auth, sha).digest()[:8]</span>
+
+    <span class="n">password_stream</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="n">password_stream</span><span class="p">)</span>
+    <span class="n">x_key</span> <span class="o">=</span> <span class="n">expand_key</span><span class="p">(</span><span class="n">k_enc</span><span class="p">,</span> <span class="n">cipher_len</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">password_stream</span><span class="p">)):</span>
+        <span class="n">password_stream</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">password_stream</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">^</span> <span class="n">x_key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="n">decrypted_password</span> <span class="o">=</span> <span class="n">password_stream</span><span class="o">.</span><span class="n">tostring</span><span class="p">()[:</span><span class="n">cipher_len</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">decrypted_password</span></div>
+
+
+<div class="viewcode-block" id="iteritems"><a class="viewcode-back" href="../../imcsdk.html#imcsdk.imcgenutils.iteritems">[docs]</a><span class="k">def</span> <span class="nf">iteritems</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Factor-out Py2-to-3 differences in dictionary item iterator methods</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">d</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">imcsdk 0.9.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Cisco Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+    </div>
+  </body>
+</html>

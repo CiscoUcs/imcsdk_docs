@@ -1,0 +1,34 @@
+imcsdk.mometa.compute package
+=============================
+
+Submodules
+----------
+
+.. automodule:: imcsdk.mometa.compute.ComputeBoard
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.compute.ComputeMbPowerStats
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.compute.ComputeRackUnit
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: imcsdk.mometa.compute.ComputeRackUnitMbTempStats
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: imcsdk.mometa.compute
+    :members:
+    :undoc-members:
+    :show-inheritance:
